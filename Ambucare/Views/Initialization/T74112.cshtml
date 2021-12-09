@@ -1,0 +1,380 @@
+﻿@{
+                /**/
+
+                ViewBag.Title = "T74112";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Apps/JSService/Initialization/T74112Service.js"></script>
+<script src="~/Apps/JSController/Initialization/T74112Controller.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/Custom.css" rel="stylesheet" />
+<script src="~/Scripts/angular/jquery.dataTables.js"></script>
+<script src="~/Scripts/angular/angular-datatables.js"></script>
+
+
+<style>
+    /*Toggling Div---------------------------Start*/
+    .ultab {
+        list-style: none;
+        padding: 0;
+        margin-left: 160px;
+    }
+
+    .litab {
+        float: left;
+        border-bottom-width: 0;
+        margin: 3px 3px 3px 3px;
+        padding: 8px 5px 25px 5px;
+        background-color: #239e6b80;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: 0.2s;
+        margin-right: -2px;
+        width: 150px;
+        text-align: center;
+        height: 0px;
+    }
+
+    #mainView {
+        clear: both;
+        padding: 0 1em;
+    }
+
+    .active {
+        background-color: #CCCCCC;
+        color: #000000;
+    }
+
+    .error {
+        color: red !important;
+    }
+</style>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74112Controller">
+        <button id="btnSave" title="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button id="btnDelete" title="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+        <button id="btnClear" tooltip="Clear" class="Button Clear" ng-click="Clear()"></button>
+
+    </div>
+}
+
+
+<div class="container" ng-app="Ambucare" ng-controller="T74112Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+            <input id="txtHiddenField" type="hidden" style="width: 50px" ng-model="hiddenField" />
+            <div class="col-lg-11 col-md-11 col-sm-11">
+                <div id="tabs" style="text-align: center">
+                    <ul class="ultab">
+                        <li class="litab" ng-repeat="tab in tabs"
+                            ng-class="{active:isActiveTab(tab.url)}"
+                            ng-click="onClickTab(tab)">{{tab.title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <!-- For Input Table -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div id="mainView">
+                    <div ng-include="currentTab"></div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="tabGender.tpl.html">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 div_back borderColor" style="margin: 1.6% auto; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 hidden">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblGenderId" style="float:right;" for="txtGenderId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGenderId'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtGenderId" type="text" class="form-control" ng-model="T74050.T_SEX_CODE" style="width: 30%" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEnglishName" style="float:right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" class="form-control" ng-model="T74050.T_LANG2_NAME" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblLocalName" style="float:right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" class="form-control" ng-model="T74050.T_LANG1_NAME" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblGenShortName" style="float:right;" for="txtGenShortName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGenShortName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtGenShortName" type="text" class="form-control" ng-model="T74050.T_SHORT_GNDR_NAME" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+        <div class="row" id="GenderGrid">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width:100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </script>
+    <!-- Gender -->
+
+    <script type="text/ng-template" id="tabMaritalStatus.tpl.html">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div id="DivMaritalStatus" class="tab-content col-lg-6 col-md-6 col-sm-6 div_back borderColor" style="margin: 1.6% auto; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 hidden">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblMaritalCode" style="float:right;" for="txtMaritalCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMaritalCode'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtMaritalCode" type="text" class="form-control" ng-init="0" ng-model="T74051.T_MRTL_STATUS_CODE" style="margin-right:40%;width: 30%" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEnglishName" style="float:right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" class="form-control" ng-model="T74051.T_LANG2_NAME" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblLocalName" style="float:right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" class="form-control" ng-model="T74051.T_LANG1_NAME" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+
+        <div class="row" id="MaritalGrid">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptionsMarital" dt-columns="dtColumnsMarital" class="table table-hover" style="width:100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </script>
+    <!-- Marital-->
+
+    <script type="text/ng-template" id="tabNationality.tpl.html">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 div_back borderColor" style="margin: 1.6% auto;padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblNationalityCode" style="float:right" for="txtNationalityCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblNationalityCode'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtNationalityCode" type="text" class="form-control" ng-model="T02003.T_NTNLTY_ID" style="margin-right:40%;width: 30%" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEnglishName" style="float:right" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" class="form-control" ng-model="T02003.T_LANG2_NAME" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblLocalName" style="float:right" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" class="form-control" ng-model="T02003.T_LANG1_NAME" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    @*<div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblPrimLang" for="txtPrimLang" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPrimLang'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <input id="txtPrimLang" type="text" class="form-control" ng-model="T02003.T_PRIM_LANG" style="width: 70%" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblSecondLang" for="txtSecondLang" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSecondLang'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <input id="txtSecondLang" type="text" class="form-control" ng-model="T02003.T_SECOND_LANG" style="width: 70%" />
+                        </div>
+
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+
+        <div class="row" id="NationalityGrid">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptionsNationality" dt-columns="dtColumnsNationality" class="table table-hover" style="width:100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+
+    </script>
+    <!-- Nationality -->
+
+    <script type="text/ng-template" id="tabReligion.tpl.html">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div id="DivReligion" class="tab-content col-lg-6 col-md-6 col-sm-6 div_back borderColor" style="margin: 1.6% auto;padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 hidden">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblReligionCode" style="float:right;" for="txtReligionCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReligionCode'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtReligionCode" type="text" ng-model="T74059.T_RLGN_CODE" class="form-control" style="margin-right:40%;width: 30%" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEnglishName" style="float:right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" ng-model="T74059.T_LANG2_NAME" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblLocalName" style="float:right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtLocalName" ng-model="T74059.T_LANG1_NAME" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>            
+        </div>
+
+        <div class="row" id="ReligionId">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptionsReligion" dt-columns="dtColumnsReligion" class="table table-hover" style="width:100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </script>
+    <!-- Religion -->
+</div>

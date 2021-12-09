@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/27/2019 12:07:35" ReportInfo.Modified="03/13/2019 18:36:15" ReportInfo.CreatorVersion="2016.1.0.0">
+  <ScriptText>  using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {  
+
+    
+  }   
+}</ScriptText>
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqmmfdjkQxfe1iwShBNGpud67Ub1HtG+vgpwAR/QDA06vCOzUsJgRvGo7RykZ1GuFw01dE4tu2rsLtY5CbSuRbUgEiE/e36uZmrpnByj0vkv/7zyEwyCZ7WR2v4Hg9Nd7dKloJERjzKZ0nHQhUVh2pPA==">
+      <TableDataSource Name="R74125_pat" DataType="System.Int32" Enabled="true" TableName="R74125_pat">
+        <Column Name="T_REQUEST_ID" DataType="System.Int64"/>
+        <Column Name="PAT_NAME" DataType="System.String"/>
+        <Column Name="T_AGE" DataType="System.String"/>
+        <Column Name="T_DISCH_RSN_REMARKS" DataType="System.String"/>
+        <Column Name="T_SHORT_GNDR_NAME" DataType="System.String"/>
+        <Column Name="T_MOBILE_NO" DataType="System.String"/>
+        <Column Name="T_ADDRESS1" DataType="System.String"/>
+        <Column Name="T_ADDRESS2" DataType="System.String"/>
+        <Column Name="T_PASSPORT_NO" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_med" DataType="System.Int32" Enabled="true" TableName="R74125_med">
+        <Column Name="T_STORE_ID" DataType="System.Int32"/>
+        <Column Name="T_AMBU_REG_ID" DataType="System.Int32"/>
+        <Column Name="T_LANG2_NAME" DataType="System.String"/>
+        <Column Name="STOCK" DataType="System.Decimal"/>
+        <Column Name="T_ITEM_ID" DataType="System.Int32"/>
+        <Column Name="ISSED_ITEM" DataType="System.Decimal"/>
+        <Column Name="ADMINISTERED_QUTY" DataType="System.Decimal"/>
+        <Column Name="T_DOSE_DURATION_CODE" DataType="System.Decimal"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_vital" DataType="System.Int32" Enabled="true" TableName="R74125_vital">
+        <Column Name="RWHDR" DataType="System.String"/>
+        <Column Name="R1" DataType="System.String"/>
+        <Column Name="R2" DataType="System.String"/>
+        <Column Name="R3" DataType="System.String"/>
+        <Column Name="R4" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_service" DataType="System.Int32" Enabled="true" TableName="R74125_service">
+        <Column Name="T_COST_TYPE_DTL_ID" DataType="System.Int64"/>
+        <Column Name="T_LANG2_NAME" DataType="System.String"/>
+        <Column Name="T1" DataType="System.String"/>
+        <Column Name="T2" DataType="System.String"/>
+        <Column Name="T3" DataType="System.String"/>
+        <Column Name="T4" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_labels" DataType="System.Int32" Enabled="true" TableName="R74125_labels">
+        <Column Name="LBLATNNO" DataType="System.String"/>
+        <Column Name="LBLTCSAGLIK" DataType="System.String"/>
+        <Column Name="LBLIZMIRSAGLIK" DataType="System.String"/>
+        <Column Name="LBLUCRETTAHAKKUKUNA" DataType="System.String"/>
+        <Column Name="LBLIZMIR112" DataType="System.String"/>
+        <Column Name="LBLAMBULANSVAKA" DataType="System.String"/>
+        <Column Name="LBLVAKAKIMLIK" DataType="System.String"/>
+        <Column Name="LBLOLAYYERI" DataType="System.String"/>
+        <Column Name="LBLPUPILLERDERI" DataType="System.String"/>
+        <Column Name="LBLVITALBULGULAR" DataType="System.String"/>
+        <Column Name="LBLGLASGOWKOMA" DataType="System.String"/>
+        <Column Name="LBLISIKREFLEKSI" DataType="System.String"/>
+        <Column Name="LBLHAVAYOLUSOLUNUM" DataType="System.String"/>
+        <Column Name="LBLRESUSITASYON" DataType="System.String"/>
+        <Column Name="LBLTRIAJ" DataType="System.String"/>
+        <Column Name="LBLDOLASIMDESTEGI" DataType="System.String"/>
+        <Column Name="LBLSARFMALZEMELERI" DataType="System.String"/>
+        <Column Name="LBLILACLAR" DataType="System.String"/>
+        <Column Name="LBLSTABILIZASYON" DataType="System.String"/>
+        <Column Name="LBLDIGERUYGULAMALAR" DataType="System.String"/>
+        <Column Name="LBLSERUMLAR" DataType="System.String"/>
+        <Column Name="LBLTRAFIKKAZASI" DataType="System.String"/>
+        <Column Name="LBLKLINIKON" DataType="System.String"/>
+        <Column Name="LBLKLINIKAMBULANS" DataType="System.String"/>
+        <Column Name="LBLACIKLAMALAR" DataType="System.String"/>
+        <Column Name="LBLSONUC" DataType="System.String"/>
+        <Column Name="LBLNAKLEDILENHASTANE" DataType="System.String"/>
+        <Column Name="LBLAMBULANSEKIBI" DataType="System.String"/>
+        <Column Name="LBLIMZA" DataType="System.String"/>
+        <Column Name="LBLHASTAYITESLIMHEKIM" DataType="System.String"/>
+        <Column Name="LBLARACGOREVKAGIDI" DataType="System.String"/>
+        <Column Name="LBLNUSHADONER" DataType="System.String"/>
+        <Column Name="LBLPROTOKOLNO" DataType="System.String"/>
+        <Column Name="LBLEKPROTNO" DataType="System.String"/>
+        <Column Name="LBLISTADI" DataType="System.String"/>
+        <Column Name="LBLISTKODU" DataType="System.String"/>
+        <Column Name="LBLPLAKANO" DataType="System.String"/>
+        <Column Name="LBLCIKISKM" DataType="System.String"/>
+        <Column Name="LBLVARISKM" DataType="System.String"/>
+        <Column Name="LBLDONUSKM" DataType="System.String"/>
+        <Column Name="LBLCAGRISAATI" DataType="System.String"/>
+        <Column Name="LBLVAKAYACIKIS" DataType="System.String"/>
+        <Column Name="LBLOLAYYERINEVARIS" DataType="System.String"/>
+        <Column Name="LBLYASTANEYEVARIS" DataType="System.String"/>
+        <Column Name="LBLHASTANEDENAYRILIS" DataType="System.String"/>
+        <Column Name="LBLISTASYONADONUS" DataType="System.String"/>
+        <Column Name="LBLADISOYADI" DataType="System.String"/>
+        <Column Name="LBLTCKIMLIKPASAPORTNO" DataType="System.String"/>
+        <Column Name="LBLVAKAEVADRESI" DataType="System.String"/>
+        <Column Name="LBLBEKTEMENOKTASI" DataType="System.String"/>
+        <Column Name="LBLVAKATELEFONNO" DataType="System.String"/>
+        <Column Name="LBLGOZACMA" DataType="System.String"/>
+        <Column Name="LBLMOTORYANIT" DataType="System.String"/>
+        <Column Name="LBLSOZELYANIT" DataType="System.String"/>
+        <Column Name="LBLISLEM" DataType="System.String"/>
+        <Column Name="LBLSAAT" DataType="System.String"/>
+        <Column Name="LBLTRIAJYAPILAN" DataType="System.String"/>
+        <Column Name="LBLISBIRLIGIYAPILAN" DataType="System.String"/>
+        <Column Name="LBLHASTAYAAITKISISEL" DataType="System.String"/>
+        <Column Name="LBLHEKIMAABT" DataType="System.String"/>
+        <Column Name="LBLSAGLIKPER" DataType="System.String"/>
+        <Column Name="LBLSURUCUSAGLIKPER" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_glasgoE" DataType="System.Int32" Enabled="true" TableName="R74125_glasgoE">
+        <Column Name="T_GCS_VALUE" DataType="System.Int16"/>
+        <Column Name="T_LANG2_NAME" DataType="System.String"/>
+        <Column Name="T41_VAL" DataType="System.Int16"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_glasgowM" DataType="System.Int32" Enabled="true" TableName="R74125_glasgowM">
+        <Column Name="T_GCS_VALUE" DataType="System.Int16"/>
+        <Column Name="T_LANG2_NAME" DataType="System.String"/>
+        <Column Name="T41_VAL" DataType="System.Int16"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_glasgowV" DataType="System.Int32" Enabled="true" TableName="R74125_glasgowV">
+        <Column Name="T_GCS_VALUE" DataType="System.Int16"/>
+        <Column Name="T_LANG2_NAME" DataType="System.String"/>
+        <Column Name="T41_VAL" DataType="System.Int16"/>
+      </TableDataSource>
+      <TableDataSource Name="R74125_triagelevel" DataType="System.Int32" Enabled="true" TableName="R74125_triagelevel">
+        <Column Name="TRIAGE" DataType="System.Decimal"/>
+        <Column Name="T_TRIAGE_LEVEL" DataType="System.String"/>
+      </TableDataSource>
+    </XmlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="1" TopMargin="0" RightMargin="0" BottomMargin="0" Guides="9.45,9.45,9.45,0,9.45,0">
+    <PageHeaderBand Name="PageHeader1" Width="790.02" Height="313.36">
+      <TextObject Name="Text22" Left="9.45" Top="18.9" Width="737.1" Height="18.9"/>
+      <TextObject Name="Text23" Left="122.85" Top="18.9" Width="406.35" Height="37.8" Fill.Color="Orange" Text="[R74125_labels.LBLTCSAGLIK]&#13;&#10;[R74125_labels.LBLIZMIRSAGLIK]&#13;&#10;[R74125_labels.LBLUCRETTAHAKKUKUNA]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text24" Left="9.45" Top="18.9" Width="113.4" Height="15.12" Border.Lines="Left, Top" Border.Style="Dot" Text="[R74125_labels.LBLATNNO]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Left="529.2" Top="18.9" Width="255.15" Height="37.8" Border.Lines="Right, Bottom" Border.Style="Dot" Fill.Color="Red" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text42" Left="122.85" Top="56.7" Width="151.2" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Fill.Color="MistyRose" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text26" Left="9.45" Top="71.82" Width="58.62" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="Protokol No" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text27" Left="68.19" Top="71.82" Width="54.66" Height="15.12" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text28" Left="9.45" Top="86.56" Width="58.62" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Ek Prot. No" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text29" Left="68.04" Top="86.56" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text30" Left="9.45" Top="101.95" Width="58.62" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="Ist Adi" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text31" Left="68.19" Top="101.95" Width="54.66" Height="15.12" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text32" Left="9.45" Top="116.75" Width="58.62" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="Ist Kodu" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text33" Left="68.19" Top="116.75" Width="54.66" Height="15.12" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text34" Left="9.45" Top="132.3" Width="58.62" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Plaka No" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text35" Left="68.19" Top="132.3" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text36" Left="9.45" Top="147.2" Width="58.62" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Chikis Km" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text37" Left="68.19" Top="147.2" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text38" Left="9.45" Top="162.65" Width="58.62" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Varis Km" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text39" Left="68.19" Top="162.65" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text40" Left="9.45" Top="177.55" Width="58.62" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Donus Km" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text41" Left="68.19" Top="177.55" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text43" Left="122.85" Top="71.82" Width="96.42" Height="15.12" Text="Cagri Saati" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text44" Left="219.39" Top="71.82" Width="54.66" Height="15.12" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text45" Left="122.85" Top="86.56" Width="96.42" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="Vakaya Cikis" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text46" Left="219.39" Top="86.56" Width="54.66" Height="15.12" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text47" Left="122.85" Top="101.95" Width="96.42" Height="15.12" Text="Olay Yerine Varis" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text48" Left="219.39" Top="101.95" Width="54.66" Height="15.12" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text49" Left="122.85" Top="116.75" Width="96.42" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="Triaj Baslatma" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text50" Left="219.39" Top="116.75" Width="54.66" Height="15.12" Border.Lines="Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text51" Left="122.85" Top="132.3" Width="96.42" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Olay Yerinden Ayrilis" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text52" Left="219.39" Top="132.3" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text53" Left="122.85" Top="147.2" Width="96.42" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Hastaneye Varis" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text54" Left="219.39" Top="147.2" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text55" Left="122.85" Top="162.65" Width="96.42" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Hastaneden Ayrilis" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text56" Left="219.39" Top="162.65" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text57" Left="122.85" Top="177.55" Width="96.42" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Istasyona Donus" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text58" Left="219.39" Top="177.55" Width="54.66" Height="15.12" Border.Lines="Left, Bottom" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text59" Left="274.05" Top="56.7" Width="255.15" Height="15.12" Fill.Color="LightSalmon" Text="[R74125_labels.LBLVAKAKIMLIK]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text60" Left="274.05" Top="66.15" Width="255.15" Height="37.8" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text61" Left="9.45" Top="28.35" Width="113.4" Height="43.47" Border.Lines="Left" Border.Style="Dot" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text62" Left="274.05" Top="71.89" Width="170.1" Height="32.06" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text63" Left="444.15" Top="75.6" Width="85.05" Height="9.45" Border.Lines="Left, Bottom" Border.Style="Dot" Text="Yas" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text65" Left="463.05" Top="85.05" Width="18.9" Height="18.9" Text="E" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text67" Left="510.3" Top="85.05" Width="18.9" Height="18.9" Text="K" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text68" Left="274.05" Top="103.95" Width="122.85" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLTCKIMLIKPASAPORTNO]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text69" Left="396.9" Top="103.95" Width="132.3" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="[R74125_pat.T_PASSPORT_NO]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text70" Left="274.05" Top="123.85" Width="255.15" Height="37.8" Border.Lines="Left, Right" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text71" Left="274.05" Top="163.65" Width="122.85" Height="28.35" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLVAKATELEFONNO]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text72" Left="396.9" Top="163.65" Width="132.3" Height="28.35" Border.Lines="Right, Top, Bottom" Border.Style="Dot" Text="[R74125_pat.T_MOBILE_NO]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text73" Left="274.05" Top="122.85" Width="160.65" Height="18.9" Text="[R74125_labels.LBLVAKAEVADRESI]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text74" Left="529.2" Top="56.7" Width="255.15" Height="47.25" Border.Lines="Left, Right, Top" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text75" Left="529.2" Top="56.7" Width="179.55" Height="18.9" Text="[R74125_labels.LBLOLAYYERI]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text76" Left="529.2" Top="103.95" Width="255.15" Height="37.8" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text78" Left="529.2" Top="103.95" Width="170.1" Height="18.9" Text="[R74125_labels.LBLBEKTEMENOKTASI]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text1" Left="274.05" Top="75.6" Width="66.15" Height="9.45" Text="[R74125_labels.LBLADISOYADI]" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape48" Left="453.6" Top="88.83" Width="11.34" Height="11.34"/>
+      <ShapeObject Name="Shape49" Left="497.85" Top="88.83" Width="11.34" Height="11.34"/>
+      <TextObject Name="Text2" Left="529.2" Top="21.9" Width="255.15" Height="18.9" Border.Lines="Left, Right" Border.Style="Dot" Text="[R74125_labels.LBLIZMIR112]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text79" Left="529.2" Top="37.8" Width="255.15" Height="18.9" Border.Lines="Left, Right" Border.Style="Dot" Text="[R74125_labels.LBLAMBULANSVAKA]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <ShapeObject Name="Shape33" Left="532.2" Top="144.53" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text149" Left="545.43" Top="141.75" Width="56.7" Height="11.34" Text="Kentsel" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape50" Left="532.2" Top="154.98" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text150" Left="545.43" Top="153.1" Width="56.7" Height="11.34" Text="Kirsal" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape51" Left="532.2" Top="166.43" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text151" Left="545.43" Top="164.55" Width="56.7" Height="11.34" Text="Bolge ici" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape52" Left="532.2" Top="177.88" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text152" Left="545.43" Top="175" Width="56.7" Height="11.34" Text="Bolge disi" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape53" Left="604.8" Top="144.53" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text153" Left="618.03" Top="141.75" Width="56.7" Height="11.34" Text="Ev" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape54" Left="604.8" Top="154.98" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text154" Left="618.03" Top="153.1" Width="56.7" Height="11.34" Text="Isyeri" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape55" Left="604.8" Top="166.43" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text155" Left="618.03" Top="164.55" Width="56.7" Height="11.34" Text="Sokak" VertAlign="Center" Font="Arial, 6pt"/>
+      <ShapeObject Name="Shape56" Left="604.8" Top="177.88" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text156" Left="618.03" Top="175" Width="56.7" Height="11.34" Text="Arac" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text157" Left="693.63" Top="141.75" Width="90.72" Height="11.34" Text="Egitim Kurumu" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text158" Left="693.63" Top="153.1" Width="90.72" Height="11.34" Text="Kamu Kurumu" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text159" Left="693.63" Top="164.55" Width="90.72" Height="11.34" Text="Arazi" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text160" Left="693.63" Top="175" Width="90.72" Height="11.34" Text="...................................................................................." Font="Arial, 6pt"/>
+      <LineObject Name="Line1" Left="529.2" Top="192" Width="255.15" Border.Style="Dot" Diagonal="true"/>
+      <LineObject Name="Line2" Left="784.35" Top="135.75" Height="56.7" Border.Style="Dot" Diagonal="true"/>
+      <TextObject Name="Text161" Left="9.45" Top="192.45" Width="85.05" Height="15.12" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="PUPILLER" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text162" Left="94.5" Top="192.45" Width="56.7" Height="15.12" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="DERI" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text80" Left="151.2" Top="192.45" Width="391.23" Height="15.12" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="ViTAL BULGULAR" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text87" Left="542.68" Top="192.45" Width="241.54" Height="15.12" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLGLASGOWKOMA]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text169" Left="22.68" Top="211.35" Width="56.7" Height="13.23" Text="Normal" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text170" Left="22.68" Top="224.25" Width="56.7" Height="13.23" Text="Myotik" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text171" Left="22.68" Top="237.15" Width="56.7" Height="13.23" Text="Midriatik" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text172" Left="22.68" Top="250.15" Width="56.7" Height="13.23" Text="Anizokorik" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text163" Left="22.68" Top="263.6" Width="56.7" Height="13.23" Text="Fiks dilate" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape43" Left="79.38" Top="213.13" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape44" Left="79.38" Top="226.03" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape45" Left="79.38" Top="237.93" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape46" Left="79.38" Top="251.83" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape47" Left="79.38" Top="266.73" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text164" Left="88.83" Top="211.35" Width="56.7" Height="13.23" Text="Normal" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text165" Left="88.83" Top="224.25" Width="56.7" Height="13.23" Text="Soluk/Terli" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text166" Left="88.83" Top="237.15" Width="56.7" Height="13.23" Text="Siyanotik" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text167" Left="88.83" Top="250.05" Width="56.7" Height="13.23" Text="Hiperemik" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text168" Left="88.83" Top="263.95" Width="56.7" Height="13.23" Text="Ikterik" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape61" Left="11.34" Top="212.35" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape62" Left="11.34" Top="225.25" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape63" Left="11.34" Top="237.15" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape64" Left="11.34" Top="251.05" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape65" Left="11.34" Top="265.95" Width="9.45" Height="9.45"/>
+      <SubreportObject Name="Subreport1" Left="151.2" Top="206.81" Width="387.45" Height="104.97" ReportPage="Page2"/>
+      <SubreportObject Name="Subreport2" Left="542.1" Top="207.35" Width="75.6" Height="105.08" ReportPage="Page3"/>
+      <SubreportObject Name="Subreport3" Left="618.7" Top="207.19" Width="75.6" Height="105.08" ReportPage="Page4"/>
+      <SubreportObject Name="Subreport4" Left="699.3" Top="207.19" Width="75.6" Height="105.08" ReportPage="Page5"/>
+      <TextObject Name="Text198" Left="9.45" Top="277.5" Width="141.75" Height="15.12" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLISIKREFLEKSI]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text10" Left="9.45" Top="296.4" Width="75.6" Height="15.12" Text="SAG +/-" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text199" Left="85.05" Top="296.4" Width="66.15" Height="15.12" Text="SOL +/-" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <LineObject Name="Line8" Left="9.45" Top="207.9" Height="105.08" Border.Style="Dot" Diagonal="true"/>
+      <LineObject Name="Line13" Left="784.35" Top="207.9" Height="105.46" Border.Style="Dot" Diagonal="true"/>
+      <ShapeObject Name="Shape209" Left="680.4" Top="175.55" Width="10.58" Height="7.56"/>
+      <ShapeObject Name="Shape210" Left="680.4" Top="144.75" Width="10.58" Height="7.56"/>
+      <ShapeObject Name="Shape211" Left="680.4" Top="155.2" Width="10.58" Height="7.56"/>
+      <ShapeObject Name="Shape212" Left="680.4" Top="166.1" Width="10.58" Height="7.56"/>
+      <TextObject Name="Text3" Left="274.05" Top="89.05" Width="170.1" Height="15.12" Border.Lines="Left, Right" Border.Style="Dot" Text="[R74125_pat.PAT_NAME]" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text16" Left="274.05" Top="141.75" Width="255.15" Height="21.92" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_pat.T_ADDRESS1]" Font="Arial, 7pt"/>
+      <ChildBand Name="Child1" Top="315.49" Width="790.02" Height="98.28">
+        <TextObject Name="Text197" Left="661.5" Width="122.85" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLTRIAJ]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text7" Left="9.45" Width="292.95" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLHAVAYOLUSOLUNUM]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text196" Left="302.4" Width="359.1" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLRESUSITASYON]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text200" Left="22.68" Top="23.9" Width="113.4" Height="13.23" Text="Airway uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape66" Left="145.53" Top="25.68" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text205" Left="154.98" Top="23.9" Width="141.75" Height="13.23" Text="Aspirasyon" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape71" Left="11.34" Top="24.9" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text206" Left="22.68" Top="42.8" Width="113.4" Height="13.23" Text="Oksijen inhalasyonu" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape87" Left="145.53" Top="44.58" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text207" Left="154.98" Top="42.8" Width="141.75" Height="13.23" Text="Balon Maske Valf yugulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape88" Left="11.34" Top="43.8" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text208" Left="22.68" Top="61.7" Width="113.4" Height="13.23" Text="Nebülizatör uygulanmasi " VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape89" Left="145.53" Top="63.48" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text209" Left="154.98" Top="61.7" Width="141.75" Height="13.23" Text="Mekanik Ventilasyon" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape90" Left="11.34" Top="62.7" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text210" Left="22.68" Top="80.6" Width="113.4" Height="13.23" Text="Surevent uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape91" Left="145.53" Top="82.38" Width="9.45" Height="9.45"/>
+        <TextObject Name="Text211" Left="154.98" Top="80.6" Width="141.75" Height="13.23" Text="..................................................." Font="Arial, 7pt"/>
+        <ShapeObject Name="Shape92" Left="11.34" Top="81.6" Width="9.45" Height="9.45"/>
+        <SubreportObject Name="Subreport5" Left="302.4" Top="18.9" Width="359.1" Height="79.38" ReportPage="Page6"/>
+        <SubreportObject Name="Subreport6" Left="661.5" Top="18.9" Width="122.85" Height="79.38" ReportPage="Page7"/>
+        <LineObject Name="Line7" Left="9.45" Top="18.9" Height="79.38" Border.Style="Dot" Diagonal="true"/>
+        <LineObject Name="Line21" Left="784.35" Top="18.9" Height="79.38" Border.Style="Dot" Diagonal="true"/>
+        <ChildBand Name="Child2" Top="415.9" Width="790.02" Height="387.47" Border.ShadowColor="Transparent" Border.Lines="All" Border.Color="Transparent">
+          <TextObject Name="Text226" Left="9.45" Width="292.95" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLDOLASIMDESTEGI]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text227" Left="22.68" Top="18.9" Width="122.85" Height="13.23" Text="Monitörizasyon" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape96" Left="145.53" Top="20.68" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text228" Left="154.98" Top="18.9" Width="141.75" Height="13.23" Text="Damar yolu acilmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape97" Left="11.34" Top="19.9" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text229" Left="22.68" Top="37.8" Width="122.85" Height="13.23" Text="EKG çeklimesi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape98" Left="145.53" Top="39.58" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text230" Left="154.98" Top="37.8" Width="141.75" Height="13.23" Text="I.V ilac uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape99" Left="11.34" Top="38.8" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text231" Left="22.68" Top="56.7" Width="122.85" Height="13.23" Text="ET Co2ölçümü" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape100" Left="145.53" Top="58.48" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text232" Left="154.98" Top="56.7" Width="141.75" Height="13.23" Text="I.M ilac uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape101" Left="11.34" Top="57.7" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text233" Left="22.68" Top="75.6" Width="122.85" Height="13.23" Text="T.A ölçümü" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape102" Left="145.53" Top="77.38" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text234" Left="154.98" Top="75.6" Width="141.75" Height="13.23" Text="Subcutan ilac uygulanmasi" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape103" Left="11.34" Top="76.6" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text235" Left="22.68" Top="94.5" Width="122.85" Height="13.23" Text="Transcutan PaO2 ölçümü" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape104" Left="145.53" Top="96.28" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text236" Left="154.98" Top="94.5" Width="141.75" Height="13.23" Text="Intraosseoz uygulama" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape105" Left="11.34" Top="95.5" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text237" Left="9.45" Top="113.4" Width="292.95" Height="18.9" Fill.Color="Orange" Text="[R74125_labels.LBLSTABILIZASYON]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text238" Left="22.68" Top="132.3" Width="122.85" Height="13.23" Text="Boyunluk uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape106" Left="145.53" Top="134.08" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text239" Left="154.98" Top="132.3" Width="141.75" Height="13.23" Text="Atel uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape107" Left="11.34" Top="133.3" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text240" Left="22.68" Top="151.2" Width="122.85" Height="13.23" Text="Sirt tahtasi uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape108" Left="145.53" Top="152.98" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text241" Left="154.98" Top="151.2" Width="141.75" Height="13.23" Text="KED yelegi uygulanmasi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape109" Left="11.34" Top="152.2" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text242" Left="22.68" Top="170.1" Width="122.85" Height="13.23" Text="Vakum Sedye uygulanm." VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape110" Left="145.53" Top="171.88" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text243" Left="154.98" Top="170.1" Width="141.75" Height="13.23" Text="Vakum Sedye uygulanm." VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape111" Left="11.34" Top="171.1" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text244" Left="9.45" Top="189" Width="292.95" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLDIGERUYGULAMALAR]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text245" Left="22.68" Top="207.9" Width="122.85" Height="13.23" Text="Kan Sekeri olcumu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape112" Left="145.53" Top="209.68" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text246" Left="154.98" Top="207.9" Width="141.75" Height="13.23" Text="Yara pansumani" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape113" Left="11.34" Top="208.9" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text247" Left="22.68" Top="226.8" Width="122.85" Height="13.23" Text="Yabanci cisim temizligi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape114" Left="145.53" Top="228.58" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text248" Left="154.98" Top="226.8" Width="141.75" Height="13.23" Text="Yanik pansumani" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape115" Left="11.34" Top="227.8" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text249" Left="22.68" Top="245.7" Width="122.85" Height="13.23" Text="kanama kontrolu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape116" Left="145.53" Top="247.48" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text250" Left="154.98" Top="245.7" Width="141.75" Height="13.23" Text="...................................................." Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape117" Left="11.34" Top="246.7" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text251" Left="9.45" Top="264.6" Width="292.95" Height="18.9" Border.Lines="Right, Top, Bottom" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLTRAFIKKAZASI]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text252" Left="22.68" Top="283.5" Width="66.15" Height="13.23" Text="Arac ici" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape118" Left="88.83" Top="285.28" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text253" Left="98.28" Top="283.5" Width="37.8" Height="13.23" Text="Surucu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape119" Left="11.34" Top="284.5" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text254" Left="22.68" Top="298.4" Width="66.15" Height="13.23" Text="Arac disi" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape120" Left="88.83" Top="300.18" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text255" Left="98.28" Top="298.4" Width="37.8" Height="13.23" Text="Yolcu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape121" Left="11.34" Top="299.4" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text256" Left="22.68" Top="313.3" Width="66.15" Height="13.23" Text="Toplu tasima" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape122" Left="88.83" Top="315.08" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text257" Left="98.28" Top="313.3" Width="37.8" Height="13.23" Text="Yaya" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape123" Left="11.34" Top="314.3" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text269" Left="22.68" Top="329.2" Width="66.15" Height="13.23" Text="Motorsiklet" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape133" Left="88.83" Top="330.98" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text270" Left="98.28" Top="329.2" Width="138.1" Height="13.23" Text="........................................................................................." Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape134" Left="11.34" Top="330.2" Width="9.45" Height="9.45"/>
+          <ShapeObject Name="Shape135" Left="151.2" Top="285.28" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text271" Left="160.65" Top="283.5" Width="75.6" Height="13.23" Text="Emniyet Kemeri" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape136" Left="151.2" Top="300.18" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text272" Left="160.65" Top="298.4" Width="75.6" Height="13.23" Text="Kask" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape137" Left="151.2" Top="315.08" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text273" Left="160.65" Top="313.3" Width="75.6" Height="13.23" Text="Alkol Kokusu" Font="Arial, 7pt"/>
+          <TextObject Name="Text274" Left="302.4" Width="302.4" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLSARFMALZEMELERI]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text275" Left="325.08" Top="28.35" Width="122.85" Height="13.23" Text="Eldiven" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape138" Left="447.93" Top="30.13" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text276" Left="457.38" Top="28.35" Width="141.75" Height="13.23" Text="Nazal Kanul" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape139" Left="311.85" Top="29.35" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text277" Left="325.08" Top="47.25" Width="122.85" Height="13.23" Text="Lanset" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape140" Left="447.93" Top="49.03" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text278" Left="457.38" Top="47.25" Width="141.75" Height="13.23" Text="Airway" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape141" Left="311.85" Top="48.25" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text279" Left="325.08" Top="66.15" Width="122.85" Height="13.23" Text="Glukometre Strip" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape142" Left="447.93" Top="67.93" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text280" Left="457.38" Top="66.15" Width="141.75" Height="13.23" Text="Basit Maske" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape143" Left="311.85" Top="67.15" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text281" Left="325.08" Top="85.05" Width="122.85" Height="13.23" Text="IV Katater No:......." VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape144" Left="447.93" Top="86.83" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text282" Left="457.38" Top="85.05" Width="141.75" Height="13.23" Text="Rezerv. Maske" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape145" Left="311.85" Top="86.05" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text283" Left="325.08" Top="103.95" Width="122.85" Height="13.23" Text="Kanul sabitleyici" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape146" Left="447.93" Top="105.73" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text284" Left="457.38" Top="103.95" Width="141.75" Height="13.23" Text="Diffizorlu Maske" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape147" Left="311.85" Top="104.95" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text285" Left="325.08" Top="122.85" Width="122.85" Height="13.23" Text="Enjektor" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape148" Left="447.93" Top="124.63" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text286" Left="457.38" Top="122.85" Width="141.75" Height="13.23" Text="Larengeal Tup" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape149" Left="311.85" Top="123.85" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text287" Left="325.08" Top="141.75" Width="122.85" Height="13.23" Text="Serum Seti" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape150" Left="447.93" Top="143.53" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text288" Left="457.38" Top="141.75" Width="141.75" Height="13.23" Text="Endotrakeal Tup" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape151" Left="311.85" Top="142.75" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text289" Left="325.08" Top="160.65" Width="122.85" Height="13.23" Text="Elektrod" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape152" Left="447.93" Top="162.43" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text290" Left="457.38" Top="160.65" Width="141.75" Height="13.23" Text="Kombi Tup" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape153" Left="311.85" Top="161.65" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text291" Left="325.08" Top="179.55" Width="122.85" Height="13.23" Text="Boyunluk" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape154" Left="447.93" Top="181.33" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text292" Left="457.38" Top="179.55" Width="141.75" Height="13.23" Text="LMA" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape155" Left="311.85" Top="180.55" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text293" Left="325.08" Top="198.45" Width="122.85" Height="13.23" Text="Atel" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape156" Left="447.93" Top="200.23" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text294" Left="457.38" Top="198.45" Width="141.75" Height="13.23" Text="I-Gel" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape157" Left="311.85" Top="199.45" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text295" Left="325.08" Top="217.35" Width="122.85" Height="13.23" Text="Sonda (Foley)" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape158" Left="447.93" Top="219.13" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text296" Left="457.38" Top="217.35" Width="141.75" Height="13.23" Text="Surevent" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape159" Left="311.85" Top="218.35" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text297" Left="325.08" Top="236.25" Width="122.85" Height="13.23" Text="Filtre (BVM icin)" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape160" Left="447.93" Top="238.03" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text298" Left="457.38" Top="236.25" Width="141.75" Height="13.23" Text="Aspirasyon Kateteri" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape161" Left="311.85" Top="237.25" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text299" Left="325.08" Top="255.15" Width="122.85" Height="13.23" Text="Filtre (Ventilator icin)" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape162" Left="447.93" Top="256.93" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text300" Left="457.38" Top="255.15" Width="141.75" Height="13.23" Text="Sonda (Nazogastrik)" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape163" Left="311.85" Top="256.15" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text301" Left="325.08" Top="274.05" Width="122.85" Height="13.23" Text="Sedye Ortusu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape164" Left="447.93" Top="275.83" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text302" Left="457.38" Top="274.05" Width="141.75" Height="13.23" Text="_________________________" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape165" Left="311.85" Top="275.05" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text303" Left="325.08" Top="292.95" Width="122.85" Height="13.23" Text="Hasta Ortusu" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape166" Left="447.93" Top="294.73" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text304" Left="457.38" Top="292.95" Width="141.75" Height="13.23" Text="_________________________" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape167" Left="311.85" Top="293.95" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text305" Left="325.08" Top="311.85" Width="122.85" Height="13.23" Text="Dogum Seti" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape168" Left="447.93" Top="313.63" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text306" Left="457.38" Top="311.85" Width="141.75" Height="13.23" Text="_________________________" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape169" Left="311.85" Top="312.85" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text307" Left="325.08" Top="330.75" Width="122.85" Height="13.23" Text="Yanik Seti" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape170" Left="447.93" Top="332.53" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text308" Left="457.38" Top="330.75" Width="141.75" Height="13.23" Text="_________________________" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape171" Left="311.85" Top="331.75" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text309" Left="604.8" Top="198.45" Width="179.55" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLSERUMLAR]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text327" Left="604.8" Width="179.55" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLILACLAR]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <SubreportObject Name="Subreport7" Left="604.8" Top="18.9" Width="179.55" Height="179.55" ReportPage="Page8" PrintOnParent="true"/>
+          <TextObject Name="Text82" Left="9.45" Top="346.65" Width="85.05" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text262" Left="94.5" Top="346.65" Width="85.05" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text263" Left="179.55" Top="346.65" Width="56.7" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text264" Left="9.45" Top="365.55" Width="85.05" Height="21.92" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text265" Left="94.5" Top="365.55" Width="85.05" Height="21.92" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text266" Left="179.55" Top="365.55" Width="56.7" Height="21.92" Border.Lines="All" Border.Style="Dot" Text="PLAKA NO" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TextObject Name="Text328" Left="236.25" Top="283.5" Width="66.15" Height="22.68" Text="[R74125_labels.LBLISBIRLIGIYAPILAN]" VertAlign="Center" Font="Arial, 5pt"/>
+          <TextObject Name="Text329" Left="258.93" Top="305.4" Width="37.8" Height="13.23" Text="110" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape184" Left="245.7" Top="306.4" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text330" Left="258.93" Top="320.3" Width="37.8" Height="13.23" Text="155" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape185" Left="245.7" Top="321.3" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text331" Left="258.93" Top="335.2" Width="37.8" Height="13.23" Text="156" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape186" Left="245.7" Top="336.2" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text332" Left="258.93" Top="349.65" Width="37.8" Height="13.23" Text="UMKE" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape187" Left="245.7" Top="350.65" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text333" Left="258.93" Top="362.1" Width="37.8" Height="13.23" Text="AFAD" VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape188" Left="245.7" Top="363.1" Width="9.45" Height="9.45"/>
+          <TextObject Name="Text334" Left="258.93" Top="374" Width="37.8" Height="13.23" Text="..............................." VertAlign="Center" Font="Arial, 7pt"/>
+          <ShapeObject Name="Shape189" Left="245.7" Top="375" Width="9.45" Height="9.45"/>
+          <SubreportObject Name="Subreport8" Left="604.8" Top="217.35" Width="179.55" Height="75.6" ReportPage="Page9" PrintOnParent="true"/>
+          <SubreportObject Name="Subreport9" Left="604.8" Top="292.95" Width="179.55" Height="94.5" ReportPage="Page10" PrintOnParent="true"/>
+          <LineObject Name="Line3" Left="9.45" Top="283.5" Height="66.15" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line4" Left="9.45" Top="207.9" Height="56.7" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line5" Left="9.45" Top="132.3" Height="56.7" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line6" Left="9.45" Top="18.9" Height="94.5" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line9" Left="302.4" Top="18.9" Height="103.95" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line10" Left="302.4" Top="132.3" Height="66.15" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line11" Left="302.4" Top="207.9" Height="56.7" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line12" Left="302.4" Top="283.5" Height="103.95" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line15" Left="604.8" Top="18.9" Height="179.55" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line16" Left="604.8" Top="217.35" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line17" Left="604.8" Top="292.95" Height="94.5" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line18" Left="784.35" Top="18.9" Height="179.55" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line20" Left="784.35" Top="217.35" Height="170.1" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line14" Left="784.35" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line19" Left="784.35" Top="122.85" Height="85.05" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line23" Left="9.45" Top="283.5" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line27" Left="425.25" Top="18.9" Height="274.05" Border.Style="Dot" Diagonal="true"/>
+          <LineObject Name="Line28" Left="425.25" Top="292.95" Height="94.5" Border.Style="Dot" Diagonal="true"/>
+          <ChildBand Name="Child3" Top="805.49" Width="790.02" Height="66.15">
+            <TextObject Name="Text5" Left="9.45" Width="774.9" Height="47.25" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLACIKLAMALAR]" Font="Arial, 7pt"/>
+            <SubreportObject Name="Subreport10" Left="9.45" Top="47.25" Width="207.9" Height="18.9" ReportPage="Page11"/>
+            <SubreportObject Name="Subreport11" Left="529.2" Top="47.25" Width="255.15" Height="18.9" ReportPage="Page12"/>
+            <LineObject Name="Line22" Left="9.45" Top="-0.51" Height="-56.7" Border.Style="Dot" Diagonal="true"/>
+            <TextObject Name="Text15" Left="9.45" Top="12.26" Width="775.12" Height="34.42" Border.Lines="Bottom" Border.Style="Dot" Text="[R74125_pat.T_DISCH_RSN_REMARKS]" Font="Arial, 7pt"/>
+            <ChildBand Name="Child4" Top="873.77" Width="790.02" Height="18.9">
+              <SubreportObject Name="Subreport12" Left="9.45" Width="94.5" Height="18.9" ReportPage="Page13"/>
+              <SubreportObject Name="Subreport13" Left="264.6" Width="94.5" Height="18.9" ReportPage="Page14"/>
+              <SubreportObject Name="Subreport14" Left="529.2" Width="255.15" Height="18.9" ReportPage="Page15"/>
+              <ChildBand Name="Child5" Top="894.8" Width="790.02" Height="28.35">
+                <TextObject Name="Text11" Left="9.45" Width="349.65" Height="28.35" Border.Lines="All" Border.Style="Dot" Fill.Color="SlateBlue" Text="[R74125_labels.LBLARACGOREVKAGIDI]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+                <TextObject Name="Text12" Left="359.1" Width="425.25" Height="28.35" Border.Lines="All" Border.Style="Dot" Fill.Color="SlateBlue" Text="[R74125_labels.LBLNUSHADONER]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+              </ChildBand>
+            </ChildBand>
+          </ChildBand>
+        </ChildBand>
+      </ChildBand>
+    </PageHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page2" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data1" Top="2.13" Width="793.8" Height="15.12" DataSource="R74125_vital">
+      <TextObject Name="Text176" Width="78.25" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_vital.RWHDR]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text177" Left="78.05" Width="78.25" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_vital.R1]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text178" Left="156.65" Width="78.25" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_vital.R2]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text179" Left="234.25" Width="78.25" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_vital.R3]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text180" Left="312.85" Width="78.25" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_vital.R4]" VertAlign="Center" Font="Arial, 7pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="793.8"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data2" Top="26.37" Width="793.8" Height="15.12" DataSource="R74125_glasgoE">
+      <TextObject Name="Text188" Left="2.45" Width="75.6" Height="15.12" Text="[R74125_glasgoE.T_GCS_VALUE] [R74125_glasgoE.T_LANG2_NAME]" VertAlign="Center" Font="Arial, 5pt">
+        <Highlight>
+          <Condition Expression="[R74125_glasgoE.T41_VAL] != 0"/>
+        </Highlight>
+      </TextObject>
+      <DataHeaderBand Name="DataHeader2" Width="793.8" Height="24.24">
+        <TextObject Name="Text183" Left="2.45" Width="75.6" Height="15.12" Text="[R74125_labels.LBLGOZACMA]" HorzAlign="Center" Font="Arial, 6pt"/>
+        <TextObject Name="Text189" Left="2.45" Top="12.9" Width="75.6" Height="11.34" Text="(E)" HorzAlign="Center" Font="Arial, 6pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data3" Top="26.37" Width="793.8" Height="13.79" DataSource="R74125_glasgowM">
+      <TextObject Name="Text190" Top="-1.33" Width="81.27" Height="15.12" Border.Lines="Left, Right" Border.Style="Dot" Text="[R74125_glasgowM.T_GCS_VALUE] [R74125_glasgowM.T_LANG2_NAME]" VertAlign="Center" Font="Arial, 5pt">
+        <Highlight>
+          <Condition Expression="[R74125_glasgowM.T41_VAL] != 0"/>
+        </Highlight>
+      </TextObject>
+      <DataHeaderBand Name="DataHeader3" Width="793.8" Height="24.24">
+        <TextObject Name="Text191" Width="81.27" Height="15.12" Border.Lines="Left, Right" Border.Style="Dot" Text="[R74125_labels.LBLMOTORYANIT]" HorzAlign="Center" Font="Arial, 6pt"/>
+        <TextObject Name="Text192" Top="12.9" Width="81.27" Height="11.34" Border.Lines="Left, Right" Border.Style="Dot" Text="(M)" HorzAlign="Center" Font="Arial, 6pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page5" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data4" Top="26.37" Width="793.8" Height="12.46" DataSource="R74125_glasgowV">
+      <TextObject Name="Text193" Top="-2.66" Width="90.72" Height="15.12" Text="[R74125_glasgowV.T_GCS_VALUE] [R74125_glasgowV.T_LANG2_NAME]" VertAlign="Center" Font="Arial, 5pt">
+        <Highlight>
+          <Condition Expression="[R74125_glasgowV.T41_VAL] != 0"/>
+        </Highlight>
+      </TextObject>
+      <DataHeaderBand Name="DataHeader4" Width="793.8" Height="24.24">
+        <TextObject Name="Text194" Width="81.27" Height="15.12" Text="[R74125_labels.LBLSOZELYANIT]" HorzAlign="Center" Font="Arial, 6pt"/>
+        <TextObject Name="Text195" Top="12.9" Width="81.27" Height="11.34" Text="(V)" HorzAlign="Center" Font="Arial, 6pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page6" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data5" Top="17.25" Width="793.8" Height="15.12" DataSource="R74125_service">
+      <TextObject Name="Text217" Width="187.49" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_service.T_LANG2_NAME]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text218" Left="187.49" Width="42.71" Height="15.12" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_service.T1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text219" Left="230.2" Width="42.71" Height="15.12" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_service.T2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text220" Left="272.92" Width="42.71" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_service.T3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text221" Left="315.63" Width="43.47" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_service.T4]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <DataHeaderBand Name="DataHeader5" Width="793.8" Height="15.12">
+        <TextObject Name="Text212" Width="187.49" Height="15.12" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_labels.LBLISLEM]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text213" Left="187.45" Width="42.71" Height="15.12" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_labels.LBLSAAT]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text214" Left="230.25" Width="42.71" Height="15.12" Border.Lines="Left, Right, Bottom" Border.Style="Dot" Text="[R74125_labels.LBLSAAT]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text215" Left="272.95" Width="42.71" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLSAAT]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text216" Left="315.75" Width="43.47" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLSAAT]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page7" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data6" Top="17.25" Width="793.8" Height="12.04" DataSource="R74125_triagelevel">
+      <TextObject Name="Text14" Left="12.47" Top="1" Width="7.56" Height="7.56" Border.Lines="All">
+        <Highlight>
+          <Condition Expression="[R74125_triagelevel.TRIAGE] == 1" Fill.Color="RosyBrown" ApplyFill="true"/>
+          <Condition Expression="[R74125_triagelevel.TRIAGE] == 2" Fill.Color="DarkOrange" ApplyFill="true"/>
+          <Condition Expression="[R74125_triagelevel.TRIAGE] == 5" Fill.Color="SpringGreen" ApplyFill="true"/>
+          <Condition Expression="[R74125_triagelevel.TRIAGE] == 3" Fill.Color="CornflowerBlue" ApplyFill="true"/>
+          <Condition Expression="[R74125_triagelevel.TRIAGE] == 4" Fill.Color="MediumOrchid" ApplyFill="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text222" Left="23.35" Top="1" Width="47.25" Height="9.45" Text="........................................" HorzAlign="Center" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox2" Left="12.45" Top="2" Width="7.56" Height="7.56" Border.Lines="All" CheckColor="White" Expression="[R74125_triagelevel.T_TRIAGE_LEVEL] != ToString(null)"/>
+      <DataHeaderBand Name="DataHeader6" Width="793.8" Height="15.12">
+        <TextObject Name="Text4" Width="122.85" Height="15.12" Border.Lines="All" Border.Style="Dot" Text="[R74125_labels.LBLTRIAJYAPILAN]" HorzAlign="Center" Font="Arial, 7pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page8" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data7" Width="90.72" Height="15.12" BeforePrintEvent="Data7_BeforePrint" DataSource="R74125_med" RowCount="0" Columns.Count="3" Columns.Width="90.72" Columns.Layout="DownThenAcross" Columns.MinRowCount="6">
+      <TextObject Name="Text13" Left="9.45" Width="73.71" Height="15.12" CanBreak="false" Text="[R74125_med.T_LANG2_NAME]" WordWrap="false" Font="Arial, 7pt"/>
+      <CheckBoxObject Name="CheckBox1" Top="2" Width="9.45" Height="9.45" Border.Lines="All" Expression="[R74125_med.ADMINISTERED_QUTY] != 0"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page9" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data8" Width="793.8" Height="66.93">
+      <TextObject Name="Text317" Left="13.23" Width="94.5" Height="13.23" Text="%_______ Dekstroz" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape177" Top="1" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text318" Left="13.23" Top="18.9" Width="94.5" Height="13.23" Text="% 0,9 NaCl" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape179" Top="19.9" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text319" Left="13.23" Top="37.8" Width="94.5" Height="13.23" Text="Ringer Laktat" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape181" Top="38.8" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text320" Left="13.32" Top="53.7" Width="94.5" Height="13.23" Text="________________" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape183" Left="0.09" Top="54.7" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text321" Left="108.95" Top="0.02" Width="66.15" Height="13.23" Text="_______ ml" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text322" Left="108.95" Top="18.9" Width="66.15" Height="13.23" Text="_______ ml" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text323" Left="108.95" Top="37.8" Width="66.15" Height="13.23" Text="_______ ml" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text324" Left="108.95" Top="53.7" Width="66.15" Height="13.23" Text="_______ ml" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page10" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data9" Width="793.8" Height="94.5">
+      <TextObject Name="Text325" Width="179.55" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLKLINIKON]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text326" Top="37.8" Width="179.55" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Orange" Text="[R74125_labels.LBLKLINIKAMBULANS]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text8" Top="18.9" Width="179.55" Height="18.9" Border.Lines="All" Border.Style="Dot" Font="Arial, 5pt"/>
+      <TextObject Name="Text9" Top="56.7" Width="179.55" Height="37.8" Border.Lines="All" Border.Style="Dot" Font="Arial, 5pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page11" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data10" Width="793.8" Height="94.5">
+      <ShapeObject Name="Shape190" Left="9.45" Top="22.68" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text335" Left="22.68" Top="18.9" Width="103.95" Height="18.9" Text="Hastaneye Nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape191" Left="9.45" Top="41.58" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text336" Left="22.68" Top="37.8" Width="103.95" Height="18.9" Text="Nakil Reddi" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape192" Left="9.45" Top="60.48" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text337" Left="22.68" Top="56.7" Width="103.95" Height="18.9" Text="Eve Nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape193" Left="9.45" Top="79.38" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text338" Left="22.68" Top="75.6" Width="103.95" Height="18.9" Text="Asilsiz Ihbar" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape194" Left="132.3" Top="22.68" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text339" Left="145.53" Top="18.9" Width="113.4" Height="18.9" Text="Hastaneler Arasi Nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape195" Left="132.3" Top="41.58" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text340" Left="145.53" Top="37.8" Width="113.4" Height="18.9" Text="Tibbi Tetkik icin nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape196" Left="132.3" Top="60.48" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text341" Left="145.53" Top="56.7" Width="113.4" Height="18.9" Text="Ex Morga Nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape197" Left="132.3" Top="79.38" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text311" Left="145.53" Top="75.6" Width="113.4" Height="18.9" Text="Ex Yerinde Birakildi" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape198" Left="264.6" Top="22.68" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text315" Left="277.83" Top="18.9" Width="113.4" Height="18.9" Text="Yarinde Mudahale" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape199" Left="264.6" Top="41.58" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text342" Left="277.83" Top="37.8" Width="113.4" Height="18.9" Text="Baska Aracla Nakil" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape124" Left="264.6" Top="60.48" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text343" Left="277.83" Top="56.7" Width="113.4" Height="18.9" Text="Yarali Yok" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape125" Left="264.6" Top="79.38" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text344" Left="277.83" Top="75.6" Width="113.4" Height="18.9" Text="Gorev Iptali" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape126" Left="391.23" Top="22.68" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text345" Left="404.46" Top="18.9" Width="113.4" Height="18.9" Text="Olay Yerinde Bekleme" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape127" Left="391.23" Top="41.58" Width="9.45" Height="9.45"/>
+      <TextObject Name="Text346" Left="404.46" Top="37.8" Width="113.4" Height="18.9" Text="Diger Ulasilan" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text347" Left="404.46" Top="56.7" Width="113.4" Height="18.9" Text="..................................." VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text348" Left="404.46" Top="75.6" Width="113.4" Height="18.9" Text=".................................." VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text86" Width="519.75" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Coral" Text="SONUC" HorzAlign="Center"/>
+      <LineObject Name="Line24" Top="18.9" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+      <LineObject Name="Line25" Left="519.75" Top="18.9" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page12" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" Guides="425.25">
+    <DataBand Name="Data11" Width="793.8" Height="94.5">
+      <TextObject Name="Text89" Width="255.15" Height="18.9" Border.Lines="All" Border.Style="Dot" Fill.Color="Coral" Text="NAKLEDILEN HASTANE" HorzAlign="Center"/>
+      <TextObject Name="Text349" Left="18.9" Top="18.9" Width="94.5" Height="15.12" Text="_________________________" Font="Arial, 7pt"/>
+      <TextObject Name="Text350" Left="18.9" Top="34.35" Width="94.5" Height="15.12" Text="__________________________" Font="Arial, 7pt"/>
+      <TextObject Name="Text351" Left="18.9" Top="47.7" Width="94.5" Height="15.12" Text="__________________________" Font="Arial, 7pt"/>
+      <TextObject Name="Text352" Left="18.9" Top="60.6" Width="236.25" Height="15.12" Text="............................................................................" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text90" Left="113.4" Top="19.9" Width="141.75" Height="15.12" Text="Universite Hastanesi" Font="Arial, 7pt"/>
+      <TextObject Name="Text353" Left="113.4" Top="34.35" Width="141.75" Height="15.12" Text="Egitim ve Aras Hastanesi" Font="Arial, 7pt"/>
+      <TextObject Name="Text354" Left="113.4" Top="48.7" Width="141.75" Height="15.12" Text="Devlet Hastanesi" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape205" Left="3" Top="21.35" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape206" Left="3" Top="34.25" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape207" Left="3" Top="48.15" Width="9.45" Height="9.45"/>
+      <ShapeObject Name="Shape208" Left="3" Top="62.15" Width="9.45" Height="9.45"/>
+      <LineObject Name="Line26" Left="255.15" Top="18.9" Height="75.6" Border.Style="Dot" Diagonal="true"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page13" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data12" Width="793.8" Height="75.6">
+      <TextObject Name="Text355" Width="255.15" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <ShapeObject Name="Shape204" Left="5.67" Top="3.78" Width="11.34" Height="11.34" Border.Style="Dot"/>
+      <TextObject Name="Text356" Left="18.9" Width="236.25" Height="15.12" Text="Hastaya ait kisisel esya yoktur" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text88" Top="18.9" Width="255.15" Height="56.7" Border.Lines="All" Border.Style="Dot" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text91" Top="15" Width="255.15" Height="18.9" Text="Hastaya ait kisisel esyalari teslim alan kisinin" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text92" Left="56.7" Top="26.8" Width="141.75" Height="18.9" Text="ADI SOYADI - IMZASI" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page14" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data13" Width="793.8" Height="75.6">
+      <TextObject Name="Text97" Width="151.2" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="Ambulans Ekibi" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" TextFill.Color="Coral"/>
+      <TextObject Name="Text357" Left="151.2" Width="113.4" Height="18.9" Border.Lines="All" Border.Style="Dot" Text="Imza" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" TextFill.Color="Coral"/>
+      <TextObject Name="Text147" Top="18.9" Width="151.2" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text358" Top="37.8" Width="151.2" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text359" Top="56.7" Width="151.2" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text360" Left="151.2" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text361" Left="151.2" Top="37.8" Width="113.4" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text362" Left="151.2" Top="56.7" Width="113.4" Height="18.9" Border.Lines="All" Border.Style="Dot" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page15" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <DataBand Name="Data14" Width="793.8" Height="75.6">
+      <TextObject Name="Text6" Width="255.15" Height="75.6" Border.Lines="All" Border.Style="Dot" VertAlign="Center" Font="Arial, 5pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

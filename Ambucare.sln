@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ambucare", "Ambucare\Ambucare.csproj", "{34005C04-5B19-4D63-AD79-47FF05B0E9B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbucareDAL", "AmbucareDAL\AmbucareDAL.csproj", "{56E991D6-737E-4287-BD66-5502BA1E1391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34005C04-5B19-4D63-AD79-47FF05B0E9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34005C04-5B19-4D63-AD79-47FF05B0E9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34005C04-5B19-4D63-AD79-47FF05B0E9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34005C04-5B19-4D63-AD79-47FF05B0E9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E991D6-737E-4287-BD66-5502BA1E1391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E991D6-737E-4287-BD66-5502BA1E1391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E991D6-737E-4287-BD66-5502BA1E1391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E991D6-737E-4287-BD66-5502BA1E1391}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {802EC7F5-8000-44C7-9C2D-B61F4E952E5C}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Ambucare\\Ambucare.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Ambucare\\
+		SccProjectUniqueName2 = AmbucareDAL\\AmbucareDAL.csproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = AmbucareDAL\\
+	EndGlobalSection
+EndGlobal

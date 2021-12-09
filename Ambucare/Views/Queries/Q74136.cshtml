@@ -1,0 +1,435 @@
+﻿@*<meta http-equiv="refresh" content="10" />*@
+@{
+    ViewBag.Title = "Q74136";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+    table, tr, th, td {
+        /*border: 3px solid #D3D8DC;*/
+        text-align: center !important;
+        padding: 0 5px 0 5px !important;
+        /*padding-top: 5px !important;*/
+    }
+    /*table>thead>tr>th {
+        background: linear-gradient(to left, #85d2b3 30%, #86a3b1 90%);
+    }*/
+
+    .selected {
+        background-color: #708090;
+        color: white;
+        font-weight: bold;
+    }
+
+    td:hover {
+        background-color: #B5C8CF;
+    }
+    /*tr:hover {
+        background-color: #B5C8CF !important;
+    }*/
+
+    .bt {
+        width: 100px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+
+    .spann {
+        display: inline-block;
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .hos {
+        display: inline-block;
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        text-align: left;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .spn {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .start {
+        width: 600px !important;
+    }
+
+    .green {
+        /*background-color: #DDEBEA;*/
+        background-color: #DEDB98!important;
+        color: #000000!important;
+    }
+
+    .panic {
+        background-color: #DE3B38!important;
+        color: #FFFFFF!important;
+    }
+    .complete {
+        background-color: #74DBB8 !important;
+        color: #000000!important;
+        
+    }
+        /*.complete > .green {
+            background-color: #74DBB8 !important;
+            color: #000000;
+        }*/
+    .manImg {
+        height: 9px;
+    }
+    .rejected {
+        background-color: #D88785 !important;
+        color: #000000
+    }
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: white !important;
+        /*border-color: whitesmoke !important;
+        color: #C12D2D !important;
+    }
+</style>
+
+<script src="~/Apps/JSService/Query/Q74136Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Query/Q74136Controller.js"></script>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+
+
+<div class="container div_back" ng-app="Ambucare" ng-controller="Q74136Controller" style="margin: 5px 10px; width: 99%">
+    <div class="row head-border"><label style="color: #ffffff;margin-left: 20px;margin-bottom: 0px;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAdmDashboard'">{{field.T_LANG2_TEXT}}</label></div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-right: -6%;">
+            <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSelect'" id="lblSelect">{{field.T_LANG2_TEXT}}</label>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSearch'" id="lblSearch">{{field.T_LANG2_TEXT}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-right: -6%; margin-top: -1%;">
+            <!--Dropdownlist Criteria start-->
+            <div class="ng-cloak select-box">
+                <ui-select ng-model="obj.k.selected" id="ddlCriterias" theme="select2" style="width: 75%; margin-top: 10px;" append-to-body="true" tabindex="4" on-select="onEventSelect(obj.k.selected.T_EVENT_ID)">
+                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                    <ui-select-choices repeat="k in criterias | propsFilter: {T_LANG2_NAME: $select.search}">
+                        <div ng-bind-html="k.T_LANG2_NAME | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+                <input type="text" id="ddlambulanceId" ng-model="obj.T_EVENT_ID" ng-bind="obj.T_EVENT_ID = obj.k.selected.T_EVENT_ID" name="criteria" style="width: 124px" hidden />
+            </div>
+            <!--Dropdownlist Criteria End-->
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-top: -1%;">
+            <input type="text" style="width: 100%; height: 24px; margin-right: 15px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+            <span class="label label-default complete">&nbsp;&nbsp;</span>
+            <span ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCompleted'" class="label" style="color:#000;">{{field.T_LANG2_TEXT}}</span>
+            <span class="label label-primary green">&nbsp;&nbsp;</span>
+            <span ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblOngoing'" class="label" style="color:#000;">{{field.T_LANG2_TEXT}}</span>
+
+            <span class="label label-success rejected">&nbsp;&nbsp;</span>
+            <span ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReject'" class="label" style="color:#000;">{{field.T_LANG2_TEXT}}</span>
+
+            <span class="label label-success panic">&nbsp;&nbsp;</span>
+            <span ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPanic'" class="label" style="color:#000;">{{field.T_LANG2_TEXT}}</span>
+        </div>
+    </div>
+
+
+    <table class="border_table" arrow-selector style="width: 99% !important;display:block;overflow-x:auto;white-space:nowrap">
+        <thead>
+            <tr style="background: #BEE2D8; color: #576566; font-weight: bold; text-align: center; width: 100% !important">
+                <th colspan="3" style="width: 13%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequest'">{{field.T_LANG2_TEXT}}</th>
+                <th rowspan="3" style="width: 13%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPatientInfo'"><span style="margin-left: 10px;" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th colspan="3" style="width: 27%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAssign'">{{field.T_LANG2_TEXT}}</th>
+
+                @*<th colspan="2" style="min-width: 10%;max-width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME==((show==true)?'lblHosArrival':'lblAccept')">{{field.T_LANG2_TEXT}}</th>*@
+                <th colspan="2" style="min-width: 10%; max-width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAccept'">{{field.T_LANG2_TEXT}}</th>
+                @*<th colspan="2" style="min-width: 10%;max-width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME==((show==true)?'lblHosDep':'lblCaseRecived')">{{field.T_LANG2_TEXT}}</th>*@
+
+                @* previous *@
+                @*<th colspan="2" style="min-width: 10%; max-width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME==((show==true)?'lblHosArrival':'lblCaseRecived')">{{field.T_LANG2_TEXT}}</th>
+        <th colspan="2" style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME==((show==true)?'lblHosDep':'lblCaseArrival')">{{field.T_LANG2_TEXT}}</th>
+        <th colspan="2" style="min-width: 14%; max-width: 14%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME==((show==true)?'lblStnArrival':'lblDistinitation')"><span style="width: 14%;">{{field.T_LANG2_TEXT}}</span></th>*@
+                @* previous end *@
+
+
+                @* new *@
+
+
+
+                <th colspan="2" style="min-width: 10%; max-width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseRecived'">{{field.T_LANG2_TEXT}}</th>
+                <th colspan="2" style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseArrival'">{{field.T_LANG2_TEXT}}</th>
+                <th colspan="2" style="min-width: 14%; max-width: 14%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDistinitation'"><span style="width: 14%;">{{field.T_LANG2_TEXT}}</span></th>
+               
+                <th id="handover" colspan="3" style="width: 21%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHandover'">{{field.T_LANG2_TEXT}}</th>
+
+                <th colspan="2" style="min-width: 10%; max-width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHosArrival'">{{field.T_LANG2_TEXT}}</th>
+                <th colspan="2" style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHosDep'">{{field.T_LANG2_TEXT}}</th>
+                <th colspan="2" style="min-width: 14%; max-width: 14%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStnArrival'"><span style="width: 14%;">{{field.T_LANG2_TEXT}}</span></th>
+
+                @* end new *@
+
+
+
+
+
+                @*<th ng-show="showMe" id="panicked" colspan="3" style="width: 21%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'">{{field.T_LANG2_TEXT}}</th>*@
+
+                @*------------------------------------------------------------*@
+
+                @*<th ng-show="HADS" id="" colspan="2" style="width: 21%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospitalArrival'">{{field.T_LANG2_TEXT}}</th>
+
+        <th ng-show="HADS" id="" colspan="2" style="width: 21%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDeparture'">{{field.T_LANG2_TEXT}}</th>
+
+        <th ng-show="HADS" id="" colspan="2" style="width: 21%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStation'">{{field.T_LANG2_TEXT}}</th>*@
+
+
+            </tr>
+
+            <tr class="activeHover" style="background: #B2D2CD; color: #B95657; font-weight: bold; text-align: center; width: 100% !important;">
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 3%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestNo'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+                @*<th style="width: 3%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblProtocalNo'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>*@
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAssignTo'"><span style="margin-left: 10px;" class="spann" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAssignTDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAssignTTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAcceptDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAcceptTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+
+
+
+                @* new added *@
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseReceiveDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseReceiveTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseArrivalDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseArrivalTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDistStartDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDistStartTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+                <th style="width: 11%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHandoverTo'"><span style="margin-left: 10px;" class="hos" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHandoverDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHandoverTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+                @* end new added *@
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseReceiveDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseReceiveTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseArrivalDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCaseArrivalTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDistStartDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+                <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDistStartTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+
+
+
+                @*panicked*@
+                @*<th ng-show="showMe" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPanickedDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+        <th ng-show="showMe" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPanickedTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+        <th ng-show="showMe" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPanickedLocation'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>*@
+                @*panicked*@
+
+
+                @*Hospital_Arrival*@
+
+                @*----------------------------------------*@
+
+                @*<th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospitalArrivalDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+        <th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospitalArrivalTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>*@
+
+                @*Hospital_Arrival*@
+
+                @*Hospital_Departure*@
+
+                @*----------------------------------------*@
+                @*<th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospitalDepartureDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+        <th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospitalDepartureTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>*@
+                @*Hospital_Departure*@
+
+                @*Station_Arrival*@
+                @*<th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStationDate'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>
+        <th ng-show="HADS" style="width: 8%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStationTime'"><span class="spn" title="{{field.T_LANG2_TEXT}}">{{field.T_LANG2_TEXT}}</span></th>*@
+
+                @*Station_Arrival*@
+
+                @*<th id="thTest" style="width: 8%;text-align: center">Test 1</th>
+        <th style="width: 8%;text-align: center">Test 2</th>
+        <th style="width: 8%;text-align: center">Test 3</th>*@
+            </tr>
+        </thead>
+        <tbody class="div_back">
+            <tr id="tr_" class="activeHover" ng-class="{'complete': (D.HANDOVER_DATE != null),'rejected':(T_CAN_DATE != null )}" dir-paginate="D in obj.NotificationDashboard |filter : Search |itemsPerPage:15 | orderBy:'-T_BLD_GROUP_ID'" ng-click="setClickedRow($index,Z)" style="width: 100% !important;">
+
+                @*Request Details*@
+                <td ng-class="{'green': (D.T_REQUEST_DATE!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.T_REQUEST_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.T_REQUEST_TIME!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.T_REQUEST_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+                <td ng-class="{'green': (D.T_REQUEST_ID!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 3%; text-align: center;">{{D.T_REQUEST_ID}}</td>
+
+                @*<td ng-class="{'green': (D.T_REQUEST_ID!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 3%; text-align: center;">{{D.T_PROTOCAL_NO}}</td>*@
+
+
+                @*Pat Info*@
+                <td ng-class="{'green': (D.T_PAT_INFO!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 17%;"><span class="span" title="{{D.T_PAT_INFO}}">{{D.T_FIRST_NAME}}&nbsp;&nbsp;{{D.T_FATHER_NAME}}&nbsp;&nbsp;{{D.T_GFATHER_NAME}},&nbsp;&nbsp;{{D.T_AGE}},&nbsp;&nbsp;{{D.T_SHORT_GNDR_NAME}}</span></td>
+
+
+                @*Assigned Team*@
+                <td ng-class="{'green': (D.T_ASSIGN_TO!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 10%;"><span class="spann" title="{{D.T_ASSIGN_TO}}&#10;{{D.DOCTOR_INFO}}">{{D.T_USER_ID}}</span></td>
+
+
+                @*Assign Time*@
+                <td ng-class="{'green': (D.ASIGN_DATE!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.ASIGN_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.ASIGN_TIME!= null|| D.HANDOVER_TIME == null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.ASIGN_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+                @*<td ng-class="{'green': (D.ACCEPT_DATE!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID}" style="width: 5%;text-align: center;">{{show==true?D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/',''):D.ACCEPT_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>*@
+                @*<td ng-class="{'green': (D.ACCEPT_TIME!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID}" style="width: 5%;text-align: center;">{{show==true?D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/',''):D.ACCEPT_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>*@
+
+
+                @*Accept*@
+                <td ng-class="{'green': (D.ACCEPT_DATE!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.ACCEPT_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.ACCEPT_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.ACCEPT_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+
+
+
+
+
+                @* new *@
+                @*Scene Arrival*@
+                <td ng-class="{'green': (D.CASE_RECEIVED_DATE!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.CASE_RECEIVED_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.CASE_RECEIVED_TIME!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.CASE_RECEIVED_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+                @*Case Arrival*@
+                <td ng-class="{'green': (D.T_CASE_ARRIVAL!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.T_CASE_ARRIVAL.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.T_CASE_ARRIVAL!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.T_CASE_ARRIVAL.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+
+
+                @*Start For destionation*@
+                <td ng-class="{'green': (D.DIST_START_TIME!= null || D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.DIST_START_TIME.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.DIST_START_TIME!= null || D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.DIST_START_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+                @* end new *@
+                @*Hospital Name*@
+                <td ng-class="{'green': (D.HANDOVER_TO!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 11%; cursor: pointer" ng-dblclick="Hospital_Click($index)"><span class="hos" title="{{D.HANDOVER_TO}}">{{D.HANDOVER_TO}}</span></td>
+
+
+                @*Discharge Date*@
+                <td ng-class="{'green': (D.HANDOVER_DATE!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center; padding-right: 0.3%; padding-left: 0.3%;">{{D.HANDOVER_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center; padding-right: 0.3%; padding-left: 0.3%;">{{D.HANDOVER_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+                @*Hospital Arrival*@
+                <td ng-class="{'green': (D.HOSPITAL_ARRIVAL!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.HOSPITAL_ARRIVAL!= null|| D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+                @*Hospital Departure*@
+                <td ng-class="{'green': (D.HOSPITAL_DEPARTURE!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_DEPARTURE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.HOSPITAL_DEPARTURE!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_DEPARTURE.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+
+
+                @*Station Arrival*@
+                <td ng-class="{'green': (D.HOSPITAL_STATION!= null || D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_STATION.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+
+                <td ng-class="{'green': (D.HOSPITAL_STATION!= null || D.HANDOVER_TIME!= null),'panic':D.T_PANIC_ID,'complete':(D.HANDOVER_DATE != null),'rejected':(D.T_CAN_DATE != null)}" style="width: 5%; text-align: center;">{{D.HOSPITAL_STATION.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+
+
+               
+
+                @*panicked*@
+                @*<td ng-show="showMe" ng-class="{'red': (D.T_ENTRY_TIME!= null)}" style="width: 5%;text-align: center;padding-right: 0.3%; padding-left:0.3%;">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+        <td ng-show="showMe" ng-class="{'red': (D.T_ENTRY_TIME!= null)}" style="width: 5%;text-align: center; padding-right: 0.3%; padding-left:0.3%;">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+        <td ng-show="showMe" ng-class="{'red': (D.T_ADDRESS!= null)}" style="width: 8%;text-align: center; padding-right: 0.3%; padding-left:0.3%;"><span class="span" title="{{D.T_ADDRESS}}">{{D.T_ADDRESS}}</span></td>*@
+                @*panicked*@
+
+                @*hospital arrival*@
+                @*<td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_ARRIVAL!= null)}" style="width: 5%;text-align: center;padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+        <td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_ARRIVAL!= null)}" style="width: 5%;text-align: center; padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_ARRIVAL.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>*@
+
+
+                @*hospital arrival*@
+
+                @*hospital  departure*@
+                @*<td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_DEPARTURE!= null)}" style="width: 5%;text-align: center;padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_DEPARTURE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+        <td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_DEPARTURE!= null)}" style="width: 5%;text-align: center; padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_DEPARTURE.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>*@
+
+
+                @*hospital  departure*@
+
+                @*hospital  Station Arrival*@
+                @*<td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_STATION!= null)}" style="width: 5%;text-align: center;padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_STATION.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+        <td ng-show="HADS" ng-class="{'green': (D.HOSPITAL_STATION!= null)}" style="width: 5%;text-align: center; padding-right: 0.3%; padding-left:0.3%;">{{D.HOSPITAL_STATION.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>*@
+
+                @*hospital  Station Arrival*@
+
+            </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls style="margin-left: 39%;" max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+
+
+</div>

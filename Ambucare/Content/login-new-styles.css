@@ -1,0 +1,150 @@
+body {
+    /* height: 100%; */
+    /* width: 100%; */
+    background-image: url(../Images/l-images/LoginBG.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-size: 100% 100%; */
+    background-position: center center;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#footerBG {
+    background-image: url(../Images/l-images/footerBG.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    bottom: 0px;
+    height: 8%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+#login-content {
+    background-image: url(../Images/l-images/loginbody3.png);
+}
+
+#logoheader {
+    height: 125px;
+    width: 540px;
+    top: 0;
+    background-image: url(../Images/l-images/WeblabLOGOBG.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 999;
+    position: relative;
+}
+
+#amblogo {
+    height: 50%;
+    margin-top: 5%;
+}
+
+#headerbg {
+    background-repeat: no-repeat;
+    width: 82%;
+}
+
+#login-content {
+    margin: -30px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,.7);
+    width: 415px;
+    height: 500px;
+    z-index: 1;
+}
+
+#rszlogo {
+    width: 25%
+}
+
+#login-body {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+}
+
+#l-title span {
+    display: inline-block;
+    margin-top: 1%;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+span.gray {
+    color: #7a7a7a;
+}
+
+span.red {
+    margin-left: 20px;
+    color: #c12d2d;
+}
+
+.input-icon {
+    position: relative;
+}
+
+img#user {
+    position: absolute;
+    left: 0;
+    background: #333;
+    padding: 6px;
+    margin: 0px 0 0 0;
+    background-image: linear-gradient(to right,#416283,#35b783);
+    border-radius: 3px 0 0 3px;
+}
+
+.input-icon > .form-control {
+    padding-left: 33px;
+}
+
+h3#l-title {
+    padding-bottom: 17px;
+    margin-top: 0;
+}
+
+.cng-pass {
+    display: inline;
+    float: right;
+}
+
+.form-actions {
+    clear: both;
+    border: 0;
+    padding: 0 30px 25px;
+    margin-left: -110px;
+    margin-right: -30px;
+}
+
+.btn-text {
+    font-weight: 700;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+a.pull-left.btn-text {
+    margin-top: -1px;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+p.btn-separator {
+    padding-bottom: 20px;
+}
+
+.button-actions {
+    /* border-top: 1px solid #e3e; */
+    text-align: center;
+}

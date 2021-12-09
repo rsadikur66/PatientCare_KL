@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="T74046" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T74046">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_REQUEST_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="BILL_DATE" msprop:OraDbType="106" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T_BILL_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="COMPANY_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPANY_ADDRESS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPANY_EMAIL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPANY_CONTACT_NO" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPANY_WEB_ADDRESS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="EMERGENCY_CONTACT" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_PAT_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="PAT_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="GENDER" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="AGE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="MARITAL_STATUS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="NATIONALITY" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_MOBILE_NO" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="ADDRESS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_REQUEST_ID1" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_BILL_ID1" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="BILL_DATE1" msprop:OraDbType="106" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T_COST_TYPE_DTL_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_COST_TYPE_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="COST_TYPE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COST_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="BOX_PCS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="QUANTITY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RATE" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LINE_TOTAL" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VAT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DISCOUNT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pat_BarCode" msdata:DataType="System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Bill_BarCode" msdata:DataType="System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

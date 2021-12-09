@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "T74002";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74002Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74002Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74002Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+        <button ID="btnPrint" ToolTip="Print" class="Button Print" ng-click="Print()"></button>
+        
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74002Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div></div>
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12" hidden>
+                        
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblItemBrandId" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblItemBrandId'" for="txtItemBrandId">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtItemBrandId" type="text" ng-model="obj.T_ITEM_BRA_ID" class="form-control" style="width: 45%" readonly="readonly"/>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblEnglishName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblEnglishName'" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME"/>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblLocalName" ng-repeat="field in entity track by $index" class="ng-cloak" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblLocalName'" for="txtLocalName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table class="table table-bordered ng-cloak" style="margin: auto">
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>

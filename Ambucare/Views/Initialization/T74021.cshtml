@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "T74021";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74021Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74021Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74021Controller">
+            <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+            <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+            <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74021Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+           <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        @*<div class="col-lg-3 col-md-3 col-sm-3">
+                        <label id="lblResultClass" associatedcontrolid="txtResultClass"ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblResultClass'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                    </div>*@
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <input id="txtResultClass" type="hidden" class="form-control" ng-model="obj.T_DOC_DEPT_ID" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblEnglishName" style="width: 93px" associatedcontrolid="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtEnglishName" type="text" class="form-control control-label" ng-model="obj.T_LANG2_NAME" style="width: 85%" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblLocalName" style="width: 79px" associatedcontrolid="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtLocalName" type="text" class="form-control" ng-model="obj.T_LANG1_NAME" style="width: 85%" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+            </div>
+        </div>
+   
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

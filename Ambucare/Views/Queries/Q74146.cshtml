@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "Q74146";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- For Js file link -->
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Query/Q74146Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74146Service.js"></script>
+<!--For Calender-->
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+"
+      rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+<script src="~/Scripts/angular/angular.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="Q74146Controller">
+        <button id="btnPrint" tooltip="Print" class="Button Print" ng-click="Print(obj.t.selected.T_STORE_ID)"></button>
+    </div>
+}
+
+<!-- Start Main Container -->
+<div class="container" ng-app="Ambucare" ng-controller="Q74146Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div id="store" ng-show="Div_store" class="col-lg-12 col-md-12 col-sm-12 ng-cloak" style="margin: 1.6% auto; padding: 10px; border-radius: 5px; border: 1px solid #A21217; height: 68px;">
+            <!--1st part start-->
+            <div class="row">
+                @*<div class="col-lg-3 col-md-3 col-sm-3"></div>*@
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row text-center">
+                        <input id="rdoReportAccepted" type="radio" ng-model="obj.redubaton"  ng-value="'1'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRptAccepted'" class="ng-cloak" for="rdoReportAccepted">{{field.T_LANG2_TEXT}} </label>
+                        <input id="rdoReportRejected" type="radio" ng-model="obj.redubaton"  ng-value="'2'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRptRejected'" class="ng-cloak" for="rdoReportRejected">{{field.T_LANG2_TEXT}}</label>
+                        <input id="rdoReportStock" type="radio" ng-model="obj.redubaton"  ng-value="'3'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRptStock'" class="ng-cloak" for="rdoReportStock">{{field.T_LANG2_TEXT}}</label>
+                        <input id="rdoAllRequest" type="radio" ng-model="obj.redubaton"  ng-value="'4'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAllRequest'" class="ng-cloak" for="rdoAllRequest">{{field.T_LANG2_TEXT}}</label>
+                        
+                        <input id="rdoMedUsedByTeam" type="radio" ng-model="obj.redubaton"  ng-value="'5'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMedTeam'" class="ng-cloak" for="rdoMedUsedByTeam">{{field.T_LANG2_TEXT}}</label>
+                        
+                        <input id="rdoMedUsedOnReq" type="radio" ng-model="obj.redubaton"  ng-value="'6'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMedReq'" class="ng-cloak" for="rdoMedUsedOnReq">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 ng-cloak">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label id="lblStoreIdTo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreIdTo'" class="ng-cloak" for="ddlStoreIdTo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div  class="col-lg-3 col-md-3 col-sm-3" align="right">
+                        <label id="lblFromDate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFromDate'" class="ng-cloak" for="FromDate" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <ng-datepicker id="FromDate" ng-model="obj.T_FROM_DATE" name="dateFrom" type="text" view-format="DD/MM/YYYY">
+                        </ng-datepicker>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-3 col-md-3 col-sm-3" align="left">
+                        <label id="lblToDate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblToDate'" class="ng-cloak" for="dateTo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <ng-datepicker id="dateTo" ng-model="obj.T_TO_DATE" name="dateTo" type="text" view-format="DD/MM/YYYY">
+                        </ng-datepicker>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="ng-cloak select-box" style="float: left">
+                        <ui-select ng-model="obj.t.selected" on-select="onEventSelect(obj.t.selected.T_USER_ID)" id="ddlStoreIdTo" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 260px; max-width: 260px;">
+                            <ui-select-match placeholder="Select">{{$select.selected.T_USER_ID}}</ui-select-match>
+                            <ui-select-choices repeat="t in ambList | propsFilter: {T_USER_ID: $select.search}">
+                                <div ng-bind-html="t.T_USER_ID | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" id="ddlIStoreIdTo" ng-model="obj.T_AMBU_REG_ID" ng-bind="obj.T_AMBU_REG_ID=obj.t.selected.T_AMBU_REG_ID" />
+                        <input type="hidden" id="ddlIuserid" ng-model="obj.T_USER_ID" ng-bind="obj.T_USER_ID=obj.t.selected.T_USER_ID" />
+                    </div>
+                </div>
+                @*<table>
+            <tr>
+                <td>
+                    <label id="lblFromDate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFromDate'" class="ng-cloak" for="FromDate" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                </td>
+                <td>
+                    <ng-datepicker id="FromDate" ng-model="obj.T_FROM_DATE" name="dateFrom" type="text" view-format="DD/MM/YYYY">
+                    </ng-datepicker>
+                </td>
+                <td>
+                    <label id="lblToDate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblToDate'" class="ng-cloak" for="lblToDate" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                </td>
+                <td>
+                    <ng-datepicker id="dateTo" ng-model="obj.T_TO_DATE" name="dateTo" type="text" view-format="DD/MM/YYYY">
+                    </ng-datepicker>
+                </td>
+            </tr>
+        </table>*@
+
+
+
+            </div>
+        </div>
+        <!--1st part End-->
+    </div>
+
+    @*<table class="border_table" arrow-selector style="width: 99% !important;">
+            <thead>
+            <tr class="activeHover" style="background: #B2D2CD; color: #B95657; font-weight: bold; text-align: center; width: 100% !important;">
+                <th>Request Id</th>
+                <th>User Id</th>
+                <th>Pat Id</th>
+                <th>Pat Name</th>
+                <th>Cancel Reason</th>
+                <th>Cancel Date</th>
+            </tr>
+            </thead>
+            <tbody class="div_back">
+                <tr class="activeHover" dir-paginate="D in obj.RequestCanceledList  |itemsPerPage:12 |" ng-click="setClickedRow($index,Z)" style="width: 100% !important;">
+                    <td>{{D.T_REQUEST_ID}}</td>
+                    <td>{{D.T_USER_ID}}</td>
+                    <td>{{D.T_PAT_ID}}</td>
+                    <td>{{D.PAT_NAME}}</td>
+                    <td>{{D.CANCEL_DETAILS}}</td>
+                    <td>{{D.T_CAN_DATE}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls style="margin-left: 39%;" max-size="5"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>*@
+</div>
+

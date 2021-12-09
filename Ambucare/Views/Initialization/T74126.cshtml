@@ -1,0 +1,278 @@
+﻿@{
+    ViewBag.Title = "T74126";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!--test-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--test-->
+
+<script src="../../Apps/JSController/Initialization/T74126Controller.js"></script>
+<script src="../../Apps/JSService/LabelService.js"></script>
+<script src="../../Apps/JSService/Initialization/T74126Service.js"></script>
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -20px;
+    }
+    .select-box {
+        margin-bottom: 5px;
+    }
+    fieldset {
+        border: 1px solid #A21217;
+        border-radius: 5px;
+        padding: 10px
+    }
+</style>
+
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74126Controller">
+        <button id="btnSave" tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button id="btnDelete" tooltip="Delete" class="Button Delete"></button>
+        <button id="btnClear" tooltip="Clear" class="Button Clear"></button>
+    </div>
+}
+
+
+<div class="container" ng-app="Ambucare" ng-controller="T74126Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12" >
+           
+            <div class="row" style="margin: 1.0% auto; border: 1px solid #c12d2d; border-radius: 5px; padding: 10px; width: 100%;">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 163px">
+                            <label id="lblEmployee" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmployee'" for="txtEmployee">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.E.selected" id="Type" on-select="GetEmProData(obj.E.selected)" theme="select2" ng-change="Employee_Click(obj.E.selected.T_EMP_ID)" ng-disabled="obj.disabled" append-to-body="true" style="width: 50%;">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_FIRST_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat=" E in EmployeeList | propsFilter: {T_FIRST_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="E.T_FIRST_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlNationalityCode" ng-model="obj.T_COST_TYPE_ID" ng-bind="obj.T_COST_TYPE_ID=obj.E.selected.T_EMP_ID"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5"></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                       
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 163px">
+                            <label id="lblFirstName" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFirstName'" for="txtFirstName">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 220px">
+                            <input type="text" id="txtFirstName" ng-model="obj.T74126.T_FIRST_LANG2_NAME"/>
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 103px">
+                            <label id="lblLastName" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLastName'" for="txtLastName">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 240px">
+                            <input type="text" id="txtLastName" ng-model="obj.T74126.T_FATHER_LANG2_NAME"/>
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 164px">
+                            <label id="lblAddress" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAddress'" for="txtAddress">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 221px">
+                            <input type="text" id="txtAddress" ng-model="obj.T74126.T_ADDRESS1"/>
+                            <!--<textarea style="height: 100px; width: 100%" placeholder="Type here......"></textarea>-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-md-12 col-sm-12">
+                        <!--   <div class="col-lg-1 col-md-1 col-sm-1" style="width: 142px">
+                            <label id="lblAddress" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAddress'" for="txtAddress">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 220px">
+                            <input type="text" id="txtAddress" ng-model="obj.T74126.T_ADDRESS1" />
+                        </div>-->
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 163px">
+                            <label id="lblPermanentAddress" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPermanentAddress'" for="txtPermanentAddress">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 220px">
+                            <input type="text" id="txtPermanentAddress" ng-model="obj.T74126.T_ADDRESS2"/>
+                            <!--<textarea style="height: 100px; width: 100%" placeholder="Type here......"></textarea>-->
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 102px">
+                            <label id="lblMobile" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMobile'" for="txtMobile">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 243px">
+                            <input type="text" id="txtMobile" ng-model="obj.T74126.T_MOBILE_NO"/>
+                        </div>
+                        
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 162px">
+                            <label id="lblEmail" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmail'" for="txtEmail">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 217px">
+                            <input type="text" id="txtEmail" ng-model="obj.T74126.T_EMAIL_ID"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 100px">
+                            <label id="lblOuter" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblOuter'" for="chkOuter">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <input type="checkbox" id="chkOuter" ng-model="obj.T74126.T_EMP_STATUS" ng-click="Update_Click($index)" ng-checked="obj.T74126.T_EMP_STATUS='1'"/>
+                        </div>
+                        
+                         <div class="col-lg-1 col-md-1 col-sm-1" style="width: 103px" hidden="true">
+                            <label id="lblEmployeeId" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmployeeId'" for="txtEmployeeId">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3" style="width: 220px">
+                            <input type="hidden" id="txtEmployeeId" ng-model="obj.T74126.T_EMP_ID" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row" >
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.0% auto; border: 1px solid #c12d2d; border-radius: 5px; padding: 10px; width: 100%;">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    <!--<i ng-class="{'glyphicon glyphicon-minus':!tabPatInfo.open}"></i>-->
+                                    Product Information
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body" id="showPanel">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div>
+                                        <div ng-repeat="I in obj.Itemlist">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="border-bottom: 1px solid #c12d2d; margin-bottom: 10px;margin-right:-20px"/>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <span >Reg. No. : {{I.T_REGI_NO}}</span><br />
+                                                <span>Model No. : {{I.T_MODEL_NO}}</span><br />
+                                                <span>Engine No. : {{I.T_ENGIN_NO}}</span><br />
+                                                <span ng-model="productno" class="hidden">Product : {{$index}}</span><br />
+                                                   
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+
+                                                    
+                                                <span>Chesis No. : {{I.T_CHESES_NO}}</span><br />
+                                                <span>Description : {{I.T_DESC}}</span><br />
+                                                <span>emp : {{I.T_EMP_ID}}</span><br />
+                                                 
+                                                    
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <button id="btnEditProduct" style="float: right"  ng-click="EditProduct_Click($index)"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                <!--<button id="btnDeleteProduct"   ng-click="DeleteProduct_Click($index)"><span class="glyphicon glyphicon-trash"></span></button>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button id="btnShowProduct" class="btn btn-success" style="width: 130px; float: right" ng-click="ShowProduct_Click()">Add Product</button>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <!-- For Input Table -->
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div id="mainView">
+                                                <br />
+                                                <div ng-include="currentTab"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                            <script type="text/ng-template" id="tabPatInfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-1 col-md-1 col-sm-1" style="width:111px">
+                                    <label id="lblRegNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRegNo'" for="txtRegNo">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:259px"> 
+                                    <input type="text" id="txtRegNo" ng-model="obj.T74093.T_REGI_NO" ng-change="myFunc()"/>
+                                              
+                                </div>
+
+                                <div class="col-lg-1 col-md-1 col-sm-1" style="width:124px">
+                                   <label id="lblModelNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblModelNo'" for="txtModelNo">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:261px">
+                                    <input type="text" id="txtModelNo" ng-model="obj.T74093.T_MODEL_NO" />
+                                </div>
+
+                                <div class="col-lg-1 col-md-1 col-sm-1" style="width:105px">
+                                    <label id="lblEngineNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEngineNo'" for="txtEngineNo">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:150px">
+                                    <input type="text" id="txtEngineNo" ng-model="obj.T74093.T_ENGIN_NO" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-md-12 col-sm-12" >
+                                        <div class="col-lg-1 col-md-1 col-sm-1" style="width:107px">
+                                    <label id="lblChesisNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChesisNo'" for="txtChesisNo">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:266px">
+                                    <input type="text" id="txtChesisNo" ng-model="obj.T74093.T_CHESES_NO" />
+                                    <!--<textarea style="height: 100px;width: 100%" placeholder="Type here......"></textarea>-->
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1" style="width:129px">
+                                    <label id="lblDescription" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDescription'" for="txtDescription">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:244px">
+                                    <input type="text" id="txtDescription" ng-model="obj.T74093.T_DESC" />
+                                    <!--<textarea style="height: 100px;width: 100%" placeholder="Type here......"></textarea>-->
+                                </div>
+                                                
+                                                <div class="col-lg-1 col-md-1 col-sm-1" style="width:129px">
+                                    <label id="lblEmpId" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpId'" for="txtEmpId">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3" style="width:244px">
+                                    <input type="hidden" id="txtEmpId" ng-model="obj.T74093.T_EMP_ID" /> 
+                                                <input type="hidden" id="txtItemId" ng-model="obj.T74093.T_ITEM_ID" />
+                                </div>
+                            </div>
+                            
+                      <div style="float:right">
+                          <button id="buttonSave" ng-model="obj.buttonAdd" class="btn btn-success"   ng-click="save(productno,obj.T74093)">Save</button>  
+                          <button id="buttonClose" class="btn btn-green"  ng-click="Close()">Close</button> 
+                      </div>             
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

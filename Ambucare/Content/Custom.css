@@ -1,0 +1,472 @@
+﻿ 
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('../Images/bg.png');
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    overflow-x:hidden;
+
+}
+.logo-area {
+    margin-top: 4%;
+    margin-left: 4%;
+    width: 30%;
+}
+
+#box {
+    height: 400px;
+    width: 93%;
+    min-width: 80%;
+    margin-top: 0.5%;
+    margin-left: 5%;
+    /*border-radius: 15px;
+    border: 1px solid rgb(217, 220, 220);
+    background-color: #fff;
+    background-color: rgba(250, 250, 250, .7);*/
+}
+#title span {
+    display: inline-block;
+    margin-top: 1%;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+span.red {
+    margin-left: 20px;
+    color: #c12d2d;
+}
+
+span.gray {
+    color: #7a7a7a;
+}
+.innerPanel {
+    width: 100%;
+    clear: left;
+     
+}
+.leftPanel {
+    float: left;
+}
+.roundPanel {
+    height: 130px;
+    width: 130PX;
+    min-width: 100%;
+    margin-left: 20%;
+    border-radius: 70px;
+    
+}
+.tips {
+    margin-top: 25%;
+    margin-left: 25%;
+}
+.sidePanel {
+    height: 100px;
+    /*min-width: 65%;
+    max-width: 65%;*/
+    width: 70%;
+    padding-left: 7%;
+    padding-top: 1%;
+    margin-left: 4%;
+}
+.heading {
+    display: inline-block;
+    font-size: 1.4em !important;
+    font-weight: bold;
+    color: #c12d2d !important;
+}
+
+.sidePanel ul {
+    list-style-type: none;
+    padding-left: 18px;
+}
+
+.sidePanel ul li {
+    background-image: url(../Images/li.png);
+    background-repeat: no-repeat;
+    background-position: 0 3px;
+    margin-top: 1px;
+    padding-left: 15px;
+    margin-left: -7% !important;
+    font-size: .8em;
+    color: #7a7a7a;
+}
+
+.prdLsnc {
+    font-size: .8em;
+    color: #7a7a7a;
+    margin-left: 5%;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+.hospLogo {
+    margin-top: 7%;
+    margin-left: 10%;
+}
+
+
+.rightPanel {
+    float: right;
+}
+
+#login {
+    overflow: hidden;
+    background-image: url(../Images/numpadbg.png);
+    height: 357px;
+    width: 595px;
+    margin: 20px 25px;
+}
+
+.loginIcon {
+    margin: 50px 0 0 75px;
+}
+
+.inputPanel {
+    height: 40px;
+    width: 220px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.inputPanel img {
+    margin: 10px 5px -1px 13px;
+}
+
+.inputPanel input {
+    font-size: 1.5em;
+    width: 150px;
+    color: #c12d2d;
+    border: none;
+    text-transform: uppercase;
+}
+
+#namePanel {
+    padding-top: 3px;
+    margin: 75px 0 0 25px;
+}
+
+#passPanel {
+    margin: 5px 0 0 25px;
+}
+
+.rightPanel table {
+    margin: 20px 45px 0 0;
+}
+
+.rightPanel table button {
+    height: 55px;
+    width: 55px;
+    font-family: arial;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #888;
+    background: -moz-linear-gradient(#f3f3f3, #ccc);
+    background: -o-linear-gradient(#f3f3f3, #ccc);
+    background: -webkit-linear-gradient(#f3f3f3, #ccc);
+    background: linear-gradient(#f3f3f3, #ccc);
+    border: none;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#btn0 {
+    width: 114px;
+}
+
+#btnEnter {
+    font-size: .9em;
+    height: 114px;
+}
+
+#btnDot, #btnBS {
+    font-size: 1.5em;
+}
+
+.actionButton {
+    height: 72px;
+    width: 72px;
+    border: none;
+    -ms-border-radius: 35px;
+    border-radius: 35px;
+}
+
+#btnLogout {
+    margin: 10px 10px 10px 35px;
+    background: url(../Images/logout.png) no-repeat;
+}
+
+#btnLogin {
+    margin: 10px;
+    background: url(../Images/login.png) no-repeat;
+}
+
+#footer {
+    padding-top: 40px;
+    overflow: hidden;
+    width: 100%;
+    font-size: .7em;
+}
+
+#warning {
+    width: 550px;
+}
+
+#warning span {
+    color: #c12d2d;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 550px) {
+    #box {
+        font-size: 28px;
+        height: 700px;
+    }
+ 
+}
+
+/* For Gridview*/
+
+.row_selected td {
+    background-color: black !important; /* Add !important to make sure override datables base styles */
+}
+
+table.dataTable tr.odd:hover {
+    background-color: #DDEBEA;
+    cursor: pointer;
+}
+
+table.dataTable tr.even:hover {
+    background-color: #DDEBEA;
+    cursor: pointer;
+}
+/*Dropdown -------------------------------Start*/
+
+.selectize-control > .selectize-dropdown {
+    top: 36px;
+}
+/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+.select-box {
+    position: relative;
+    z-index: 1;
+}
+
+.alert-info.positioned {
+    margin-top: 1em;
+    position: relative;
+    z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
+}
+/*Dropdown -------------------------------End*/
+
+
+.omf-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 60px;
+    width: 95%;
+    height: 50vw;
+    background-color: rgba(128, 128, 128, 0.00);
+    overflow: auto;
+    /*overflow: hidden !important;*/
+    z-index: 99999;
+}
+
+.omf-modal .omf-modal-body {
+    width: 50%;
+    padding: 1px;
+    margin: auto;
+    margin-top: 125px;
+    margin-left: 340px;
+    background-color: #FFFFFF;
+    border-style: ridge;
+    /*border: 2px solid #c12d2d !important;*/
+    border-radius: 5px;
+}
+
+.omf-modal-header {
+    /*background-color: #c12d2d;*/
+    color: #ffffff;
+    text-align: center;
+    margin-left: -2px;
+    margin-top: -2px;
+    margin-right: -1px;
+    border-radius: 1px;
+}
+
+.omf-modal-header-Label {
+    width: 97%
+}
+
+.omf-modal-header-Close {
+    background: url(../../Images/Cancel_White.png) !important;
+    background-size: 15px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 3% !important;
+    padding-bottom: 7px !important;
+    border-color: #c12d2d !important;
+    float: right !important;
+}
+
+.omf-modal-div-placeholder {
+    margin: 5px 5px 0px 5px;
+}
+
+.omf-modal-placeholder {
+    width: 60%;
+    margin-left: 150px
+}
+
+.omf-modal-grid {
+    margin: 1px auto;
+    width: 100%;
+}
+.select2-container .select2-choice {
+    height: 22px !important;
+}
+.select2-container .select2-choice {
+    line-height: 22px !important;
+}
+
+.head-border {
+    /*border: 1px;
+    background: linear-gradient(to left, #85d2b3 30%, #86a3b1 90%);*/
+    background-image: url('../Images/title_background.png');
+    background-repeat: round;
+}
+.div_back {
+    background: linear-gradient(to right, #eaeff3 3%, #eef3f8 100%);
+}
+
+.head-grad {
+    border: 1px;
+    background: linear-gradient(to left, #85d2b3 30%, #86a3b1 90%);
+    
+}
+.logout_ltst {
+    display: none;
+    z-index: 9;
+    position: absolute;
+    left: 16.3%;
+    padding-top: 0;
+    top: 44px;
+    padding-left: 0.5%;
+    width: 11%;
+    /*color: #fff;*/
+    font-weight: 700;
+    /*background-color: #406683;*/
+    background-color: ghostwhite;
+    border-radius: 5px;
+}
+.borderColor {
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.previousToFirstDimmed {
+    display: block;
+    content: url('../Images/previousToFirstDimmed.png');
+}
+.previousToFirst {
+    display: block;
+    content: url('../Images/previousToFirst.png');
+}
+.previousDimmed {
+    display: block;
+    content: url('../Images/previousDimmed.png');
+}
+.previous {
+    display: block;
+    content: url('../Images/previous.png');    
+}
+
+.next {
+    display: block;
+    content: url('../Images/next.png');    
+}
+.nextDimmed {
+    display: block;
+    content: url('../Images/nextDimmed.png');
+}
+.nextToEnd {
+    display: block;
+    content: url('../Images/nextToEnd.png');
+}
+.nextToEndDimmed {
+    display: block;
+    content: url('../Images/nextToEndDimmed.png');
+}
+.activeHover:hover {
+    background-color: #DDEBEA;
+    /*background-color: #B5C8CF;*/
+    color: #191970;
+}
+
+/*select grid line*/
+.selected {
+    background-color: #708090;
+    color: white;
+    font-weight: bold;
+}
+
+.border_table th,.border_table td {
+    border: 2px solid #D3D8DC;
+}
+/*#footerBG table, tr, th, td {
+    border: none;
+}*/
+
+/*Start T74040*/
+
+.t40-panel{
+    min-height:620px;
+}
+
+/*End T74040*/
+
+/*Start Footer*/
+
+.footer {
+    position: absolute;
+    bottom: 8px !important;
+    width: 100%;
+    background-image: url('../Images/bottombarBG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/*End Footer*/
+
+.clt{text-align: left}
+.crt{text-align: right}
+.noPadding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.noLeftPadding {
+    padding-left: 0px !important;
+}
+.noRightPadding {
+    padding-right: 0px !important;
+}
+#entry-grid_paginate > .next {
+    margin-bottom: -12px !important;
+}
+#entry-grid_paginate > .previous {
+    margin-bottom: -12px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border: 1px solid #A21217;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: linear-gradient(to bottom, #7894AB 0%, #7894AB 100%);
+}
+/*#7894AB/**/

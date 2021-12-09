@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "Q74143";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /*table, tr, th, td {*/
+        /*border: 1px solid black;*/
+        /*text-align: center !important;*/
+        /*padding-bottom: 5px !important;*/
+        /*padding-top: 5px !important;*/
+    /*}*/
+
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    /*tr:hover {
+        background-color: #E17D7D;
+    }*/
+
+    .bt {
+        width: 100px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+
+    .spann {
+        display: inline-block;
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .hos {
+        display: inline-block;
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        text-align: left;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .spn {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .start {
+        width: 600px !important;
+    }
+
+    .green {
+        background-color: #BCDAF9;
+        color: #000000;
+    }
+
+    .btn {
+        background-color: #E17D7D;
+    }
+</style>
+<script src="~/Apps/JSController/Query/Q74143Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74143Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="Q74143Controller">
+        @*<button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+            <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+            <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>*@
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="Q74143Controller">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <input type="text" style="float: right; width: 15%; height: 25px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+    </div>
+    <table class="div_back border_table" arrow-selector style="width: 99% !important;">
+        <thead class="head-border">
+        <tr  style=" text-align: center; width: 100% !important">
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserId'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestId'" class="hidden">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblOperatorName'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLogInStatus'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDischargeStatus'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLogInAction'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDischargeAction'">{{field.T_LANG2_TEXT}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="activeHover" dir-paginate="D in obj.getAllGridData |filter : Search |itemsPerPage:10 | orderBy:'-T_ENTRY_TIME'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+            <td style="width: 5%; text-align: left; padding-left: 2px">{{D.T_USER_ID}}</td>
+            <td style="width: 5%;text-align: left" class="hidden">{{D.T_REQUEST_ID}}</td>
+            <td style="width: 10%; text-align: left; padding-left: 2px">{{D.T_OPERATOR_NAME}}</td>
+            <td style="width: 10%; text-align: left; padding-left: 2px">{{D.T_LOGIN_STATUS_DESC}}</td>
+            <td style="width: 10%; text-align: left; padding-left: 2px">{{D.T_DISCH_STATUS_DESC}}</td>
+            <td style="width: 5%; text-align: center;">
+
+                <img style="background-size: 20px; height: 25px !important; width: 25px !important;cursor: pointer" src="~/Images/{{D.IMAGE_SHOW}}" ng-click="LoggedOut_Click($index,D.T_USER_ID,D.T_DISCH_STATUS)" />
+                @*<button ID="btnLog" style="background-size: 20px; height: 25px !important; width: 25px !important;" value="{{D.T_LOGIN_STATUS == 1 ? 'Logout':'Login' }}" ng-click="LoggedOut_Click($index,D.T_USER_ID)" title="Login/Logout" class="Button Logout" ng-disabled="D.T_LOGIN_STATUS == 1" ng-style="{'cursor': D.T_LOGIN_STATUS == 1?'not-allowed':'pointer'}"></button>*@
+                @*<input type="button" value="{{D.T_LOGIN_STATUS == 1 ? 'Logout':'Login' }}" ng-click="LoggedOut_Click($index,D.T_USER_ID)" style="background: #c12d2d; color: white; border-radius: 5px; width: 60%; height: 80%" ng-disabled="D.T_LOGIN_STATUS == 1" ng-style="{'cursor': D.T_LOGIN_STATUS == 1?'not-allowed':'pointer'}"/>*@
+            </td>
+            <td style="width: 5%; text-align: center">
+                <button ID="btnDis" title="Discharge" style="margin-top: 2px;background-size: 20px; height: 25px !important; width: 25px !important;" class="Button Discharge" ng-click="Dicharged_Click($index,D.T_REQUEST_ID)" ng-disabled="D.T_DISCH_STATUS == 1" ng-style="{'cursor': D.T_DISCH_STATUS == 1?'not-allowed':'pointer'}" ng-click="Delete_Click()"></button>
+                @*<input type="button" value="Discharge" ng-click="Dicharged_Click($index,D.T_REQUEST_ID)" style="background: #c12d2d; color: white; border-radius: 5px; width: 80%; height: 60%"
+                            ng-disabled="D.T_DISCH_STATUS == 1" ng-style="{'cursor': D.T_DISCH_STATUS == 1?'not-allowed':'pointer'}"/>*@
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls style="margin-left: 39%;" max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+
+</div>
+

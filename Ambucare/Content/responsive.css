@@ -1,0 +1,44 @@
+/* This layout is Small Mobile device*/
+@media only screen and (max-width: 767px) {
+.logo{width:50%;margin-left:42px;}
+.single_promotion{margin-bottom:50px;}
+.newsletter_signup{overflow:hidden;margin-bottom:30px;}
+.testmonial_contant .tab-pane{margin:0;}
+a#simple-menu{display:block;}
+.footer_menu{display:none}
+#title span {font-size: 1em;font-weight: bold;text-transform: uppercase   }
+}
+
+/* This layout is Tablate device*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.logo{width:auto;}
+.testmonial_contant .tab-pane{margin:0;}
+a#simple-menu{display:none;}
+.footer_menu{display:block}
+}
+
+
+
+/* This layout is Medium device*/
+
+@media only screen and (min-width: 992px) {
+.logo{width:auto;}
+.testmonial_contant .tab-pane{margin:0 170px;}
+a#simple-menu{display:none;}
+.footer_menu{display:block}
+}
+
+
+
+/* This layout is larg device*/
+
+@media only screen and (min-width: 1200px) {
+.logo{width:auto;}
+.testmonial_contant .tab-pane{margin:0 170px;}
+a#simple-menu{display:none;}
+.footer_menu{display:block}
+
+}
+
+

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "T74056";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Apps/JSController/Initialization/T74056Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74056Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74056Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74056Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px; padding: 10px">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="hidden" ng-model="obj.T_TRIAGE_SEQ" style="border-color: #a21217" />
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 20%;">
+                                <label id="lblLang2Name" associatedcontrolid="txtLang2Name">English Name</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 30%;">
+                                <input id="txtLang2Name" type="text" ng-model="obj.T_LANG2_NAME" />
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 20%;">
+                                <label id="lblLang1Name" associatedcontrolid="txtLang1Name">Local Name</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 30%;">
+                                <input id="txtLang1Name" type="text" ng-model="obj.T_LANG1_NAME" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

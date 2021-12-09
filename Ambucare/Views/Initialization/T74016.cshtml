@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "T74016";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Initialization/T74016Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74016Service.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74016Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+<div id="container" ng-app="Ambucare" ng-controller="T74016Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10" style="text-align: center;">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px; padding: 8px">
+                    <div class="row text-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblCurrencyId" AssociatedControlID="txtCurrencyId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrencyId'" class="ng-cloak" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtCurrencyId" type="text" readonly="readonly" ng-model="obj.T_CURRENCY_ID" class="form-control validate[required]" style="width: 50%;float: left;" />
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="" AssociatedControlID="txtEnglishName" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" class="form-control validate[required]" />
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="" AssociatedControlID="txtLocalName" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblCurrency" AssociatedControlID="txtCurrency" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrency'" class="ng-cloak" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtCurrency" type="text" ng-model="obj.T_CURRENCY_NAME" class="form-control validate[required]" style="width: 70%;float: left;" />
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblCurrencyTK" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrencyTK'" class="ng-cloak" Text="" AssociatedControlID="txtCurrencyTK" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtCurrencyTK" type="text" ng-model="obj.T_CONVERTION_VALUE_TK" placeholder="00.00" class="form-control validate[required]" />
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

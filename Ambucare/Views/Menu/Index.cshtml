@@ -1,0 +1,337 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/menueng.css")" title="eng" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/menuarb.css")" title="arb" rel="alternate stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/ui-grid.min.css")" title="arb" rel="alternate stylesheet" type="text/css" />
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-hijri.js"></script>
+    <script src="~/Scripts/zebra_datepicker.js"></script>
+    <script src="~/Scripts/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jquery.validationEngine-en.js"></script>
+    <script src="~/Scripts/jquery.simplemodal.1.4.4.min.js"></script>
+    <script src="~/Scripts/angular/jquery.js"></script>
+    <script src="~/Scripts/angular/jquery.dataTables.js"></script>
+    <script src="~/Scripts/angular/angular.min.js"></script>
+    <script src="~/Scripts/angular/angular-datatables.js"></script>
+    <script src="~/Scripts/angular/angular-modal-service.js"></script>
+    <script src="~/Scripts/angular/angular-sanitize.js"></script>
+    @*<script src="~/Scripts/angular/xeditable.js"></script>
+        <script src="~/Scripts/angular/angular-mocks.js"></script>*@
+    <script src="~/Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/angular/angular-route.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/select.js"></script>
+    @*<script src="~/Scripts/angular/ng-map.js" title="map"></script>*@
+    <script src="~/Scripts/angular/ng-map.1.18.5.js" title="map"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBvK4WBt18RMBAKEjwPZ0bDIY3Vp6ekPbM" title="map"></script>
+    @*<script src="~/Scripts/angular/map_api.js"></script>*@
+    <script src="~/Scripts/angular/angularjs-google-maps.js" title="map"></script>
+    <script src="~/Scripts/angular/xeditable.js"></script>
+    <script src="~/Scripts/angular/angular-mocks.js"></script>
+    @*<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />*@
+    <script src="~/Scripts/Rating/jk-rating-stars.min.js"></script>
+    <script src="~/Scripts/Rating/script.js"></script>
+    <script src="~/Scripts/Module/fileUploader.js"></script>
+    <script src="~/Scripts/ChatScripts/angular-flash.js"></script>
+    <script src="~/Scripts/angular-base64-upload.js"></script>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+    <script src="~/Apps/app.js"></script>
+    <script src="~/Apps/JSService/Menu/MenuService.js"></script>
+    <script src="~/Apps/JSController/Menu/menuController.js"></script>
+    <style>
+        /*for TopBar css*/
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            /*width: 15%;*/
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .logout_ltst {
+            display: none;
+            z-index: 9;
+            position: absolute;
+            left: 21.9%;
+            padding-top: 0;
+            top: 44px;
+            padding-left: 0.5%;
+            width: 11%;
+            color: #fff;
+            font-weight: 700;
+            background-color: #406683;
+            border-radius: 5px;
+        }
+
+        .Logout {
+            margin-top: 2px;
+            background: url(../Images/LogOutR.png) no-repeat;
+            background-position: 3px 1px;
+            /* display: block; */
+            height: 29px;
+            /* width: 70px; */
+            width: 36px;
+            border: none;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            /* background-color: #BB2A2F; */
+            /* background-color: #E1E6EA !important; */
+            /* color: #F9FAFA; */
+        }
+
+        .col-lg-10 {
+            width: 83.33%;
+            margin: 0 auto;
+        }
+         
+    </style>
+</head>
+
+<body ng-app="Ambucare" ng-controller="menuController" ng-init="">
+
+<div id="topbar">
+
+    <div class="row">
+        <div class="col-lg-10">
+            <table style="width: 100%; border: none;">
+                <tbody style="display:table; width:100%;">
+                <tr style=" border: none; background: none;">
+                    <td style="width: 30%; border: none; position: relative; top: -15px;" class="td-no-bg">
+                        <img style="float: left; margin-left: 16px; margin-right: 10px;" src="@VirtualPathUtility.ToAbsolute("~/Images/user.png")" />
+                        <div class="t-user-name">
+                            <label style="font-size: 12px;" ID="lblUserId" class="ng-cloak">{{UserId}}</label><br />
+                            <label style="font-size: 12px; width: 100%; margin-right: 13px;" ID="lblUserName" class="ng-cloak">{{UserName}}</label>
+                        </div>
+                        <label style="position: relative; top: -10px; border: none; font-size: 15px; color: white; cursor: pointer; margin-top: 5px;">
+                            <img style="" src="@VirtualPathUtility.ToAbsolute("~/Images/arrow-down.png")" ng-click="onLogout()" />
+                        </label>
+                        <div class="t-panic">
+                            <img src="~/Images/Panic.png" style="padding-left: 10px; height: 30px; width: 40px;"/>
+                            <label style="position: relative; top: -9px;" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                    </td>
+                    <td style="width: 40%; padding-left: 10px; border: none;" class="td-no-bg">
+                        <div id="whiteLogo">
+                            <img style="margin-top: 10px;" src="@VirtualPathUtility.ToAbsolute("~/Images/ambucareLogo5.png")" alt="white logo" />
+                        </div>
+                    </td>
+                    <td style="width: 30%; border: none;position: relative; top: -20px;" class="td-no-bg">
+                        <div class="t-calendar">
+                            <img src="~/Images/calender.png"/>
+                            <span style="position: relative; top: -8px;">
+                                <script type="text/javascript">
+                                    document.writeln(moment().format('DD/MM/YYYY'));
+                                </script>
+                            </span>
+                                           
+                                        
+                        </div>
+                        <div class="t-form-info" style="border-right: none;">
+                            <label ID="lblFormInfo" class="ng-cloak" style="font-size: 13px; color: #5f6772; margin-right: 14px;">{{FName}}</label><br/>
+                            <img src="~/Images/patientPad.png" style="width: 10px; height: 15px;"/>
+                            <label ID="FName" class="ng-cloak">{{FCode}}</label>
+                        </div>
+                        <label style="display: none; background: bottom; border: none; font-size: 15px; color: white; cursor: pointer; margin-top: 5px;">
+                            <img src="@VirtualPathUtility.ToAbsolute("~/Images/teamNotification.png")"/>
+                        </label>
+                        <label style="display: none;"> <span style="width: 100px; display: block; color: #364E6F; font-weight: 700;">Contact Team</span></label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div id="divLogout" ng-hide="custom" class="logout_ltst">
+        <div>
+            <button Tooltip="Logout" class="Logout" ng-click="Logout()"></button>
+            <label style="vertical-align: middle; cursor: pointer; position: relative; top: -7px;" ng-click="Logout()">Logout</label>
+        </div>
+    </div>
+</div>
+
+@*<div id="topbar">
+       
+
+        <div id="whiteLogo" style="position: relative; top: 1px;margin-left: 40%;height: 100px;">
+            <img style="border-radius: 5px;margin-top: 0;display: block;width: 260px;position: absolute;bottom: 0;right: 0;left: 30px;z-index: 99999;top: 7px;" src="@VirtualPathUtility.ToAbsolute("~/Images/ambucareLogo.png")" alt="white logo" />
+        </div>
+
+        <div class="langList">
+            <span ng-click="onLangClick(1)">Türkiye</span><span>&nbsp;|&nbsp;</span>
+            <span ng-click="onLangClick(2)">English</span><span>&nbsp;|&nbsp;</span>
+        </div>
+        <div id="t-calendar">
+            <img src="/Images/calender.png" style="margin-top: 21px" ng-click="Panicked()">
+            <span style="margin-top: -25px;display: block;margin-left: 29px;">
+                <script type="text/javascript">
+                    document.writeln(moment().format('DD/MM/YYYY'));
+                </script>
+            </span>
+        </div>
+        
+
+        <div style="position: fixed;margin: 0; width: 105px;color:#364E6F;font-weight: 700; top: 9px; left: 4%;">
+            <img style="" src="@VirtualPathUtility.ToAbsolute("~/Images/user.png")" />
+           <br />
+            <label style="float: left;margin-top: -15%;margin-left: 28px; width: 185px;" ID="lblUserName" class="ng-cloak">{{UserName}}</label>
+        </div>
+
+        <div style="position: fixed;width:2%;top:16px;left:14%;border-left: 3px solid #83B8B2;padding-left: 10px;">
+            <label style="background: bottom; border: none; font-size: 15px; color: white; cursor: pointer">
+                <img style="" src="@VirtualPathUtility.ToAbsolute("~/Images/arrow-down.png")" ng-click="onLogout()"/>
+            </label>
+        </div>
+        
+        <div id="panicked">
+            <img src="/Images/Panic.png" style="width: 40px; height: 40px; cursor: pointer;margin-top: 12px" ng-click="Panicked()">
+            <label style="position: relative;top: -13px;" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'" class="ng-cloak">{{field.T_LANG2_TEXT}}</label>
+        </div>
+        <div id="divLogout" ng-hide="custom" class="logout_ltst">
+            <div>
+                <button Tooltip="Logout" class="Logout" ng-click="Logout()"></button>
+                <label style="vertical-align: middle; margin-top: -17px; cursor: pointer; display: inline-block;" ng-click="Logout()">Logout</label>
+            </div>
+        </div>
+    </div>*@
+
+<div class="clear"></div>
+<div id="options" data-ng-init="BackInit(BackURL)">
+
+    <button ID="btnTransaction" class="Button Transaction ng-cloak" ng-click="Menu(2)" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblTransaction'">{{field.T_LANG2_TEXT}}</button>
+    <button ID="btnQuery" class="Button Query ng-cloak" ng-click="Menu(4)" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblQuery'">{{field.T_LANG2_TEXT}}</button>
+    <button ID="btnReport" class="Button Report ng-cloak" ng-click="Menu(3)" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblReports'">{{field.T_LANG2_TEXT}}</button>
+    <button ID="btnInitialization" class="Button Setup Initialization ng-cloak" ng-click="Menu(1)" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblInitialization'">{{field.T_LANG2_TEXT}}</button>
+
+    <div id="navigation">
+
+        <button ID="btnBack" class="Button Back ng-cloak" ng-click="Back()" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblBack'">{{field.T_LANG2_TEXT}}</button>
+        <button ID="btnLogout" class="Button Logout ng-cloak" ng-click="Logout()" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblLogout'" style="margin-bottom: 10px">{{field.T_LANG2_TEXT}}</button>
+    </div>
+</div>
+
+<div id="container">
+    <span>
+        <label ID="ltrOption" class="ng-cloak">{{Labelmsg}}</label>
+        <img src="@VirtualPathUtility.ToAbsolute("~/Images/navdir.png")" id="navdir" alt="navdir"/>
+    </span>
+    <div id="leftcontent" class="icu">
+        <div ng-repeat="row in menus">
+            <div ng-repeat="dr in row">
+                <div ng-if="dr.T_FORM_TYPE_ID != 2">
+                    <div ng-if="dr.RowNumber < 15">
+                        <label id="ini_lc_setup" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                        @*<a id="ini_lc_setup" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                    </div>
+                </div>
+                <div ng-if="dr.T_FORM_TYPE_ID == 2">
+                    <div ng-if="dr.T_FORM_CODE == 'MnOpImg'">
+                        <img src="~/Images/MainOperation.png" alt="" style="height: 25px; width: 200px;"/>
+                    </div>
+                    <div ng-if="dr.T_FORM_CODE != 'MnOpImg'">
+                        <div ng-if="dr.Page_Type == 1">
+                            @*<a id="ini_lc_setupT" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                            <label id="ini_lc_setupT" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="centerleftcontent" class="opera">
+        <div ng-repeat="row in menus">
+            <div ng-repeat="dr in row">
+
+                <div ng-if="dr.T_FORM_TYPE_ID != 2">
+                    <div ng-if="dr.RowNumber >= 15 && dr.RowNumber <= 29 ">
+                        @*<a id="ini_clc_setup" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                        <label id="ini_clc_setup" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                    </div>
+                </div>
+                <div ng-if="dr.T_FORM_TYPE_ID == 2">
+                    <div ng-if="dr.T_FORM_CODE == 'PurImg'">
+                        <img src="~/Images/Purchase.png" alt="" style="height: 25px; width: 200px;"/>
+                    </div>
+                    <div ng-if="dr.T_FORM_CODE != 'PurImg'">
+                        <div ng-if="dr.Page_Type == 2">
+                            @*<a id="ini_clc_setupT" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                            <label id="ini_clc_setupT" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="centerrightcontent" class="opera">
+        <div ng-repeat="row in menus">
+            <div ng-repeat="dr in row">
+                <div ng-if="dr.T_FORM_TYPE_ID != 2">
+                    <div ng-if="dr.RowNumber >= 30 && dr.RowNumber <= 44 ">
+                        @*<a id="ini_crc_setup" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                        <label id="ini_crc_setup" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                    </div>
+                </div>
+                <div ng-if="dr.T_FORM_TYPE_ID == 2">
+                    <div ng-if="dr.T_FORM_CODE == 'SaleImg'">
+                        <img src="~/Images/Sales.png" alt="" style="height: 25px; width: 200px;"/>
+                    </div>
+                    <div ng-if="dr.T_FORM_CODE != 'SaleImg'">
+                        <div ng-if="dr.Page_Type == 3">
+                            @*<a id="ini_crc_setupT" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                            <label id="ini_crc_setupT" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rightcontent" class="opera">
+        <div ng-repeat="row in menus">
+            <div ng-repeat="dr in row">
+                <div ng-if="dr.T_FORM_TYPE_ID != 2">
+                    <div ng-if="dr.RowNumber >= 45 && dr.RowNumber <= 59 ">
+                        @*<a id="ini_rc_setup" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                        <label id="ini_rc_setup" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                    </div>
+                </div>
+                <div ng-if="dr.T_FORM_TYPE_ID == 2">
+                    <div ng-if="dr.T_FORM_CODE == 'CmnImg'">
+                        <img src="~/Images/Common.png" alt="" style="height: 25px; width: 200px;"/>
+                    </div>
+                    <div ng-if="dr.T_FORM_CODE != 'CmnImg'">
+                        <div ng-if="dr.Page_Type == 5">
+                            @*<a id="ini_rc_setupT" href="{{vrDir}}/{{dr.Menu_Name}}/{{dr.T_FORM_CODE}}" class="ng-cloak" ng-click="FormName(dr)" style="display: inline-block;">{{dr.T_LANG2_NAME}}</a>*@
+                            <label id="ini_rc_setupT" style="display: inline-block;cursor:pointer" class="ng-cloak" ng-click="FormName(dr)">{{dr.T_LANG2_NAME}}</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

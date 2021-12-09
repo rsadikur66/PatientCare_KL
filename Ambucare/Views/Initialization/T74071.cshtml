@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "T74071";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Apps/JSController/Initialization/T74071Controller.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSService/Initialization/T74071Service.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74071Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74071Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin: 1.6% auto; border: 2px solid #A21217; border-radius: 5px; padding: 10px">
+                <div>
+
+                </div>
+                <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                    <div class="col-lg-12 col-md-12 col-sm-12" hidden>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblRoleCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRoleCode'" class="ng-cloak" AssociatedControlID="txtRoleCode">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtRoleCode" type="text" ng-model="obj.T_ROLE_CODE" class="form-control" style="width: 45%" readonly="readonly" />
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" AssociatedControlID="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" class="form-control" required />
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" AssociatedControlID="txtLocalName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>
+
+
+

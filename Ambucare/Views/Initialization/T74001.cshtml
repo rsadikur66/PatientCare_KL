@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "T74001";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74001Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74001Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74001Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74001Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px; padding: 8px">
+                <div class="row text-center" style="padding: 8px 8px 8px 0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-inline">
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblItemId" AssociatedControlID="txtItemId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblItemId'" class="ng-cloak" Text="" >{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <input id="txtItemId" type="text" readonly="readonly" ng-model="obj.T_ITEM_ID" class="form-control validate[required]"/>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="" AssociatedControlID="txtEnglishName">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" class="form-control validate[required]"/>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="" AssociatedControlID="txtLocalName">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center" style="padding: 8px 8px 8px 0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-inline">
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblBrandId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBrandId'" class="ng-cloak" Text="" AssociatedControlID="ddlBrandId">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.l.selected" id="ddlBrandId" theme="select2" style="min-width: 177px;max-width: 180px" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="l in ItemBrand | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="l.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlBrandId1" ng-model="obj.T_ITEM_BRA_ID" ng-bind="obj.T_ITEM_BRA_ID = obj.l.selected.T_ITEM_BRA_ID" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblProductTypeId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblProductTypeId'" class="ng-cloak" Text="" AssociatedControlID="ddlTypeId">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.M.selected" id="ddlTypeId"  name='ddlTypeId' ng-change="Type_Click()" theme="select2" style="min-width: 177px;max-width: 185px" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="M in TypeData | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="M.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlTypeId1" ng-model="obj.T_TYPE_ID" ng-bind="obj.T_TYPE_ID = obj.M.selected.T_TYPE_ID" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblItemUMId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblItemUMId'" class="ng-cloak" Text="" AssociatedControlID="ddlUMId">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.N.selected" id="ddlUMId" name='ddlUMId'  @*ng-disabled="UMs.length == 0" ng-options="ddlUMId as ddlUMId.UMName for ddlUMId in UMs"*@ theme="select2" style="min-width: 177px;" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="N in TypeList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="N.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlUMId1" ng-model="obj.T_ITEM_UM_ID" ng-bind="obj.T_ITEM_UM_ID = obj.N.selected.T_ITEM_UM_ID" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center" style="padding-bottom: 8px; padding-top: 8px; ">
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-inline">
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <label id="lblItemImage" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblItemImage'" class="ng-cloak" Text="" AssociatedControlID="imgItemImage">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <input type="image" ng-src="{{imageSrc}}" style="height: 130px; width:122%; border: 1px solid #A21217;" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group">
+                            <input type="file" style="width: 122%" name="file" ng-model="obj.SelectedFileForUpload" id="imgInp" onchange="angular.element(this).scope().selectFileforUpload(this.files)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

@@ -1,0 +1,58 @@
+﻿
+<div ng-app="Ambucare" ng-controller="T74002Controller">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 div_back borderColor" style="margin: 1.6% auto; padding: 10px">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblItemBrandId" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblItemBrandId'" for="txtItemBrandId">{{field.T_LANG2_TEXT}} </label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtItemBrandId" type="text" ng-model="obj.T_ITEM_BRA_ID" class="form-control" style="width: 45%" readonly="readonly"/>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblEnglishName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblEnglishName'" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" style="width: 100%"/>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblLocalName" ng-repeat="field in entity track by $index" class="ng-cloak" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblLocalName'" for="txtLocalName">{{field.T_LANG2_TEXT}} </label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table class="table table-bordered ng-cloak " style="margin: auto">
+                    <tr>
+                        <td>
+                            <div class="table-responsive div_back">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstanceCallback" class="table table-hover"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>

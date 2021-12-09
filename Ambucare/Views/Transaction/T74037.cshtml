@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "T74037";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Apps/JSController/Transaction/T74037Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74037Service.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74037Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74037Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <!--working div-->
+        <div class="col-lg-12 col-md-12 col-sm-12" style=" border: 2px solid #e17d7d; border-radius: 5px;width: 900px; margin-left: 136px">
+           
+            @*<div id="DivMaritalStatus" class="tab-content col-lg-6 col-md-6 col-sm-6"  padding: 10px">*@
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblAmbCapaCode">Company</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <div class="ng-cloak select-box">
+                                            <ui-select ng-model="obj.C.selected" id="ddlAmbCapaCode" theme="select2" append-to-body="true" style="width: 100%">
+                                                <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                <ui-select-choices repeat="C in CompanyList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                    <div ng-bind-html="C.T_LANG2_NAME | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <input type="hidden" id="ddlIAmbCapaCode" ng-model="obj.T_COMPANY_ID" ng-bind="obj.T_COMPANY_ID=obj.C.selected.T_COMPANY_ID"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblPersonal" for="chkPersonal">Personal</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <input id="chkPersonal" ng-model="Chk.Person" ng-click="ChekPersonal_Click()"
+                                               name="string"
+                                               ng-true-value="'1'"
+                                               ng-false-value="'2'"
+                                               ng-change="string" type="checkbox"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblAmbulance" for="chkAmbulace">Ambulance</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <input id="chkAmbulace" ng-model="Chk.Ambulace" ng-click="ChekAmbulace_Click()"
+                                               name="string"
+                                               ng-true-value="'1'"
+                                               ng-false-value="'2'"
+                                               ng-change="string" type="checkbox"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div id="personal" ng-show="Div_Person">
+                                <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
+                                            <label id="lblPerson">Personal Type</label>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
+                                            <div class="ng-cloak select-box">
+                                                <ui-select ng-model="obj.E.selected" id="ddlPerson" theme="select2" append-to-body="true" style="width: 100%">
+                                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                    <ui-select-choices repeat="E in EmployeeList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                        <div ng-bind-html="E.T_LANG2_NAME | highlight: $select.search"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <input type="hidden" id="ddlIPerson" ng-model="obj.T_COMPANY_ID" ng-bind="obj.T_COMPANY_ID=obj.E.selected.T_EMP_TYP_ID"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 8px">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
+                                            <label id="lblPerName">Personal Name</label>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
+                                            <input id="txtPerName" ng-model="Person" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="Ambulace" ng-show="Div_Ambulace">
+                                <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
+                                            <label id="lblAmbulace">Ambulace</label>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
+                                            <div class="ng-cloak select-box">
+                                                <ui-select ng-model="obj.A.selected" id="ddlAmbulance" theme="select2" append-to-body="true" style="width: 100%">
+                                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                    <ui-select-choices repeat="A in AmbulanceList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                        <div ng-bind-html="A.T_LANG2_NAME | highlight: $select.search"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <input type="hidden" id="ddlIAmbulnace" ng-model="obj.T_COMPANY_ID" ng-bind="obj.T_COMPANY_ID=obj.A.selected.T_COMPANY_ID" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 8px">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
+                                            <label id="lblAmbulanceName">Ambulance Name</label>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
+                                            <input id="txtAmbulaceName" ng-model="Person" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @*</div>*@
+           
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div style="margin: 10px auto; border: 2px solid #e17d7d; border-radius: 5px; width: 900px;">
+                <div>
+                    <input type="button" style="background: url(../Images/plus.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 30px; height: 30px; float: right;margin:5px 25px 0 0; align-content: right" ng-click="Addrow(items)" />
+                </div>
+                <table class="table table-bordered" style="margin: 10px auto">
+                    <thead style="text-align: center">
+                        <tr>
+                            <!--<th>Add</th>-->
+                            <th bgcolor="#D8454B" style="color: #ffffff">Remove</th>
+                            <th bgcolor="#D8454B" style="color: #ffffff">Items</th>
+                            <th bgcolor="#D8454B" style="color: #ffffff">Price</th>
+                            <th bgcolor="#D8454B" style="color: #ffffff">Stock</th>
+                            <th bgcolor="#D8454B" style="color: #ffffff">Quantity</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  ng-repeat="obj in IssueInfo">
+                            <!-- <td>
+                                ng-repeat="obj in IssueInfo"
+                                <input type="button" class="AddButton" style="background: url(../Images/plus.png); background-size: 30px; background-repeat: no-repeat; background-position: center; width: 30px;" ng-click="Addrow(items)"/>
+                            </td>-->
+                            <td class="Hidden">{{$index}}</td>
+                            <td style="text-align: center">
+                                <input type="button" style="background: url(../Images/Reject.jpg); background-size: 20px; background-repeat: no-repeat; background-position: center; width: 20px; height: 25px;" ng-click="RemoveRow($index)" />
+                            </td>
+                            <td>
+                                <input type="text" id="txtItems{{$index}}" name="ItemCode" class="form-control" readonly="readonly" style="width: 100%" ng-dblclick="empType($index)" ng-model="obj.T_EMP_TYP_ID">
+                            </td>
+                            <td>
+                                <input type="text" id="txtPrice{{$index}}" name="Price" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_EMP_TYP_NAME">
+                            </td>
+                            <td>
+                                <input type="text" id="txtStock{{$index}}" name="Stock" class="form-control" readonly="readonly" style="width: 100%" ng-dblclick="emp($index)" ng-model="obj.T_EMP_ID">
+                            </td>
+                            <td>
+                                <input type="text" id="txtQuantity{{$index}}" name="Quantity" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.FullName">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

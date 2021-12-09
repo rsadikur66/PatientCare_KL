@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "T74115";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    a:hover {
+        background-color: white;
+        
+    }
+    /*Toggling Div---------------------------Start*/
+     .ultab {
+         list-style: none;
+         padding: 0;
+         margin-left: 160px;
+     }
+
+    .litab {
+        float: left;
+        border-bottom-width: 0;
+        margin: 3px 3px 3px 3px;
+        padding: 8px 5px 20px 5px;
+        background-color: #C12D2D;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: 0.2s;
+        margin-right: -2px;
+        width: 175px;
+        text-align: center;
+        height: 0px;
+    }
+
+
+
+    #mainView {
+        clear: both;
+        padding: 0 1em;
+    }
+
+    .active {
+        background-color: #CCCCCC;
+        color: #000000;
+    }
+    /*Toggling Div---------------------------End*/
+
+
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -20px;
+    }
+
+    fieldset {
+        border: 1px solid #A21217;
+        border-radius: 5px;
+        padding: 10px
+    }
+/*For PopUp start*/
+    /*.omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+    .omf-modal .omf-modal-body {
+        width: 68.25%;
+        padding: 1px;
+        margin: auto;
+        margin-top: 286px;
+        margin-left: 122px;
+        background-color: #FFFFFF;
+        border-style: ridge;
+    }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }*/
+
+/*For PopUp end*/
+</style>
+
+
+<script src="~/Apps/JSController/Transaction/T74115Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74115Service.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="../../Content/Custom.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74115Controller">
+        @*<button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>*@
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74115Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border-radius: 5px; padding: 10px">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8" style="border: 1px solid #A21217; border-radius: 5px; padding: 10px; padding-bottom: 8px; padding-top: 8px; width: 50%; margin-left: 10%;">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <span>Type : </span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="ng-cloak select-box">
+                            <ui-select ng-model="obj.t.selected" id="ddlType" theme="select2" on-select="Type(obj.t.selected.TYPE_ID)" append-to-body="true" style="width: 100%;">
+                                <ui-select-match placeholder="Select">{{$select.selected.TYPE_NAME}}</ui-select-match>
+                                <ui-select-choices repeat="t in TypeList | propsFilter: {TYPE_NAME: $select.search}">
+                                    <div ng-bind-html="t.TYPE_NAME | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            </div>
+            <br/>
+            <!--For Data Gridview start-->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <center>
+                        <table class="table-responsive">
+                            <tr>
+                                <td>
+                                    <div class="table-responsive">
+                                        <table class="table-responsive" id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstance" class="table table-hover" style="width: 800px;"></table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+            </div>
+            <!--For Data Gridview End-->
+        </div>
+    </div>
+    
+        </div>
+           

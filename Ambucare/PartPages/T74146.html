@@ -1,0 +1,214 @@
+﻿<style type="text/css">
+    /*table, tr, th, td {
+        border: 1px solid black;*/
+        /*text-align: center !important;*/
+        /*padding-bottom: 5px !important;*/
+        /*padding-top: 5px !important;*/
+    /*}*/
+
+    /*.selected {
+        background-color: #708090;
+        color: white;
+        font-weight: bold;
+    }*/
+
+    /*/*tr:hover {
+        background-color: #708090;
+    }*/
+
+    .bt {
+        width: 100px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+
+    .spann {
+        display: inline-block;
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .hos {
+        display: inline-block;
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        text-align: left;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .spn {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .start {
+        width: 600px !important;
+    }
+
+    .green {
+        background-color: #BCDAF9;
+        color: #000000;
+    }
+
+    .error {
+        color: red !important;
+    }
+</style>
+<div class="container" ng-app="Ambucare" ng-controller="T74146Controller" name="obj.myDiv" novalidate ng-form>
+    <center>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 div_back borderColor" style="margin: 2.8% auto;">
+                        <div class="row" style="padding-bottom: 4px; padding-top: 8px;">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblMessageCode" style="float: right;" for="txtMessageCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMessageCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.msgcode.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtMessageCode" name="msgcode" type="text" ng-model="obj.T_MSG_CODE" style="width: 96%;" next-focus tabindex="1" required />
+                                    <input id="txtMessageId" type="text" ng-model="obj.T_MSG_ID" style="width: 96%;" hidden />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblEnglishName" style="float: right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.engmsg.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtEnglishName" type="text" name="engmsg" ng-model="obj.T_LANG2_MSG" style="width: 96%" next-focus tabindex="2" required />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblLocalName" style="float: right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.locmsg.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_MSG" style="width: 96%" name="locmsg" next-focus tabindex="3" required />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblFormCode" style="float: right;" for="ddlFormCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFormCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.frmcd.$error.required"><span class="error">*</span></span></label>
+                                    
+                                </div>
+
+                                <!--<div class="col-lg-7 col-md-7 col-sm-7 ng-cloak select-box">
+                                    <ui-select ng-model="obj.F.selected" id="ddlFormCode" theme="select2" style="min-width: 151px; width: 150px;" append-to-body="true" next-focus tabindex="4" required>
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_FORM_CODE}}</ui-select-match>
+                                        <ui-select-choices repeat="F in FormCode | propsFilter: {T_FORM_CODE: $select.search}">
+                                            <div ng-bind-html="F.T_FORM_CODE | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                                    <input id="ddlFormCode1" ng-model="obj.T_FORM_CODE" ng-bind="obj.T_FORM_CODE = obj.F.selected.T_FORM_CODE" hidden />
+                                    
+                                </div>-->
+                                
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <div class="ng-cloak select-box">
+                                        <ui-select ng-model="obj.F.selected" id="ddlFormCode" theme="select2" style="width: 264px;" append-to-body="true" next-focus tabindex="4" on-select="ddd()">
+                                            <ui-select-match placeholder="Select">{{$select.selected.T_FORM_CODE}}</ui-select-match>
+                                            <ui-select-choices repeat="F in FormCode | propsFilter: {T_FORM_CODE: $select.search}">
+                                                <div ng-bind-html="F.T_FORM_CODE | highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <!--<span ng-show="obj.myDiv.frmcd.$error.required"><span class="error">*</span></span>-->
+                                        <input type="hidden" id="ddlFormCode1" name="frmcd" ng-model="obj.T_FORM_CODE" ng-bind="obj.T_FORM_CODE = obj.F.selected.T_FORM_CODE" style="width: 10px" required=""/>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblActive" style="float: right;" for="chkBoxActive" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input type="checkbox" id="chkBoxActive" ng-model="obj.T_ACTV_STTS" ng-true-value="'1'" ng-false-value="''" style="float: left;" next-focus tabindex="5" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="row">
+                    <div>
+                        <input type="text" style="float: right; width: 25%; height: 25px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+                    </div>
+                    <table class="div_back border_table" arrow-selector style="width: 100% !important; margin-top: 10px">
+                        <thead>
+                        <tr class="head-border" style="color: white; text-align: center; width: 100% !important">
+                            <th style="width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblProductID'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                            <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMessageCode'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                            <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                            <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                            <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFormCode'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                            <th style="width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="activeHover" dir-paginate="D in obj.getAllGridData |filter : Search |itemsPerPage:10 | orderBy:'-T_FORM_CODE'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+                            <td style="width: 10%; text-align: left; padding-left: 2px" class="hidden">{{D.T_MSG_ID}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_MSG_CODE}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_LANG2_MSG}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_LANG1_MSG}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_FORM_CODE}}</td>
+                            <td style="width: 10%; text-align: center;">
+                                <input type="checkbox" id="chkBoxActivegrid" ng-model="D.T_ACTV_STTS" ng-true-value="'1'" ng-false-value="''" disabled/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls max-size="5"
+                                             direction-links="true"
+                                             boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </center>
+</div>

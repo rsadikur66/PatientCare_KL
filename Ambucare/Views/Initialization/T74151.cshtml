@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Apps/JSController/Initialization/T74151Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74151Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+<style>
+    .error {
+        color: red !important;
+    }
+</style>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74151Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="SaveClick()" ng-disabled="obj.myDiv.$invalid"></button>
+        @*<button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>*@
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74151Controller" name="obj.myDiv" novalidate ng-form>
+    <center>
+    <div style="width: 70% !important; border-radius: 5px; padding: 10px">
+        <div class="col-lg-12 col-md-12 col-sm-12 div_back" style="margin: 2.8% auto; border: 1px solid #000000; border-radius: 5px">
+            <div class="row" style="padding-bottom: 4px; padding-top: 8px;">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <input id="txtResp" type="hidden" ng-model="obj.T_RESP" />
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblRespLower" style="float: right;" for="txtRespLower" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRespLower'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtRespLower" type="text" ng-model="obj.T_RESP_LOWER" style="width: 96%" next-focus tabindex="1" required /><span ng-show=""></span><span class="error">*</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblRespUpper" style="float: right;" for="txtRespUpper" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRespUpper'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtRespUpper" type="text" ng-model="obj.T_RESP_UPPER" style="width: 96%" next-focus tabindex="2" required /><span ng-show=""></span><span class="error">*</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="div_back" style="width: 70% !important; margin-top: 35px;  border-radius: 5px; border: 1px solid black">
+        <table class="border_table" arrow-selector style="width: 98% !important; margin-top: 10px;margin-bottom: 10px;">
+            <thead>
+                <tr style=" color: white; text-align: center; width: 100% !important" class="head-border">
+                    <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRespLower'" class="ng-cloak">Respiratory Lower</th>
+                    <th style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRespUpper'" class="ng-cloak">Respiratory Upper</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="activeHover" dir-paginate="D in obj.getAllRespData |filter : Search |itemsPerPage:10 | orderBy:'T_RESP'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+                    <td style="width: 5%; text-align: left; padding-left: 2px">{{D.T_RESP_LOWER}}</td>
+                    <td style="width: 5%; text-align: left; padding-left: 2px">{{D.T_RESP_UPPER}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="10"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+    </center>
+</div>

@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "T74135";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Transaction/T74135Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74004Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74066Controller.js"></script>
+<script src="~/Apps/JSController/Transaction/T74132Controller.js"></script>
+<script src="~/Apps/JSController/Transaction/T74136Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74132Service.js"></script>
+<script src="~/Apps/JSService/Transaction/T74136Service.js"></script>
+<script src="~/Apps/JSService/Transaction/T74041Service.js"></script>
+<script src="~/Apps/JSService/Transaction/T74135Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74004Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74066Service.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    /*Toggling Div---------------------------Start*/
+    .ultab {
+        list-style: none;
+        padding: 0;
+        margin: auto;
+        margin-top: 10px;
+        margin-left: 15%;
+    }
+
+    .litab {
+        float: left;
+        border-bottom-width: 0;
+        margin: 3px 3px 3px 3px;
+        padding: 8px 5px 25px 5px;
+        background-color: #239e6b80;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: 0.2s;
+        margin-right: -2px;
+        width: 175px;
+        text-align: center;
+        height: 0px;
+        cursor: pointer;
+    }
+
+    .error {
+        color: red !important;
+    }
+
+    #mainView {
+        clear: both;
+        padding: 0 1em;
+        margin-top: 10px;
+    }
+
+    .active {
+        background-color: #CCCCCC;
+        color: #000000;
+    }
+    
+    /*Toggling Div---------------------------End*/
+</style>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74135Controller" name="obj.myDiv" novalidate ng-form>
+        <button id="btnSave" title="Save" class="Button Save" ng-click="onSave()" ng-disabled="obj.myDiv.$invalid"></button>
+        <button ID="btnClear" title="Clear" class="Button Clear" ng-click="Clear_Click()"></button>
+    </div>
+}
+<div ng-app="Ambucare" ng-controller="T74135Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div id="tabs" style="text-align: center">
+                    <ul class="ultab">
+                        <li class="litab" style="width: 150px" ng-repeat="tab in tabs"
+                            ng-class="{active:isActiveTab(tab.url)}"
+                            ng-click="onClickTab(tab)">{{tab.title}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+        </div>
+    </div>
+    @*<div class="row">*@
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+    @*</div>*@
+</div>
+

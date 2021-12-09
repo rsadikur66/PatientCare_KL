@@ -1,0 +1,213 @@
+﻿
+<style>
+
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -12px;
+    }
+
+    fieldset {
+        border: 1px solid #A21217;
+        border-radius: 5px;
+        padding: 10px
+    }
+
+    .error {
+        color: red !important;
+    }
+
+</style>
+
+
+<div ng-app="Ambucare" ng-controller="T74138Controller" style="width: 90%;">
+    
+    <!--<div class="container">
+        <fieldset>
+            <legend id="lblPatientInfo" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatientInfo'" style="text-align: center">{{field.T_LANG2_TEXT}}</legend>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 " style="margin-top: 6px;">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label id="lblPatNationalId" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatNationalId'" for="txtPat_NationalId" style="float: right;">{{field.T_LANG2_TEXT}}<span class="error">*</span></label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+
+                        <input id="txtPat_NationalId" type="text" ng-model="obj.t74046.T_NATIONAL_ID" style="width: 100%;" numbers-only required next-focus tabindex="11"/>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" id="lblFullName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblFullName'" for="txtFirstName">{{field.T_LANG2_TEXT}}<span class="error">*</span></label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input id="txtFirstName" name="fullname" ng-model="obj.t74046.T_FIRST_LANG2_NAME" type="text" style="width: 100%;" ng-dblclick="PatInfo()" required next-focus tabindex="1"/>
+                        <input id="txtPatId" ng-model="obj.t74041.T_PAT_ID" type="hidden" style="width: 140px;"/>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" id="lblFathersName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblFathersName'" for="txtFathersName">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input id="txtFathersName" ng-model="obj.t74046.T_FATHER_LANG2_NAME" type="text" style="width: 100%;" next-focus tabindex="2"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label style="float: right;" id="lblGFathersName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblGFathersName'" for="txtGFathersName">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtGFathersName" ng-model="obj.t74046.T_GFATHER_LANG2_NAME" type="text" style="width: 100%;" next-focus tabindex="3"/>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label style="float: right;" id="lblFamilyName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblFamilyName'" for="txtFamilyName">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtFamilyName" ng-model="obj.t74046.T_FAMILY_LANG2_NAME" type="text" style="width: 100%;" next-focus tabindex="4"/>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label style="float: right;" id="lblAge" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAge'" for="txtAge">{{field.T_LANG2_TEXT}} <span class="error">*</span></label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtAge" type="text" style="width: 85%;" ng-model="obj.t74041.T_AGE" required name="ageLevel" numbers-only next-focus tabindex="5"/>&nbsp;<span>yrs</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 5px">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label id="lblGender" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblGender'" for="ddlGenName" style="float: right;">{{field.T_LANG2_TEXT}}<span class="error">*</span></label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 ng-cloak select-box">
+                        <ui-select ng-model="obj.G.selected" id="ddlGenName" theme="select2" style="min-width: 155px; width: 155px;" append-to-body="true" next-focus tabindex="6">
+                            <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                            <ui-select-choices repeat="G in gender | propsFilter: {T_LANG2_NAME: $select.search}">
+                                <div ng-bind-html="G.T_LANG2_NAME | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" id="ddlGenId" ng-model="obj.t74046.T_SEX_CODE" ng-bind="obj.t74046.T_SEX_CODE = obj.G.selected.T_SEX_CODE" name="gender" required style="width: 124px"/>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" id="lblContactNo" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblContactNo'" for="txtContactNo">{{field.T_LANG2_TEXT}}<span class="error">*</span></label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input id="txtContactNo" type="text" style="width: 100%;" ng-model="obj.t74046.T_MOBILE_NO" name="contactNo" required numbers-only next-focus tabindex="7"/>
+                        <span ng-show="obj.myDiv.contactNo.$error.required"></span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label id="lblAltContactNo" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAltContactNo'" for="txtAltContactNo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input id="txtAltContactNo" type="text" style="width: 100%;" ng-model="obj.t74046.T_ALT_MOBILE_NO" numbers-only next-focus tabindex="8"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 5px">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" id="lblProblem" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblProblem'" for="txtProblem">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input id="txtProblem" type="text" style="width: 100%;" ng-model="obj.t74041.T_PROBLEM" name="problem" required next-focus tabindex="9"/>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top: -11px;">
+                        <label style="float: right;" id="lblProblemDuration" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblProblemDuration'" for="txtProblemDuration">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top: -11px;">
+                        <input id="txtProblemDuration" type="text" style="width: 100%;" ng-model="obj.t74041.T_PROBLEM_DURATION" next-focus tabindex="10"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>-->
+    <br/>
+    <div>
+        <div class="row div_back" style="margin: -5px -86px -11px 5px; padding: 5px">
+            <!--<div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: left">
+                            <label id="lblGoToDestination" style="background: #C12D2D;color: white;border-radius: 5px;width: 40%;text-align: center;cursor: pointer;" ng-click="onGoDestination()">Go To Destination</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-8 col-md-8 col-sm-8 ">
+                    
+                    <div style="width: 100%">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <label id="lblCurrLocation" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTeamLoc'">{{field.T_LANG2_TEXT}}</label>
+                            <input type="text" gm-places-autocomplete ng-model="autocomplete" style="width: 66%;" required next-focus tabindex="12"/>
+                            <input id="txtPosLat" type="hidden" ng-model="obj.t74041.T_LATITUDE" ng-bind="obj.t74041.T_LATITUDE=lat" name="Currlocation" required/>
+                            <input id="txtPosLng" type="hidden" ng-model="obj.t74041.T_LONGITUDE" ng-bind="obj.t74041.T_LONGITUDE=lng"/>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblTotalDistance" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTotalDistance'" for="txtEstemetedDistance">{{field.T_LANG2_TEXT}}</label>
+                            <input id="txtEstemetedDistance" type="text" style="width: 48%;" ng-model="obj.t74041.T_APPRX_DIST" ng-bind="obj.t74041.T_APPRX_DIST=map.directionsRenderers[0].directions.routes[0].legs[0].distance.text" required next-focus tabindex="13"/>
+                        </div>
+
+                    </div>
+                    <div style="width: 100%">
+                        <div class="col-lg-8 col-md-8 col-sm-8  ng-cloak select-box" style="padding-right: 0px;">
+                            <label id="lblHospitalName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblHospitalName'" for="txtEstemetedDistance">{{field.T_LANG2_TEXT}}</label>
+                            <ui-select ng-model="obj.k.selected" id="ddlAmbName" theme="select2" style="width: 63%;"  on-select="onAmbSearch(obj.k.selected.latitude,obj.k.selected.longitude,obj.k.selected.T_SITE_CODE)" tabindex="15">
+                                <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                <ui-select-choices repeat="k in places | propsFilter: {T_LANG2_NAME: $select.search}">
+                                    <div ng-bind-html="k.T_LANG2_NAME | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+
+                            <button id="btnSave" style="margin-top: -15px !important;padding: 5px !important;height: 20px !important; background-size: 20px; background-position-y: -1px; width: 25px;" tooltip="Save" title="Save Hospital Destination" class="Button Save" ng-click="saveRequestHospital()"></button>
+                            <!--<input type="Button" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSaveHosDes'" class="ng-cloak"
+                                   value="{{field.T_LANG2_TEXT}}"  style="border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 0px;  color: #ffffff; text-align: center; cursor: pointer; width: 92%" />-->
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEstemetedTime" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblEstemetedTime'" for="txtEstemetedTime">{{field.T_LANG2_TEXT}}</label>
+                            <input id="txtEstemetedTime" type="text" style="width: 49%; margin-left: 14%" ng-model="obj.t74041.T_APPRX_TIME" ng-bind="obj.t74041.T_APPRX_TIME=map.directionsRenderers[0].directions.routes[0].legs[0].duration.text" next-focus tabindex="14"/>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img src="../Images/ArrivalHospital.png" style="height: 60px; width: 60px; cursor: pointer" ng-click="onIconClick('ah')" id="txtArrivalHospital" title="Arrival at Hospital" ng-show="obj.T_TEAM_ARVL_HOS==null"/>
+                    <img src="../Images/Departure From Hospital.png" style="height: 60px; width: 60px; cursor: pointer" ng-click="onIconClick('dh')" id="txtDepartureHospital" title="Departure from Hospital" ng-show="obj.T_TEAM_DEPT_HOS==null"/>
+                    <img src="../Images/Arrival On Garage.png" style="height: 60px; width: 60px; cursor: pointer" ng-click="onIconClick('as')" id="txtArrivalStation" title="Arrival at Station" ng-show="obj.T_TEAM_ARVL_STN==null"/>
+                    <img src="../Images/ReadyForNxtPat.png" style="height: 60px; width: 60px; cursor: pointer" ng-click="onIconClick('rd')" id="txtReadyForNxtPat" title="Ready for Next Request" ng-show="obj.T_RDY_FOR_NXT_PAT==null"/>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div id="gmap" style="border: 1px solid #adadad; border-radius: 5px; margin: -5px -86px -11px 5px;">
+
+            <ng-map center="{{cx.latitude}}, {{cx.longitude}}" zoom="15" style="height: 400px">
+                <directions draggable="true"
+                            panel="directions-panel"
+                            travel-mode="DRIVING"
+                            waypoint={{ waypoints }}
+                            origin="{{lat}},{{lng}}"
+                            destination="{{testLat.latitude}},{{testLat.longitude}}"
+                            suppress-markers="true">
+                </directions>
+                <!--<marker ng-repeat="p in places track by $index" position="{{p.latitude}},{{p.longitude}}" icon="../Images/hospital_2.png" on-click="showCity(event,p)"></marker>-->
+                <marker ng-repeat="p in places track by $index" position="{{p.latitude}},{{p.longitude}}" icon="../Images/HospitalLoc.png" on-click="showCity(event,p)"></marker>
+                <marker position="{{lat}}, {{lng}}"></marker>
+                <shape id="circle" name="circle" centered="true" focus="true"
+                       stroke-color='#FF0000' stroke-opacity="0.8" stroke-weight="2"
+                       center="{{new.latitude}}, {{new.longitude}}" radius="100" editable="false"></shape>
+            </ng-map>
+        </div>
+    </div>
+</div>

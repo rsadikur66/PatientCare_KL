@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "T74096";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74096Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74096Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="../../Apps/JSFactory/Initialization/T74096PatFactory.js"></script>
+<script src="../../Apps/JSService/Transaction/T74015Service.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74096Controller">
+        <button id="btnSave" tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button id="btnDelete" tooltip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button id="btnClear" tooltip="Clear" class="Button Clear" ng-click="Clear()"></button>
+        <!--<button id="btnPrint" tooltip="Print" class="Button Print" ng-click="Print()"></button>-->
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74096Controller">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div style="margin: 2% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <center>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="col-md-3" style="text-align: right">
+                                <label id="lblZone" for="ddlZoneName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblZone'">{{field.T_LANG2_TEXT}}</label>
+                                @*<span style="font-weight: bold;">Zone : </span>*@
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7" style="text-align: left">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.z.selected" on-select="SiteList(obj.z.selected.T_ZONE_CODE)" id="ddlZoneName" theme="select2" append-to-body="true" style="width: 100%">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="z in zoneList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="z.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlZoneCode" ng-model="obj.T_REGION_CODE" ng-bind="obj.T_REGION_CODE=obj.z.selected.T_ZONE_CODE"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+
+                        <div class="col-lg-12" style="margin-top: 10px;">
+                            <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right">
+                                <label id="lblHospital" for="ddlSiteName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHospital'">{{field.T_LANG2_TEXT}}</label>
+                                @*<span style="font-weight: bold;">Hospital : </span>*@
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7" style="text-align: left">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.s.selected" id="ddlSiteName" on-select="GetGridAllData(obj.T_SITE_CODE)" theme="select2" append-to-body="true" style="width: 100%">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="s in sss | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="s.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlSiteCode" ng-model="obj.T_SITE_CODE" ng-bind="obj.T_SITE_CODE=obj.s.selected.T_SITE_CODE"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div style="margin: 10px auto;  width: 635px;">
+                <input type="text" style="width: 25%; height: 28px;"placeholder="Search...."  ng-model="search" />
+                <div style="border: 1px solid #A21217; border-radius: 5px;">
+                    <center>
+                        <table class="table table-bordered ng-cloak" style="margin: auto">
+                            <thead style="text-align: center">
+                                <tr bgcolor="#D8454B" style="color: #ffffff">
+                                    <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSelect'" style="text-align: center; width:100px">{{field.T_LANG2_TEXT}}</th>
+                                    <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbuId'" style="text-align: center; width:250px">{{field.T_LANG2_TEXT}}</th>
+                                    <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbulance'" style="text-align: center;width:400px">{{field.T_LANG2_TEXT}}</th>
+                                    <!--<th class="hidden" style="text-align: center">Pat Id</th>
+                                    <th style="width: 295px; text-align: center">Patient Name</th>
+                                    <th>Request Id</th>-->
+                                    <!--<th>Site Code</th>-->
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr dir-paginate="obj in obj.ambulanceInfo | cartypefilter:search  |itemsPerPage:10">
+                                    <td style="text-align:center;">
+                                        <input type="checkbox" id="chkUpdate{{$index}}" ng-model="obj.T_ACTIVE" ng-true-value="'1'" ng-false-value="'2'">
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span id="AmbuId{{$index}}">{{obj.T_AMBU_REG_ID}}</span>
+                                    </td>
+                                    <td style="text-align:center; width:500px" >
+                                        <span id="PatientId{{$index}}">{{obj.AmbulanceName}}</span>
+                                    </td>
+                                  
+                                   <!-- <td style="text-align: center">
+                                        <span>{{obj.T_SITE_CODE}}</span>
+                                    </td>-->                                  
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="margin-left: 50px">
+                            <dir-pagination-controls max-size="5"
+                                                     direction-links="true"
+                                                     boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

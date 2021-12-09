@@ -1,0 +1,55 @@
+﻿<style type="text/css">
+    .error {
+        color: red !important;
+    }
+</style>
+
+<div class="container" ng-app="Ambucare" ng-controller="T74055Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 div_back borderColor" style="margin: 1.6% auto; padding: 10px">
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="hidden" ng-model="obj.T_CH_COMP" style="border-color: #a21217" />
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2"  style="padding-right: 0px;">
+                                <label id="lblLang2Name" for="txtLang2Name" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLang2Name'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.engname.$error.required"><span class="error">*</span></span></label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <input id="txtLang2Name" type="text" style="width:100%" ng-model="obj.T_LANG2_NAME" next-focus tabindex="1" name="engname" required />
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <label id="lblLang1Name" for="txtLang1Name" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLang1Name'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.locname.$error.required"><span class="error">*</span></span></label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <input id="txtLang1Name" type="text" ng-model="obj.T_LANG1_NAME" next-focus tabindex="2" name="locname" required /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstanceCallback" class="table table-hover" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

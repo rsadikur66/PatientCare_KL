@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "TestForm";
+}
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/pageeng.css")" title="eng" rel="stylesheet" type="text/css" />
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/pageeng.min.css")" title="eng" rel="stylesheet" type="text/css" />
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/pagearb.css")" title="arb" rel="alternate stylesheet" type="text/css" />
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/metallic.css") " rel="stylesheet" type="text/css" />
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/validationEngine.jquery.css") " rel="stylesheet" type="text/css" />
+<link href="@VirtualPathUtility.ToAbsolute("~/Content/jquery.dataTables.min.css") " rel="stylesheet" type="text/css" />
+<script src="@VirtualPathUtility.ToAbsolute("~/Scripts/jquery-2.1.4.min.js")"></script>
+<script src="~/Scripts/Test_T04202/angular-sanitize.js"></script>
+<!-- ui-select files -->
+<script src="~/Scripts/Test_T04202/select.js"></script>
+<script src="~/Apps/Controllers/Account/TestController.js"></script>
+<script src="~/Apps/Services/Account/TestformService.js"></script>
+<script src="~/Apps/Factory/TestFactory.js"></script>
+<script src="~/Apps/Controllers/Modal/Modal.js"></script>
+@section container{
+    <div id="options11" ng-controller="TestController">
+
+        <button ID="btnSave11" class="Button Save" ng-click="testC()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete"></button>
+        <button ID="btnClear" Tooltip="Clear" class="Button Clear"></button>
+        @*<button ID="btnEnterQuery" ToolTip="Enter Query" class="Button Enter"></button>
+            <button ID="btnExecuteQuery" ToolTip="Execute Query" class="Button Execute"></button>*@
+    </div>
+}
+
+<div class="container" ng-controller="TestController">
+    <div class="row">
+        <button ID="btnNew" Title="New" class="Button New" ng-click="next()"></button>
+        <div>
+            <div style="margin: 10px auto; border: 2px solid #e17d7d; border-radius: 5px; width: 800px;">
+                <table cellspacing="5px">
+                    <tr>
+                        <td style="width: 110px"></td>
+                        <td></td>
+                        <td style="text-align: left" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGenericNo'">
+                            <Label ID="lblGenericNo" Text="" AssociatedControlID="txtGenCode">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td>
+                            <input ID="txtGenCode" ng-dblclick="init()" type="text" ng-model="TestPatInfo.T_GEN_CODE" style="width: 80px;" />
+                        </td>
+                        <td>
+                            <input ID="txtName" type="text" ng-model="TestPatInfo.T_LANG2_NAME" ng-click="test()" />
+                        </td>
+                        <td style="width: 100px"></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div style="margin: 10px auto; border: 2px solid #e17d7d; border-radius: 5px; width: 800px;">
+                <table>
+                    <tr>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTradeCode'">
+                            <Label ID="lblTradeCode" CssClass="lbl" AssociatedControlID="txtTradeCode">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td>
+                            <input ID="txtTradeCode" type="text" ng-model="TestPatInfo.T_TradeCode" CssClass="txt" style="width: 80px;" />
+                        </td>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblManuCode'">
+                            <Label ID="lblManuCode" CssClass="lbl">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td>
+                            <input ID="txtmanucode" ng-model="TestPatInfo.T_MANU_CODE" CssClass="txt" style="width: 80px;" />
+                        </td>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDescription'">
+                            <Label ID="lblDescription" AssociatedControlID="txtDesc" CssClass="lbl">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td>
+                            <input ID="txtDesc" type="text" ng-model="TestPatInfo.T_DESS" CssClass="txt" style="width: 150px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'">
+                            <Label ID="lblEnglishName" CssClass="lbl">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td colspan="5">
+                            <textarea ID="txtAnalysis" ng-model="TestPatInfo.T_Analysis" CssClass="txt" style="margin: 0px; width: 513px; height: 55px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'">
+                            <Label ID="lblLocalName" CssClass="lbl">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td colspan="5">
+                            <textarea ID="txtbngName" ng-model="TestPatInfo.T_BANGLA_NAME" CssClass="txt" style="margin: 0px; width: 513px; height: 55px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_label" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'">
+                            <Label ID="lblActive" CssClass="lbl">{{field.LABEL_TEXT}}</Label>
+                        </td>
+                        <td>
+                            <input type="checkbox" ID="Active" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <center>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover"></table>
+                            </td>
+                            <td>
+                                <div class="selectedItems">{{message}}</div>
+                            </td>
+                            @*<td><input type="text" focus-me="{{shouldBeOpen}}"  name="output" id="res" value="{{p1}}" class="calc-display-input"></td>
+                                <td><input type="text" focus-me="{{shouldBeOpen1}}" name="output1" id="res1" value="{{p2}}" class="calc-display-input"></td>
+                                <td><button type="button" set-focus='res' class="calc-button" ng-click="updateOutput($index)" ng-repeat="n in [0,1,2,3,4,5,6,7,8,9]">{{n}}</button></td>
+                                <td>Focused Item (with document) :<b>{{fucusedItemName}}</b>
+                                    <input type="hidden" id="someData" name="someData" value="{{fucusedItemName}}" />
+                                    </td>*@
+                        </tr>
+                    </table>
+                </div>
+            </center>
+            <br />
+            <br />
+            <div>
+            </div>
+            @*<input type="button" ID="btnHiddenButton" CssClass="Hidden" />*@
+            <div id="ManufictureList" class="Hidden popup">
+            </div>
+            <asp:Button ID="btnHiddenButton1" CssClass="Hidden" />
+            <asp:Button ID="btnHiddenButton2" CssClass="Hidden" />
+        </div>
+    </div>
+</div>

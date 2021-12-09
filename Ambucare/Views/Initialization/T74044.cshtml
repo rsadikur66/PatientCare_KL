@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "T74044";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74044Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74044Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74044Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()" ng-disabled="obj.myDiv.$invalid"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+
+
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74044Controller">
+   
+    <div class="row">
+       
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div></div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 20px; width: 50%">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        @*<div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblStockId" type="hidden" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStockId'" class="ng-cloak" for="txtStockId">{{field.T_LANG2_TEXT}} </label>
+                        </div>*@
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtStockId" type="hidden" ng-model="obj.T_STORE_ID" class="form-control" readonly="readonly" style="width: 50%;"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblAreaName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAreaName'" class="ng-cloak" for="txtAreaName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtAreaName" ng-model="obj.T_AREA" numbers-only class="form-control" type="text" name="inputName" style="width: 50%;" required/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" class="form-control" required/>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control" required/>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblAmbulanceId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbulanceId'" class="ng-cloak" for="ddlAmbulanceId">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.A.selected" id="ddlAmbulanceTypeId" theme="select2" append-to-body="true" style="min-width: 280px; max-width: 281px;" required>
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_SERIES}}</ui-select-match>
+                                    <ui-select-choices repeat="A in ambulance | propsFilter: {T_SERIES: $select.search}">
+                                        <div ng-bind-html="A.T_SERIES | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlIAmbulanceTypeId" ng-model="obj.T_AMBU_REG_ID" ng-bind="obj.T_AMBU_REG_ID=obj.A.selected.T_AMBU_REG_ID"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+                    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <center>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </div>
+        
+   
+    </div>

@@ -1,0 +1,1752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AmbucareContainer">
+    <EntitySetMapping Name="T02003">
+      <EntityTypeMapping TypeName="Model.T02003">
+        <MappingFragment StoreEntitySet="T02003">
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_NTNLTY_CODE" ColumnName="T_NTNLTY_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_X_LANG1_NAME_SHRT" ColumnName="T_X_LANG1_NAME_SHRT" />
+          <ScalarProperty Name="T_HL7_CODE" ColumnName="T_HL7_CODE" />
+          <ScalarProperty Name="T_PRIM_LANG" ColumnName="T_PRIM_LANG" />
+          <ScalarProperty Name="T_SECOND_LANG" ColumnName="T_SECOND_LANG" />
+          <ScalarProperty Name="T_LANG_LABEL1" ColumnName="T_LANG_LABEL1" />
+          <ScalarProperty Name="T_LANG_LABEL2" ColumnName="T_LANG_LABEL2" />
+          <ScalarProperty Name="T_NTNLTY_ID" ColumnName="T_NTNLTY_ID" />
+          <ScalarProperty Name="T_PHONE_CODE" ColumnName="T_PHONE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T02040">
+      <EntityTypeMapping TypeName="Model.T02040">
+        <MappingFragment StoreEntitySet="T02040">
+          <ScalarProperty Name="T_SPCLTY_ID" ColumnName="T_SPCLTY_ID" />
+          <ScalarProperty Name="T_SPCLTY_CODE" ColumnName="T_SPCLTY_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_MAIN_SPCLTY" ColumnName="T_MAIN_SPCLTY" />
+          <ScalarProperty Name="T_ACTIVE_FLAG" ColumnName="T_ACTIVE_FLAG" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T02064">
+      <EntityTypeMapping TypeName="Model.T02064">
+        <MappingFragment StoreEntitySet="T02064">
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ZONE_CODE" ColumnName="T_ZONE_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_SL_NO" ColumnName="T_SL_NO" />
+          <ScalarProperty Name="T_CITY_NAME" ColumnName="T_CITY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T02065">
+      <EntityTypeMapping TypeName="Model.T02065">
+        <MappingFragment StoreEntitySet="T02065">
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_SITE_CODE" ColumnName="T_SITE_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ZONE_CODE" ColumnName="T_ZONE_CODE" />
+          <ScalarProperty Name="T_PERCENT" ColumnName="T_PERCENT" />
+          <ScalarProperty Name="T_SITE_STATUS" ColumnName="T_SITE_STATUS" />
+          <ScalarProperty Name="T_RECEIPT_ORDER_NO" ColumnName="T_RECEIPT_ORDER_NO" />
+          <ScalarProperty Name="T_MUDIRIA" ColumnName="T_MUDIRIA" />
+          <ScalarProperty Name="T_BANK_CODE" ColumnName="T_BANK_CODE" />
+          <ScalarProperty Name="T_BANK_ACC_NO" ColumnName="T_BANK_ACC_NO" />
+          <ScalarProperty Name="T_INITIAL_BALANCE" ColumnName="T_INITIAL_BALANCE" />
+          <ScalarProperty Name="T_BALANCE" ColumnName="T_BALANCE" />
+          <ScalarProperty Name="T_LATITUDE" ColumnName="T_LATITUDE" />
+          <ScalarProperty Name="T_LONGITUDE" ColumnName="T_LONGITUDE" />
+          <ScalarProperty Name="T_EXPENSE_RECEIVE_INTERVAL" ColumnName="T_EXPENSE_RECEIVE_INTERVAL" />
+          <ScalarProperty Name="T_PREVENTFLAG" ColumnName="T_PREVENTFLAG" />
+          <ScalarProperty Name="T_SPECIAL_FLAG" ColumnName="T_SPECIAL_FLAG" />
+          <ScalarProperty Name="T_REFERRAL_CODE" ColumnName="T_REFERRAL_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T06301">
+      <EntityTypeMapping TypeName="Model.T06301">
+        <MappingFragment StoreEntitySet="T06301">
+          <ScalarProperty Name="T_ICD10_MAIN_CODE" ColumnName="T_ICD10_MAIN_CODE" />
+          <ScalarProperty Name="T_ICD10_SUB_CODE" ColumnName="T_ICD10_SUB_CODE" />
+          <ScalarProperty Name="T_ICD10_LONG_DESC2" ColumnName="T_ICD10_LONG_DESC2" />
+          <ScalarProperty Name="T_ICD10_LONG_DESC1" ColumnName="T_ICD10_LONG_DESC1" />
+          <ScalarProperty Name="T_ICD10_SHORT_DESC2" ColumnName="T_ICD10_SHORT_DESC2" />
+          <ScalarProperty Name="T_ICD10_SHORT_DESC1" ColumnName="T_ICD10_SHORT_DESC1" />
+          <ScalarProperty Name="T_ICD10_TYPE" ColumnName="T_ICD10_TYPE" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ICD10_LEVEL" ColumnName="T_ICD10_LEVEL" />
+          <ScalarProperty Name="T_ICD10_SEX_BOUNDS" ColumnName="T_ICD10_SEX_BOUNDS" />
+          <ScalarProperty Name="T_ICD10_DIAG_BOUNDS" ColumnName="T_ICD10_DIAG_BOUNDS" />
+          <ScalarProperty Name="T_ICD10_CODE" ColumnName="T_ICD10_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T30010">
+      <EntityTypeMapping TypeName="Model.T30010">
+        <MappingFragment StoreEntitySet="T30010">
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_DOSE_DURATION_CODE" ColumnName="T_DOSE_DURATION_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_QTY" ColumnName="T_QTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T30209">
+      <EntityTypeMapping TypeName="Model.T30209">
+        <MappingFragment StoreEntitySet="T30209">
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_FREQUENCY_CODE" ColumnName="T_FREQUENCY_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_QTY_MON" ColumnName="T_QTY_MON" />
+          <ScalarProperty Name="T_FREQUENCY" ColumnName="T_FREQUENCY" />
+          <ScalarProperty Name="T_TIME_DAILY_SH_DESC" ColumnName="T_TIME_DAILY_SH_DESC" />
+          <ScalarProperty Name="T_HR_GAP" ColumnName="T_HR_GAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74000">
+      <EntityTypeMapping TypeName="Model.T74000">
+        <MappingFragment StoreEntitySet="T74000">
+          <ScalarProperty Name="T_LABEL_ID" ColumnName="T_LABEL_ID" />
+          <ScalarProperty Name="T_FORM_CODE" ColumnName="T_FORM_CODE" />
+          <ScalarProperty Name="T_LABEL_NAME" ColumnName="T_LABEL_NAME" />
+          <ScalarProperty Name="T_LANG1_TEXT" ColumnName="T_LANG1_TEXT" />
+          <ScalarProperty Name="T_LANG2_TEXT" ColumnName="T_LANG2_TEXT" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74001">
+      <EntityTypeMapping TypeName="Model.T74001">
+        <MappingFragment StoreEntitySet="T74001">
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_ITEM_BRA_ID" ColumnName="T_ITEM_BRA_ID" />
+          <ScalarProperty Name="T_TYPE_ID" ColumnName="T_TYPE_ID" />
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ITEM_PICTURE" ColumnName="T_ITEM_PICTURE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74002">
+      <EntityTypeMapping TypeName="Model.T74002">
+        <MappingFragment StoreEntitySet="T74002">
+          <ScalarProperty Name="T_ITEM_BRA_ID" ColumnName="T_ITEM_BRA_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74003">
+      <EntityTypeMapping TypeName="Model.T74003">
+        <MappingFragment StoreEntitySet="T74003">
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_TYPE_ID" ColumnName="T_TYPE_ID" />
+          <ScalarProperty Name="T_PCK_FLAG" ColumnName="T_PCK_FLAG" />
+          <ScalarProperty Name="T_QTY" ColumnName="T_QTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74005">
+      <EntityTypeMapping TypeName="Model.T74005">
+        <MappingFragment StoreEntitySet="T74005">
+          <ScalarProperty Name="T_EMP_TYP_ID" ColumnName="T_EMP_TYP_ID" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74006">
+      <EntityTypeMapping TypeName="Model.T74006">
+        <MappingFragment StoreEntitySet="T74006">
+          <ScalarProperty Name="T_EMP_DESI_ID" ColumnName="T_EMP_DESI_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74008">
+      <EntityTypeMapping TypeName="Model.T74008">
+        <MappingFragment StoreEntitySet="T74008">
+          <ScalarProperty Name="T_TYPE_ID" ColumnName="T_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74009">
+      <EntityTypeMapping TypeName="Model.T74009">
+        <MappingFragment StoreEntitySet="T74009">
+          <ScalarProperty Name="T_MEDIC_TYPE_ID" ColumnName="T_MEDIC_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74010">
+      <EntityTypeMapping TypeName="Model.T74010">
+        <MappingFragment StoreEntitySet="T74010">
+          <ScalarProperty Name="T_SUPPLI_ID" ColumnName="T_SUPPLI_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74011">
+      <EntityTypeMapping TypeName="Model.T74011">
+        <MappingFragment StoreEntitySet="T74011">
+          <ScalarProperty Name="T_ITEM_COLOR_ID" ColumnName="T_ITEM_COLOR_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74012">
+      <EntityTypeMapping TypeName="Model.T74012">
+        <MappingFragment StoreEntitySet="T74012">
+          <ScalarProperty Name="T_DETAIL_ID" ColumnName="T_DETAIL_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_SITE_NO" ColumnName="T_SITE_NO" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74013">
+      <EntityTypeMapping TypeName="Model.T74013">
+        <MappingFragment StoreEntitySet="T74013">
+          <ScalarProperty Name="T_BILL_ID" ColumnName="T_BILL_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74014">
+      <EntityTypeMapping TypeName="Model.T74014">
+        <MappingFragment StoreEntitySet="T74014">
+          <ScalarProperty Name="T_AMBU_REG_ID" ColumnName="T_AMBU_REG_ID" />
+          <ScalarProperty Name="T_CHASIS_NO" ColumnName="T_CHASIS_NO" />
+          <ScalarProperty Name="T_ENGINE_NO" ColumnName="T_ENGINE_NO" />
+          <ScalarProperty Name="T_WEIGHT" ColumnName="T_WEIGHT" />
+          <ScalarProperty Name="T_REG_IMAGE" ColumnName="T_REG_IMAGE" />
+          <ScalarProperty Name="T_BARCODE_ID" ColumnName="T_BARCODE_ID" />
+          <ScalarProperty Name="T_YEAR_MODEL" ColumnName="T_YEAR_MODEL" />
+          <ScalarProperty Name="T_ITEM_COLOR_ID" ColumnName="T_ITEM_COLOR_ID" />
+          <ScalarProperty Name="T_AMB_TYPE_ID" ColumnName="T_AMB_TYPE_ID" />
+          <ScalarProperty Name="T_BRAND_ID" ColumnName="T_BRAND_ID" />
+          <ScalarProperty Name="T_REG_DATE" ColumnName="T_REG_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_AMBU_REG_NUM" ColumnName="T_AMBU_REG_NUM" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_SERIES" ColumnName="T_SERIES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74016">
+      <EntityTypeMapping TypeName="Model.T74016">
+        <MappingFragment StoreEntitySet="T74016">
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_CURRENCY_NAME" ColumnName="T_CURRENCY_NAME" />
+          <ScalarProperty Name="T_CONVERTION_VALUE_TK" ColumnName="T_CONVERTION_VALUE_TK" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74017">
+      <EntityTypeMapping TypeName="Model.T74017">
+        <MappingFragment StoreEntitySet="T74017">
+          <ScalarProperty Name="T_AMBU_OWN_TYPE_ID" ColumnName="T_AMBU_OWN_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74018">
+      <EntityTypeMapping TypeName="Model.T74018">
+        <MappingFragment StoreEntitySet="T74018">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="T_COST_TYPE_ID" ColumnName="T_COST_TYPE_ID" />
+          <ScalarProperty Name="T_AMOUNT" ColumnName="T_AMOUNT" />
+          <ScalarProperty Name="T_DESCRIPTION" ColumnName="T_DESCRIPTION" />
+          <ScalarProperty Name="T_ACTIVE" ColumnName="T_ACTIVE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74019">
+      <EntityTypeMapping TypeName="Model.T74019">
+        <MappingFragment StoreEntitySet="T74019">
+          <ScalarProperty Name="T_JOB_TYPE_ID" ColumnName="T_JOB_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74020">
+      <EntityTypeMapping TypeName="Model.T74020">
+        <MappingFragment StoreEntitySet="T74020">
+          <ScalarProperty Name="T_DOC_SPECI_ID" ColumnName="T_DOC_SPECI_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_SPCLTY_CODE" ColumnName="T_SPCLTY_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74021">
+      <EntityTypeMapping TypeName="Model.T74021">
+        <MappingFragment StoreEntitySet="T74021">
+          <ScalarProperty Name="T_DOC_DEPT_ID" ColumnName="T_DOC_DEPT_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74022">
+      <EntityTypeMapping TypeName="Model.T74022">
+        <MappingFragment StoreEntitySet="T74022">
+          <ScalarProperty Name="T_DOC_DEGREE_ID" ColumnName="T_DOC_DEGREE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74023">
+      <EntityTypeMapping TypeName="Model.T74023">
+        <MappingFragment StoreEntitySet="T74023">
+          <ScalarProperty Name="T_EDU_BOARD_ID" ColumnName="T_EDU_BOARD_ID" />
+          <ScalarProperty Name="T_DOC_DEGREE_ID" ColumnName="T_DOC_DEGREE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74024">
+      <EntityTypeMapping TypeName="Model.T74024">
+        <MappingFragment StoreEntitySet="T74024">
+          <ScalarProperty Name="T_RESULT_TYP_ID" ColumnName="T_RESULT_TYP_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74025">
+      <EntityTypeMapping TypeName="Model.T74025">
+        <MappingFragment StoreEntitySet="T74025">
+          <ScalarProperty Name="T_USER_TYPE_ID" ColumnName="T_USER_TYPE_ID" />
+          <ScalarProperty Name="T_TYPE_NAME1" ColumnName="T_TYPE_NAME1" />
+          <ScalarProperty Name="T_TYPE_NAME2" ColumnName="T_TYPE_NAME2" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74026">
+      <EntityTypeMapping TypeName="Model.T74026">
+        <MappingFragment StoreEntitySet="T74026">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_ENTRY_TIME" ColumnName="T_ENTRY_TIME" />
+          <ScalarProperty Name="T_LATITUDE" ColumnName="T_LATITUDE" />
+          <ScalarProperty Name="T_LONGITUDE" ColumnName="T_LONGITUDE" />
+          <ScalarProperty Name="T_DEVICES" ColumnName="T_DEVICES" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_EVENT_ID" ColumnName="T_EVENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74027">
+      <EntityTypeMapping TypeName="Model.T74027">
+        <MappingFragment StoreEntitySet="T74027">
+          <ScalarProperty Name="T_CUR_STOCK_ID" ColumnName="T_CUR_STOCK_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_UNIT_VALUE" ColumnName="T_UNIT_VALUE" />
+          <ScalarProperty Name="T_TOTAL_VALUE" ColumnName="T_TOTAL_VALUE" />
+          <ScalarProperty Name="T_PURCHASE_QTY" ColumnName="T_PURCHASE_QTY" />
+          <ScalarProperty Name="T_TRNSACTION_QTY" ColumnName="T_TRNSACTION_QTY" />
+          <ScalarProperty Name="T_STORE_ID" ColumnName="T_STORE_ID" />
+          <ScalarProperty Name="T_STOCK_DATE" ColumnName="T_STOCK_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER_" ColumnName="T_ENTRY_USER " />
+          <ScalarProperty Name="T_ENTRY_DATE_" ColumnName="T_ENTRY_DATE " />
+          <ScalarProperty Name="T_UPD_USER_" ColumnName="T_UPD_USER " />
+          <ScalarProperty Name="T_UPD_DATE_" ColumnName="T_UPD_DATE " />
+          <ScalarProperty Name="T_EXPIRE_DATE" ColumnName="T_EXPIRE_DATE" />
+          <ScalarProperty Name="T_MF_DATE" ColumnName="T_MF_DATE" />
+          <ScalarProperty Name="T_PR_RCV_DTL_ID" ColumnName="T_PR_RCV_DTL_ID" />
+          <ScalarProperty Name="T_STOCK_TYPE_ID" ColumnName="T_STOCK_TYPE_ID" />
+          <ScalarProperty Name="T_LOT_NO" ColumnName="T_LOT_NO" />
+          <ScalarProperty Name="T_BATCH" ColumnName="T_BATCH" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74030">
+      <EntityTypeMapping TypeName="Model.T74030">
+        <MappingFragment StoreEntitySet="T74030">
+          <ScalarProperty Name="T_PUR_ID" ColumnName="T_PUR_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_STORE_ID" ColumnName="T_STORE_ID" />
+          <ScalarProperty Name="T_PUR_NO" ColumnName="T_PUR_NO" />
+          <ScalarProperty Name="T_PUR_REQ_DATE" ColumnName="T_PUR_REQ_DATE" />
+          <ScalarProperty Name="T_EXP_DLVRY_DATE" ColumnName="T_EXP_DLVRY_DATE" />
+          <ScalarProperty Name="T_ISSUE_STATUS" ColumnName="T_ISSUE_STATUS" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74031">
+      <EntityTypeMapping TypeName="Model.T74031">
+        <MappingFragment StoreEntitySet="T74031">
+          <ScalarProperty Name="T_PUR_DTL_ID" ColumnName="T_PUR_DTL_ID" />
+          <ScalarProperty Name="T_PUR_ID" ColumnName="T_PUR_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+          <ScalarProperty Name="T_PUR_QTY" ColumnName="T_PUR_QTY" />
+          <ScalarProperty Name="T_RCV_QTY" ColumnName="T_RCV_QTY" />
+          <ScalarProperty Name="T_PRIORITY" ColumnName="T_PRIORITY" />
+          <ScalarProperty Name="T_ISSUE_STS_DTL" ColumnName="T_ISSUE_STS_DTL" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74035">
+      <EntityTypeMapping TypeName="Model.T74035">
+        <MappingFragment StoreEntitySet="T74035">
+          <ScalarProperty Name="T_DEPET_ID" ColumnName="T_DEPET_ID" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74038">
+      <EntityTypeMapping TypeName="Model.T74038">
+        <MappingFragment StoreEntitySet="T74038">
+          <ScalarProperty Name="T_SERV_CHARG_ID" ColumnName="T_SERV_CHARG_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74039">
+      <EntityTypeMapping TypeName="Model.T74039">
+        <MappingFragment StoreEntitySet="T74039">
+          <ScalarProperty Name="T_PRESCRIPTION_ID" ColumnName="T_PRESCRIPTION_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_DOC_ID" ColumnName="T_DOC_ID" />
+          <ScalarProperty Name="T_REMARKS" ColumnName="T_REMARKS" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74040">
+      <EntityTypeMapping TypeName="Model.T74040">
+        <MappingFragment StoreEntitySet="T74040">
+          <ScalarProperty Name="T_PRSCRPTN_DTL_ID" ColumnName="T_PRSCRPTN_DTL_ID" />
+          <ScalarProperty Name="T_PRESCRIPTION_ID" ColumnName="T_PRESCRIPTION_ID" />
+          <ScalarProperty Name="T_ITEM_CODE" ColumnName="T_ITEM_CODE" />
+          <ScalarProperty Name="T_TRADE_CODE" ColumnName="T_TRADE_CODE" />
+          <ScalarProperty Name="T_GEN_CODE" ColumnName="T_GEN_CODE" />
+          <ScalarProperty Name="T_REQUEST_STRENGTH" ColumnName="T_REQUEST_STRENGTH" />
+          <ScalarProperty Name="T_FORM_ID" ColumnName="T_FORM_ID" />
+          <ScalarProperty Name="T_DRUG_ROUTE_CODE" ColumnName="T_DRUG_ROUTE_CODE" />
+          <ScalarProperty Name="T_MORNING_DOSE_UNIT" ColumnName="T_MORNING_DOSE_UNIT" />
+          <ScalarProperty Name="T_NOON_DOSE_UNIT" ColumnName="T_NOON_DOSE_UNIT" />
+          <ScalarProperty Name="T_NIGHT_DOSE_UNIT" ColumnName="T_NIGHT_DOSE_UNIT" />
+          <ScalarProperty Name="T_MEAL_INSTRUCTION" ColumnName="T_MEAL_INSTRUCTION" />
+          <ScalarProperty Name="T_INS_TIME" ColumnName="T_INS_TIME" />
+          <ScalarProperty Name="T_SATURDAY" ColumnName="T_SATURDAY" />
+          <ScalarProperty Name="T_SUNDAY" ColumnName="T_SUNDAY" />
+          <ScalarProperty Name="T_MONDAY" ColumnName="T_MONDAY" />
+          <ScalarProperty Name="T_TUESDAY" ColumnName="T_TUESDAY" />
+          <ScalarProperty Name="T_WEDNESDAY" ColumnName="T_WEDNESDAY" />
+          <ScalarProperty Name="T_THURSDAY" ColumnName="T_THURSDAY" />
+          <ScalarProperty Name="T_FRIDAY" ColumnName="T_FRIDAY" />
+          <ScalarProperty Name="T_REMARKS_DTL" ColumnName="T_REMARKS_DTL" />
+          <ScalarProperty Name="T_FREQUENCY_CODE" ColumnName="T_FREQUENCY_CODE" />
+          <ScalarProperty Name="T_FREQUENCY_INS_ID" ColumnName="T_FREQUENCY_INS_ID" />
+          <ScalarProperty Name="T_DOSE_DURATION_CODE" ColumnName="T_DOSE_DURATION_CODE" />
+          <ScalarProperty Name="T_DOSE_DURATION_INS_ID" ColumnName="T_DOSE_DURATION_INS_ID" />
+          <ScalarProperty Name="T_DRUG_INACTIVE_FLAG" ColumnName="T_DRUG_INACTIVE_FLAG" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74045">
+      <EntityTypeMapping TypeName="Model.T74045">
+        <MappingFragment StoreEntitySet="T74045">
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_PRES_ADDRESS" ColumnName="T_PRES_ADDRESS" />
+          <ScalarProperty Name="T_PER_ADDRESS" ColumnName="T_PER_ADDRESS" />
+          <ScalarProperty Name="T_PHONE_NUMBER" ColumnName="T_PHONE_NUMBER" />
+          <ScalarProperty Name="T_MOBILE_NUMBER" ColumnName="T_MOBILE_NUMBER" />
+          <ScalarProperty Name="T_EMAIL_ID" ColumnName="T_EMAIL_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74046">
+      <EntityTypeMapping TypeName="Model.T74046">
+        <MappingFragment StoreEntitySet="T74046">
+          <ScalarProperty Name="T_PAT_ID" ColumnName="T_PAT_ID" />
+          <ScalarProperty Name="T_PAT_NO" ColumnName="T_PAT_NO" />
+          <ScalarProperty Name="T_BIRTH_DATE" ColumnName="T_BIRTH_DATE" />
+          <ScalarProperty Name="T_MRTL_STATUS" ColumnName="T_MRTL_STATUS" />
+          <ScalarProperty Name="T_FATHER_LANG1_NAME" ColumnName="T_FATHER_LANG1_NAME" />
+          <ScalarProperty Name="T_FATHER_LANG2_NAME" ColumnName="T_FATHER_LANG2_NAME" />
+          <ScalarProperty Name="T_GFATHER_LANG1_NAME" ColumnName="T_GFATHER_LANG1_NAME" />
+          <ScalarProperty Name="T_GFATHER_LANG2_NAME" ColumnName="T_GFATHER_LANG2_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG1_NAME" ColumnName="T_FIRST_LANG1_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG2_NAME" ColumnName="T_FIRST_LANG2_NAME" />
+          <ScalarProperty Name="T_MOTHER_LANG1_NAME" ColumnName="T_MOTHER_LANG1_NAME" />
+          <ScalarProperty Name="T_MOTHER_LANG2_NAME" ColumnName="T_MOTHER_LANG2_NAME" />
+          <ScalarProperty Name="T_NTNLTY_ID" ColumnName="T_NTNLTY_ID" />
+          <ScalarProperty Name="T_PASSPORT_NO" ColumnName="T_PASSPORT_NO" />
+          <ScalarProperty Name="T_PHONE_HOME" ColumnName="T_PHONE_HOME" />
+          <ScalarProperty Name="T_PHONE_WORK" ColumnName="T_PHONE_WORK" />
+          <ScalarProperty Name="T_MOBILE_NO" ColumnName="T_MOBILE_NO" />
+          <ScalarProperty Name="T_POSTAL_CODE" ColumnName="T_POSTAL_CODE" />
+          <ScalarProperty Name="T_ADDRESS1" ColumnName="T_ADDRESS1" />
+          <ScalarProperty Name="T_ADDRESS2" ColumnName="T_ADDRESS2" />
+          <ScalarProperty Name="T_RLGN_CODE" ColumnName="T_RLGN_CODE" />
+          <ScalarProperty Name="T_SEX_CODE" ColumnName="T_SEX_CODE" />
+          <ScalarProperty Name="T_BLD_GRP" ColumnName="T_BLD_GRP" />
+          <ScalarProperty Name="T_JOB_CODE" ColumnName="T_JOB_CODE" />
+          <ScalarProperty Name="T_SPONSR_CODE" ColumnName="T_SPONSR_CODE" />
+          <ScalarProperty Name="T_BALANCE_AMOUNT" ColumnName="T_BALANCE_AMOUNT" />
+          <ScalarProperty Name="T_NEW_PATNO" ColumnName="T_NEW_PATNO" />
+          <ScalarProperty Name="T_PAT_TYPE" ColumnName="T_PAT_TYPE" />
+          <ScalarProperty Name="T_FORM_NAME" ColumnName="T_FORM_NAME" />
+          <ScalarProperty Name="T_SMOKER_FLAG" ColumnName="T_SMOKER_FLAG" />
+          <ScalarProperty Name="T_CNCL_NTNLTY_ID" ColumnName="T_CNCL_NTNLTY_ID" />
+          <ScalarProperty Name="T_EMAIL_ID" ColumnName="T_EMAIL_ID" />
+          <ScalarProperty Name="T_INACTIVE_FLAG" ColumnName="T_INACTIVE_FLAG" />
+          <ScalarProperty Name="T_SKIN_COLOR" ColumnName="T_SKIN_COLOR" />
+          <ScalarProperty Name="T_NAME1" ColumnName="T_NAME1" />
+          <ScalarProperty Name="T_NAME2" ColumnName="T_NAME2" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_EMP_DESI_ID" ColumnName="T_EMP_DESI_ID" />
+          <ScalarProperty Name="T_OFFICE_NAME" ColumnName="T_OFFICE_NAME" />
+          <ScalarProperty Name="T_NATIONAL_ID" ColumnName="T_NATIONAL_ID" />
+          <ScalarProperty Name="T_FAMILY_LANG1_NAME" ColumnName="T_FAMILY_LANG1_NAME" />
+          <ScalarProperty Name="T_FAMILY_LANG2_NAME" ColumnName="T_FAMILY_LANG2_NAME" />
+          <ScalarProperty Name="T_ALT_MOBILE_NO" ColumnName="T_ALT_MOBILE_NO" />
+          <ScalarProperty Name="T_IDENTITY_ID" ColumnName="T_IDENTITY_ID" />
+          <ScalarProperty Name="T_SOCIAL_NO" ColumnName="T_SOCIAL_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74047">
+      <EntityTypeMapping TypeName="Model.T74047">
+        <MappingFragment StoreEntitySet="T74047">
+          <ScalarProperty Name="T_AMBU_TYPE_ID" ColumnName="T_AMBU_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74048">
+      <EntityTypeMapping TypeName="Model.T74048">
+        <MappingFragment StoreEntitySet="T74048">
+          <ScalarProperty Name="T_SL_REQ_ID" ColumnName="T_SL_REQ_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_STR_FR_ID" ColumnName="T_STR_FR_ID" />
+          <ScalarProperty Name="T_STR_TO_ID" ColumnName="T_STR_TO_ID" />
+          <ScalarProperty Name="T_SL_REQ_NO" ColumnName="T_SL_REQ_NO" />
+          <ScalarProperty Name="T_SL_REQ_DATE" ColumnName="T_SL_REQ_DATE" />
+          <ScalarProperty Name="T_SL_REQ_STATUS" ColumnName="T_SL_REQ_STATUS" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_EXP_DLVRY_DATE" ColumnName="T_EXP_DLVRY_DATE" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_REQ_PERSON_ID" ColumnName="T_REQ_PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74049">
+      <EntityTypeMapping TypeName="Model.T74049">
+        <MappingFragment StoreEntitySet="T74049">
+          <ScalarProperty Name="T_SL_REQ_DTL_ID" ColumnName="T_SL_REQ_DTL_ID" />
+          <ScalarProperty Name="T_SL_REQ_ID" ColumnName="T_SL_REQ_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+          <ScalarProperty Name="T_SL_QTY" ColumnName="T_SL_QTY" />
+          <ScalarProperty Name="T_RCV_QTY" ColumnName="T_RCV_QTY" />
+          <ScalarProperty Name="T_PRIORITY" ColumnName="T_PRIORITY" />
+          <ScalarProperty Name="T_SL_STS_DTL" ColumnName="T_SL_STS_DTL" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74050">
+      <EntityTypeMapping TypeName="Model.T74050">
+        <MappingFragment StoreEntitySet="T74050">
+          <ScalarProperty Name="T_SEX_CODE" ColumnName="T_SEX_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_SHORT_GNDR_NAME" ColumnName="T_SHORT_GNDR_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74051">
+      <EntityTypeMapping TypeName="Model.T74051">
+        <MappingFragment StoreEntitySet="T74051">
+          <ScalarProperty Name="T_MRTL_STATUS_CODE" ColumnName="T_MRTL_STATUS_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74052">
+      <EntityTypeMapping TypeName="Model.T74052">
+        <MappingFragment StoreEntitySet="T74052">
+          <ScalarProperty Name="T_ZONE_CODE" ColumnName="T_ZONE_CODE" />
+          <ScalarProperty Name="T_SL_NO" ColumnName="T_SL_NO" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74053">
+      <EntityTypeMapping TypeName="Model.T74053">
+        <MappingFragment StoreEntitySet="T74053">
+          <ScalarProperty Name="T_SITE_NO" ColumnName="T_SITE_NO" />
+          <ScalarProperty Name="T_ZONE_CODE" ColumnName="T_ZONE_CODE" />
+          <ScalarProperty Name="T_SITE_CODE" ColumnName="T_SITE_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_CONTACT_NAME" ColumnName="T_CONTACT_NAME" />
+          <ScalarProperty Name="T_CONTACT_MOBILE" ColumnName="T_CONTACT_MOBILE" />
+          <ScalarProperty Name="T_SITE_URL" ColumnName="T_SITE_URL" />
+          <ScalarProperty Name="T_LATITUDE" ColumnName="T_LATITUDE" />
+          <ScalarProperty Name="T_LONGITUDE" ColumnName="T_LONGITUDE" />
+          <ScalarProperty Name="T_MUDIRIA" ColumnName="T_MUDIRIA" />
+          <ScalarProperty Name="T_SITE_STATUS" ColumnName="T_SITE_STATUS" />
+          <ScalarProperty Name="T_IMPLEMENTATION_YEAR" ColumnName="T_IMPLEMENTATION_YEAR" />
+          <ScalarProperty Name="T_PRIVATE_FLAG" ColumnName="T_PRIVATE_FLAG" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74054">
+      <EntityTypeMapping TypeName="Model.T74054">
+        <MappingFragment StoreEntitySet="T74054">
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_ADRS_NAME" ColumnName="T_LANG1_ADRS_NAME" />
+          <ScalarProperty Name="T_LANG2_ADRS_NAME" ColumnName="T_LANG2_ADRS_NAME" />
+          <ScalarProperty Name="T_EMAIL" ColumnName="T_EMAIL" />
+          <ScalarProperty Name="T_PHONE" ColumnName="T_PHONE" />
+          <ScalarProperty Name="T_WEB_URL" ColumnName="T_WEB_URL" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74055">
+      <EntityTypeMapping TypeName="Model.T74055">
+        <MappingFragment StoreEntitySet="T74055">
+          <ScalarProperty Name="T_CH_COMP" ColumnName="T_CH_COMP" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74056">
+      <EntityTypeMapping TypeName="Model.T74056">
+        <MappingFragment StoreEntitySet="T74056">
+          <ScalarProperty Name="T_TRIAGE_SEQ" ColumnName="T_TRIAGE_SEQ" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74057">
+      <EntityTypeMapping TypeName="Model.T74057">
+        <MappingFragment StoreEntitySet="T74057">
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_PWD" ColumnName="T_PWD" />
+          <ScalarProperty Name="T_ACTIVE_FLAG" ColumnName="T_ACTIVE_FLAG" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_SITE_CODE" ColumnName="T_SITE_CODE" />
+          <ScalarProperty Name="T_LOGIN_STATUS" ColumnName="T_LOGIN_STATUS" />
+          <ScalarProperty Name="T_ROLE_CODE" ColumnName="T_ROLE_CODE" />
+          <ScalarProperty Name="T_ZONE_CODE" ColumnName="T_ZONE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74058">
+      <EntityTypeMapping TypeName="Model.T74058">
+        <MappingFragment StoreEntitySet="T74058">
+          <ScalarProperty Name="T_NTNLTY_ID" ColumnName="T_NTNLTY_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME_SHRT" ColumnName="T_LANG1_NAME_SHRT" />
+          <ScalarProperty Name="T_HL7_CODE" ColumnName="T_HL7_CODE" />
+          <ScalarProperty Name="T_PRIM_LANG" ColumnName="T_PRIM_LANG" />
+          <ScalarProperty Name="T_SECOND_LANG" ColumnName="T_SECOND_LANG" />
+          <ScalarProperty Name="T_LANG_LABEL1" ColumnName="T_LANG_LABEL1" />
+          <ScalarProperty Name="T_LANG_LABEL2" ColumnName="T_LANG_LABEL2" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74059">
+      <EntityTypeMapping TypeName="Model.T74059">
+        <MappingFragment StoreEntitySet="T74059">
+          <ScalarProperty Name="T_RLGN_CODE" ColumnName="T_RLGN_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_HL7_CODE" ColumnName="T_HL7_CODE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74060">
+      <EntityTypeMapping TypeName="Model.T74060">
+        <MappingFragment StoreEntitySet="T74060">
+          <ScalarProperty Name="T_PR_RCV_ID" ColumnName="T_PR_RCV_ID" />
+          <ScalarProperty Name="T_PR_RCV_NO" ColumnName="T_PR_RCV_NO" />
+          <ScalarProperty Name="T_PR_ID" ColumnName="T_PR_ID" />
+          <ScalarProperty Name="T_RCV_UNIT_NO" ColumnName="T_RCV_UNIT_NO" />
+          <ScalarProperty Name="T_CHALLAN_NO" ColumnName="T_CHALLAN_NO" />
+          <ScalarProperty Name="T_RECEIVE_DATE" ColumnName="T_RECEIVE_DATE" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_BILL_NO" ColumnName="T_BILL_NO" />
+          <ScalarProperty Name="T_BILL_DATE" ColumnName="T_BILL_DATE" />
+          <ScalarProperty Name="T_DISCOUNT" ColumnName="T_DISCOUNT" />
+          <ScalarProperty Name="T_DISCOUNT_PERCENT" ColumnName="T_DISCOUNT_PERCENT" />
+          <ScalarProperty Name="T_DISCOUNT_AMOUNT" ColumnName="T_DISCOUNT_AMOUNT" />
+          <ScalarProperty Name="T_TOTAL_VALUE" ColumnName="T_TOTAL_VALUE" />
+          <ScalarProperty Name="T_TOTAL_VLU_AFTER_DISC" ColumnName="T_TOTAL_VLU_AFTER_DISC" />
+          <ScalarProperty Name="T_GRAND_TOTAL_VALUE" ColumnName="T_GRAND_TOTAL_VALUE" />
+          <ScalarProperty Name="T_REMARKS" ColumnName="T_REMARKS" />
+          <ScalarProperty Name="T_VAT" ColumnName="T_VAT" />
+          <ScalarProperty Name="T_RECEIVE_BY" ColumnName="T_RECEIVE_BY" />
+          <ScalarProperty Name="T_ACTUAL_DELIVERY_DATE" ColumnName="T_ACTUAL_DELIVERY_DATE" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_CURRENCY_CONVERSION_TK" ColumnName="T_CURRENCY_CONVERSION_TK" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_LC_NO" ColumnName="T_LC_NO" />
+          <ScalarProperty Name="T_LC_DATE" ColumnName="T_LC_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74061">
+      <EntityTypeMapping TypeName="Model.T74061">
+        <MappingFragment StoreEntitySet="T74061">
+          <ScalarProperty Name="T_PR_RCV_DTL_ID" ColumnName="T_PR_RCV_DTL_ID" />
+          <ScalarProperty Name="T_PR_RCV_ID" ColumnName="T_PR_RCV_ID" />
+          <ScalarProperty Name="T_PR_DETAIL_ID" ColumnName="T_PR_DETAIL_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_UOM_DETAILS_ID" ColumnName="T_UOM_DETAILS_ID" />
+          <ScalarProperty Name="T_UOM_ID" ColumnName="T_UOM_ID" />
+          <ScalarProperty Name="T_RCV_QTY" ColumnName="T_RCV_QTY" />
+          <ScalarProperty Name="T_UNIT_VALUE" ColumnName="T_UNIT_VALUE" />
+          <ScalarProperty Name="T_TOTAL_VALUE" ColumnName="T_TOTAL_VALUE" />
+          <ScalarProperty Name="T_WARRANTY" ColumnName="T_WARRANTY" />
+          <ScalarProperty Name="T_WARRANTY_START" ColumnName="T_WARRANTY_START" />
+          <ScalarProperty Name="T_WARRANTY_END" ColumnName="T_WARRANTY_END" />
+          <ScalarProperty Name="T_CURRENCY" ColumnName="T_CURRENCY" />
+          <ScalarProperty Name="T_CONVERTION_VALUE_TK" ColumnName="T_CONVERTION_VALUE_TK" />
+          <ScalarProperty Name="T_MANUFACTURE_DATE" ColumnName="T_MANUFACTURE_DATE" />
+          <ScalarProperty Name="T_EXPIRE_DATE" ColumnName="T_EXPIRE_DATE" />
+          <ScalarProperty Name="T_LOT_NO" ColumnName="T_LOT_NO" />
+          <ScalarProperty Name="T_BATCH" ColumnName="T_BATCH" />
+          <ScalarProperty Name="T_COUNTRY_ID" ColumnName="T_COUNTRY_ID" />
+          <ScalarProperty Name="T_OTHERS" ColumnName="T_OTHERS" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74066">
+      <EntityTypeMapping TypeName="Model.T74066">
+        <MappingFragment StoreEntitySet="T74066">
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_FORM_CODE" ColumnName="T_FORM_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_VERSION_NO" ColumnName="T_VERSION_NO" />
+          <ScalarProperty Name="T_REPORT_FLAG" ColumnName="T_REPORT_FLAG" />
+          <ScalarProperty Name="T_FORM_TYPE_ID" ColumnName="T_FORM_TYPE_ID" />
+          <ScalarProperty Name="T_FORM_CODE_ID" ColumnName="T_FORM_CODE_ID" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_INACTIVE_FLAG" ColumnName="T_INACTIVE_FLAG" />
+          <ScalarProperty Name="T_PAGE_TYPE_ID" ColumnName="T_PAGE_TYPE_ID" />
+          <ScalarProperty Name="T_ORDER" ColumnName="T_ORDER" />
+          <ScalarProperty Name="T_TYPE" ColumnName="T_TYPE" />
+          <ScalarProperty Name="T_ROLE_CODE" ColumnName="T_ROLE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74068">
+      <EntityTypeMapping TypeName="Model.T74068">
+        <MappingFragment StoreEntitySet="T74068">
+          <ScalarProperty Name="T_MSG_CODE" ColumnName="T_MSG_CODE" />
+          <ScalarProperty Name="T_LANG1_MSG" ColumnName="T_LANG1_MSG" />
+          <ScalarProperty Name="T_LANG2_MSG" ColumnName="T_LANG2_MSG" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74069">
+      <EntityTypeMapping TypeName="Model.T74069">
+        <MappingFragment StoreEntitySet="T74069">
+          <ScalarProperty Name="T_BLD_GROUP_ID" ColumnName="T_BLD_GROUP_ID" />
+          <ScalarProperty Name="T_SHOT_DESC1" ColumnName="T_SHOT_DESC1" />
+          <ScalarProperty Name="T_SHOT_DESC2" ColumnName="T_SHOT_DESC2" />
+          <ScalarProperty Name="T_BLOOD_GORUP" ColumnName="T_BLOOD_GORUP" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74070">
+      <EntityTypeMapping TypeName="Model.T74070">
+        <MappingFragment StoreEntitySet="T74070">
+          <ScalarProperty Name="T_FORM_TYPE_ID" ColumnName="T_FORM_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74072">
+      <EntityTypeMapping TypeName="Model.T74072">
+        <MappingFragment StoreEntitySet="T74072">
+          <ScalarProperty Name="T_COST_TYPE_ID" ColumnName="T_COST_TYPE_ID" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ITEM_TYPE" ColumnName="T_ITEM_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74073">
+      <EntityTypeMapping TypeName="Model.T74073">
+        <MappingFragment StoreEntitySet="T74073">
+          <ScalarProperty Name="T_COST_TYPE_DTL_ID" ColumnName="T_COST_TYPE_DTL_ID" />
+          <ScalarProperty Name="T_COST_TYPE_ID" ColumnName="T_COST_TYPE_ID" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_INCHARGABLE" ColumnName="T_INCHARGABLE" />
+          <ScalarProperty Name="T_ACTIVE" ColumnName="T_ACTIVE" />
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="T_FORM_ID" ColumnName="T_FORM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74074">
+      <EntityTypeMapping TypeName="Model.T74074">
+        <MappingFragment StoreEntitySet="T74074">
+          <ScalarProperty Name="T_BILL_ID" ColumnName="T_BILL_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_ISSUE_ID" ColumnName="T_ISSUE_ID" />
+          <ScalarProperty Name="T_TOTAL_PRICE" ColumnName="T_TOTAL_PRICE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74075">
+      <EntityTypeMapping TypeName="Model.T74075">
+        <MappingFragment StoreEntitySet="T74075">
+          <ScalarProperty Name="T_FREQUENCY_CODE" ColumnName="T_FREQUENCY_CODE" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74077">
+      <EntityTypeMapping TypeName="Model.T74077">
+        <MappingFragment StoreEntitySet="T74077">
+          <ScalarProperty Name="T_PROB_TYPE_ID" ColumnName="T_PROB_TYPE_ID" />
+          <ScalarProperty Name="T_LOG" ColumnName="T_LOG" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LOG_B64" ColumnName="T_LOG_B64" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74078">
+      <EntityTypeMapping TypeName="Model.T74078">
+        <MappingFragment StoreEntitySet="T74078">
+          <ScalarProperty Name="T_DIAGONOSIS_ID" ColumnName="T_DIAGONOSIS_ID" />
+          <ScalarProperty Name="T_PRESCRIPTION_ID" ColumnName="T_PRESCRIPTION_ID" />
+          <ScalarProperty Name="T_REPORT_DELIVERY_DATE" ColumnName="T_REPORT_DELIVERY_DATE" />
+          <ScalarProperty Name="T_COST_TYPE_DTL_ID" ColumnName="T_COST_TYPE_DTL_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_PRICE" ColumnName="T_PRICE" />
+          <ScalarProperty Name="T_VAT" ColumnName="T_VAT" />
+          <ScalarProperty Name="T_DISCOUNT" ColumnName="T_DISCOUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74079">
+      <EntityTypeMapping TypeName="Model.T74079">
+        <MappingFragment StoreEntitySet="T74079">
+          <ScalarProperty Name="T_BILL_DTL_ID" ColumnName="T_BILL_DTL_ID" />
+          <ScalarProperty Name="T_BILL_ID" ColumnName="T_BILL_ID" />
+          <ScalarProperty Name="T_DIAGONOSIS_ID" ColumnName="T_DIAGONOSIS_ID" />
+          <ScalarProperty Name="T_COST_TYPE_DTL_ID" ColumnName="T_COST_TYPE_DTL_ID" />
+          <ScalarProperty Name="T_PRICE" ColumnName="T_PRICE" />
+          <ScalarProperty Name="T_VAT" ColumnName="T_VAT" />
+          <ScalarProperty Name="T_DISCOUNT" ColumnName="T_DISCOUNT" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ENTRY_TIME" ColumnName="T_ENTRY_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74080">
+      <EntityTypeMapping TypeName="Model.T74080">
+        <MappingFragment StoreEntitySet="T74080">
+          <ScalarProperty Name="T_TRANSFER_REQ_ID" ColumnName="T_TRANSFER_REQ_ID" />
+          <ScalarProperty Name="T_TRANSFER_REQ_NO" ColumnName="T_TRANSFER_REQ_NO" />
+          <ScalarProperty Name="T_ISSUE_ID" ColumnName="T_ISSUE_ID" />
+          <ScalarProperty Name="T_REQ_DATE" ColumnName="T_REQ_DATE" />
+          <ScalarProperty Name="T_REQ_SET_BY" ColumnName="T_REQ_SET_BY" />
+          <ScalarProperty Name="T_REQ_SET_BY_STORE_ID" ColumnName="T_REQ_SET_BY_STORE_ID" />
+          <ScalarProperty Name="T_REQ_SEND_TO" ColumnName="T_REQ_SEND_TO" />
+          <ScalarProperty Name="T_SEND_TO_STORE_ID" ColumnName="T_SEND_TO_STORE_ID" />
+          <ScalarProperty Name="T_TRANSFER_FOR" ColumnName="T_TRANSFER_FOR" />
+          <ScalarProperty Name="T_TRANSFER_DELIVERY_METHOD" ColumnName="T_TRANSFER_DELIVERY_METHOD" />
+          <ScalarProperty Name="T_STATUS" ColumnName="T_STATUS" />
+          <ScalarProperty Name="T_IS_ACTIVE" ColumnName="T_IS_ACTIVE" />
+          <ScalarProperty Name="T_IS_APPROVED" ColumnName="T_IS_APPROVED" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74081">
+      <EntityTypeMapping TypeName="Model.T74081">
+        <MappingFragment StoreEntitySet="T74081">
+          <ScalarProperty Name="T_TRANSFER_REQ_DTL_ID" ColumnName="T_TRANSFER_REQ_DTL_ID" />
+          <ScalarProperty Name="T_TRANSFER_REQ_ID" ColumnName="T_TRANSFER_REQ_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_TRANSFER_QTY" ColumnName="T_TRANSFER_QTY" />
+          <ScalarProperty Name="T_UOM_ID" ColumnName="T_UOM_ID" />
+          <ScalarProperty Name="T_CUR_STOCK_ID" ColumnName="T_CUR_STOCK_ID" />
+          <ScalarProperty Name="T_RECEIVE_TYPE" ColumnName="T_RECEIVE_TYPE" />
+          <ScalarProperty Name="T_UNIT_VALUE" ColumnName="T_UNIT_VALUE" />
+          <ScalarProperty Name="T_TOTAL_VALUE" ColumnName="T_TOTAL_VALUE" />
+          <ScalarProperty Name="T_CONVERTION_VALUE_TK" ColumnName="T_CONVERTION_VALUE_TK" />
+          <ScalarProperty Name="T_OTHERS" ColumnName="T_OTHERS" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_TRANSFER_PRORITY" ColumnName="T_TRANSFER_PRORITY" />
+          <ScalarProperty Name="T_LOT_NO" ColumnName="T_LOT_NO" />
+          <ScalarProperty Name="T_BATCH" ColumnName="T_BATCH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74084">
+      <EntityTypeMapping TypeName="Model.T74084">
+        <MappingFragment StoreEntitySet="T74084">
+          <ScalarProperty Name="T_TRNS_RCV_ID" ColumnName="T_TRNS_RCV_ID" />
+          <ScalarProperty Name="T_TRNS_RCV_NO" ColumnName="T_TRNS_RCV_NO" />
+          <ScalarProperty Name="T_RCV_DATE" ColumnName="T_RCV_DATE" />
+          <ScalarProperty Name="T_RCV_FRM" ColumnName="T_RCV_FRM" />
+          <ScalarProperty Name="T_RCV_FRM_STR_ID" ColumnName="T_RCV_FRM_STR_ID" />
+          <ScalarProperty Name="T_RCV_TO" ColumnName="T_RCV_TO" />
+          <ScalarProperty Name="T_RCV_TO_STR_ID" ColumnName="T_RCV_TO_STR_ID" />
+          <ScalarProperty Name="T_RCV_STATUS" ColumnName="T_RCV_STATUS" />
+          <ScalarProperty Name="T_IS_APPROVED" ColumnName="T_IS_APPROVED" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_UNIT_VALUE" ColumnName="T_UNIT_VALUE" />
+          <ScalarProperty Name="T_TOTAL_VALUE" ColumnName="T_TOTAL_VALUE" />
+          <ScalarProperty Name="T_CONVERTION_VALUE_TK" ColumnName="T_CONVERTION_VALUE_TK" />
+          <ScalarProperty Name="T_LOT_NO" ColumnName="T_LOT_NO" />
+          <ScalarProperty Name="T_BATCH" ColumnName="T_BATCH" />
+          <ScalarProperty Name="T_COUNTRY_ID" ColumnName="T_COUNTRY_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_TRANSFER_REQ_ID" ColumnName="T_TRANSFER_REQ_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74085">
+      <EntityTypeMapping TypeName="Model.T74085">
+        <MappingFragment StoreEntitySet="T74085">
+          <ScalarProperty Name="T_TRNS_RCV_DTL_ID" ColumnName="T_TRNS_RCV_DTL_ID" />
+          <ScalarProperty Name="T_TRNS_RCV_ID" ColumnName="T_TRNS_RCV_ID" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_TRNS_QTY" ColumnName="T_TRNS_QTY" />
+          <ScalarProperty Name="T_UOM_ID" ColumnName="T_UOM_ID" />
+          <ScalarProperty Name="T_CUR_STOCK_ID" ColumnName="T_CUR_STOCK_ID" />
+          <ScalarProperty Name="T_SUPPLIER_ID" ColumnName="T_SUPPLIER_ID" />
+          <ScalarProperty Name="T_RCV_TYPE" ColumnName="T_RCV_TYPE" />
+          <ScalarProperty Name="T_OTHERS" ColumnName="T_OTHERS" />
+          <ScalarProperty Name="T_IS_ACTIVE" ColumnName="T_IS_ACTIVE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_TRANSFER_REQ_DTL_ID" ColumnName="T_TRANSFER_REQ_DTL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74089">
+      <EntityTypeMapping TypeName="Model.T74089">
+        <MappingFragment StoreEntitySet="T74089">
+          <ScalarProperty Name="T_PRICE_ID" ColumnName="T_PRICE_ID" />
+          <ScalarProperty Name="T_COST_TYPE_DTL_ID" ColumnName="T_COST_TYPE_DTL_ID" />
+          <ScalarProperty Name="T_PUR_PRICE" ColumnName="T_PUR_PRICE" />
+          <ScalarProperty Name="T_SALE_PRICE" ColumnName="T_SALE_PRICE" />
+          <ScalarProperty Name="T_ITEM_UM_ID" ColumnName="T_ITEM_UM_ID" />
+          <ScalarProperty Name="T_RET_PRCNTG" ColumnName="T_RET_PRCNTG" />
+          <ScalarProperty Name="T_INCRS_DCRS_PRCNTG" ColumnName="T_INCRS_DCRS_PRCNTG" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ACTIVE" ColumnName="T_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74090">
+      <EntityTypeMapping TypeName="Model.T74090">
+        <MappingFragment StoreEntitySet="T74090">
+          <ScalarProperty Name="T_PAGE_TYPE_ID" ColumnName="T_PAGE_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74093">
+      <EntityTypeMapping TypeName="Model.T74093">
+        <MappingFragment StoreEntitySet="T74093">
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_BARCODE" ColumnName="T_BARCODE" />
+          <ScalarProperty Name="T_REGI_NO" ColumnName="T_REGI_NO" />
+          <ScalarProperty Name="T_MODEL_NO" ColumnName="T_MODEL_NO" />
+          <ScalarProperty Name="T_ENGIN_NO" ColumnName="T_ENGIN_NO" />
+          <ScalarProperty Name="T_CHESES_NO" ColumnName="T_CHESES_NO" />
+          <ScalarProperty Name="T_DESC" ColumnName="T_DESC" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74094">
+      <EntityTypeMapping TypeName="Model.T74094">
+        <MappingFragment StoreEntitySet="T74094">
+          <ScalarProperty Name="T_ORDER_ID" ColumnName="T_ORDER_ID" />
+          <ScalarProperty Name="T_ORDER_NO" ColumnName="T_ORDER_NO" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_REGI_NO" ColumnName="T_REGI_NO" />
+          <ScalarProperty Name="T_ISSUE_ID" ColumnName="T_ISSUE_ID" />
+          <ScalarProperty Name="T_PROB_DES_LANG1" ColumnName="T_PROB_DES_LANG1" />
+          <ScalarProperty Name="T_PROB_DES_LANG2" ColumnName="T_PROB_DES_LANG2" />
+          <ScalarProperty Name="T_PROB_ISSUE_DATE" ColumnName="T_PROB_ISSUE_DATE" />
+          <ScalarProperty Name="T_DEL_DATE" ColumnName="T_DEL_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ENGIN_NO" ColumnName="T_ENGIN_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74095">
+      <EntityTypeMapping TypeName="Model.T74095">
+        <MappingFragment StoreEntitySet="T74095">
+          <ScalarProperty Name="T_PROB_DET_ID" ColumnName="T_PROB_DET_ID" />
+          <ScalarProperty Name="T_ORDER_ID" ColumnName="T_ORDER_ID" />
+          <ScalarProperty Name="T_PROB_DELT_LANG1" ColumnName="T_PROB_DELT_LANG1" />
+          <ScalarProperty Name="T_PROB_DELT_LANG2" ColumnName="T_PROB_DELT_LANG2" />
+          <ScalarProperty Name="T_APR_DELV_DATE" ColumnName="T_APR_DELV_DATE" />
+          <ScalarProperty Name="T_REPAIR_STATUS" ColumnName="T_REPAIR_STATUS" />
+          <ScalarProperty Name="T_REPAIR_INST_DELT" ColumnName="T_REPAIR_INST_DELT" />
+          <ScalarProperty Name="T_REPAIR_DATE" ColumnName="T_REPAIR_DATE" />
+          <ScalarProperty Name="T_REPAIRER_ID" ColumnName="T_REPAIRER_ID" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74096">
+      <EntityTypeMapping TypeName="Model.T74096">
+        <MappingFragment StoreEntitySet="T74096">
+          <ScalarProperty Name="T_PER_ID" ColumnName="T_PER_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_SITE_CODE" ColumnName="T_SITE_CODE" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ACTIVE" ColumnName="T_ACTIVE" />
+          <ScalarProperty Name="T_AMBU_REG_ID" ColumnName="T_AMBU_REG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74097">
+      <EntityTypeMapping TypeName="Model.T74097">
+        <MappingFragment StoreEntitySet="T74097">
+          <ScalarProperty Name="T_ADVICE_ID" ColumnName="T_ADVICE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74098">
+      <EntityTypeMapping TypeName="Model.T74098">
+        <MappingFragment StoreEntitySet="T74098">
+          <ScalarProperty Name="T_AUTO_ID" ColumnName="T_AUTO_ID" />
+          <ScalarProperty Name="T_SENDER_ID" ColumnName="T_SENDER_ID" />
+          <ScalarProperty Name="T_RECIEVER_ID" ColumnName="T_RECIEVER_ID" />
+          <ScalarProperty Name="T_SENDER_TYPE" ColumnName="T_SENDER_TYPE" />
+          <ScalarProperty Name="T_TEXT" ColumnName="T_TEXT" />
+          <ScalarProperty Name="T_TIME" ColumnName="T_TIME" />
+          <ScalarProperty Name="T_REF_ID" ColumnName="T_REF_ID" />
+          <ScalarProperty Name="T_FILE_LOC" ColumnName="T_FILE_LOC" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_RECEIVED_FLAG" ColumnName="T_RECEIVED_FLAG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74101">
+      <EntityTypeMapping TypeName="Model.T74101">
+        <MappingFragment StoreEntitySet="T74101">
+          <ScalarProperty Name="T_CANCEL_REASON_ID" ColumnName="T_CANCEL_REASON_ID" />
+          <ScalarProperty Name="T_CANCEL_TYPE_ID" ColumnName="T_CANCEL_TYPE_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74104">
+      <EntityTypeMapping TypeName="Model.T74104">
+        <MappingFragment StoreEntitySet="T74104">
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_DISCH_ID" ColumnName="T_DISCH_ID" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74M01">
+      <EntityTypeMapping TypeName="Model.T74M01">
+        <MappingFragment StoreEntitySet="T74M01">
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_PASSWORD" ColumnName="T_PASSWORD" />
+          <ScalarProperty Name="T_USER_TYPE" ColumnName="T_USER_TYPE" />
+          <ScalarProperty Name="T_IS_ACTIVE" ColumnName="T_IS_ACTIVE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_IS_ONLINE" ColumnName="T_IS_ONLINE" />
+          <ScalarProperty Name="T_ROLE_CODE" ColumnName="T_ROLE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74028">
+      <EntityTypeMapping TypeName="Model.T74028">
+        <MappingFragment StoreEntitySet="T74028">
+          <ScalarProperty Name="T_PURCHASE_NO" ColumnName="T_PURCHASE_NO" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_PURCHASE_DATE" ColumnName="T_PURCHASE_DATE" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_PUR_REQ_ID" ColumnName="T_PUR_REQ_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74102">
+      <EntityTypeMapping TypeName="Model.T74102">
+        <MappingFragment StoreEntitySet="T74102">
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_GCS_VALUE" ColumnName="T_GCS_VALUE" />
+          <ScalarProperty Name="T_GCS_TYPE" ColumnName="T_GCS_TYPE" />
+          <ScalarProperty Name="T_GCS_ID" ColumnName="T_GCS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74036">
+      <EntityTypeMapping TypeName="Model.T74036">
+        <MappingFragment StoreEntitySet="T74036">
+          <ScalarProperty Name="T_ENTRY_TIME" ColumnName="T_ENTRY_TIME" />
+          <ScalarProperty Name="T_DIS_AMOUNT" ColumnName="T_DIS_AMOUNT" />
+          <ScalarProperty Name="T_ISSUED_BY" ColumnName="T_ISSUED_BY" />
+          <ScalarProperty Name="T_GRAND_TOTAL" ColumnName="T_GRAND_TOTAL" />
+          <ScalarProperty Name="T_VAT" ColumnName="T_VAT" />
+          <ScalarProperty Name="T_TOTAL" ColumnName="T_TOTAL" />
+          <ScalarProperty Name="T_DISCOUNT" ColumnName="T_DISCOUNT" />
+          <ScalarProperty Name="T_STORE_ID" ColumnName="T_STORE_ID" />
+          <ScalarProperty Name="T_SL_REQ_ID" ColumnName="T_SL_REQ_ID" />
+          <ScalarProperty Name="T_CURRENCY_ID" ColumnName="T_CURRENCY_ID" />
+          <ScalarProperty Name="T_UPD_DATE_" ColumnName="T_UPD_DATE " />
+          <ScalarProperty Name="T_UPD_USER_" ColumnName="T_UPD_USER " />
+          <ScalarProperty Name="T_ENTRY_DATE_" ColumnName="T_ENTRY_DATE " />
+          <ScalarProperty Name="T_ENTRY_USER_" ColumnName="T_ENTRY_USER " />
+          <ScalarProperty Name="T_PRSCRPTN_ID" ColumnName="T_PRSCRPTN_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_DOC_CODE" ColumnName="T_DOC_CODE" />
+          <ScalarProperty Name="T_PAT_NO" ColumnName="T_PAT_NO" />
+          <ScalarProperty Name="T_ISSUE_DATE" ColumnName="T_ISSUE_DATE" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_ISSUE_ID" ColumnName="T_ISSUE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74037">
+      <EntityTypeMapping TypeName="Model.T74037">
+        <MappingFragment StoreEntitySet="T74037">
+          <ScalarProperty Name="T_DISCOUNT" ColumnName="T_DISCOUNT" />
+          <ScalarProperty Name="T_PCS_BOX" ColumnName="T_PCS_BOX" />
+          <ScalarProperty Name="T_SL_REQ_DTL_ID" ColumnName="T_SL_REQ_DTL_ID" />
+          <ScalarProperty Name="T_TOTAL_AMOUNT" ColumnName="T_TOTAL_AMOUNT" />
+          <ScalarProperty Name="T_UPD_DATE_" ColumnName="T_UPD_DATE " />
+          <ScalarProperty Name="T_UPD_USER_" ColumnName="T_UPD_USER " />
+          <ScalarProperty Name="T_ENTRY_DATE_" ColumnName="T_ENTRY_DATE " />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_SALE_PRICE" ColumnName="T_SALE_PRICE" />
+          <ScalarProperty Name="T_UOM_ID" ColumnName="T_UOM_ID" />
+          <ScalarProperty Name="T_EXPIRE_DATE" ColumnName="T_EXPIRE_DATE" />
+          <ScalarProperty Name="T_QUANTITY" ColumnName="T_QUANTITY" />
+          <ScalarProperty Name="T_ITEM_ID" ColumnName="T_ITEM_ID" />
+          <ScalarProperty Name="T_CUR_STOCK_ID" ColumnName="T_CUR_STOCK_ID" />
+          <ScalarProperty Name="T_ISSUE_ID" ColumnName="T_ISSUE_ID" />
+          <ScalarProperty Name="T_ISSUE_DTL_ID" ColumnName="T_ISSUE_DTL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74004">
+      <EntityTypeMapping TypeName="Model.T74004">
+        <MappingFragment StoreEntitySet="T74004">
+          <ScalarProperty Name="T_EMP_STATUS" ColumnName="T_EMP_STATUS" />
+          <ScalarProperty Name="T_DOC_SPECI_ID" ColumnName="T_DOC_SPECI_ID" />
+          <ScalarProperty Name="T_DOC_DEGREE_ID" ColumnName="T_DOC_DEGREE_ID" />
+          <ScalarProperty Name="T_DOC_DEPT_ID" ColumnName="T_DOC_DEPT_ID" />
+          <ScalarProperty Name="T_EMP_TYP_ID" ColumnName="T_EMP_TYP_ID" />
+          <ScalarProperty Name="T_EMP_DEATH" ColumnName="T_EMP_DEATH" />
+          <ScalarProperty Name="T_BALANCE_AMOUNT" ColumnName="T_BALANCE_AMOUNT" />
+          <ScalarProperty Name="T_EMAIL_ID" ColumnName="T_EMAIL_ID" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_LAST_LANG2_NAME" ColumnName="T_LAST_LANG2_NAME" />
+          <ScalarProperty Name="T_LAST_LANG1_NAME" ColumnName="T_LAST_LANG1_NAME" />
+          <ScalarProperty Name="T_FILE_INACTIVE" ColumnName="T_FILE_INACTIVE" />
+          <ScalarProperty Name="T_DISTINCTION" ColumnName="T_DISTINCTION" />
+          <ScalarProperty Name="T_SKIN_COLOR" ColumnName="T_SKIN_COLOR" />
+          <ScalarProperty Name="T_REF_LETTER" ColumnName="T_REF_LETTER" />
+          <ScalarProperty Name="T_ACCEPTED" ColumnName="T_ACCEPTED" />
+          <ScalarProperty Name="T_POLICY_NO" ColumnName="T_POLICY_NO" />
+          <ScalarProperty Name="T_INACTIVE_FLAG" ColumnName="T_INACTIVE_FLAG" />
+          <ScalarProperty Name="T_EMP_LANG" ColumnName="T_EMP_LANG" />
+          <ScalarProperty Name="T_SMOKER_FLAG" ColumnName="T_SMOKER_FLAG" />
+          <ScalarProperty Name="T_SPONSR_CODE" ColumnName="T_SPONSR_CODE" />
+          <ScalarProperty Name="T_IP_EPISODES" ColumnName="T_IP_EPISODES" />
+          <ScalarProperty Name="T_BLD_GROUP_ID" ColumnName="T_BLD_GROUP_ID" />
+          <ScalarProperty Name="T_COMPANY_CODE" ColumnName="T_COMPANY_CODE" />
+          <ScalarProperty Name="T_SEX_CODE" ColumnName="T_SEX_CODE" />
+          <ScalarProperty Name="T_RLGN_CODE" ColumnName="T_RLGN_CODE" />
+          <ScalarProperty Name="T_ADDRESS2" ColumnName="T_ADDRESS2" />
+          <ScalarProperty Name="T_ADDRESS1" ColumnName="T_ADDRESS1" />
+          <ScalarProperty Name="T_POSTAL_CODE" ColumnName="T_POSTAL_CODE" />
+          <ScalarProperty Name="T_MOBILE_NO" ColumnName="T_MOBILE_NO" />
+          <ScalarProperty Name="T_PHONE_WORK" ColumnName="T_PHONE_WORK" />
+          <ScalarProperty Name="T_PHONE_HOME" ColumnName="T_PHONE_HOME" />
+          <ScalarProperty Name="T_PASSPORT_NO" ColumnName="T_PASSPORT_NO" />
+          <ScalarProperty Name="T_NTNLTY_ID" ColumnName="T_NTNLTY_ID" />
+          <ScalarProperty Name="T_MOTHER_LANG2_NAME" ColumnName="T_MOTHER_LANG2_NAME" />
+          <ScalarProperty Name="T_MOTHER_LANG1_NAME" ColumnName="T_MOTHER_LANG1_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG2_NAME" ColumnName="T_FIRST_LANG2_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG1_NAME" ColumnName="T_FIRST_LANG1_NAME" />
+          <ScalarProperty Name="T_GFATHER_LANG2_NAME" ColumnName="T_GFATHER_LANG2_NAME" />
+          <ScalarProperty Name="T_GFATHER_LANG1_NAME" ColumnName="T_GFATHER_LANG1_NAME" />
+          <ScalarProperty Name="T_FATHER_LANG2_NAME" ColumnName="T_FATHER_LANG2_NAME" />
+          <ScalarProperty Name="T_FATHER_LANG1_NAME" ColumnName="T_FATHER_LANG1_NAME" />
+          <ScalarProperty Name="T_FAMILY_LANG2_NAME" ColumnName="T_FAMILY_LANG2_NAME" />
+          <ScalarProperty Name="T_FAMILY_LANG1_NAME" ColumnName="T_FAMILY_LANG1_NAME" />
+          <ScalarProperty Name="T_MRTL_STATUS_CODE" ColumnName="T_MRTL_STATUS_CODE" />
+          <ScalarProperty Name="T_BIRTH_DATE" ColumnName="T_BIRTH_DATE" />
+          <ScalarProperty Name="T_EMP_NO" ColumnName="T_EMP_NO" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74015">
+      <EntityTypeMapping TypeName="Model.T74015">
+        <MappingFragment StoreEntitySet="T74015">
+          <ScalarProperty Name="T_ASSIGN_DATE" ColumnName="T_ASSIGN_DATE" />
+          <ScalarProperty Name="T_ACTIVE_STATUS" ColumnName="T_ACTIVE_STATUS" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ASSIGN_PRICE" ColumnName="T_ASSIGN_PRICE" />
+          <ScalarProperty Name="T_AMBU_REG_ID" ColumnName="T_AMBU_REG_ID" />
+          <ScalarProperty Name="T_EMP_ID" ColumnName="T_EMP_ID" />
+          <ScalarProperty Name="T_EMP_ASSIGN_ID" ColumnName="T_EMP_ASSIGN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74041">
+      <EntityTypeMapping TypeName="Model.T74041">
+        <MappingFragment StoreEntitySet="T74041">
+          <ScalarProperty Name="T_CALL_REASON_ID" ColumnName="T_CALL_REASON_ID" />
+          <ScalarProperty Name="T_CALLER_ID" ColumnName="T_CALLER_ID" />
+          <ScalarProperty Name="T_ACTV_OPER" ColumnName="T_ACTV_OPER" />
+          <ScalarProperty Name="T_PUPILLER_ID" ColumnName="T_PUPILLER_ID" />
+          <ScalarProperty Name="T_CLIT_ID" ColumnName="T_CLIT_ID" />
+          <ScalarProperty Name="T_PROTOCAL_NO" ColumnName="T_PROTOCAL_NO" />
+          <ScalarProperty Name="T_REMARKS" ColumnName="T_REMARKS" />
+          <ScalarProperty Name="T_VERIFY_DISCHARGE" ColumnName="T_VERIFY_DISCHARGE" />
+          <ScalarProperty Name="T_PAT_REQ_CNCL" ColumnName="T_PAT_REQ_CNCL" />
+          <ScalarProperty Name="T_RDY_FOR_NXT_PAT" ColumnName="T_RDY_FOR_NXT_PAT" />
+          <ScalarProperty Name="T_EVENT_FLAG" ColumnName="T_EVENT_FLAG" />
+          <ScalarProperty Name="T_CASE_ARRIVAL" ColumnName="T_CASE_ARRIVAL" />
+          <ScalarProperty Name="T_PANIC_TIME" ColumnName="T_PANIC_TIME" />
+          <ScalarProperty Name="T_TEAM_ARVL_STN" ColumnName="T_TEAM_ARVL_STN" />
+          <ScalarProperty Name="T_TEAM_DEPT_HOS" ColumnName="T_TEAM_DEPT_HOS" />
+          <ScalarProperty Name="T_TEAM_ARVL_HOS" ColumnName="T_TEAM_ARVL_HOS" />
+          <ScalarProperty Name="T_OPER_ACPT_DATE" ColumnName="T_OPER_ACPT_DATE" />
+          <ScalarProperty Name="T_OPER_DES_TIME" ColumnName="T_OPER_DES_TIME" />
+          <ScalarProperty Name="T_OPER_DES_CODE" ColumnName="T_OPER_DES_CODE" />
+          <ScalarProperty Name="T_OPER_CNCL_DATE" ColumnName="T_OPER_CNCL_DATE" />
+          <ScalarProperty Name="T_OPER_CNCL_FLAG" ColumnName="T_OPER_CNCL_FLAG" />
+          <ScalarProperty Name="T_VERBAL_RESPONSE" ColumnName="T_VERBAL_RESPONSE" />
+          <ScalarProperty Name="T_BEST_MOTOR" ColumnName="T_BEST_MOTOR" />
+          <ScalarProperty Name="T_EYE_OPEN" ColumnName="T_EYE_OPEN" />
+          <ScalarProperty Name="T_TRIAGE_LEVEL" ColumnName="T_TRIAGE_LEVEL" />
+          <ScalarProperty Name="T_CAN_DATE" ColumnName="T_CAN_DATE" />
+          <ScalarProperty Name="T_MAP_LOC" ColumnName="T_MAP_LOC" />
+          <ScalarProperty Name="T_DOC_REQ_ACPT_DATE" ColumnName="T_DOC_REQ_ACPT_DATE" />
+          <ScalarProperty Name="T_TEAM_SITE_CODE" ColumnName="T_TEAM_SITE_CODE" />
+          <ScalarProperty Name="T_REF_ID" ColumnName="T_REF_ID" />
+          <ScalarProperty Name="T_CHAT_FLAG" ColumnName="T_CHAT_FLAG" />
+          <ScalarProperty Name="T_CHAT_DOC_ID" ColumnName="T_CHAT_DOC_ID" />
+          <ScalarProperty Name="T_START_TIME" ColumnName="T_START_TIME" />
+          <ScalarProperty Name="T_SITE_DIS_CODE" ColumnName="T_SITE_DIS_CODE" />
+          <ScalarProperty Name="T_REF_DOC_TIME" ColumnName="T_REF_DOC_TIME" />
+          <ScalarProperty Name="T_REF_DOC_CODE" ColumnName="T_REF_DOC_CODE" />
+          <ScalarProperty Name="T_ACCEPT_STATUS" ColumnName="T_ACCEPT_STATUS" />
+          <ScalarProperty Name="T_REFER_TIME" ColumnName="T_REFER_TIME" />
+          <ScalarProperty Name="T_REFER_SITE_DOC" ColumnName="T_REFER_SITE_DOC" />
+          <ScalarProperty Name="T_ACCEPT_TIME" ColumnName="T_ACCEPT_TIME" />
+          <ScalarProperty Name="T_ASSIGN_TIME" ColumnName="T_ASSIGN_TIME" />
+          <ScalarProperty Name="T_ICD10_CODE" ColumnName="T_ICD10_CODE" />
+          <ScalarProperty Name="T_CANCEL_REASON" ColumnName="T_CANCEL_REASON" />
+          <ScalarProperty Name="T_CANCEL_STATUS" ColumnName="T_CANCEL_STATUS" />
+          <ScalarProperty Name="T_AGE" ColumnName="T_AGE" />
+          <ScalarProperty Name="T_AMBU_REG_ID" ColumnName="T_AMBU_REG_ID" />
+          <ScalarProperty Name="T_PROB_DETAILS" ColumnName="T_PROB_DETAILS" />
+          <ScalarProperty Name="T_PROB_TYPE_ID" ColumnName="T_PROB_TYPE_ID" />
+          <ScalarProperty Name="T_APPRX_DIST" ColumnName="T_APPRX_DIST" />
+          <ScalarProperty Name="T_APPRX_TIME" ColumnName="T_APPRX_TIME" />
+          <ScalarProperty Name="T_LONGITUDE" ColumnName="T_LONGITUDE" />
+          <ScalarProperty Name="T_LATITUDE" ColumnName="T_LATITUDE" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_TRIAGE_OUT_DATE" ColumnName="T_TRIAGE_OUT_DATE" />
+          <ScalarProperty Name="T_SEEN_TIME" ColumnName="T_SEEN_TIME" />
+          <ScalarProperty Name="T_SEEN_DATE" ColumnName="T_SEEN_DATE" />
+          <ScalarProperty Name="T_INVESTIGATIONS" ColumnName="T_INVESTIGATIONS" />
+          <ScalarProperty Name="T_PROVISIONAL_DIAG" ColumnName="T_PROVISIONAL_DIAG" />
+          <ScalarProperty Name="T_PHYSICAL_EXAM" ColumnName="T_PHYSICAL_EXAM" />
+          <ScalarProperty Name="T_ELIGIBLE" ColumnName="T_ELIGIBLE" />
+          <ScalarProperty Name="T_RED_CRESCENT" ColumnName="T_RED_CRESCENT" />
+          <ScalarProperty Name="T_COMMENTS" ColumnName="T_COMMENTS" />
+          <ScalarProperty Name="T_DISCHARGE_DATE" ColumnName="T_DISCHARGE_DATE" />
+          <ScalarProperty Name="T_DISCHARGE_TIME" ColumnName="T_DISCHARGE_TIME" />
+          <ScalarProperty Name="T_DISCH_STATUS" ColumnName="T_DISCH_STATUS" />
+          <ScalarProperty Name="T_EPISODE_END_TIME" ColumnName="T_EPISODE_END_TIME" />
+          <ScalarProperty Name="T_DISCH_RSN_REMARKS" ColumnName="T_DISCH_RSN_REMARKS" />
+          <ScalarProperty Name="T_TRAUMA" ColumnName="T_TRAUMA" />
+          <ScalarProperty Name="T_PREGNANCY" ColumnName="T_PREGNANCY" />
+          <ScalarProperty Name="T_SMOKING" ColumnName="T_SMOKING" />
+          <ScalarProperty Name="T_PROBLEM_DURATION" ColumnName="T_PROBLEM_DURATION" />
+          <ScalarProperty Name="T_PROBLEM" ColumnName="T_PROBLEM" />
+          <ScalarProperty Name="T_EPISODE_NO" ColumnName="T_EPISODE_NO" />
+          <ScalarProperty Name="T_REQUEST_TIME" ColumnName="T_REQUEST_TIME" />
+          <ScalarProperty Name="T_REQUEST_DATE" ColumnName="T_REQUEST_DATE" />
+          <ScalarProperty Name="T_TRIAGE_CONDITION" ColumnName="T_TRIAGE_CONDITION" />
+          <ScalarProperty Name="T_ADMIT_DOC_CODE" ColumnName="T_ADMIT_DOC_CODE" />
+          <ScalarProperty Name="T_DISCH_DEST" ColumnName="T_DISCH_DEST" />
+          <ScalarProperty Name="T_DISCHARGE_DOC_CODE" ColumnName="T_DISCHARGE_DOC_CODE" />
+          <ScalarProperty Name="T_DISCH_RSN_CODE" ColumnName="T_DISCH_RSN_CODE" />
+          <ScalarProperty Name="T_CH_COMP" ColumnName="T_CH_COMP" />
+          <ScalarProperty Name="T_ARRIVAL_STATUS" ColumnName="T_ARRIVAL_STATUS" />
+          <ScalarProperty Name="T_ALLERGY_CODE" ColumnName="T_ALLERGY_CODE" />
+          <ScalarProperty Name="T_USER_ID" ColumnName="T_USER_ID" />
+          <ScalarProperty Name="T_PAT_ID" ColumnName="T_PAT_ID" />
+          <ScalarProperty Name="T_COMPANY_ID" ColumnName="T_COMPANY_ID" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74120">
+      <EntityTypeMapping TypeName="Model.T74120">
+        <MappingFragment StoreEntitySet="T74120">
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ADDRESS" ColumnName="T_ADDRESS" />
+          <ScalarProperty Name="T_MOBILE_NO" ColumnName="T_MOBILE_NO" />
+          <ScalarProperty Name="T_PASSPORT_NO" ColumnName="T_PASSPORT_NO" />
+          <ScalarProperty Name="T_NTNLTY_ID" ColumnName="T_NTNLTY_ID" />
+          <ScalarProperty Name="T_LAST_LANG2_NAME" ColumnName="T_LAST_LANG2_NAME" />
+          <ScalarProperty Name="T_LAST_LANG1_NAME" ColumnName="T_LAST_LANG1_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG2_NAME" ColumnName="T_FIRST_LANG2_NAME" />
+          <ScalarProperty Name="T_FIRST_LANG1_NAME" ColumnName="T_FIRST_LANG1_NAME" />
+          <ScalarProperty Name="T_CALLER_ID" ColumnName="T_CALLER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74121">
+      <EntityTypeMapping TypeName="Model.T74121">
+        <MappingFragment StoreEntitySet="T74121">
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_CALL_REASON_ID" ColumnName="T_CALL_REASON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74044">
+      <EntityTypeMapping TypeName="Model.T74044">
+        <MappingFragment StoreEntitySet="T74044">
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_PRICE" ColumnName="T_PRICE" />
+          <ScalarProperty Name="T_AREA" ColumnName="T_AREA" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_AMBU_REG_ID" ColumnName="T_AMBU_REG_ID" />
+          <ScalarProperty Name="T_STORE_ID" ColumnName="T_STORE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74043">
+      <EntityTypeMapping TypeName="Model.T74043">
+        <MappingFragment StoreEntitySet="T74043">
+          <ScalarProperty Name="T_NEXT_REVIEW" ColumnName="T_NEXT_REVIEW" />
+          <ScalarProperty Name="T_SCORE" ColumnName="T_SCORE" />
+          <ScalarProperty Name="T_GLUCOSE" ColumnName="T_GLUCOSE" />
+          <ScalarProperty Name="T_ECG_TYPE" ColumnName="T_ECG_TYPE" />
+          <ScalarProperty Name="T_HEART_RATE" ColumnName="T_HEART_RATE" />
+          <ScalarProperty Name="T_BP_MEAN" ColumnName="T_BP_MEAN" />
+          <ScalarProperty Name="T_TRIAGE_LEVEL" ColumnName="T_TRIAGE_LEVEL" />
+          <ScalarProperty Name="T_CONCIUS_LEVEL" ColumnName="T_CONCIUS_LEVEL" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_VERIFY_LEVEL" ColumnName="T_VERIFY_LEVEL" />
+          <ScalarProperty Name="T_ECG_TEST" ColumnName="T_ECG_TEST" />
+          <ScalarProperty Name="T_URINE_TEST" ColumnName="T_URINE_TEST" />
+          <ScalarProperty Name="T_BSUGAR_ABF" ColumnName="T_BSUGAR_ABF" />
+          <ScalarProperty Name="T_BSUGAR_F" ColumnName="T_BSUGAR_F" />
+          <ScalarProperty Name="T_OS" ColumnName="T_OS" />
+          <ScalarProperty Name="T_TIME" ColumnName="T_TIME" />
+          <ScalarProperty Name="T_RESP" ColumnName="T_RESP" />
+          <ScalarProperty Name="T_PULS" ColumnName="T_PULS" />
+          <ScalarProperty Name="T_TEMP" ColumnName="T_TEMP" />
+          <ScalarProperty Name="T_BP_DIA" ColumnName="T_BP_DIA" />
+          <ScalarProperty Name="T_BP_SYS" ColumnName="T_BP_SYS" />
+          <ScalarProperty Name="T_WEIGHT" ColumnName="T_WEIGHT" />
+          <ScalarProperty Name="T_HIGHT" ColumnName="T_HIGHT" />
+          <ScalarProperty Name="T_DOC_CODE" ColumnName="T_DOC_CODE" />
+          <ScalarProperty Name="T_REQUEST_ID" ColumnName="T_REQUEST_ID" />
+          <ScalarProperty Name="T_PCHECKUP_ID" ColumnName="T_PCHECKUP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T74071">
+      <EntityTypeMapping TypeName="Model.T74071">
+        <MappingFragment StoreEntitySet="T74071">
+          <ScalarProperty Name="T_SHORT_NAME" ColumnName="T_SHORT_NAME" />
+          <ScalarProperty Name="T_UPD_DATE" ColumnName="T_UPD_DATE" />
+          <ScalarProperty Name="T_UPD_USER" ColumnName="T_UPD_USER" />
+          <ScalarProperty Name="T_ENTRY_DATE" ColumnName="T_ENTRY_DATE" />
+          <ScalarProperty Name="T_ENTRY_USER" ColumnName="T_ENTRY_USER" />
+          <ScalarProperty Name="T_LANG2_NAME" ColumnName="T_LANG2_NAME" />
+          <ScalarProperty Name="T_LANG1_NAME" ColumnName="T_LANG1_NAME" />
+          <ScalarProperty Name="T_ROLE_CODE" ColumnName="T_ROLE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

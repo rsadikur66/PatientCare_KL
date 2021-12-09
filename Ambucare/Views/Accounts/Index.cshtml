@@ -1,0 +1,182 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/normalize.css" rel="stylesheet" />
+    <link href="~/Content/login-new-styles.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-hijri.js"></script>
+    <script src="~/Scripts/zebra_datepicker.js"></script>
+    <script src="~/Scripts/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jquery.validationEngine-en.js"></script>
+    <script src="~/Scripts/jquery.simplemodal.1.4.4.min.js"></script>
+    <script src="~/Scripts/angular/jquery.js"></script>
+    <script src="~/Scripts/angular/jquery.dataTables.js"></script>
+    <script src="~/Scripts/angular/angular.min.js"></script>
+    <script src="~/Scripts/angular/angular-datatables.js"></script>
+    <script src="~/Scripts/angular/angular-modal-service.js"></script>
+    <script src="~/Scripts/angular/angular-sanitize.js"></script>
+    @*<script src="~/Scripts/angular/xeditable.js"></script>
+        <script src="~/Scripts/angular/angular-mocks.js"></script>*@
+    <script src="~/Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/angular/angular-route.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/select.js"></script>
+    @*<script src="~/Scripts/angular/ng-map.js" title="map"></script>*@
+    <script src="~/Scripts/angular/ng-map.1.18.5.js" title="map"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBvK4WBt18RMBAKEjwPZ0bDIY3Vp6ekPbM" title="map"></script>
+    @*<script src="~/Scripts/angular/map_api.js"></script>*@
+    <script src="~/Scripts/angular/angularjs-google-maps.js" title="map"></script>
+    <script src="~/Scripts/angular/xeditable.js"></script>
+    <script src="~/Scripts/angular/angular-mocks.js"></script>
+    @*<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />*@
+    <script src="~/Scripts/Rating/jk-rating-stars.min.js"></script>
+    <script src="~/Scripts/Rating/script.js"></script>
+    <script src="~/Scripts/Module/fileUploader.js"></script>
+    <script src="~/Scripts/ChatScripts/angular-flash.js"></script>
+    <script src="~/Scripts/angular-base64-upload.js"></script>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Apps/app.js"></script>
+    <script src="~/Apps/LoginController.js"></script>
+    <script src="~/Apps/JSService/LoginService.js"></script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        td,
+        th {
+            padding: 2px !important;
+        }
+
+        body {
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+<body ng-app="Ambucare" ng-controller="LoginController">
+    
+    <div id="loginPage">
+        <div id="bodyBG">
+            
+            <div id="logoheader">
+                <div id="container">
+                    <div ng-show="loading" style="position: absolute;padding-left: 50%;"><img src="~/Images/loader.gif" style="height: 30px;"></div>
+                </div>
+                <img id="amblogo" src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/ambucareLogo.png")" alt=""/>
+            </div>
+            
+            <!-- <div id="loginbg"></div> -->
+            <div id="login-content">
+                
+                
+                <div id="login-body">
+                    <img id="rszlogo" src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/rsz_tire_logo.jpg")" alt="" />
+                    <h3 id="l-title">
+                        <span class="red">AMBULANCE</span>
+                        <span class="gray">Management System</span>
+                    </h3>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <img id="user" src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/username.png")" alt="" />
+                            <input style="text-transform: uppercase;" class="form-control placeholder-no-fix" ID="txtEmpID" Placeholder="Employee ID" ng-model="obj.T_LOGIN_NAME" type="text" next-focus tabindex="1" />
+                            @*<input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                                placeholder="Employee ID" name="empid">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <img id="user" src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/password(1).png")" alt="" />
+                            <input style="text-transform: uppercase;" class="form-control placeholder-no-fix" ID="txtPassword" Placeholder="Password" ng-model="obj.T_PWD" type="password" ng-keypress="enterKey($event)" tabindex="2" />
+                            @*<input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                                placeholder="Password" name="Password">*@
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="rememberme mt-checkbox mt-checkbox-outline">
+                            <input type="checkbox" name="remember" value="1"> Remember me
+                            <span></span>
+                        </label>
+                        <div class="cng-pass">
+                            <a href="#">
+                                <span style="display:block;">Change Password?</span>
+                            </a>
+                            <a href="#">
+                                <span style="color: red;font-size: 10px;margin-right: -27px;">Recreate Password</span>
+                            </a>
+                            <!-- <span style="display:inherit;">Change Password</span>
+                            <span style="color: red;font-size: 10px;margin-right: -27px;">Recreate Password</span> -->
+                        </div>
+
+                    </div>
+
+                    <div class="button-actions">
+                        <p class="btn-separator">
+                            <img src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/separator.png")" />
+                        </p>
+                        <a href="#" class="pull-left btn-text" ng-click="login()">
+                            <img src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/loginIcon.png")" />
+                            LOGIN
+                        </a>
+                        <a href="#" class="pull-right btn-text" ng-click="Logout()">
+                            <img src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/exitIcon.png")" />
+                            EXIT
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footerBG">
+            <table style="margin:auto;width: 100%;font-size: 11px;margin-top: 0.5%;">
+                <tr>
+                    <td style="width: 5%;"></td>
+                    <td style="width: 10%;text-align: center" rowspan="2"><img src="@VirtualPathUtility.ToAbsolute("~/Images/l-images/warningIcon.png")" id="warningImg" alt="" style="height: 50px" /></td>
+                    <td style="width: 85%;">
+                        <span style="color:#43E4A8"><b>WARNING:</b></span>
+                        <span style="color:#ffffff">
+                            This computer product is protected by copyright law and
+                            international treaties. Unauthorized reproduction & distribution of this
+                            program, or any
+                            portion of it, may result in severe civil and criminal penalities
+                            and will be prosecuted to the maximum extent possible under the law.
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 5%;"></td>
+                    <td style="width: 85%;">
+                        <span style="color:#43E4A8"><b>AMBUCARE</b></span>
+                        <span style="color:#ffffff">
+                            is part of medisys HIS products, Version : 19.4.15
+                            Medical Systems
+                            Co., All Rights Reserved.
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+

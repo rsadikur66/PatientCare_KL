@@ -1,0 +1,290 @@
+﻿
+@{
+    ViewBag.Title = "T74014";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    @* Css for Image Upload Start*@ .thumb {
+        width: 100%;
+        margin: 5px;
+        float: left;
+    }
+
+    .uploader {
+        clear: both;
+    }
+
+    @* Css for Image Upload End*@
+</style>
+
+<script src="~/Apps/JSController/Initialization/T74014Controller.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSService/Initialization/T74014Service.js"></script>
+<script src="~/Apps/JSFactory/Initialization/EmployeeFactory.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Apps/JSController/Initialization/home.js"></script>
+<script src="~/Apps/JSFactory/Initialization/entity.js"></script>
+@*For Calendar Css And Js file*@
+<link href="~/Content/calender.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Font-awesome/font-awesome.min.css" rel="stylesheet" />*@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Scripts/calender.js"></script>
+@*<script src="~/Apps/JSService/Initialization/angular-base64-upload.js"></script>*@
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74014Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<form method="post" action="T74014/Insert_T74014" enctype="multipart/form-data" ng-app="Ambucare" ng-controller="T74014Controller">
+    <div class="container">
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px; padding: 10px">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblAmbulanceRegNo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbulanceRegNo'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtAmbulanceRegNo" type="text" ng-model="obj.T_AMBU_REG_NUM" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblChasisNo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChasisNo'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtChasisNo" type="text" ng-model="obj.T_CHASIS_NO" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblEngineNo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEngineNo'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtEngineNo" type="text" ng-model="obj.T_ENGINE_NO" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblWeight" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblWeight'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtWeight" type="text" ng-model="obj.T_WEIGHT" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px;">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblBrandId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBrandId'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.B.selected" id="ddlBrandId" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 174px;max-width: 180px">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="B in BrandId | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="B.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlIBrandId" ng-model="obj.T_BRAND_ID" ng-bind="obj.T_BRAND_ID=obj.B.selected.T_ITEM_BRA_ID" maxlength="5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblEmployeeId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmployeeId'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtEmployeeName" type="text" ng-dblclick="emp()" ng-model="obj.T_FIRST_LANG2_NAME" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblBarcodeId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBarcodeId'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtBarcodeId" type="text" ng-model="obj.T_BARCODE_ID" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblYearModel" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblYearModel'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtYearModel" type="text" ng-model="obj.T_YEAR_MODEL" maxlength="5" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblColor" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblColor'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.C.selected" id="ddlColor" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 174px;">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="C in color | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="C.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlIcolor" ng-model="obj.T_ITEM_COLOR_ID" ng-bind="obj.T_ITEM_COLOR_ID=obj.C.selected.T_ITEM_COLOR_ID" maxlength="5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblAmbulanceTypeId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbulanceTypeId'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.A.selected" id="ddlAmbulanceTypeId" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 174px;">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="A in ambutype | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="A.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlIAmbulanceTypeId" ng-model="obj.T_AMB_TYPE_ID" ng-bind="obj.T_AMB_TYPE_ID=obj.A.selected.T_AMBU_TYPE_ID" maxlength="5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblRegiDate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRegiDate'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                @*For Calender ng-datepicker*@
+                                <ng-datepicker ng-model="obj.T_REG_DATE" id="txtRegiDate" type="text" view-format="DD/MM/YYYY">
+                                </ng-datepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label id="lblSerise" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSerise'" class="ng-cloak" AssociatedControlID="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtSerise" type="text" ng-model="obj.T_SERIES" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtAmbulanceRegId" type="hidden" ng-model="obj.T_AMBU_REG_ID" readonly="readonly" maxlength="7" />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div ng-repeat="step in stepsModel">
+                                    <img class="thumb" ng-src="{{step}}" ng-model="imgDiv" />
+                                </div>
+                                <div ng-show="imgDiv">
+                                    <img class="thumb" src="{{obj.T_REG_IMAGE}}" style="width: 160px; height: 110px" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @*<button ng-click="selectFile()">Upload Your File</button>*@
+                                <input type='file' name="attachment" onchange="angular.element(this).scope().imageUpload(event)" data-ak-file-model="obj.attachment" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                <input id="txtEmployeeId" type="hidden" ng-model="obj.T_EMP_ID" maxlength="6" />
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="txtRegistation" type="hidden" ng-model="obj.T_AMBU_REG_ID" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--For Data Gridview start-->
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto;padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <center>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="table-responsive">
+                                            <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </div>
+                </div>
+                <!--For Data Gridview End-->
+            </div>
+        </div>
+    </div>
+</form>

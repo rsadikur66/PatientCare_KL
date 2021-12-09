@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="R62104_pat" msprop:BaseTable.2="T74046" msprop:BaseTable.0="T74041" msprop:BaseTable.1="T74050">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_REQUEST_ID" msprop:BaseColumn="T_REQUEST_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="PAT_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_AGE" msprop:BaseColumn="T_AGE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_SHORT_GNDR_NAME" msprop:BaseColumn="T_SHORT_GNDR_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_MOBILE_NO" msprop:BaseColumn="T_MOBILE_NO" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="R62104_med">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_INDEX" msprop:BaseColumn="T_INDEX" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_DOSE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_CODE" msprop:BaseColumn="ITEM_CODE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="GEN_DESC" msprop:BaseColumn="GEN_DESC" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_DESC" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_ISSUE_ID" msprop:BaseColumn="T_ISSUE_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_ENTRY_TIME" msprop:BaseColumn="T_ENTRY_TIME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_QTY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="R62104_vital">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_PCHECKUP_ID" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_REQUEST_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_DOC_CODE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_HIGHT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_WEIGHT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_BP_SYS" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_BP_DIA" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_TEMP" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_PULS" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_RESP" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_TIME" msprop:OraDbType="123" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T_OS" msprop:OraDbType="111" type="xs:short" minOccurs="0" />
+              <xs:element name="T_BSUGAR_F" msprop:OraDbType="111" type="xs:short" minOccurs="0" />
+              <xs:element name="T_BSUGAR_ABF" msprop:OraDbType="111" type="xs:short" minOccurs="0" />
+              <xs:element name="T_URINE_TEST" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_ECG_TEST" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_VERIFY_LEVEL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_ENTRY_DATE" msprop:OraDbType="106" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T_ENTRY_USER" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_UPD_DATE" msprop:OraDbType="106" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="T_UPD_USER" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_CONCIUS_LEVEL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_TRIAGE_LEVEL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="R62104_service">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_REQUEST_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_SALE_PRICE" msprop:OraDbType="108" type="xs:double" minOccurs="0" />
+              <xs:element name="T_COST_TYPE_DTL_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="ISSD_ITEM" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

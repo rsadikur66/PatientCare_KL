@@ -1,0 +1,487 @@
+﻿body {
+    font-family: arial;
+    font-size: .8em;
+    color: #5b5b5b;
+    background: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+}
+
+#bg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -999;
+}
+
+#topbar {
+    background-image: url('../Images/UpperStripBG3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    /*color: #fafafa*/
+}
+
+#topbarBg
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 57px;
+    width: 100%;
+    -ms-opacity: 0.8;
+    opacity: 0.8;
+    z-index: -998;
+}
+
+#calender
+{
+    position: fixed;
+    /*top: 10px;*/
+    right: 14%;
+    z-index: -997;
+}
+
+#headerBg
+{
+    position: fixed;
+    top: 36px;
+    left: 240px;
+    height: 68px;
+    width: 100%;
+    -ms-opacity: 0.9;
+    opacity: 0.9;
+    z-index: -996;
+}
+
+#leftPanelBg {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    bottom: 0;
+    width: 284px;
+    -ms-opacity: 0.9;
+    opacity: 0.9;
+    z-index: -995;
+    height: 686px;
+}
+
+#topbarSeparator
+{
+    position: fixed;
+    top: 0;
+    left: 240px;
+    height: 36px;
+    width: 2px;
+    z-index: -994;
+}
+
+#whiteLogo {
+    height: 86px;
+    background: url("../Images/logoBG5.png") no-repeat;
+    margin: 0 auto;
+    width: 314px;
+    text-align: center;
+}
+
+.t-user-name {
+    color: #364E6F;
+    font-weight: 700;
+    line-height: 12px;
+    float: left;
+    border-right: 2px solid #b7c4cc;
+    border-left: 2px solid #b7c4cc;
+    margin-right: 10px;
+    padding-left: 10px;
+    width: 150px;
+}
+
+.t-form-info {
+    color: #364E6F;
+    font-weight: 700;
+    line-height: 12px;
+    float: left;
+    border-right: 2px solid #b7c4cc;
+    border-left: 2px solid #b7c4cc;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.t-calendar {
+    display: inline-block;
+    float: left;
+    /* border-right: 2px solid #b7c4cc; */
+    margin-right: 14px;
+    color: #364E6F;
+    font-weight: 700;
+}
+
+.t-panic {
+    display: inline-block;
+    /* float: right; */
+    border-left: 2px solid #b7c4cc!important;
+    margin-right: 0;
+    color: #364E6F;
+    font-weight: 700;
+    /* margin-right: 60px; */
+    margin-left: 10px;
+    padding: 2px;
+    position: relative;
+    height: 25px;
+    top: -1px;
+}
+
+#datePanel
+{
+    padding: 3px 0 0 25px;
+    float: left;
+}
+.langList {
+    position: fixed;
+    top: 20px;
+    /*left: 275px;*/
+    right: 13%;
+    height: 36px;
+    width: 13%;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+    color: #364E6F;
+}
+
+#panicked {
+    position: fixed;
+    top: -6px;
+    /*left: 275px;*/
+    left: 20%;
+    height: 36px;
+    width: 13%;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+    color: #364E6F;
+}
+
+#t-calendar {
+    position: fixed;
+    top: -6px;
+    /* left: 275px; */
+    right: 21%;
+    height: 36px;
+    width: 13%;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+    color: #364E6F;
+}
+
+    .langList span {
+        cursor: pointer;
+    }
+    #formInfo {
+        margin-left: 55px;
+        padding: 3px;
+        float: left;
+    }
+
+#formInfo select
+{
+    margin: -3px 10px;
+}
+
+.clear
+{
+    overflow: hidden;
+    width: 100%;
+}
+
+#header
+{
+    width: 100%;
+    margin-top: 17px;
+}
+
+#user
+{
+    float: left;
+    margin-top: -4px;
+    height: 46px;
+    width: 46px;
+    border: 2px solid #a21217;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+#usericon
+{
+    margin: 8px 0 0 11px;
+}
+
+#userName {
+    float: left;
+    width: 15%;
+    padding: 14px 0 0 10px;
+    color: #fafafa;
+    font-weight: bold;
+}
+
+#logo
+{
+    float: left;
+    margin-left: 25px;
+    width: 145px;
+}
+
+#title
+{
+    float: right;
+}
+
+#title span
+{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+span.red
+{
+    margin-left: 20px;
+    color: #c12d2d;
+}
+
+span.gray
+{
+    color: #7a7a7a;
+}
+
+#options
+{
+    float: left;
+    height: 80vh;
+    width: 223px;
+    margin-top: 0px;
+    border-right: 1px solid rgb(51, 165, 165);
+    border-left: 1px solid rgb(51, 165, 165);
+    border-radius: 4px;
+}
+
+#navigation
+{
+    position: fixed;
+    width: 223px;
+    bottom: 10px;
+}
+
+#container {
+    position: fixed;
+    top: 102px;
+    bottom: 15px;
+    left: 255px;
+    right: 15px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(51, 165, 165);
+    /*background-color: #fff;
+    background-color: rgba(250, 250, 250, .8);*/
+}
+
+    #container span {
+        display: block;
+        margin: 20px;
+        color: #364E6F;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+#container span img
+{
+    vertical-align: middle;
+    margin-top: -3px;
+    padding-left: 5px;
+}
+
+#links
+{
+    margin: 10px auto;
+    width: 80%;
+    font-weight: bold;
+}
+
+#links div
+{
+    float: left;
+    width: 300px;
+    margin-right: 20px;
+}
+
+a
+{
+    display: block;
+    text-decoration: none;
+    color: #5b5b5b;
+}
+
+#version
+{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.Button {
+    margin-top: 2px;
+    display: block;
+    height: 36px;
+    width: 223px;
+    /*color: #fafafa;*/
+    color: #364E6F;
+    font-weight: 700;
+    border: 1px solid rgb(190, 190, 190);
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0 0 0 50px;
+    text-align: left;
+}
+
+.Button:enabled:active
+{
+    background-position: 4px 4px;
+    padding: 2px 0 0 51px;
+}
+
+.Transaction {
+    background: url("../Images/transaction.png") no-repeat;
+    background-position: 3px 3px;
+    cursor: pointer;
+}
+
+.Query
+{
+    background: url("../Images/query.png") no-repeat;
+    background-position: 3px 3px;
+    cursor: pointer;
+}
+
+.Initialization {
+    background: url("../Images/Intialization.png") no-repeat;
+    background-position: 3px 3px;
+    cursor: pointer;
+}
+
+.Report {
+    background: url("../Images/reports.png") no-repeat;
+    background-position: 3px 3px;
+    cursor: pointer;
+}
+
+.Setup {
+    background: url("../Images/Intialization.png") no-repeat;
+    background-position: 3px 3px;
+    cursor: pointer;
+}
+
+.Help
+{
+    background: url("../Images/help.png") no-repeat;
+    background-position: 3px 3px;
+}
+
+.Back
+{
+    background: url("../Images/back.png") no-repeat;
+    background-position: 3px 3px;
+}
+
+.Logout {
+    background: url("../Images/LogOut-192.png") no-repeat;
+    background-position: 3px 3px;
+}
+
+.modalBackground
+{
+	background-color: #c12d2d;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+}
+.ModalWindow
+{
+	border: solid 1px #c0c0c0;
+	background: #f0f0f0;
+	padding: 0 10px 10px 10px;
+	position: absolute;
+	top: -1000px;
+}
+
+/* Menu Css*/
+
+.column {
+    margin: 0;
+    height: 20px;
+    border: 3px solid inherit;
+    columns: 3;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important
+}
+.emergen, .opera, .pharmacy, .icu {
+    font-size: 13px ;
+    width:100%;
+    line-height: 25px;
+    font-weight: bold;
+}
+/*#em {
+            line-height: 20px;
+        }*/
+
+/*For Setup--------------------------------------------Start*/
+#leftcontent {
+    left:1%;
+    width:95%;
+    top:50px;
+    margin: 8px auto;
+    font-weight: bold;
+}
+
+#centerleftcontent {
+    position: fixed;
+    left: 38%;
+    width: 95%;
+    top: 173px;
+    margin: 8px auto;
+    font-weight: bold;
+}
+
+#centerrightcontent {
+    position: fixed;
+    left: 55%;
+    width: 100%;
+    margin: 8px auto;
+    top: 173px;
+}
+
+#rightcontent {
+    position: fixed;
+    left: 72%;
+    width: 100%;
+    margin: 8px auto;
+    top: 173px;
+}
+/*For Setup--------------------------------------------End*/
+#leftcontent1 {
+    left: 1%;
+    width: 95%;
+    top: 50px;
+    margin: 8px auto;
+    font-weight: bold;
+}

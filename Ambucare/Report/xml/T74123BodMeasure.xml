@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="T74123Measure" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T74123Measure" msprop:BaseTable.2="T74050" msprop:BaseTable.5="T74043" msprop:BaseTable.3="T74051" msprop:BaseTable.6="T74054" msprop:BaseTable.0="T74041" msprop:BaseTable.4="T02003" msprop:BaseTable.1="T74046">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_REQUEST_ID" msprop:BaseColumn="T_REQUEST_ID" msprop:OraDbType="113" type="xs:long" minOccurs="0" />
+              <xs:element name="T_PAT_ID" msprop:BaseColumn="T_PAT_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="PAT_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="GENDER" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="AGE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="MARITAL_STATUS" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="NATIONALITY" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_MOBILE_NO" msprop:BaseColumn="T_MOBILE_NO" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="ADDRESS" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_HIGHT" msprop:BaseColumn="T_HIGHT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_WEIGHT" msprop:BaseColumn="T_WEIGHT" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_BP_SYS" msprop:BaseColumn="T_BP_SYS" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_BP_DIA" msprop:BaseColumn="T_BP_DIA" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_TEMP" msprop:BaseColumn="T_TEMP" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_PULS" msprop:BaseColumn="T_PULS" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_BSUGAR_F" msprop:BaseColumn="T_BSUGAR_F" msprop:OraDbType="111" type="xs:short" minOccurs="0" />
+              <xs:element name="T_COMPANY_ID" msprop:BaseColumn="T_COMPANY_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="T_LANG2_NAME" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_LANG2_ADRS_NAME" msprop:BaseColumn="T_LANG2_ADRS_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMAIL" msprop:BaseColumn="T_EMAIL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_PHONE" msprop:BaseColumn="T_PHONE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_WEB_URL" msprop:BaseColumn="T_WEB_URL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="Pat_BarCode" msdata:DataType="System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

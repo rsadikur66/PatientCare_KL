@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "T74006";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+</style>
+
+
+
+<script src="~/Apps/JSService/Initialization/T74006Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Initialization/T74006Controller.js"></script>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+
+<div >
+
+   
+
+    @section container{
+        <div id="options" ng-app="Ambucare" ng-controller="T74006Controller" >
+            <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+            @*<button ID="btnDelete" ToolTip="Delete" class="Button Delete"></button>*@
+            <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+            <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear_Click()"></button>
+            <button ID="btnNext" ToolTip="NextBlock" class="Button Next"></button>
+            @*<input id="btnNext" ToolTip="NextBlock" type="button" name="btnse" class="Button Next" ng-click="NextClick()"/>*@
+        </div>
+    }
+    @*<button ID="btnSave" type="submit" Tooltip="Save" class="Button Save"></button>*@
+   
+        
+        <div class="container" ng-app="Ambucare" ng-controller="T74006Controller">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-3 col-md-3 col-sm-3"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 2px solid #E17D7D; border-radius: 5px">
+                            <div>
+                               
+                            </div>
+
+                            <div class="row" style="padding-bottom: 8px; padding-top: 8px" hidden>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblEmpDesID" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpDesID'" class="ng-cloak" associatedcontrolid="txtEmpDesID">{{field.T_LANG2_TEXT}}</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <input id="txtEmpDesID" type="text" ng-model="obj.T_EMP_DESI_ID" style="width: 80%"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" associatedcontrolid="txtLocalName">{{field.T_LANG2_TEXT}}</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <input id="txtLocalName" type="text" name="firstName" ng-model="obj.T_LANG1_NAME" ng-required="true" style="width: 80%"/><br/>
+                                        <span style="color: red" ng-show="studentForm.firstName.$touched && studentForm.firstName.$error.required">Local name is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 8px">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" associatedcontrolid="txtEnglishName">{{field.T_LANG2_TEXT}}</label>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <input id="txtEnglishName" type="text" name="englishName" ng-model="obj.T_LANG2_NAME" ng-required="true" style="width: 80%"/><br/>
+                                        <span style="color: red" ng-show="studentForm.englishName.$touched && studentForm.englishName.$error.required">English name is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div>
+                        <input type="text" style="float: right; width: 30%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search"/>
+                    </div>
+                    <table class="table table-bordered" arrow-selector>
+                        <tr style="background-color: #C12D2D; color: white; text-align: center">
+                            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpDesID'" class="ng-cloak" style="width: 20%">{{field.T_LANG2_TEXT}}</th>
+                            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" style="width: 40%">{{field.T_LANG2_TEXT}}</th>
+                            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" style="width: 40%">{{field.T_LANG2_TEXT}}</th>
+                        </tr>
+                        <tr dir-paginate="Z in EmpDesList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_DESI_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,Z)">
+                            <td style="width: 20%">{{Z.T_EMP_DESI_ID}}</td>
+                            <td style="width: 40%">{{Z.T_LANG1_NAME}}</td>
+                            <td style="width: 40%">{{Z.T_LANG2_NAME}}</td>
+                        </tr>
+                    </table>
+                    <dir-pagination-controls max-size="5"
+                                             direction-links="true"
+                                             boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            </div>
+        </div>
+
+   
+</div>

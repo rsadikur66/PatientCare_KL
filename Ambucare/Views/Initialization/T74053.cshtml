@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewBag.Title = "T74053";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+</style>
+
+@*<h2>T74002</h2>*@
+<script src="~/Apps/JSService/Initialization/T74053Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Initialization/T74053Controller.js"></script>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74053Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear_Click()"></button>
+        <button ID="btnNext" ToolTip="NextBlock" class="Button Next"></button>
+        @*<input id="btnNext" ToolTip="NextBlock" type="button" name="btnse" class="Button Next" ng-click="NextClick()"/>*@
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74053Controller">
+    
+
+
+<div class="row" style="padding-bottom: 8px">
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 2px solid #e17d7d; border-radius: 5px; padding-bottom: 10px">
+    
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+
+
+        <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblSiteNo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteNo'" class="ng-cloak" associatedcontrolid="txtSiteNo">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtSiteNo" type="text" ng-model="obj.T_SITE_NO" readonly="readonly" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblSiteCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteCode'" class="ng-cloak" associatedcontrolid="txtSiteCode">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtSiteCode" type="text" ng-model="obj.T_SITE_CODE" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" associatedcontrolid="txtEnglishName">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtEnglishName" type="text" ng-model="obj.T_LANG1_NAME" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" associatedcontrolid="txtLocalName">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtLocalName" type="text" ng-model="obj.T_LANG2_NAME" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblImplementation" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblImplementation'" class="ng-cloak" associatedcontrolid="txtImplimentation">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtImplimentation" type="text" ng-model="obj.T_IMPLEMENTATION_YEAR" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblLatitude" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLatitude'" class="ng-cloak" associatedcontrolid="txtLatitude">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtLatitude" type="text" ng-model="obj.T_LATITUDE" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblSiteStatus" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteStatus'" class="ng-cloak" associatedcontrolid="chkSiteStatus">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="chkSiteStatus" ng-model="obj.T_SITE_STATUS"
+                           name="string"
+                           ng-true-value="'1'"
+                           ng-false-value="'2'"
+                           ng-change="string" type="checkbox"/>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+
+        <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblZoneCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblZoneCode'" class="ng-cloak" associatedcontrolid="sltZoneCode">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <select id="sltZoneCode" ng-model="obj.T_ZONE_CODE" style="width: 80%"
+                            ng-options="i.T_ZONE_CODE as i.T_LANG2_NAME for i in ZoneCode"
+                            ng-required="true">
+                        <option>Select one</option>
+
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblLongitude" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLongitude'" class="ng-cloak" associatedcontrolid="txtLongitude">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtLongitude" type="text" ng-model="obj.T_LONGITUDE" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px;">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblContactName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblContactName'" class="ng-cloak" associatedcontrolid="txtContactName">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtContactName" type="text" ng-model="obj.T_CONTACT_NAME" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblContactNo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblContactNo'" class="ng-cloak" associatedcontrolid="txtContactNo">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtContactNo" type="text" ng-model="obj.T_CONTACT_MOBILE" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblSiteUrl" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteUrl'" class="ng-cloak" associatedcontrolid="txtSiteUrl">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="txtSiteUrl" type="text" ng-model="obj.T_SITE_URL" style="width: 80%"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblPrivateFlag" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPrivateFlag'" class="ng-cloak" associatedcontrolid="chkPrivateFlag">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <input id="chkPrivateFlag" ng-model="obj.T_PRIVATE_FLAG"
+                           name="string"
+                           ng-true-value="'1'"
+                           ng-false-value="'2'"
+                           ng-change="string" type="checkbox"/>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    @*<div class="col-lg-3 col-md-3 col-sm-3"></div>*@
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div>
+        <input type="text" style="float: right; width: 20%; margin-right: 7%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search"/>
+    </div>
+    <table class="table table-bordered" arrow-selector>
+        <tr style="background-color: #C12D2D; color: white; text-align: center">
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteNo'" style="width: 5%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteCode'" style="width: 5%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblContactName'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblContactNo'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSiteUrl'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLatitude'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLongitude'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblZoneCode'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+            <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblImplementation'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+           
+        </tr>
+        <tr dir-paginate="Z in HospitalList |filter : Search |itemsPerPage:5 | orderBy:'-T_SITE_NO'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,Z)">
+            
+            <td style="width: 5%">{{Z.T_SITE_NO}}</td>
+            <td style="width: 5%">{{Z.T_SITE_CODE}}</td>
+            <td style="width: 10%">{{Z.T_LANG1_NAME}}</td>
+            <td style="width: 10%">{{Z.T_LANG2_NAME}}</td>
+            <td style="width: 10%">{{Z.T_CONTACT_NAME}}</td>
+            <td style="width: 10%">{{Z.T_CONTACT_MOBILE}}</td>
+            <td style="width: 10%">{{Z.T_SITE_URL}}</td>
+            <td style="width: 10%">{{Z.T_LATITUDE}}</td>
+            <td style="width: 10%">{{Z.T_LONGITUDE}}</td>
+            <td style="width: 10%">{{Z.ZONE}}</td>
+            <td style="width: 10%">{{Z.T_IMPLEMENTATION_YEAR}}</td>
+            <td style="visibility: hidden">{{Z.T_SITE_STATUS}}</td>
+            <td style="visibility: hidden">{{Z.T_PRIVATE_FLAG}}</td>
+            <td style="visibility: hidden">{{Z.T_ZONE_CODE}}</td>
+        </tr>
+    </table>
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+</div>
+
+</div>
+</div>

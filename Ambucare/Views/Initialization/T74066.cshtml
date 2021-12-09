@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "T74066";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74066Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74066Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<style type="text/css">
+    #tblFormCodeList {width: 85%;border-collapse: collapse;z-index: 1000;position: absolute;
+        border: 1px solid #ccc;border-radius: 3px;font-family: arial;
+        color: #5b5b5b;background-image: linear-gradient(to top,#fff,#eee);}
+    #tblFormCodeList tbody {height: 200px; width: 180px; overflow: auto; overflow-x: hidden; display: block;}
+    #tblFormCodeList tr {border: 1px solid #ccc;}
+    #tblFormCodeList tr:hover {background-color: #C12D2D;color: #FFFFFF;cursor: pointer}
+    #tblFormCodeList td {border-right: 1px solid #ccc;}
+
+
+
+    #tblMenuList {width: 100%;border: 1px solid #C12D2D;border-collapse: collapse;}
+    #tblMenuList tr {border: 1px solid #C12D2D;}
+    #tblMenuList tr:hover{background-color: #ffe6ff;cursor: pointer}
+    #tblMenuList th {background: #C12D2D;color: #FFFFFF;border-right: 1px solid #FFFFFF;text-align: center;}
+    #tblMenuList td {border-right: 1px solid #C12D2D;padding-left: 5px;text-align: left;}
+    #tblMenuList th:first-child,td:first-child {width: 13%}
+        #tblMenuList th:nth-child(2), th:nth-child(3), th:nth-child(4),
+                     td:nth-child(2), td:nth-child(3), td:nth-child(4) {width: 10%}
+    #tblMenuList th:nth-child(5), th:nth-child(6),td:nth-child(5), td:nth-child(6){width: 22%}
+        #tblMenuList th:nth-child(7), td:nth-child(7) {width: 5%}
+        #tblMenuList th:last-child, td:last-child {width: 8%}
+</style>
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74066Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()" ng-disabled="obj.myDiv.$invalid"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74066Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px; padding: 10px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblRoleId" associatedcontrolid="ddlRoleId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRoleId'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 30%; text-align: left;">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.R.selected" id="ddlRoleId" theme="select2" style="min-width: 177px;" append-to-body="true" required>
+                                        <ui-select-match placeholder="Select">{{$select.selected.NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="R in obj.roleList | propsFilter: {NAME: $select.search}">
+                                            <div ng-bind-html="R.NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" ng-model="obj.t74066.T_ROLE_CODE" ng-bind="obj.t74066.T_ROLE_CODE = obj.R.selected.CODE" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group" style="width: 20%;">
+                                <label id="lblFormStatus"  ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFormStatus'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group" style="width: 30%;">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.S.selected" id="ddlFormStatusName" theme="select2" style="min-width: 177px;" append-to-body="true" required>
+                                        <ui-select-match placeholder="Select">{{$select.selected.NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="S in obj.formStatusList | propsFilter: {NAME: $select.search}">
+                                            <div ng-bind-html="S.NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" ng-model="obj.t74066.T_INACTIVE_FLAG" ng-bind="obj.t74066.T_INACTIVE_FLAG = obj.S.selected.CODE" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblFormType" associatedcontrolid="ddlFormType" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFormType'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group" style="width: 30%;">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.F.selected" id="ddlFormType" theme="select2" style="min-width: 177px;" append-to-body="true" ng-disabled="obj.t74066.T_ROLE_CODE==null" required>
+                                        <ui-select-match placeholder="Select">{{$select.selected.NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="F in obj.formTypeList | propsFilter: {NAME: $select.search}">
+                                            <div ng-bind-html="F.NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlFormTypeId" ng-model="obj.t74066.T_FORM_TYPE_ID" ng-bind="obj.t74066.T_FORM_TYPE_ID = obj.F.selected.CODE" />
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblPageType" associatedcontrolid="lblPageType" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPageType'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group" style="width: 30%;">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.P.selected" id="ddlPageType" theme="select2" style="min-width: 177px;" append-to-body="true" on-select="onPageTypeSelect()" ng-disabled="obj.t74066.T_FORM_TYPE_ID==null" required>
+                                        <ui-select-match placeholder="Select">{{$select.selected.NAME}}</ui-select-match>
+                                        <ui-select-choices repeat="P in obj.pageTypeList | propsFilter: {NAME: $select.search}">
+                                            <div ng-bind-html="P.NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlPageTypeId" ng-model="obj.t74066.T_PAGE_TYPE_ID" ng-bind="obj.t74066.T_PAGE_TYPE_ID = obj.P.selected.CODE" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblFormCode" associatedcontrolid="txtFormCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFormCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 30%;">
+                                <input id="txtFormCode" type="text" 
+                                       ng-model="obj.t74066.T_FORM_CODE" 
+                                       ng-change="onFormCodeSearch(obj.t74066.T_FORM_CODE)"
+                                       ng-disabled="obj.t74066.T_PAGE_TYPE_ID==null" required/>
+                                <table id="tblFormCodeList" ng-show="showFormCodeListTable">
+                                    <tbody>
+                                    <tr ng-repeat="a in obj.formCodeList" id="AutoSearch" ng-click="onFormCodeSelect(a)" style="cursor: pointer;">
+                                        <td style="text-align: left">{{a.FORM_CODE}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 form-inline form-group" style="width: 20%;">
+                                <label id="lblOrder" for="txtOrder" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblOrder'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group" style="width: 30%;">
+                                <input type="text" id="txtOrder" ng-model="obj.t74066.T_ORDER" class="form-control" readonly="readonly" required/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblEnglishName" associatedcontrolid="txtLang2Id" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 30%;">
+                                <input id="txtLang2Id" type="text" ng-model="obj.t74066.T_LANG2_NAME" required/>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2" style="width: 20%;">
+                                <label id="lblLang1Id" associatedcontrolid="txtLang1Id" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLang1Id'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="width: 30%;">
+                                <input id="txtLang1Id" type="text" ng-model="obj.t74066.T_LANG1_NAME" required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <div class="row">
+        <input type="text" ng-model="obj.srchMenuList" style="width: 200px;float: right;"/>
+        <table id="tblMenuList">
+            <thead>
+            <tr><th>Role</th><th>Form Type</th><th>Page Type</th><th>Form Code</th><th>Form Name(E)</th><th>Form Name(L)</th><th>Order</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+            <tr dir-paginate="obj in obj.menuList| cartypefilter:obj.srchMenuList |itemsPerPage:10" pagination-id="pgnMenu" id="MenuList" ng-click="onMenuSelect(obj)">
+                <td><label>{{obj.ROLE_NAME}}</label></td>
+                <td><label>{{obj.FORM_TYPE_NAME}}</label></td>
+                <td><label>{{obj.PAGE_TYPE_NAME}}</label></td>
+                <td><label>{{obj.FORM_CODE}}</label></td>
+                <td><label>{{obj.FORM_NAME2}}</label></td>
+                <td><label>{{obj.FORM_NAME1}}</label></td>
+                <td><label>{{obj.T_ORDER}}</label></td>
+                <td><label>{{obj.FORM_STATUS}}</label><label style="display: none">{{obj.T_INACTIVE_FLAG}}</label></td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="margin-bottom: -25px; margin-top: -20px; text-align: center;">
+            <dir-pagination-controls pagination-id="pgnMenu" max-size="5" direction-links="true" boundary-links="true"></dir-pagination-controls>
+        </div>
+    </div>
+    
+</div>
+

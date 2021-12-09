@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "T74142";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Apps/JSController/Initialization/T74142Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74146Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74000Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74144Controller.js"></script>
+<script src="~/Apps/JSController/Initialization/T74145Controller.js"></script>
+<script src="~/Scripts/calender.js"></script>
+<link href="~/Content/calender.css" rel="stylesheet" />
+
+<script src="~/Apps/JSService/Initialization/T74142Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74146Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74000Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74144Service.js"></script>
+<script src="~/Apps/JSService/Initialization/T74145Service.js"></script>
+
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+<style>
+    /*Toggling Div---------------------------Start*/
+    .ultab {
+        list-style: none;
+        padding: 0;
+        margin-left: 160px;
+    }
+
+    .litab {
+        float: left;
+        border-bottom-width: 0;
+        margin: 3px 3px 3px 3px;
+        padding: 8px 5px 25px 5px;
+        background-color: #239e6b80;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: 0.2s;
+        margin-right: -2px;
+        width: 150px;
+        text-align: center;
+        height: 0px;
+        cursor: pointer;
+    }
+
+    #mainView {
+        clear: both;
+        padding: 0 1em;
+    }
+
+    .active {
+        background-color: #CCCCCC;
+        color: #000000;
+    }
+/*Toggling Div---------------------------End*/
+    
+</style>
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74142Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()" ng-disabled="obj.myDiv.$invalid"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+
+<div class="container" ng-app="Ambucare" ng-controller="T74142Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <!-- for tabs -->
+            <input id="txtHiddenField" type="hidden" style="width: 50px" ng-model="obj.hiddenField" />
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin-left: 124px;">
+                <div id="tabs" style="text-align: center">
+                    <ul class="ultab">
+                        <li class="litab" style="cursor: pointer" ng-repeat="tab in tabs"
+                            ng-class="{active:isActiveTab(tab.url)}"
+                            ng-click="onClickTab(tab)">{{tab.title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <!-- For Input Table -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @*<div class="col-lg-1 col-md-1 col-sm-1"></div>*@
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div id="mainView">
+                    <div ng-include="currentTab"></div>
+                </div>
+            </div>
+            @*<div class="col-lg-1 col-md-1 col-sm-1"></div>*@
+        </div>
+    </div>
+</div>
+

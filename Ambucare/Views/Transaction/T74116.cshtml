@@ -1,0 +1,517 @@
+﻿
+@{
+    ViewBag.Title = "T74116";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    /*Toggling Div---------------------------Start*/
+    .ultab {
+        list-style: none;
+        padding: 0;
+        margin-left: 160px;
+    }
+
+    .litab {
+        float: left;
+        border-bottom-width: 0;
+        margin: 3px 3px 3px 3px;
+        padding: 8px 5px 20px 5px;
+        background-color: #C12D2D;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: 0.2s;
+        margin-right: -2px;
+        width: 175px;
+        text-align: center;
+        height: 0px;
+    }
+
+
+
+    #mainView {
+        clear: both;
+        padding: 0 1em;
+    }
+
+    .active {
+        background-color: #CCCCCC;
+        color: #000000;
+    }
+    /*Toggling Div---------------------------End*/
+
+
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -20px;
+    }
+
+    fieldset {
+        border: 1px solid #A21217;
+        border-radius: 5px;
+        padding: 10px
+    }
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+    .omf-modal .omf-modal-body {
+        width: 68.25%;
+        padding: 1px;
+        margin: auto;
+        margin-top: 200px;
+        margin-left: 122px;
+        background-color: #FFFFFF;
+        border-style: ridge;
+    }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*For PopUp end*/
+    /*for popup grid start*/
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+    /*for popup grid end*/
+    /*for Date Picker start*/
+  .ng-datepicker-input {
+         width: 70px;
+     }
+   
+    /*for Date Picker end*/
+    /*for row color in condition start*/
+    .redd {
+        background-color: #fa6262;
+        color: #ffffff;
+    }
+
+    .blue {
+        background-color: #A1DD3B;
+        color: #ffffff;
+    }
+/*for row color in condition end*/
+</style>
+<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<script src="~/Apps/JSController/Transaction/T74116Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74116Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSFactory/Transaction/T74116UomFactory.js"></script>
+
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="../../Content/Custom.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">*@
+<!--For Calender-->
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+@*<script src="~/Scripts/angular/angular.min.js"></script>*@
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+@*<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />*@
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74116Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+@*<base href="/">*@
+<div class="container" ng-app="Ambucare" ng-controller="T74116Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border-radius: 5px; padding: 10px">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblConpany" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblConpany'" associatedcontrolid="txtConpany">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtConpany" type="text" ng-model="obj.T74116.Com_T_LANG2_NAME" readonly="readonly" style="width: 100%" />
+                            <input id="txtConpanyid" type="hidden" ng-model="obj.T74060.T_COMPANY_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblChallanNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChallanNo'" associatedcontrolid="txtChallanNo">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtChallanNo" type="text" ng-model="obj.T74060.T_CHALLAN_NO" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblReceivedBy" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceivedBy'" associatedcontrolid="txtReceivedBy">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtReceivedByName" type="text" ng-model="obj.T74116.T_FIRST_LANG2_NAME" readonly="readonly" ng-click="Receive_Click('ReceiveBy')" style="width: 100%" />
+                            <input id="txtReceivedBy" type="hidden" ng-model="obj.T74060.T_RECEIVE_BY" style="width: 100%"/>
+                        </div>
+                    </div>
+                </div>
+                @*for popup start*@
+                <div id="ReceiveBy" class="omf-modal">
+                    
+                    <div class="omf-modal-body">
+                        
+                        <div>
+                            <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                <label style="width: 97%">Employee List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('ReceiveBy')"/>
+                                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search"/>
+                            </div>
+                            @*<div style="background-color: #c12d2d;">
+                               
+                            </div>*@
+                        </div>
+                        <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                            <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                    <table class="table table-bordered" style="margin: 1px auto">
+                                        <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr dir-paginate="obj in obj.ReceiveList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                            <td style="width: 20%">{{obj.T_EMP_ID}}</td>
+                                            <td style="width: 40%">{{obj.T_FIRST_LANG2_NAME}}</td>
+                                            <td style="width: 40%">{{obj.T_LANG2_NAME}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*for popup end*@
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblCurrency" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrency'" associatedcontrolid="txtCurrency">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtCurrency" type="text" ng-model="obj.T74116.Cur_T_LANG2_NAME" readonly="readonly" style="width: 100%" />
+                            <input id="txtCurrencyid" type="hidden" ng-model="obj.T74060.T_CURRENCY_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblSupplier" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSupplier'" associatedcontrolid="txtSupplier">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtSupplier" type="text" ng-model="obj.T74116.Su_T_LANG2_NAME" readonly="readonly" style="width: 100%" />
+                            <input id="txtSupplierid" type="hidden" ng-model="obj.T74060.T_SUPPLIER_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblBillNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBillNo'" associatedcontrolid="txtBillNo">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtBillNo" type="text" ng-model="obj.T74060.T_BILL_NO" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblBillDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBillDate'" associatedcontrolid="txtBillDate">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div style="width:0%">
+                                <ng-datepicker ng-model="obj.T74060.T_BILL_DATE" id="txtBillDate" type="text" view-format="DD/MM/YYYY">
+                                </ng-datepicker>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblDiscountPercent" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDiscountPercent'" associatedcontrolid="txtDiscountPercent">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtDiscountPercent" type="text" ng-model="obj.T74060.T_DISCOUNT_PERCENT" ng-keyup="Discount_Click(obj.T74060.T_DISCOUNT_PERCENT)" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                @*<div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblVatTotal" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblVatTotal'" associatedcontrolid="txtVatTotal">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtVatTotal" type="text" ng-model="obj.T74060.T_VAT" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>*@
+
+            </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblStore" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStore'" associatedcontrolid="txtStore">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtStore" type="text" ng-model="obj.T74116.Sto_T_LANG2_NAME" readonly="readonly" style="width: 100%" />
+                        <input id="txtStoreId" type="hidden" ng-model="obj.T74060.T_STORE_ID" readonly="readonly" style="width: 100%" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblPurchaseDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPurchaseDate'" associatedcontrolid="txtPurchaseDate">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtPurchaseDate" type="text" ng-model="obj.T74116.T_PUR_REQ_DATE" readonly="readonly" style="width: 100%" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblReceiveDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceiveDate'" associatedcontrolid="txtReceiveDate">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtReceiveDate" type="text" ng-model="obj.T74060.T_RECEIVE_DATE" readonly="readonly" style="width: 100%" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblVatPercent" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblVatPercent'" associatedcontrolid="txtVatPercent">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtVatPercent" type="text" ng-model="obj.T74060.T_VAT_PER" ng-keyup="Vat_Click(obj.T74060.T_VAT_PER) " style="width: 100%" />
+                    </div>
+                </div>
+            </div>
+            @*<div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblDiscountAmount" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDiscountAmount'" associatedcontrolid="txtDiscountAmount">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtDiscountAmount" type="text" ng-model="obj.T74060.T_DISCOUNT_AMOUNT" style="width: 100%" />
+                    </div>
+
+                </div>
+            </div>*@
+        </div>
+        <div>
+           
+        </div>
+            <br />
+            <br />
+            <!--For Data Gridview start-->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <center>
+                        <table class="table table-bordered" style="margin: 0px auto; width: 1200px">
+                            <thead style="text-align: center">
+                            <tr style="background: #A21217;color: #ffffff">
+                                <!--<th>Add</th>-->
+                                @*<th >Status</th>*@
+                                <th >Items</th>
+                                <th >Pk size</th>
+                                <th >Req Qty</th>
+                                <th>Rcv Qty</th>
+                                <th>Rate</th>
+                                <th>Issue Qty</th>
+                                <th >Priority</th>
+                                <th >Bch</th>
+                                <th >LNo</th>
+                                <th >MF Date</th>
+                                <th >Exp Date</th>
+                                <th >WrE Date</th>
+                                <th style="width: 80px">Wraty</th>
+                                <th style="width: 80px" >Total</th>
+                                <th>Rct</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="obj in obj.purProductList" ng-class="{'redd': (obj.T_ISSUE_STS_DTL == 'Reject'),'blue':(obj.T_ISSUE_STS_DTL == 'Received')}">
+                                <!-- <td>
+                                    bgcolor="#D8454B" style="color: #ffffff"
+                                    ng-repeat="obj in IssueInfo"
+                                    <input type="button" class="AddButton" style="background: url(../Images/plus.png); background-size: 30px; background-repeat: no-repeat; background-position: center; width: 30px;" ng-click="Addrow(items)"/>
+                                </td>-->
+                                <td class="Hidden">{{$index}}</td>
+                                @*<td style="text-align: center">
+                                    <input type="button" style="background: url(../Images/Reject.jpg); background-size: 20px; background-repeat: no-repeat; background-position: center; width: 20px; height: 25px;" ng-click="RemoveRow($index)" />
+                                </td>*@
+                                <td class="Hidden">
+                                    <input type="text" id="txtStatus{{$index}}" ng-model="obj.T_ISSUE_STS_DTL" class="form-control" readonly="readonly" style="width: 100%">
+                                </td>
+                                <td>
+                                    <span>{{obj.T_LANG2_NAME}}</span>
+                                    <input type="hidden" id="txtPurDtlId{{$index}}" name="ItemCode" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_PUR_DTL_ID">
+                                    <input type="hidden" id="txtItems{{$index}}" name="ItemCode" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_ITEM_ID">
+                                </td>
+                                <td>
+                                    <input type="text" id="txtUM{{$index}}" name="UM" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.UM_T_LANG2_NAME" ng-dblclick="UOM_Popup($index)">
+                                    <input type="hidden" id="txtUM_Id{{$index}}" name="UMid" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_ITEM_UM_ID">
+                                </td>
+                                <td>
+                                    <input type="text" id="txtReqQut{{$index}}" name="PurchaseQut" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_PUR_QTY">
+                                </td>
+                                <td>
+                                    <input type="number" id="txtReveiveQty{{$index}}" name="PurQty" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_RCV_QTY">
+                                </td>
+                                <td>
+                                    <input type="number" id="txtUnitPrice{{$index}}" name="Price" class="form-control" style="width: 100%" ng-model="obj.T_UNIT_VALUE" ng-blur ="Total_Click($index)">
+                                </td>
+                                
+                                <td>
+                                    <input type="number" id="txtIssueQty{{$index}}" name="IssueQty" ng-blur ="Total_Click($index)" class="form-control" style="width: 100%" ng-model="obj.Issue">
+                                </td>
+                                
+                                <td>
+                                    <jk-rating-stars rating="obj.T_PRIORITY" read-only="true" style="text-align: center; width: 80px"></jk-rating-stars>
+                                    @*<input type="hidden" ng-model="obj.T_PRIORITY"   />*@
+                                   
+                                </td>
+                                <td>
+                                    <input type="text" id="txtBatch{{$index}}" name="Batch" class="form-control" style="width: 100%" ng-model="obj.T_BATCH">
+                                </td>
+                                <td>
+                                    <input type="text" id="txtLotNum{{$index}}" name="lot" class="form-control" style="width: 100%" ng-model="obj.T_LOT_NO">
+                                </td>
+                                
+                                <td>
+                                    <ng-datepicker ng-model="obj.T_MANUFACTURE_DATE" id="txtMFDate{{$index}}" type="text" view-format="DD/MM/YYYY" >
+                                    </ng-datepicker>
+                                </td>
+                                <td>
+                                    <ng-datepicker ng-model="obj.T_EXP_DATE" id="txtExpDate{{$index}}" type="text" view-format="DD/MM/YYYY" >
+                                    </ng-datepicker>
+                                </td>
+                                <td>
+                                    <ng-datepicker ng-model="obj.T_WARRANTY_END" ng-change="CountWarranty_click($index)" id="txtWarEndDate{{$index}}" type="text" view-format="DD-MM-YYYY" >
+                                    </ng-datepicker>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWarranty{{$index}}" name="Stock" class="form-control" style="width: 80px" ng-model="obj.T_WARRANTY">
+                                </td>
+                                <td>
+                                    <input type="text" id="txtInLineTotal{{$index}}" name="InLineTotal" class="form-control" readonly="readonly" style="width: 80px" ng-model="obj.T_TOTAL_VALUE">
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="chkReject{{$index}}" ng-model="obj.Reject" ng-true-value="'1'" ng-false-value="'2'" ng-click="Reject_Click($index)" ng-disabled="obj.T_ISSUE_STS_DTL == 'Partial' || obj.T_ISSUE_STS_DTL == 'Reject'">
+                                </td>
+                                
+                            </tr>
+                            </tbody>
+                            <tr style="background-color: #A21217; color: #ffffff;width:100%;">
+                                <td colspan="13">
+                                    <label style="width: 100%;text-align: right">Grand Total</label>
+                                </td>
+                                <td>
+                                    <label>{{obj.T74060.T_GRAND_TOTAL_VALUE}}</label>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="13" style="text-align: right">Total Discount</td>
+                                <td>
+                                    <label>{{obj.T74060.T_DISCOUNT_AMOUNT}}</label>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="13" style="text-align: right">Exclude Discount</td>
+                                <td>
+                                    <label>{{obj.T74060.T_TOTAL_VLU_AFTER_DISC}}</label>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="13" style="text-align: right">Total vat</td>
+                                <td>
+                                    <label>{{obj.T74060.T_VAT}}</label>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="13" style="text-align: right">Include vat</td>
+                                <td>
+                                    <label>{{obj.T74060.T_TOTAL_VALUE}}</label>
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                        </table> 
+                    </center>
+                </div>
+            </div>
+            <!--For Data Gridview End-->
+        </div>
+    </div>
+</div>
+

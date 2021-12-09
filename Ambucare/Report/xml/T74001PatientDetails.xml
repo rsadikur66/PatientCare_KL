@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="dtT74001PatientDetails" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtT74001PatientDetails" msprop:BaseTable.3="T74054" msprop:BaseTable.2="T74046" msprop:BaseTable.0="T74044" msprop:BaseTable.1="T74005">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_AMBU_REG_ID" msprop:BaseColumn="T_AMBU_REG_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="AMBULANCE" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="EMPLOYEE_TYPE" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="PATIENT_NAME" msprop:BaseColumn="T_FIRST_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPANY_NAME" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_LANG2_ADRS_NAME" msprop:BaseColumn="T_LANG2_ADRS_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_PHONE" msprop:BaseColumn="T_PHONE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMAIL" msprop:BaseColumn="T_EMAIL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_WEB_URL" msprop:BaseColumn="T_WEB_URL" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

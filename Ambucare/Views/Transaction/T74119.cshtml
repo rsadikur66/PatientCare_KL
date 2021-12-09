@@ -1,0 +1,314 @@
+﻿
+@{
+    ViewBag.Title = "T74119";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    /*Modal------------------Start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 200px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*Modal------------------End*/
+
+
+
+
+    .my-custom-stars .button .material-icons {
+        font-size: 50px; 
+    }
+
+    .my-custom-stars .star-button.star-on .material-icons {
+        color: #003399; 
+    }
+
+    .my-custom-stars .star-button.star-off .material-icons {
+        color: #99ccff; 
+    }
+    .recieved {
+        background-color: #CCE8FF;
+    }
+    .reject {
+        background-color: #ffe6e6;
+    }
+
+</style>
+
+
+
+@*<script src="https://code.angularjs.org/1.5.0/angular-animate.min.js"></script>
+<script src="https://code.angularjs.org/1.5.0/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />
+<script src="~/Scripts/Rating/jk-rating-stars.min.js"></script>
+<script src="~/Scripts/Rating/script.js"></script>*@
+
+
+<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<script src="~/Apps/JSController/Transaction/T74119Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74119Service.js"></script>
+<script src="../../Apps/JSService/LabelService.js"></script>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74119Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear"></button>
+    </div>
+}
+@*<base href="/">*@
+<div class="container" ng-app="Ambucare" ng-controller="T74119Controller" ng-init="SalesData()">
+<div class="row" style="padding-bottom: 8px">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblCompany" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCompany'" for="txtCompany">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtCompany" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_COMPANY_NAME"/>
+                        <input id="txtCompanyID" type="hidden" style="width: 100%" ng-model="obj.T_COMPANY_ID"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblChalanNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChalanNo'" for="txtChalanNo">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtChalanNo" type="text" style="width: 100%" />
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblRecievedBy" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRecievedBy'" for="txtIssuedByName">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtIssuedByName" type="text" ng-click="OpenModal('EmpList')" readonly="readonly" ng-model="obj.EMP_NAME" style="width: 100%" />
+                        <input id="txtIssuedById" type="hidden" ng-model="obj.T74036.T_ISSUED_BY" style="width: 100%" />
+                    </div>
+                </div>
+            </div> 
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblDisc" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDisc'" for="txtDisc">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtDisc" type="text" ng-model="obj.T74036.T_DISCOUNT" style="width: 50%" />
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblSupplier" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSupplier'" for="txtSupplier">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtSupplier" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_SUPPLIER_NAME"/>
+                        <input id="txtSupplierId" type="hidden" style="width: 100%" ng-model="T_SUPPLIER_ID"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblStoreFrom" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreFrom'" for="txtStoreFrom">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtStoreFrom" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_STORE_FROM_LANG2"/> 
+                        <input id="txtStoreFromID" type="hidden" style="width: 100%" ng-model="obj.T74027.T_STORE_ID"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblIssueDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblIssueDate'" for="txtIssueDate">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtIssueDate" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_SL_REQ_DATE"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblVat" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblVat'" for="txtVat">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtVat" type="text" ng-model="obj.T74036.T_VAT" style="width: 50%" />
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblCurrency" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrency'" for="txtCurrency">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtCurrency" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_CURRENCY_NAME" />
+                        <input id="txtCurrencyId" type="hidden" ng-model="obj.T74036.T_CURRENCY_ID" />
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblStoreTo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreTo'" for="txtStoreTo">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtStoreTo" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T_STORE_TO_LANG2"/>
+                        <input id="txtStoreToId" type="hidden" ng-model="obj.T74036.T_STORE_ID" />
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 4px">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <label id="lblReceiveDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceiveDate'" for="txtReceiveDate">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input id="txtReceiveDate" type="text" readonly="readonly" style="width: 100%" ng-model="obj.T74036.T_ISSUE_DATE"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <table class="table table-bordered" style="margin: 10px auto;width: 100%">
+                    <thead style="width: 100%">
+                    <tr style="background: #A21217; color: #ffffff; width: 100%;">
+                        <th style="text-align: center;width: 4%">Rjct</th>
+                        <th style="text-align: center;width: 30%">Items</th>
+                        <th style="text-align: center;width: 10%">Priority</th>
+                        <th style="text-align: center;width: 8%">P.Size</th>
+                        <th style="text-align: center;width: 8%">Stock Qty</th>
+                        <th style="text-align: center;width: 8%">Req Qty</th>
+                        <th style="text-align: center;width: 8%">Issued Qty</th>
+                        <th style="text-align: center;width: 8%">Rcv Qty</th>
+                        <th style="text-align: center;width: 8%">Rate</th>
+                        <th style="text-align: center;width: 8%">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="obj in obj.ProductList" ng-class="{'recieved': (obj.T_SL_STS_DTL == 'Recieved'),'reject':(obj.T_SL_STS_DTL == 'Reject')}">
+                        <td style="text-align: center;">
+                            <input type="checkbox" id="chkReject{{$index}}" ng-click="Reject($index)"
+                                   ng-true-value="'1'" ng-false-value="'2'" ng-model="obj.check"
+                                   ng-disabled="obj.T_SL_STS_DTL == 'Partial' || obj.T_SL_STS_DTL == 'Reject'||obj.T_SL_STS_DTL == 'Recieved'"/>
+                        </td>
+                        <td><span>{{obj.T_ITEM_NAME}}</span>
+                            <br/><span>{{obj.T_ITEM_ID}}</span>
+                            <br/><span>{{obj.T_SL_REQ_DTL_ID}}</span>
+                        </td>
+                        <td><jk-rating-stars rating="obj.T_PRIORITY" style="text-align: center; width: 80px" read-only="true"></jk-rating-stars></td>
+                        <td style="text-align: center"><span>{{obj.T_ITEM_UM_NAME}}</span></td>
+                        <td style="text-align: center"><span id="spnStkQty{{$index}}" ng-model="obj.T_STOCK_QUANTITY">{{obj.T_STOCK_QUANTITY}}</span></td>
+                        <td style="text-align: center"><span id="spnReqQty{{$index}}"ng-model="obj.T_SL_QTY">{{obj.T_SL_QTY}}</span></td>
+                        <td style="text-align: center"><span id="spnIssQty{{$index}}" ng-model="obj.T_RCV_QTY">{{obj.T_RCV_QTY}}</span></td>
+                        <td><input  production-qty type="text" style="width: 100%" id="txtRcvQty{{$index}}" ng-blur="chk_Rcv_Qty($index)" ng-model="obj.T_RCV_QTY_ISSUE"   ng-readonly="obj.check=='1'|| obj.T_SL_STS_DTL == 'Recieved'"></td>
+                        <td style="text-align: center" ><span id="spnRate{{$index}}" ng-model="obj.T_RATE">{{obj.T_RATE}}</span></td>
+                        <td style="text-align: left"><span>{{obj.T_LINE_TOTAL| number : 2}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" style="text-align: right"><label>Total : </label></td>
+                        <td style="text-align: left"><span>{{obj.T74036.T_TOTAL| number : 2}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" style="text-align: right"><label>Discount : </label></td>
+                        <td style="text-align: left"><span>{{obj.T_DISCOUNT_AMOUNT| number : 2}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" style="text-align: right"><label>Gross Total : </label></td>
+                        <td style="text-align: left"><span>{{obj.T_GROSS_TOTAL| number : 2}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" style="text-align: right"><label>Vat : </label></td>
+                        <td style="text-align: left"><span>{{obj.T_VAT_AMOUNT| number : 2}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="9" style="text-align: right"><label>Grand Total : </label></td>
+                        <td style="text-align: left"><span>{{obj.T74036.T_GRAND_TOTAL| number : 2}}</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="EmpList" class="omf-modal">
+            <div class="omf-modal-body">
+                <div>
+                    <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                        <label style="width: 97%">Employee List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseModal('EmpList')"/>
+                        <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search"/>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered" style="margin: 1px auto">
+                                <thead style="text-align: center">
+                                <tr style="background-color: #c12d2d; color: #ffffff">
+                                    <th>Name</th>
+                                  <th>Type</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr dir-paginate="obj in obj.EmployeeList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="selectedItem($index,obj,'EmpList')">
+                                    <td style="width: 75%">{{obj.EMP_NAME}}</td>
+                                    <td style="width: 25%">{{obj.EMP_TYPE}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls max-size="5"
+                                                     direction-links="true"
+                                                     boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

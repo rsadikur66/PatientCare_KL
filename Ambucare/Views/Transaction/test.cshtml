@@ -1,0 +1,241 @@
+﻿@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+   /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: -110px;
+        left: 400px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+    .omf-modal .omf-modal-body {
+        width: 68.25%;
+        padding: 1px;
+        margin: auto;
+        margin-top: 286px;
+        margin-left: 122px;
+        background-color: #FFFFFF;
+        border-style: ridge;
+    }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+/*For PopUp end*/
+    .left {text-align: left;}
+    .right{text-align: right;}
+    .Lmsg {
+        background: #C7EDFC;
+        border-radius: 8px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        /*text-align: justify;*/
+    }
+    .Rmsg {
+        background: #F0F4F8;
+        border-radius: 8px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        /*text-align: justify;*/
+    }
+</style>
+@*<link href="@VirtualPathUtility.ToAbsolute("~/Scripts/ChatScripts/Site.css")" rel="stylesheet" type="text/css" />*@
+<script src="~/Apps/JSController/Transaction/test.js"></script>
+
+<script src="~/Scripts/ChatScripts/jquery.signalR-2.0.0.min.js"></script>
+<script src="~/Scripts/ChatScripts/Factories.js"></script>
+<script src="~/Scripts/ChatScripts/headerController.js"></script>
+<script src="~/Scripts/ChatScripts/scrollglue.js"></script>
+<script src="~/Scripts/ChatScripts/Controlers.js"></script>
+<script src="~/Scripts/ChatScripts/underscore-min.js"></script>
+<script src="~/signalr/hubs"></script>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="test">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnClear" Tooltip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+@*<div ng-app="Ambucare" ng-controller="headerController">
+    <span>You have {{messageCount}} new messages</span>
+    <ul>
+        <li ng-repeat="(user, messages) in groups">
+            <span>{{user}}</span>
+            <span>{{messages.length}}</span>
+        </li>
+    </ul>
+</div>*@
+<div class="container" ng-app="Ambucare" ng-controller="chatController" id="ChatRoomsContainer">
+
+<div >
+        <h3 style="text-align: center; font-weight: bold; text-decoration: underline;">Chat Room</h3>
+        <div class="col-lg-12" style="border: 1px solid #c12d2d; height: 500px;">
+            <div class="col-lg-4" style="height: 450px; background-color: #F5F9FC" id="OnlineUsers">
+                <div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d;">
+                    <div style="float: left">
+                        <input type="image" src="~/Images/TestImage/Arif Vai.jpg" style="height: 50px; width: 50px; border-radius: 300px; transform: rotate(90deg)" />
+                    </div>
+                     
+                    <div style="float: right" ng-controller="headerController">
+                        <input type="image" src="~/Images/bellIcon.png" style="height: 30px; width: 30px; border-radius: 300px; margin-top: 15px; margin-right: -15px;" />
+                        <span type="text" style="height: 30px; width: 30px; border-radius: 300px; z-index: 999; background-color: #c12d2d; color: #ffffff;">{{messageCount}}</span>
+                        
+
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d;text-align: center;">
+                    <h4><span style="font-weight: bold; color: green;">Online</span><span style="font-weight: bold; color: #c12d2d;">[{{OnlineUsers.length}}]</span></h4>
+                    <input type="text" style="height: 25px; width: 100%; background-color: #ffffff; margin-bottom: 10px;" placeholder="Search Contacts"/>
+
+                </div>
+            <div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d; overflow: auto; overflow-x: hidden; height: 325px">
+            <div ng-repeat="user in OnlineUsers track by $index">
+                <div >
+                    <div style="float: left">
+                        <div style="display: inline-block;">
+                            <input type="image" src="~/Images/TestImage/ContactsIcon.png" style="height: 50px; width: 50px; border-radius: 300px;"/>
+                        </div>
+                        <div style="display: inline-block;">
+                            <span style="font-weight: bold;"><a href="#" onclick="" ng-click="openPvtChat($index)">{{user.name}} </a></span><br/>
+                            <span>https://codepen.io/meh ....</span>
+                        </div>
+                    </div>
+                    <div style="float: right">
+                        <span>Wed</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-8" style="height: 450px;" id="PrivateChatArea">
+                <div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d;">
+                    <div style="float: left">
+                        <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;" ng-click="OpenDiv('DocInfo')">{{UserName}}</span></h3><span style="font-size: small">Last Seen 22 mins ago</span>
+                    </div>
+                    <div style="float: right; padding-top: 20px;">
+                        <input type="image" src="~/Images/TestImage/VideoIcon.png" style="height: 30px; width: 30px; border-radius: 300px;" />
+                        <input type="image" src="~/Images/TestImage/AudioIcon.png" style="height: 30px; width: 30px; border-radius: 300px;" />
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d; overflow: auto; overflow-x: hidden; height: 300px">
+                    <div ng-class="(msg.from == UserInPrivateChat.name )? 'left' : 'right'" ng-repeat="msg in PrivateMessages | filter:({to: UserInPrivateChat.ConnectionId})">
+                        <i ng-class="(msg.from == UserInPrivateChat.name )? 'sender' : 'reciver'"></i>
+                        <strong>{{msg.from}}</strong>
+                        <small ng-class="(msg.from == UserInPrivateChat.name )? 'pull-left' : 'pull-right'">
+                        </small>
+                        <div><p  ng-class="(msg.from == UserInPrivateChat.name )? 'Lmsg' : 'Rmsg'">{{msg.message}}</p></div>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top: 10px;">
+                    <div style="float: left; margin-left: -20px" class="col-lg-9">
+                        <div style="min-height: 9px; font-size: 7px;">
+                            {{usertyping}}
+                        </div>
+                        <textarea id="txt{{UserInPrivateChat.ConnectionId}}" type="text" style="height: 80px; width: 100%" placeholder="Type your message here..." ng-keypress="SkeyPress($event,UserInPrivateChat.ConnectionId,UserInPrivateChat.name)"></textarea>
+                    </div>
+                    <div style="float: right; padding-top: 20px;" class="col-lg-3">
+                        <input type="image" src="~/Images/TestImage/ImageIcon.png" style="height: 25px; width: 25px; border-radius: 300px;"/>
+                        <input type="image" src="~/Images/TestImage/FileIcon.png" style="height: 25px; width: 25px; border-radius: 300px;"/>
+                        <input type="image" src="~/Images/TestImage/VideoMessageIcon.png" style="height: 25px; width: 25px; border-radius: 300px;"/>
+                        <input type="image" src="~/Images/TestImage/SendMessageIcon.png" style="height: 25px; width: 25px; border-radius: 300px; transform: rotate(47deg)" ng-click="SendPrivateMessage(UserInPrivateChat.ConnectionId,UserInPrivateChat.name)"/>
+
+
+                    </div>
+                </div>
+           
+        </div>
+</div>
+        <div id="PatInfo" class="omf-modal">
+            <div class="omf-modal-body" style="height: 450px; overflow: auto; overflow-x: hidden;">
+                <div style="text-align: right" class="col-lg-12"><span style="font-weight: bold" ng-click="CloseDiv('PatInfo')">X</span></div>
+                <div class="col-lg-12" style="text-align: center">
+                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Patient Information</span></h3><hr />
+                </div>
+                <div class="col-lg-12">
+                    <div style="display: inline-block">
+                        <input type="image" src="~/Images/TestImage/Masum Vai.jpg" style="height: 150px; width: 150px; border-radius: 30px;" />
+                    </div>
+
+                    <div style="display: inline-block; vertical-align: top; margin-left: 10px;">
+                        <h4 style="margin-top: 3px; margin-bottom: 1px;"><span style="font-weight: bold;">Masum Billah Mia</span></h4><span style="font-size: x-small">Last Seen 1 hr ago</span> <br />
+                        <table>
+                            <tr><th>Gender:</th><td>Male</td></tr>
+                            <tr><th>Age:</th><td>12 Yrs</td></tr>
+                            <tr><th>Nationality:</th><td>Bangladeshi</td></tr>
+                            <tr><th>Status:</th><td>married</td></tr>
+                            <tr><th>Address:</th><td>Chandpur</td></tr>
+                            <tr><th>Contact:</th><td>0258964713</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-12" style="text-align: center">
+                        <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Diagonosis Information</span></h3><hr />
+                    </div>
+                    <div class="col-lg-12">
+
+                        <table>
+                            <tr><th style="vertical-align: top">Problem:</th><td>Knee Pain</td></tr>
+                            <tr><th style="vertical-align: top">Duration:</th><td>5 Days</td></tr>
+                            <tr><th style="vertical-align: top">Details:</th><td>The oldest classical Greek and Latin writing had little or no space between words and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[1] The Greek paragraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences. The hedera leaf (e.g. ☙) has also been used in the same way.</td></tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="DocInfo" class="omf-modal">
+            <div class="omf-modal-body" style="height: 450px">
+                <div style="text-align: right" class="col-lg-12"><span style="font-weight: bold" ng-click="CloseDiv('DocInfo')">X</span></div>
+                <div class="col-lg-12" style="text-align: center">
+                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Doctor Information</span></h3><hr />
+                </div>
+                <div class="col-lg-12">
+                    <div style="display: inline-block">
+                        <input type="image" src="~/Images/TestImage/Arif Vai.jpg" style="height: 150px; width: 150px; border-radius: 30px; transform: rotate(90deg)" />
+                    </div>
+
+                    <div style="display: inline-block; vertical-align: top; margin-left: 10px;">
+                        <h4 style="margin-top: 3px; margin-bottom: 1px;"><span style="font-weight: bold;">Dr. Arriff</span></h4><span style="font-size: x-small">Last Seen 22 mins ago</span> <br />
+                        <table>
+                            <tr><th>Gender:</th><td>Male</td></tr>
+                            <tr><th>Age:</th><td>112 Yrs</td></tr>
+                            <tr><th>Nationality:</th><td>Bangladeshi</td></tr>
+                            <tr><th>Speciality:</th><td>Neurologist</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-12" style="text-align: center">
+                        <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Hospital Information</span></h3><hr />
+                    </div>
+                    <div class="col-lg-12">
+
+                        <table>
+                            <tr><th style="vertical-align: top">Dept:</th><td>Neurology</td></tr>
+                            <tr><th style="vertical-align: top">Name:</th><td>King South Medical City</td></tr>
+                            <tr><th style="vertical-align: top">Branch:</th><td>Riadh</td></tr>
+                            <tr><th style="vertical-align: top">Address:</th><td>Ulaishah, 7790 Al Imam Abdul Aziz Ibn Muhammad Ibn Saud, Riyadh 12746 3617, Riyadh 12746</td></tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+
+ 

@@ -1,0 +1,1786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T02003">
+    <Key>
+      <PropertyRef Name="T_NTNLTY_ID" />
+    </Key>
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_NTNLTY_CODE" Type="varchar2" MaxLength="3" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_X_LANG1_NAME_SHRT" Type="varchar2" MaxLength="4" />
+    <Property Name="T_HL7_CODE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_PRIM_LANG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SECOND_LANG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_LANG_LABEL1" Type="varchar2" MaxLength="5" />
+    <Property Name="T_LANG_LABEL2" Type="varchar2" MaxLength="5" />
+    <Property Name="T_NTNLTY_ID" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_PHONE_CODE" Type="varchar2" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="T02040">
+    <Key>
+      <PropertyRef Name="T_SPCLTY_ID" />
+    </Key>
+    <Property Name="T_SPCLTY_ID" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_SPCLTY_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_MAIN_SPCLTY" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ACTIVE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T02064">
+    <Key>
+      <PropertyRef Name="T_ZONE_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="10" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="10" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_ZONE_CODE" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_SL_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_CITY_NAME" Type="blob" />
+  </EntityType>
+  <EntityType Name="T02065">
+    <Key>
+      <PropertyRef Name="T_SITE_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_SITE_CODE" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_ZONE_CODE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_PERCENT" Type="varchar2" MaxLength="4" />
+    <Property Name="T_SITE_STATUS" Type="varchar2" MaxLength="1" />
+    <Property Name="T_RECEIPT_ORDER_NO" Type="varchar2" MaxLength="6" />
+    <Property Name="T_MUDIRIA" Type="varchar2" MaxLength="1" />
+    <Property Name="T_BANK_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_BANK_ACC_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_INITIAL_BALANCE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_BALANCE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_LATITUDE" Type="number" Precision="12" Scale="6" />
+    <Property Name="T_LONGITUDE" Type="number" Precision="12" Scale="6" />
+    <Property Name="T_EXPENSE_RECEIVE_INTERVAL" Type="varchar2" MaxLength="2" />
+    <Property Name="T_PREVENTFLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SPECIAL_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_REFERRAL_CODE" Type="varchar2" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="T06301">
+    <Key>
+      <PropertyRef Name="T_ICD10_CODE" />
+    </Key>
+    <Property Name="T_ICD10_MAIN_CODE" Type="varchar2" MaxLength="10" />
+    <Property Name="T_ICD10_SUB_CODE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_ICD10_LONG_DESC2" Type="varchar2" MaxLength="255" />
+    <Property Name="T_ICD10_LONG_DESC1" Type="varchar2" MaxLength="255" />
+    <Property Name="T_ICD10_SHORT_DESC2" Type="varchar2" MaxLength="500" />
+    <Property Name="T_ICD10_SHORT_DESC1" Type="varchar2" MaxLength="500" />
+    <Property Name="T_ICD10_TYPE" Type="varchar2" MaxLength="1" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ICD10_LEVEL" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ICD10_SEX_BOUNDS" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ICD10_DIAG_BOUNDS" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ICD10_CODE" Type="varchar2" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T30010">
+    <Key>
+      <PropertyRef Name="T_DOSE_DURATION_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_DOSE_DURATION_CODE" Type="varchar2" MaxLength="4" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_QTY" Type="number" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="T30209">
+    <Key>
+      <PropertyRef Name="T_FREQUENCY_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_FREQUENCY_CODE" Type="varchar2" MaxLength="4" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_QTY_MON" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_FREQUENCY" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_TIME_DAILY_SH_DESC" Type="varchar2" MaxLength="40" />
+    <Property Name="T_HR_GAP" Type="number" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74000">
+    <Key>
+      <PropertyRef Name="T_LABEL_ID" />
+    </Key>
+    <Property Name="T_LABEL_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_FORM_CODE" Type="varchar2" MaxLength="6" />
+    <Property Name="T_LABEL_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG1_TEXT" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="T_LANG2_TEXT" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74001">
+    <Key>
+      <PropertyRef Name="T_ITEM_ID" />
+    </Key>
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_ITEM_BRA_ID" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_TYPE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ITEM_PICTURE" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74002">
+    <Key>
+      <PropertyRef Name="T_ITEM_BRA_ID" />
+    </Key>
+    <Property Name="T_ITEM_BRA_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74003">
+    <Key>
+      <PropertyRef Name="T_ITEM_UM_ID" />
+    </Key>
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_TYPE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PCK_FLAG" Type="varchar2" MaxLength="2" />
+    <Property Name="T_QTY" Type="number" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74004">
+    <Key>
+      <PropertyRef Name="T_EMP_ID" />
+    </Key>
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_EMP_NO" Type="number" Precision="8" Scale="0" />
+    <Property Name="T_BIRTH_DATE" Type="date" />
+    <Property Name="T_MRTL_STATUS_CODE" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_FAMILY_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_FAMILY_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_FATHER_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_FATHER_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_GFATHER_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_GFATHER_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_MOTHER_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_MOTHER_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_NTNLTY_ID" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_PASSPORT_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PHONE_HOME" Type="varchar2" MaxLength="16" />
+    <Property Name="T_PHONE_WORK" Type="varchar2" MaxLength="16" />
+    <Property Name="T_MOBILE_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="T_POSTAL_CODE" Type="varchar2" MaxLength="6" />
+    <Property Name="T_ADDRESS1" Type="varchar2" MaxLength="50" />
+    <Property Name="T_ADDRESS2" Type="varchar2" MaxLength="50" />
+    <Property Name="T_RLGN_CODE" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_SEX_CODE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_COMPANY_CODE" Type="varchar2" MaxLength="8" />
+    <Property Name="T_BLD_GROUP_ID" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_IP_EPISODES" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_SPONSR_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_SMOKER_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_EMP_LANG" Type="varchar2" MaxLength="20" />
+    <Property Name="T_INACTIVE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_POLICY_NO" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ACCEPTED" Type="varchar2" MaxLength="1" />
+    <Property Name="T_REF_LETTER" Type="varchar2" MaxLength="100" />
+    <Property Name="T_SKIN_COLOR" Type="varchar2" MaxLength="30" />
+    <Property Name="T_DISTINCTION" Type="varchar2" MaxLength="150" />
+    <Property Name="T_FILE_INACTIVE" Type="varchar2" MaxLength="1" />
+    <Property Name="T_LAST_LANG1_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_LAST_LANG2_NAME" Type="varchar2" MaxLength="80" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_EMAIL_ID" Type="varchar2" MaxLength="30" />
+    <Property Name="T_BALANCE_AMOUNT" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_EMP_DEATH" Type="varchar2" MaxLength="1" />
+    <Property Name="T_EMP_TYP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DOC_DEPT_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DOC_DEGREE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DOC_SPECI_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_EMP_STATUS" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="T74005">
+    <Key>
+      <PropertyRef Name="T_EMP_TYP_ID" />
+    </Key>
+    <Property Name="T_EMP_TYP_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74006">
+    <Key>
+      <PropertyRef Name="T_EMP_DESI_ID" />
+    </Key>
+    <Property Name="T_EMP_DESI_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74008">
+    <Key>
+      <PropertyRef Name="T_TYPE_ID" />
+    </Key>
+    <Property Name="T_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74009">
+    <Key>
+      <PropertyRef Name="T_MEDIC_TYPE_ID" />
+    </Key>
+    <Property Name="T_MEDIC_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74010">
+    <Key>
+      <PropertyRef Name="T_SUPPLI_ID" />
+    </Key>
+    <Property Name="T_SUPPLI_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74011">
+    <Key>
+      <PropertyRef Name="T_ITEM_COLOR_ID" />
+    </Key>
+    <Property Name="T_ITEM_COLOR_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74012">
+    <Key>
+      <PropertyRef Name="T_DETAIL_ID" />
+    </Key>
+    <Property Name="T_DETAIL_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SITE_NO" Type="varchar2" MaxLength="12" />
+    <Property Name="T_USER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74013">
+    <Key>
+      <PropertyRef Name="T_BILL_ID" />
+    </Key>
+    <Property Name="T_BILL_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74014">
+    <Key>
+      <PropertyRef Name="T_AMBU_REG_ID" />
+    </Key>
+    <Property Name="T_AMBU_REG_ID" Type="number" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="T_CHASIS_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENGINE_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_WEIGHT" Type="varchar2" MaxLength="20" />
+    <Property Name="T_REG_IMAGE" Type="varchar2" MaxLength="150" />
+    <Property Name="T_BARCODE_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_YEAR_MODEL" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_ITEM_COLOR_ID" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_AMB_TYPE_ID" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_BRAND_ID" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_REG_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_AMBU_REG_NUM" Type="varchar2" MaxLength="20" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SERIES" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T74015">
+    <Key>
+      <PropertyRef Name="T_EMP_ASSIGN_ID" />
+    </Key>
+    <Property Name="T_EMP_ASSIGN_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_AMBU_REG_ID" Type="number" Precision="7" Scale="0" />
+    <Property Name="T_ASSIGN_PRICE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_ACTIVE_STATUS" Type="varchar2" MaxLength="2" />
+    <Property Name="T_ASSIGN_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74016">
+    <Key>
+      <PropertyRef Name="T_CURRENCY_ID" />
+    </Key>
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_CURRENCY_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74017">
+    <Key>
+      <PropertyRef Name="T_AMBU_OWN_TYPE_ID" />
+    </Key>
+    <Property Name="T_AMBU_OWN_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74018">
+    <Key>
+      <PropertyRef Name="T_ID" />
+    </Key>
+    <Property Name="T_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_COST_TYPE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_AMOUNT" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_DESCRIPTION" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ACTIVE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74019">
+    <Key>
+      <PropertyRef Name="T_JOB_TYPE_ID" />
+    </Key>
+    <Property Name="T_JOB_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74020">
+    <Key>
+      <PropertyRef Name="T_DOC_SPECI_ID" />
+    </Key>
+    <Property Name="T_DOC_SPECI_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_SPCLTY_CODE" Type="varchar2" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="T74021">
+    <Key>
+      <PropertyRef Name="T_DOC_DEPT_ID" />
+    </Key>
+    <Property Name="T_DOC_DEPT_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74022">
+    <Key>
+      <PropertyRef Name="T_DOC_DEGREE_ID" />
+    </Key>
+    <Property Name="T_DOC_DEGREE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74023">
+    <Key>
+      <PropertyRef Name="T_EDU_BOARD_ID" />
+    </Key>
+    <Property Name="T_EDU_BOARD_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_DOC_DEGREE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74024">
+    <Key>
+      <PropertyRef Name="T_RESULT_TYP_ID" />
+    </Key>
+    <Property Name="T_RESULT_TYP_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74025">
+    <Key>
+      <PropertyRef Name="T_USER_TYPE_ID" />
+    </Key>
+    <Property Name="T_USER_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_TYPE_NAME1" Type="varchar2" MaxLength="20" />
+    <Property Name="T_TYPE_NAME2" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74026">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_LATITUDE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_LONGITUDE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_DEVICES" Type="varchar2" MaxLength="100" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_EVENT_ID" Type="number" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74027">
+    <Key>
+      <PropertyRef Name="T_CUR_STOCK_ID" />
+    </Key>
+    <Property Name="T_CUR_STOCK_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_UNIT_VALUE" Type="number" Precision="18" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="number" Precision="18" Scale="4" />
+    <Property Name="T_PURCHASE_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_TRNSACTION_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_STORE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_STOCK_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_ENTRY_USER " Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE " Type="date" />
+    <Property Name="T_UPD_USER " Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE " Type="date" />
+    <Property Name="T_EXPIRE_DATE" Type="date" />
+    <Property Name="T_MF_DATE" Type="date" />
+    <Property Name="T_PR_RCV_DTL_ID" Type="number" Precision="12" Scale="0" />
+    <Property Name="T_STOCK_TYPE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_LOT_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_BATCH" Type="varchar2" MaxLength="100" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74028">
+    <Key>
+      <PropertyRef Name="T_PUR_REQ_ID" />
+    </Key>
+    <Property Name="T_PUR_REQ_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="6" />
+    <Property Name="T_PURCHASE_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_PURCHASE_NO" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74030">
+    <Key>
+      <PropertyRef Name="T_PUR_ID" />
+    </Key>
+    <Property Name="T_PUR_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_STORE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PUR_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PUR_REQ_DATE" Type="date" />
+    <Property Name="T_EXP_DLVRY_DATE" Type="date" />
+    <Property Name="T_ISSUE_STATUS" Type="char" MaxLength="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74031">
+    <Key>
+      <PropertyRef Name="T_PUR_DTL_ID" />
+    </Key>
+    <Property Name="T_PUR_DTL_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_PUR_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PUR_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_RCV_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_PRIORITY" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ISSUE_STS_DTL" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74035">
+    <Key>
+      <PropertyRef Name="T_DEPET_ID" />
+    </Key>
+    <Property Name="T_DEPET_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74036">
+    <Key>
+      <PropertyRef Name="T_ISSUE_ID" />
+    </Key>
+    <Property Name="T_ISSUE_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ISSUE_DATE" Type="date" />
+    <Property Name="T_PAT_NO" Type="varchar2" MaxLength="12" />
+    <Property Name="T_DOC_CODE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_PRSCRPTN_ID" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_USER " Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE " Type="date" />
+    <Property Name="T_UPD_USER " Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE " Type="date" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SL_REQ_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_STORE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DISCOUNT" Type="number" Precision="5" Scale="2" />
+    <Property Name="T_TOTAL" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_VAT" Type="number" Precision="5" Scale="2" />
+    <Property Name="T_GRAND_TOTAL" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_ISSUED_BY" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DIS_AMOUNT" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_ENTRY_TIME" Type="varchar2" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="T74037">
+    <Key>
+      <PropertyRef Name="T_ISSUE_DTL_ID" />
+    </Key>
+    <Property Name="T_ISSUE_DTL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="T_ISSUE_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_CUR_STOCK_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_QUANTITY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_EXPIRE_DATE" Type="date" />
+    <Property Name="T_UOM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SALE_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE " Type="date" />
+    <Property Name="T_UPD_USER " Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE " Type="date" />
+    <Property Name="T_TOTAL_AMOUNT" Type="number" Precision="12" Scale="3" />
+    <Property Name="T_SL_REQ_DTL_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PCS_BOX" Type="char" MaxLength="3" />
+    <Property Name="T_DISCOUNT" Type="number" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="T74038">
+    <Key>
+      <PropertyRef Name="T_SERV_CHARG_ID" />
+    </Key>
+    <Property Name="T_SERV_CHARG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74039">
+    <Key>
+      <PropertyRef Name="T_PRESCRIPTION_ID" />
+    </Key>
+    <Property Name="T_PRESCRIPTION_ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_DOC_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_REMARKS" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74040">
+    <Key>
+      <PropertyRef Name="T_PRSCRPTN_DTL_ID" />
+    </Key>
+    <Property Name="T_PRSCRPTN_DTL_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_PRESCRIPTION_ID" Type="number" Precision="8" Scale="0" />
+    <Property Name="T_ITEM_CODE" Type="varchar2" MaxLength="90" />
+    <Property Name="T_TRADE_CODE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_GEN_CODE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_REQUEST_STRENGTH" Type="varchar2" MaxLength="50" />
+    <Property Name="T_FORM_ID" Type="varchar2" MaxLength="50" />
+    <Property Name="T_DRUG_ROUTE_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_MORNING_DOSE_UNIT" Type="varchar2" MaxLength="10" />
+    <Property Name="T_NOON_DOSE_UNIT" Type="varchar2" MaxLength="10" />
+    <Property Name="T_NIGHT_DOSE_UNIT" Type="varchar2" MaxLength="10" />
+    <Property Name="T_MEAL_INSTRUCTION" Type="varchar2" MaxLength="10" />
+    <Property Name="T_INS_TIME" Type="varchar2" MaxLength="10" />
+    <Property Name="T_SATURDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SUNDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_MONDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_TUESDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_WEDNESDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_THURSDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_FRIDAY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_REMARKS_DTL" Type="varchar2" MaxLength="1000" />
+    <Property Name="T_FREQUENCY_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_FREQUENCY_INS_ID" Type="varchar2" MaxLength="4" />
+    <Property Name="T_DOSE_DURATION_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_DOSE_DURATION_INS_ID" Type="varchar2" MaxLength="4" />
+    <Property Name="T_DRUG_INACTIVE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74041">
+    <Key>
+      <PropertyRef Name="T_REQUEST_ID" />
+    </Key>
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PAT_ID" Type="number" Precision="8" Scale="0" />
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ALLERGY_CODE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_ARRIVAL_STATUS" Type="varchar2" MaxLength="2" />
+    <Property Name="T_CH_COMP" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_DISCH_RSN_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_DISCHARGE_DOC_CODE" Type="varchar2" MaxLength="8" />
+    <Property Name="T_DISCH_DEST" Type="varchar2" MaxLength="250" />
+    <Property Name="T_ADMIT_DOC_CODE" Type="varchar2" MaxLength="8" />
+    <Property Name="T_TRIAGE_CONDITION" Type="varchar2" MaxLength="4" />
+    <Property Name="T_REQUEST_DATE" Type="date" />
+    <Property Name="T_REQUEST_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_EPISODE_NO" Type="varchar2" MaxLength="2" />
+    <Property Name="T_PROBLEM" Type="varchar2" MaxLength="200" />
+    <Property Name="T_PROBLEM_DURATION" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SMOKING" Type="varchar2" MaxLength="1" />
+    <Property Name="T_PREGNANCY" Type="varchar2" MaxLength="1" />
+    <Property Name="T_TRAUMA" Type="varchar2" MaxLength="2" />
+    <Property Name="T_DISCH_RSN_REMARKS" Type="varchar2" MaxLength="100" />
+    <Property Name="T_EPISODE_END_TIME" Type="varchar2" MaxLength="8" />
+    <Property Name="T_DISCH_STATUS" Type="varchar2" MaxLength="4" />
+    <Property Name="T_DISCHARGE_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_DISCHARGE_DATE" Type="date" />
+    <Property Name="T_COMMENTS" Type="varchar2" MaxLength="200" />
+    <Property Name="T_RED_CRESCENT" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ELIGIBLE" Type="varchar2" MaxLength="1" />
+    <Property Name="T_PHYSICAL_EXAM" Type="varchar2" MaxLength="1000" />
+    <Property Name="T_PROVISIONAL_DIAG" Type="varchar2" MaxLength="1000" />
+    <Property Name="T_INVESTIGATIONS" Type="varchar2" MaxLength="1000" />
+    <Property Name="T_SEEN_DATE" Type="date" />
+    <Property Name="T_SEEN_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_TRIAGE_OUT_DATE" Type="date" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_LATITUDE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_LONGITUDE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_APPRX_TIME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_APPRX_DIST" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PROB_TYPE_ID" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_PROB_DETAILS" Type="varchar2" MaxLength="200" />
+    <Property Name="T_AMBU_REG_ID" Type="number" Precision="7" Scale="0" />
+    <Property Name="T_AGE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_CANCEL_STATUS" Type="varchar2" MaxLength="2" />
+    <Property Name="T_CANCEL_REASON" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ICD10_CODE" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ASSIGN_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_ACCEPT_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_REFER_SITE_DOC" Type="varchar2" MaxLength="5" />
+    <Property Name="T_REFER_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_ACCEPT_STATUS" Type="varchar2" MaxLength="1" />
+    <Property Name="T_REF_DOC_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="T_REF_DOC_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_SITE_DIS_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="T_START_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_CHAT_DOC_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_CHAT_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_REF_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_TEAM_SITE_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="T_DOC_REQ_ACPT_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_MAP_LOC" Type="varchar2" MaxLength="500" />
+    <Property Name="T_CAN_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_TRIAGE_LEVEL" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_EYE_OPEN" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_BEST_MOTOR" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_VERBAL_RESPONSE" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_OPER_CNCL_FLAG" Type="varchar2" MaxLength="2" />
+    <Property Name="T_OPER_CNCL_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_OPER_DES_CODE" Type="varchar2" MaxLength="5" />
+    <Property Name="T_OPER_DES_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_OPER_ACPT_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_TEAM_ARVL_HOS" Type="timestamp" Precision="6" />
+    <Property Name="T_TEAM_DEPT_HOS" Type="timestamp" Precision="6" />
+    <Property Name="T_TEAM_ARVL_STN" Type="timestamp" Precision="6" />
+    <Property Name="T_PANIC_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_CASE_ARRIVAL" Type="timestamp" Precision="6" />
+    <Property Name="T_EVENT_FLAG" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_RDY_FOR_NXT_PAT" Type="timestamp" Precision="6" />
+    <Property Name="T_PAT_REQ_CNCL" Type="timestamp" Precision="6" />
+    <Property Name="T_VERIFY_DISCHARGE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_REMARKS" Type="varchar2" MaxLength="500" />
+    <Property Name="T_PROTOCAL_NO" Type="number" Precision="12" Scale="0" />
+    <Property Name="T_CLIT_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PUPILLER_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ACTV_OPER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_CALLER_ID" Type="number" Precision="12" Scale="0" />
+    <Property Name="T_CALL_REASON_ID" Type="number" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74043">
+    <Key>
+      <PropertyRef Name="T_PCHECKUP_ID" />
+    </Key>
+    <Property Name="T_PCHECKUP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_DOC_CODE" Type="varchar2" MaxLength="10" />
+    <Property Name="T_HIGHT" Type="varchar2" MaxLength="20" />
+    <Property Name="T_WEIGHT" Type="varchar2" MaxLength="20" />
+    <Property Name="T_BP_SYS" Type="varchar2" MaxLength="20" />
+    <Property Name="T_BP_DIA" Type="varchar2" MaxLength="20" />
+    <Property Name="T_TEMP" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PULS" Type="varchar2" MaxLength="20" />
+    <Property Name="T_RESP" Type="varchar2" MaxLength="20" />
+    <Property Name="T_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_OS" Type="varchar2" MaxLength="20" />
+    <Property Name="T_BSUGAR_F" Type="varchar2" MaxLength="20" />
+    <Property Name="T_BSUGAR_ABF" Type="varchar2" MaxLength="20" />
+    <Property Name="T_URINE_TEST" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ECG_TEST" Type="long" />
+    <Property Name="T_VERIFY_LEVEL" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="10" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="4" />
+    <Property Name="T_CONCIUS_LEVEL" Type="varchar2" MaxLength="2" />
+    <Property Name="T_TRIAGE_LEVEL" Type="varchar2" MaxLength="2" />
+    <Property Name="T_BP_MEAN" Type="varchar2" MaxLength="20" />
+    <Property Name="T_HEART_RATE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ECG_TYPE" Type="varchar2" MaxLength="100" />
+    <Property Name="T_GLUCOSE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SCORE" Type="number" Precision="3" Scale="0" />
+    <Property Name="T_NEXT_REVIEW" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T74044">
+    <Key>
+      <PropertyRef Name="T_STORE_ID" />
+    </Key>
+    <Property Name="T_STORE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_AMBU_REG_ID" Type="number" Precision="7" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_AREA" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PRICE" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74045">
+    <Key>
+      <PropertyRef Name="T_SUPPLIER_ID" />
+    </Key>
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PRES_ADDRESS" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PER_ADDRESS" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PHONE_NUMBER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_MOBILE_NUMBER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_EMAIL_ID" Type="varchar2" MaxLength="50" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74046">
+    <Key>
+      <PropertyRef Name="T_PAT_ID" />
+    </Key>
+    <Property Name="T_PAT_ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="T_PAT_NO" Type="varchar2" MaxLength="8" />
+    <Property Name="T_BIRTH_DATE" Type="date" />
+    <Property Name="T_MRTL_STATUS" Type="number" Precision="5" Scale="0" />
+    <Property Name="T_FATHER_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_FATHER_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_GFATHER_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_GFATHER_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_MOTHER_LANG1_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="T_MOTHER_LANG2_NAME" Type="varchar2" MaxLength="60" />
+    <Property Name="T_NTNLTY_ID" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_PASSPORT_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_PHONE_HOME" Type="varchar2" MaxLength="16" />
+    <Property Name="T_PHONE_WORK" Type="varchar2" MaxLength="16" />
+    <Property Name="T_MOBILE_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="T_POSTAL_CODE" Type="varchar2" MaxLength="6" />
+    <Property Name="T_ADDRESS1" Type="varchar2" MaxLength="500" />
+    <Property Name="T_ADDRESS2" Type="varchar2" MaxLength="500" />
+    <Property Name="T_RLGN_CODE" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_SEX_CODE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_BLD_GRP" Type="varchar2" MaxLength="4" />
+    <Property Name="T_JOB_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_SPONSR_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_BALANCE_AMOUNT" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_NEW_PATNO" Type="varchar2" MaxLength="8" />
+    <Property Name="T_PAT_TYPE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_FORM_NAME" Type="varchar2" MaxLength="8" />
+    <Property Name="T_SMOKER_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_CNCL_NTNLTY_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="T_EMAIL_ID" Type="varchar2" MaxLength="30" />
+    <Property Name="T_INACTIVE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SKIN_COLOR" Type="varchar2" MaxLength="30" />
+    <Property Name="T_NAME1" Type="varchar2" MaxLength="200" />
+    <Property Name="T_NAME2" Type="varchar2" MaxLength="200" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_EMP_DESI_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_OFFICE_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_NATIONAL_ID" Type="number" Precision="20" Scale="0" />
+    <Property Name="T_FAMILY_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_FAMILY_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_ALT_MOBILE_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="T_IDENTITY_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SOCIAL_NO" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T74047">
+    <Key>
+      <PropertyRef Name="T_AMBU_TYPE_ID" />
+    </Key>
+    <Property Name="T_AMBU_TYPE_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74048">
+    <Key>
+      <PropertyRef Name="T_SL_REQ_ID" />
+    </Key>
+    <Property Name="T_SL_REQ_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_STR_FR_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_STR_TO_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SL_REQ_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SL_REQ_DATE" Type="date" />
+    <Property Name="T_SL_REQ_STATUS" Type="char" MaxLength="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_EXP_DLVRY_DATE" Type="date" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_REQ_PERSON_ID" Type="number" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74049">
+    <Key>
+      <PropertyRef Name="T_SL_REQ_DTL_ID" />
+    </Key>
+    <Property Name="T_SL_REQ_DTL_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_SL_REQ_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_SL_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_RCV_QTY" Type="number" Precision="8" Scale="2" />
+    <Property Name="T_PRIORITY" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SL_STS_DTL" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74050">
+    <Key>
+      <PropertyRef Name="T_SEX_CODE" />
+    </Key>
+    <Property Name="T_SEX_CODE" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SHORT_GNDR_NAME" Type="varchar2" MaxLength="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74051">
+    <Key>
+      <PropertyRef Name="T_MRTL_STATUS_CODE" />
+    </Key>
+    <Property Name="T_MRTL_STATUS_CODE" Type="number" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74052">
+    <Key>
+      <PropertyRef Name="T_ZONE_CODE" />
+    </Key>
+    <Property Name="T_ZONE_CODE" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="T_SL_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74053">
+    <Key>
+      <PropertyRef Name="T_SITE_NO" />
+    </Key>
+    <Property Name="T_SITE_NO" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="T_ZONE_CODE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_SITE_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="150" />
+    <Property Name="T_CONTACT_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_CONTACT_MOBILE" Type="varchar2" MaxLength="10" />
+    <Property Name="T_SITE_URL" Type="varchar2" MaxLength="150" />
+    <Property Name="T_LATITUDE" Type="number" Precision="12" Scale="6" />
+    <Property Name="T_LONGITUDE" Type="number" Precision="12" Scale="6" />
+    <Property Name="T_MUDIRIA" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SITE_STATUS" Type="varchar2" MaxLength="1" />
+    <Property Name="T_IMPLEMENTATION_YEAR" Type="varchar2" MaxLength="4" />
+    <Property Name="T_PRIVATE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74054">
+    <Key>
+      <PropertyRef Name="T_COMPANY_ID" />
+    </Key>
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG1_ADRS_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_ADRS_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_EMAIL" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PHONE" Type="varchar2" MaxLength="15" />
+    <Property Name="T_WEB_URL" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74055">
+    <Key>
+      <PropertyRef Name="T_CH_COMP" />
+    </Key>
+    <Property Name="T_CH_COMP" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74056">
+    <Key>
+      <PropertyRef Name="T_TRIAGE_SEQ" />
+    </Key>
+    <Property Name="T_TRIAGE_SEQ" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="10" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="10" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74057">
+    <Key>
+      <PropertyRef Name="T_USER_ID" />
+    </Key>
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="T_PWD" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ACTIVE_FLAG" Type="number" Precision="2" Scale="0" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_COMPANY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_SITE_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_LOGIN_STATUS" Type="char" MaxLength="2" />
+    <Property Name="T_ROLE_CODE" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_ZONE_CODE" Type="varchar2" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="T74058">
+    <Key>
+      <PropertyRef Name="T_NTNLTY_ID" />
+    </Key>
+    <Property Name="T_NTNLTY_ID" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG1_NAME_SHRT" Type="varchar2" MaxLength="4" />
+    <Property Name="T_HL7_CODE" Type="varchar2" MaxLength="2" />
+    <Property Name="T_PRIM_LANG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_SECOND_LANG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_LANG_LABEL1" Type="varchar2" MaxLength="5" />
+    <Property Name="T_LANG_LABEL2" Type="varchar2" MaxLength="5" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74059">
+    <Key>
+      <PropertyRef Name="T_RLGN_CODE" />
+    </Key>
+    <Property Name="T_RLGN_CODE" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_HL7_CODE" Type="varchar2" MaxLength="3" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74060">
+    <Key>
+      <PropertyRef Name="T_PR_RCV_ID" />
+    </Key>
+    <Property Name="T_PR_RCV_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_PR_RCV_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PR_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_RCV_UNIT_NO" Type="varchar2" MaxLength="12" />
+    <Property Name="T_CHALLAN_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_RECEIVE_DATE" Type="date" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_BILL_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_BILL_DATE" Type="date" />
+    <Property Name="T_DISCOUNT" Type="char" MaxLength="3" />
+    <Property Name="T_DISCOUNT_PERCENT" Type="varchar2" MaxLength="10" />
+    <Property Name="T_DISCOUNT_AMOUNT" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VLU_AFTER_DISC" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_GRAND_TOTAL_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_REMARKS" Type="varchar2" MaxLength="100" />
+    <Property Name="T_VAT" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_RECEIVE_BY" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ACTUAL_DELIVERY_DATE" Type="date" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_CURRENCY_CONVERSION_TK" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_LC_NO" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LC_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74061">
+    <Key>
+      <PropertyRef Name="T_PR_RCV_DTL_ID" />
+    </Key>
+    <Property Name="T_PR_RCV_DTL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="T_PR_RCV_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_PR_DETAIL_ID" Type="number" Precision="12" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_UOM_DETAILS_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_UOM_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_RCV_QTY" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_UNIT_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_WARRANTY" Type="varchar2" MaxLength="100" />
+    <Property Name="T_WARRANTY_START" Type="date" />
+    <Property Name="T_WARRANTY_END" Type="date" />
+    <Property Name="T_CURRENCY" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_MANUFACTURE_DATE" Type="date" />
+    <Property Name="T_EXPIRE_DATE" Type="date" />
+    <Property Name="T_LOT_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_BATCH" Type="varchar2" MaxLength="100" />
+    <Property Name="T_COUNTRY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_OTHERS" Type="varchar2" MaxLength="200" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74066">
+    <Key>
+      <PropertyRef Name="T_FORM_CODE_ID" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_FORM_CODE" Type="varchar2" MaxLength="7" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_VERSION_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_REPORT_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_FORM_TYPE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_FORM_CODE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" />
+    <Property Name="T_INACTIVE_FLAG" Type="varchar2" MaxLength="1" />
+    <Property Name="T_PAGE_TYPE_ID" Type="number" Precision="3" Scale="0" />
+    <Property Name="T_ORDER" Type="number" Precision="3" Scale="0" />
+    <Property Name="T_TYPE" Type="char" MaxLength="4" />
+    <Property Name="T_ROLE_CODE" Type="number" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74068">
+    <Key>
+      <PropertyRef Name="T_MSG_CODE" />
+    </Key>
+    <Property Name="T_MSG_CODE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_MSG" Type="varchar2" MaxLength="80" />
+    <Property Name="T_LANG2_MSG" Type="varchar2" MaxLength="80" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="T74069">
+    <Key>
+      <PropertyRef Name="T_BLD_GROUP_ID" />
+    </Key>
+    <Property Name="T_BLD_GROUP_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="T_SHOT_DESC1" Type="varchar2" MaxLength="100" />
+    <Property Name="T_SHOT_DESC2" Type="varchar2" MaxLength="100" />
+    <Property Name="T_BLOOD_GORUP" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74070">
+    <Key>
+      <PropertyRef Name="T_FORM_TYPE_ID" />
+    </Key>
+    <Property Name="T_FORM_TYPE_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74071">
+    <Key>
+      <PropertyRef Name="T_ROLE_CODE" />
+    </Key>
+    <Property Name="T_ROLE_CODE" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_SHORT_NAME" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T74072">
+    <Key>
+      <PropertyRef Name="T_COST_TYPE_ID" />
+    </Key>
+    <Property Name="T_COST_TYPE_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_ITEM_TYPE" Type="number" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74073">
+    <Key>
+      <PropertyRef Name="T_COST_TYPE_DTL_ID" />
+    </Key>
+    <Property Name="T_COST_TYPE_DTL_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_COST_TYPE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="300" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="300" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_INCHARGABLE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_ACTIVE" Type="number" Precision="38" Scale="0" />
+    <Property Name="T_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_FORM_ID" Type="varchar2" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="T74074">
+    <Key>
+      <PropertyRef Name="T_BILL_ID" />
+    </Key>
+    <Property Name="T_BILL_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ISSUE_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_TOTAL_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74075">
+    <Key>
+      <PropertyRef Name="T_FREQUENCY_CODE" />
+    </Key>
+    <Property Name="T_FREQUENCY_CODE" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="40" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74077">
+    <Key>
+      <PropertyRef Name="T_PROB_TYPE_ID" />
+    </Key>
+    <Property Name="T_PROB_TYPE_ID" Type="number" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="T_LOG" Type="blob" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LOG_B64" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T74078">
+    <Key>
+      <PropertyRef Name="T_DIAGONOSIS_ID" />
+    </Key>
+    <Property Name="T_DIAGONOSIS_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_PRESCRIPTION_ID" Type="number" Precision="8" Scale="0" />
+    <Property Name="T_REPORT_DELIVERY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_PRICE" Type="number" Precision="10" Scale="4" />
+    <Property Name="T_VAT" Type="number" Precision="8" Scale="4" />
+    <Property Name="T_DISCOUNT" Type="number" Precision="9" Scale="4" />
+  </EntityType>
+  <EntityType Name="T74079">
+    <Key>
+      <PropertyRef Name="T_BILL_DTL_ID" />
+    </Key>
+    <Property Name="T_BILL_DTL_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_BILL_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_DIAGONOSIS_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_VAT" Type="number" Precision="8" Scale="4" />
+    <Property Name="T_DISCOUNT" Type="number" Precision="9" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_ENTRY_TIME" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74080">
+    <Key>
+      <PropertyRef Name="T_TRANSFER_REQ_ID" />
+    </Key>
+    <Property Name="T_TRANSFER_REQ_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_TRANSFER_REQ_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ISSUE_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_REQ_DATE" Type="date" />
+    <Property Name="T_REQ_SET_BY" Type="varchar2" MaxLength="100" />
+    <Property Name="T_REQ_SET_BY_STORE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_REQ_SEND_TO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_SEND_TO_STORE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_TRANSFER_FOR" Type="varchar2" MaxLength="100" />
+    <Property Name="T_TRANSFER_DELIVERY_METHOD" Type="varchar2" MaxLength="100" />
+    <Property Name="T_STATUS" Type="varchar2" MaxLength="10" />
+    <Property Name="T_IS_ACTIVE" Type="char" MaxLength="2" />
+    <Property Name="T_IS_APPROVED" Type="char" MaxLength="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74081">
+    <Key>
+      <PropertyRef Name="T_TRANSFER_REQ_DTL_ID" />
+    </Key>
+    <Property Name="T_TRANSFER_REQ_DTL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="T_TRANSFER_REQ_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_TRANSFER_QTY" Type="number" Precision="10" Scale="4" />
+    <Property Name="T_UOM_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_CUR_STOCK_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_RECEIVE_TYPE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UNIT_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_OTHERS" Type="varchar2" MaxLength="200" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_TRANSFER_PRORITY" Type="varchar2" MaxLength="50" />
+    <Property Name="T_LOT_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_BATCH" Type="varchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T74084">
+    <Key>
+      <PropertyRef Name="T_TRNS_RCV_ID" />
+    </Key>
+    <Property Name="T_TRNS_RCV_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_TRNS_RCV_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_RCV_DATE" Type="date" />
+    <Property Name="T_RCV_FRM" Type="varchar2" MaxLength="100" />
+    <Property Name="T_RCV_FRM_STR_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_RCV_TO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_RCV_TO_STR_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_RCV_STATUS" Type="varchar2" MaxLength="10" />
+    <Property Name="T_IS_APPROVED" Type="char" MaxLength="2" />
+    <Property Name="T_CURRENCY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_UNIT_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="number" Precision="12" Scale="4" />
+    <Property Name="T_LOT_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_BATCH" Type="varchar2" MaxLength="100" />
+    <Property Name="T_COUNTRY_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_TRANSFER_REQ_ID" Type="number" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74085">
+    <Key>
+      <PropertyRef Name="T_TRNS_RCV_DTL_ID" />
+    </Key>
+    <Property Name="T_TRNS_RCV_DTL_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="T_TRNS_RCV_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ITEM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_TRNS_QTY" Type="number" Precision="10" Scale="4" />
+    <Property Name="T_UOM_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_CUR_STOCK_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_SUPPLIER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_RCV_TYPE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_OTHERS" Type="varchar2" MaxLength="200" />
+    <Property Name="T_IS_ACTIVE" Type="char" MaxLength="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="12" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_TRANSFER_REQ_DTL_ID" Type="number" Precision="12" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74089">
+    <Key>
+      <PropertyRef Name="T_PRICE_ID" />
+    </Key>
+    <Property Name="T_PRICE_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_PUR_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_SALE_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="T_ITEM_UM_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_RET_PRCNTG" Type="number" Precision="5" Scale="2" />
+    <Property Name="T_INCRS_DCRS_PRCNTG" Type="number" Precision="5" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_ACTIVE" Type="varchar2" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="T74090">
+    <Key>
+      <PropertyRef Name="T_PAGE_TYPE_ID" />
+    </Key>
+    <Property Name="T_PAGE_TYPE_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74093">
+    <Key>
+      <PropertyRef Name="T_ITEM_ID" />
+    </Key>
+    <Property Name="T_ITEM_ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_BARCODE" Type="varchar2" MaxLength="100" />
+    <Property Name="T_REGI_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_MODEL_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENGIN_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_CHESES_NO" Type="varchar2" MaxLength="100" />
+    <Property Name="T_DESC" Type="varchar2" MaxLength="500" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="100" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74094">
+    <Key>
+      <PropertyRef Name="T_ORDER_ID" />
+    </Key>
+    <Property Name="T_ORDER_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_ORDER_NO" Type="varchar2" MaxLength="10" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_REGI_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ISSUE_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PROB_DES_LANG1" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PROB_DES_LANG2" Type="varchar2" MaxLength="100" />
+    <Property Name="T_PROB_ISSUE_DATE" Type="date" />
+    <Property Name="T_DEL_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_ENGIN_NO" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74095">
+    <Key>
+      <PropertyRef Name="T_PROB_DET_ID" />
+    </Key>
+    <Property Name="T_PROB_DET_ID" Type="number" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="T_ORDER_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PROB_DELT_LANG1" Type="varchar2" MaxLength="500" />
+    <Property Name="T_PROB_DELT_LANG2" Type="varchar2" MaxLength="500" />
+    <Property Name="T_APR_DELV_DATE" Type="date" />
+    <Property Name="T_REPAIR_STATUS" Type="varchar2" MaxLength="10" />
+    <Property Name="T_REPAIR_INST_DELT" Type="varchar2" MaxLength="500" />
+    <Property Name="T_REPAIR_DATE" Type="date" />
+    <Property Name="T_REPAIRER_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T74096">
+    <Key>
+      <PropertyRef Name="T_PER_ID" />
+    </Key>
+    <Property Name="T_PER_ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_SITE_CODE" Type="varchar2" MaxLength="4" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ACTIVE" Type="char" MaxLength="2" />
+    <Property Name="T_AMBU_REG_ID" Type="number" Precision="7" Scale="0" />
+  </EntityType>
+  <EntityType Name="T74097">
+    <Key>
+      <PropertyRef Name="T_ADVICE_ID" />
+    </Key>
+    <Property Name="T_ADVICE_ID" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74098">
+    <Key>
+      <PropertyRef Name="T_AUTO_ID" />
+    </Key>
+    <Property Name="T_AUTO_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="T_SENDER_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="T_RECIEVER_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="T_SENDER_TYPE" Type="varchar2" MaxLength="10" />
+    <Property Name="T_TEXT" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="T_TIME" Type="timestamp" Precision="6" />
+    <Property Name="T_REF_ID" Type="number" Precision="20" Scale="0" />
+    <Property Name="T_FILE_LOC" Type="varchar2" MaxLength="500" />
+    <Property Name="T_REQUEST_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="T_RECEIVED_FLAG" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="T74101">
+    <Key>
+      <PropertyRef Name="T_CANCEL_REASON_ID" />
+    </Key>
+    <Property Name="T_CANCEL_REASON_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_CANCEL_TYPE_ID" Type="number" Precision="3" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74102">
+    <Key>
+      <PropertyRef Name="T_GCS_ID" />
+    </Key>
+    <Property Name="T_GCS_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_GCS_TYPE" Type="varchar2" MaxLength="5" />
+    <Property Name="T_GCS_VALUE" Type="number" Precision="3" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74104">
+    <Key>
+      <PropertyRef Name="T_DISCH_ID" />
+    </Key>
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_DISCH_ID" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T74120">
+    <Key>
+      <PropertyRef Name="T_CALLER_ID" />
+    </Key>
+    <Property Name="T_CALLER_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_LAST_LANG1_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_LAST_LANG2_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_NTNLTY_ID" Type="number" Precision="4" Scale="0" />
+    <Property Name="T_PASSPORT_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="T_MOBILE_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="T_ADDRESS" Type="varchar2" MaxLength="500" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74121">
+    <Key>
+      <PropertyRef Name="T_CALL_REASON_ID" />
+    </Key>
+    <Property Name="T_CALL_REASON_ID" Type="number" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_LANG2_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_ENTRY_DATE" Type="timestamp" Precision="6" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="30" />
+    <Property Name="T_UPD_DATE" Type="timestamp" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74M01">
+    <Key>
+      <PropertyRef Name="T_USER_ID" />
+    </Key>
+    <Property Name="T_USER_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_PASSWORD" Type="varchar2" MaxLength="500" />
+    <Property Name="T_USER_TYPE" Type="number" Precision="6" Scale="0" />
+    <Property Name="T_IS_ACTIVE" Type="char" MaxLength="3" />
+    <Property Name="T_ENTRY_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_ENTRY_DATE" Type="date" />
+    <Property Name="T_UPD_USER" Type="varchar2" MaxLength="20" />
+    <Property Name="T_UPD_DATE" Type="varchar2" MaxLength="20" />
+    <Property Name="T_IS_ONLINE" Type="char" MaxLength="3" />
+    <Property Name="T_ROLE_CODE" Type="number" Precision="4" Scale="0" />
+  </EntityType>
+  <Association Name="T74037_FK1">
+    <End Role="T74036" Type="Self.T74036" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T74037" Type="Self.T74037" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T74036">
+        <PropertyRef Name="T_ISSUE_ID" />
+      </Principal>
+      <Dependent Role="T74037">
+        <PropertyRef Name="T_ISSUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="T74037_FK2">
+    <End Role="T74027" Type="Self.T74027" Multiplicity="0..1" />
+    <End Role="T74037" Type="Self.T74037" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T74027">
+        <PropertyRef Name="T_CUR_STOCK_ID" />
+      </Principal>
+      <Dependent Role="T74037">
+        <PropertyRef Name="T_CUR_STOCK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="T02003" EntityType="Self.T02003" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T02040" EntityType="Self.T02040" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T02064" EntityType="Self.T02064" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T02065" EntityType="Self.T02065" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T06301" EntityType="Self.T06301" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T30010" EntityType="Self.T30010" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T30209" EntityType="Self.T30209" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74000" EntityType="Self.T74000" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74001" EntityType="Self.T74001" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74002" EntityType="Self.T74002" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74003" EntityType="Self.T74003" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74004" EntityType="Self.T74004" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74005" EntityType="Self.T74005" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74006" EntityType="Self.T74006" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74008" EntityType="Self.T74008" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74009" EntityType="Self.T74009" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74010" EntityType="Self.T74010" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74011" EntityType="Self.T74011" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74012" EntityType="Self.T74012" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74013" EntityType="Self.T74013" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74014" EntityType="Self.T74014" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74015" EntityType="Self.T74015" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74016" EntityType="Self.T74016" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74017" EntityType="Self.T74017" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74018" EntityType="Self.T74018" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74019" EntityType="Self.T74019" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74020" EntityType="Self.T74020" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74021" EntityType="Self.T74021" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74022" EntityType="Self.T74022" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74023" EntityType="Self.T74023" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74024" EntityType="Self.T74024" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74025" EntityType="Self.T74025" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74026" EntityType="Self.T74026" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74027" EntityType="Self.T74027" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74028" EntityType="Self.T74028" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74030" EntityType="Self.T74030" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74031" EntityType="Self.T74031" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74035" EntityType="Self.T74035" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74036" EntityType="Self.T74036" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74037" EntityType="Self.T74037" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74038" EntityType="Self.T74038" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74039" EntityType="Self.T74039" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74040" EntityType="Self.T74040" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74041" EntityType="Self.T74041" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74043" EntityType="Self.T74043" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74044" EntityType="Self.T74044" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74045" EntityType="Self.T74045" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74046" EntityType="Self.T74046" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74047" EntityType="Self.T74047" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74048" EntityType="Self.T74048" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74049" EntityType="Self.T74049" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74050" EntityType="Self.T74050" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74051" EntityType="Self.T74051" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74052" EntityType="Self.T74052" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74053" EntityType="Self.T74053" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74054" EntityType="Self.T74054" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74055" EntityType="Self.T74055" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74056" EntityType="Self.T74056" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74057" EntityType="Self.T74057" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74058" EntityType="Self.T74058" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74059" EntityType="Self.T74059" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74060" EntityType="Self.T74060" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74061" EntityType="Self.T74061" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74066" EntityType="Self.T74066" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74068" EntityType="Self.T74068" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74069" EntityType="Self.T74069" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74070" EntityType="Self.T74070" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74071" EntityType="Self.T74071" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74072" EntityType="Self.T74072" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74073" EntityType="Self.T74073" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74074" EntityType="Self.T74074" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74075" EntityType="Self.T74075" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74077" EntityType="Self.T74077" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74078" EntityType="Self.T74078" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74079" EntityType="Self.T74079" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74080" EntityType="Self.T74080" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74081" EntityType="Self.T74081" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74084" EntityType="Self.T74084" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74085" EntityType="Self.T74085" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74089" EntityType="Self.T74089" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74090" EntityType="Self.T74090" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74093" EntityType="Self.T74093" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74094" EntityType="Self.T74094" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74095" EntityType="Self.T74095" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74096" EntityType="Self.T74096" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74097" EntityType="Self.T74097" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74098" EntityType="Self.T74098" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74101" EntityType="Self.T74101" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74102" EntityType="Self.T74102" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74104" EntityType="Self.T74104" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74120" EntityType="Self.T74120" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74121" EntityType="Self.T74121" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <EntitySet Name="T74M01" EntityType="Self.T74M01" Schema="AMBUCAREDEMOKL" store:Type="Tables" />
+    <AssociationSet Name="T74037_FK1" Association="Self.T74037_FK1">
+      <End Role="T74036" EntitySet="T74036" />
+      <End Role="T74037" EntitySet="T74037" />
+    </AssociationSet>
+    <AssociationSet Name="T74037_FK2" Association="Self.T74037_FK2">
+      <End Role="T74027" EntitySet="T74027" />
+      <End Role="T74037" EntitySet="T74037" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

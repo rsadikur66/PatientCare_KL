@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="T74146" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T74146" msprop:BaseTable.3="T74027" msprop:BaseTable.2="T74073" msprop:BaseTable.0="T74044" msprop:BaseTable.1="T74041">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_STORE_ID" msprop:BaseColumn="T_STORE_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="T_AMBU_REG_ID" msprop:BaseColumn="T_AMBU_REG_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="T_USER_ID" msprop:BaseColumn="T_USER_ID" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="T_LANG2_NAME" msprop:BaseColumn="T_LANG2_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="STOCK" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSUE_QUTY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_ITEM_ID" msprop:BaseColumn="T_ITEM_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="ISSED_ITEM" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADMINISTERED_QUTY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="T_DOSE_DURATION_CODE" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

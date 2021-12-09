@@ -1,0 +1,254 @@
+﻿
+@{
+    ViewBag.Title = "T74134";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Transaction/T74134Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74134Service.js"></script>
+<style>
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 150px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+    /*For PopUp end*/
+     table, tr, td {
+         border: 1px solid black;
+     }
+</style>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74134Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" @*ng-click="Save_Click()"*@></button>
+        <button ID="btnNext" ToolTip="Delete" class="Button Next" ></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74134Controller" style="margin-left: -5px; width: 100%" ng-init="PatInfo()">
+<div style="width: 100%;">
+    <input type="hidden" ng-model="obj.t74039.T_REQUEST_ID" style="text-align: left" />
+</div>
+
+<div style="border: 1px solid #C12D2D; margin-top: 1%; padding-top: 1%; padding-bottom: 1%; border-radius: 5px; width: 100%; float: left" >
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row col-lg-4 col-md-4 col-sm-4">
+                    <label id="lblPatName" class="col-lg-4 col-md-4 col-sm-4 ng-cloak"  for="txtPatName">Pat Name</label>
+                    <input type="text" id="txtPatName" class="col-lg-8 col-md-8 col-sm-8" ng-model="obj.t74134.FullName" readonly="readonly" />
+                </div>
+                <div class="row col-lg-3 col-md-3 col-sm-3">
+                    <label id="lblGender" class="col-lg-4 col-md-4 col-sm-4 ng-cloak"  for="txtGender">Gender</label>
+                    <input type="text" id="txtGender" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74134.Gender" readonly="readonly" />
+                    <label id="lblAge" class="col-lg-2 col-md-2 col-sm-2 ng-cloak"   for="txtAge">Age</label>
+                    <input type="text" id="txtAge" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74134.Age" readonly="readonly" />
+                </div>
+                <div class="row col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblNationality" class="col-lg-2 col-md-2 col-sm-2 ng-cloak"  for="txtNationality">Nationality</label>
+                    <input type="text" id="txtNationality" class="col-lg-4 col-md-4 col-sm-4" ng-model="obj.t74134.Nationality" readonly="readonly" />
+                    <label id="lblMaritalStatus" class="col-lg-3 col-md-3 col-sm-3"  for="txtMaritalStatus">Marital Status</label>
+                    <input type="text" id="txtMaritalStatus" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74134.MaritalStatus" readonly="readonly" />
+                </div>
+               
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row col-lg-4 col-md-4 col-sm-4">
+                    <label id="lblTemparature" class="col-lg-4 col-md-4 col-sm-4 ng-cloak"  for="txtTemparature" >Temp</label>
+                    <input id="txtTemparature" class="col-lg-2 col-md-2 col-sm-2" type="text" ng-model="obj.t74134.T_TEMP" ng-blur="Temp_Click()" placeholder="Celsius"  />
+               
+                    <label id="lblPulse" class="col-lg-4 col-md-4 col-sm-4 ng-cloak"  for="txtPulse" >Pulse</label>
+                    <input id="txtPulse" class="col-lg-2 col-md-2 col-sm-2" type="text" ng-model="obj.t74134.T_PULS" ng-blur="Pulse_Click()"/>
+                </div>
+                <div class="row col-lg-3 col-md-3 col-sm-3">
+                    <label id="lblBPSys" class="col-lg-4 col-md-4 col-sm-4 ng-cloak" for="txtBPSys">BP(Sys/Dia)</label>
+                    <input id="txtBPSys" class="col-lg-3 col-md-3 col-sm-3 " type="text" ng-model="obj.t74134.T_BP_SYS" ng-blur="BPSys_Click()" />
+                    <label id="lblsalash" class="col-lg-2 col-md-2 col-sm-2 ng-cloak " style="font-weight: bolder" >/</label>
+                    <input id="txtBPDia" class="col-lg-3 col-md-3 col-sm-3" type="text" ng-model="obj.t74134.T_BP_DIA" ng-blur="BPDia_Click()" />
+                </div>
+                <div class="row col-lg-5 col-md-5 col-sm-5">
+                    <label id="lblRESP" class="col-lg-2 col-md-2 col-sm-2 ng-cloak"  for="txtRESP" >Resp</label>
+                    <input id="txtRESP" class="col-lg-2 col-md-2 col-sm-2" type="text" ng-model="obj.t74134.T_RESP"   />
+                
+                    <label id="lblSPO2" class="col-lg-2 col-md-2 col-sm-2 ng-cloak"  for="txtSPO2" >Spo2</label>
+                    <input id="txtSPO2" class="col-lg-2 col-md-2 col-sm-2" type="text" ng-model="obj.t74134.T_OS"  />
+                
+                    <label id="lblWeight" class="col-lg-2 col-md-2 col-sm-2 ng-cloak" for="txtWeight">Colevel</label>                    
+                    <input id="txtWeight" class="col-lg-2 col-md-2 col-sm-2" type="text" ng-model="obj.t74134.T_WEIGHT"  />
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+<div class=" col-lg-12 col-md-12 col-sm-12" style="border: 1px solid #C12D2D; border-radius: 5px; margin-top: 10px">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <input id="ck" type="checkbox" ng-model="showPreviusMedicen" ng-click="Show_MedicinePopup()" ng-true-value="'YES'" ng-false-value="'NO'" style="float: right" />
+            <label id="lblchk" class=" ng-cloak" style="float: right" for="ck">Show Previus Medication</label>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2">
+            <input type="text" style="float: right; width: 100%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search"/>
+        </div>
+        
+       
+    </div>
+    <table style="width: 100%;">
+        <thead style="text-align: center; display: table; width: 100%;">
+            <tr style="background-color: #C12D2D; color: white;">
+                <td style="width: 10%; font-weight: bold">Item Id</td>
+                <td style="width: 50%; font-weight: bold">Item Name</td>
+                <td style="width: 10%; font-weight: bold">Stock Qty</td>
+                <td style="width: 20%; font-weight: bold">Issu Qty</td>
+                <td style="width: 10%; font-weight: bold">check</td>
+
+
+            </tr>
+        </thead>
+        <tbody style="max-height:320px; min-height:0px; overflow:auto; overflow-x:hidden; display:block;">
+        <tr ng-repeat="I in obj.ItemList | cartypefilter:Search" style="display:table;text-align: center;width:100%;	table-layout:fixed;">
+            <td class="hidden">{{I.T_STORE_ID}}</td>
+            <td style="width: 10%;">{{I.T_ITEM_ID}}</td>
+            <td style="width: 50%; text-align: left;padding-left: 5px">{{I.T_LANG2_NAME}}</td>
+            <td style="width: 10%;">{{I.STOCK}}</td>
+            <td style="width: 20%;">
+                @*style=" background-image: url('../../Images/substract.png'); width: 16px; height:16px"*@
+                <input type="button" value="-" style="width: 20px; height: 20px;" ng-click="Number_Click('minus',$index)"/>
+                <input type="text" style="width: 50%; background: #F5F5F5; font-weight: bolder; text-align: center" ng-model="I.ISSU_QTY" ng-blur="PutQty_Click($index)" />
+                <input type="button" value="+"  style="width: 20px; height: 20px;"ng-click="Number_Click('plus',$index)"/>
+            </td>
+            <td style="width: 10%;"><input type="checkbox" ng-model="I.CHECK" ng-true-value="'YES'" ng-false-value="'NO'"/></td>
+           
+        </tr>
+        </tbody>
+    </table>
+</div>
+    
+    @*Bed popup start*@
+    <div id="ShowPreviusMedication" class="omf-modal">
+
+        <div class="omf-modal-body">
+            
+            <div class="omf-modal-header" style="background-color: #c12d2d;">
+                @*<label id="lblReasonHeader" ng-bind="getLabel('lblReasonHeader')" class="ng-cloak omf-modal-header-Label"></label><input type="button" class="omf-modal-header-Close"  ng-click="CloseReasonPopup()" />*@
+                <label class="ng-cloak" id="lblBedInfromation"  style="width: 97%;text-align: center;color: #ffffff">Dose List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="ClosePatientPopup()" />
+            </div>
+            <div class="omf-modal-div-placeholder">
+                @*<input type="text" placeholder="{{getLabel('lblPlaceHolderSearch')}}" class="omf-modal-placeholder" ng-model="Search" />*@
+                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+
+            </div>
+            <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <table id="bedPopUpTable" style="width: 550px">
+                            <thead style="text-align: center; display: table; width: 100%;">
+                            <tr style=" background-color: #c12d2d; color: #ffffff;">
+                                <td style="width: 80px;text-align: center;" class="ng-cloak">Dose</td>
+                                <td style="width: 80px;text-align: center;" class="ng-cloak">Item ID</td>
+                                <td style="width: 100px;text-align: center;" class="ng-cloak">Medicine</td>
+                                @*<td style="width: 100px; text-align: center;" class="ng-cloak">Sale Price</td>*@
+                                <td style="width: 80px;text-align: center;" class="ng-cloak">QTY</td>
+                                @*<td style="width: 100px; text-align: center;" class="ng-cloak">Amount</td>*@
+
+                            </tr>
+                            </thead>
+                            <tbody style="max-height:300px; min-height:0px; overflow:auto; overflow-x:hidden; display:block;">
+                            <tr ng-repeat="B in obj.PreviousMedicineList |filter : Search" pagination-id="bed" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,B,'BedPopUp')"style="display:table;text-align: center;width:100%;	table-layout:fixed;">
+                                <td style="width: 80px;text-align: center;" rowspan="{{B.t_index}}" ng-if="!B.matchPreviousRow">{{B.T_DOSE}}</td>
+                                <td style="width: 80px;text-align: center;">{{B.ITEM_CODE}}</td>
+                                <td style="width:100px;text-align:left;padding-left: 5px">{{B.GEN_DESC}}</td>
+                                @*<td style="width: 80px; text-align: center;">{{B.SALE_PRICE}}</td>*@
+                                <td style="width: 80px;text-align: center;">{{B.T_QTY}}</td>
+                                @*<td style="width: 80px; text-align: center;">{{B.T_TOTAL_AMOUNT}}</td>*@
+
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        @*<dir-pagination-controls pagination-id="bed" max-size="5"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>*@
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+    @*Bed popup end*@
+    
+    
+    
+
+    @*<table style="width: 100%;">
+    <thead style="text-align: center; display: table; width: 100%;">
+        <tr style="background-color: #C12D2D; color: white;">
+            <td style="width: 10%; font-weight: bold">Item Id</td>
+            <td style="width: 40%; font-weight: bold">Item Name</td>
+            <td style="width: 10%; font-weight: bold">Issu Qty</td>
+            <td style="width: 10%; font-weight: bold">check</td>
+            <td style="width: 30%; font-weight: bold">Stock Qty</td>
+
+        </tr>
+    </thead>
+    <tbody ng-repeat="I in obj.ItemList | cartypefilter:Search">
+        <tr style="display: table; text-align: center; width: 100%; table-layout: fixed;">
+            <td style="width: 10%;">{{I.T_ITEM_ID}}</td>
+            <td style="width: 40%;">{{I.T_LANG2_NAME}}</td>
+            <td style="width: 10%;"><input type="number" style="width: 100%; background: #F5F5F5;font-weight: bolder" ng-model="I.ISSU_QTY" /></td>
+            <td style="width: 10%;"><input type="checkbox" ng-model="I.CHECK" /></td>
+            <td style="width: 30%;">{{I.STOCK}}</td>
+        </tr>
+        <tr style="width: 100%;">
+            <td colspan="5">
+                <table style="width: 90%; margin-left: 50px">
+                    <thead style="text-align: center; width: 100%;">
+                        <tr style="background-color: #db7093; color: white;">
+                            <td style="width: 25%; font-weight: bold">Stock</td>
+                            <td style="width: 25%; font-weight: bold">Lot No</td>
+                            <td style="width: 50%; font-weight: bold">Exp Date</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="obj in I.List" style="text-align: center;">
+                            <td style="width: 25%;">{{obj.STOCK_LOT_EXP}}</td>
+                            <td style="width: 25%;">{{obj.T_LOT_NO}}</td>
+                            <td style="width: 50%;">{{obj.T_EXPIRE_DATE}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>*@
+
+</div>
+

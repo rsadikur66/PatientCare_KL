@@ -1,0 +1,74 @@
+﻿<style type="text/css">
+    .error {
+        color: red !important;
+    }
+</style>
+
+<div class="container" ng-app="Ambucare" ng-controller="T74144Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 div_back borderColor" style="margin: 1.6% auto;padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtSupplier" type="hidden" class="form-control" ng-model="obj.t74101.T_CANCEL_REASON_ID" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblEnglishName" style="float: right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.engname.$error.required"><span class="error">*</span></span></label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtEnglishName" type="text" ng-model="obj.t74101.T_LANG2_NAME" name="engname" style="width: 85%" next-focus tabindex="1" required />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblLocalName" style="float: right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.locname.$error.required"><span class="error">*</span></span></label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtLocalName" type="text" ng-model="obj.t74101.T_LANG1_NAME" style="width: 85%" name="locname" next-focus tabindex="2" required />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblType" style="float: right;" associatedcontrolid="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblType'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.ambcapcode.$error.required"><span class="error">*</span></span></label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 ng-cloak select-box">
+                                <ui-select ng-model="obj.A.selected" on-select="check()" id="ddlCancelType" theme="select2" style="min-width: 153px; max-width: 180px;" append-to-body="true" next-focus tabindex="3">
+                                    <ui-select-match placeholder="Select">{{$select.selected.CancelText}}</ui-select-match>
+                                    <ui-select-choices repeat="A in cancelType | propsFilter: {CancelText: $select.search}">
+                                        <div ng-bind-html="A.CancelText | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="text" id="ddlCancelTypeCode" ng-model="obj.t74101.T_CANCEL_TYPE_ID" ng-bind="obj.t74101.T_CANCEL_TYPE_ID=obj.A.selected.CancelType" hidden name="ambcapcode" required/>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstanceCallback" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

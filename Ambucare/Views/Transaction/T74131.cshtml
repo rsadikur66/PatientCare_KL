@@ -1,0 +1,829 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "T74131";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    table, tr, td {
+        border: 1px solid black;
+    }
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: -110px;
+        left: 400px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 286px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+    /*For PopUp end*/
+    .left {
+        text-align: left;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .Lmsg {
+        /*background: #C7EDFC;*/
+        background: #B2D5D7;
+        border-radius: 8px;
+        padding-left: 10px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        /*text-align: justify;*/
+    }
+
+    .Rmsg {
+        background: #F0F4F8;
+        border-radius: 8px;
+        padding-right: 10px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        /*text-align: justify;*/
+    }
+    .FlRight {
+        float: right
+    }
+
+    .FlLeft {
+        float: left
+    }
+
+    .blue {
+        //background-color: #539EA1;
+        background-color: #708090;
+        color: #ffffff;
+    }
+
+    .yellow {
+        background-color: #ffd700;
+    }
+
+    /*.unAssigned {
+        background-color: #F8D32D;
+    }*/
+    .assignedEngaged {
+        background-color: #F8D32D;
+    }
+
+    .assignedFree {
+        background-color: #8FD568;
+    }
+</style>
+@*<link href="@VirtualPathUtility.ToAbsolute("~/Scripts/ChatScripts/Site.css")" rel="stylesheet" type="text/css" />*@
+<script src="~/Apps/JSController/Transaction/test.js"></script>
+
+<script src="~/Scripts/ChatScripts/jquery.signalR-2.0.0.min.js"></script>
+<script src="~/Scripts/ChatScripts/scrollglue.js"></script>
+<script src="~/Scripts/ChatScripts/underscore-min.js"></script>
+<script src="~/signalr/hubs"></script>
+<script src="~/Apps/JSFactory/Transaction/T74131Factory.js"></script>
+<script src="~/Apps/JSService/Transaction/T74131Service.js"></script>
+<script src="~/Apps/JSController/Transaction/T74131Controller.js"></script>
+@*<script src="~/Scripts/ChatScripts/Factories.js"></script>*@
+@*<script src="~/Scripts/ChatScripts/headerController.js"></script>*@
+@*<script src="~/Scripts/ChatScripts/Controlers.js"></script>*@
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="test">
+        @*<button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+            <button ID="btnClear" Tooltip="Clear" class="Button Clear" ng-click="Clear()"></button>*@
+    </div>
+}
+<div ng-app="Ambucare" ng-controller="T74131Controller" id="ChatRoomsContainer" style="padding-left: 10px;padding-right: 10px">
+    <div>
+        <br />
+        <div class="col-lg-12" style="border: 1px solid #c12d2d; height: 570px;padding-right: 0px;">
+            <div class="col-lg-4" style="height: 535px;border:1px solid #DFDFDF" id="OnlineUsers">
+                <div class="col-lg-12" style="margin-top: 10px; margin-bottom: -10px;">
+                    @*<div style="float: left">
+                            <input type="image" src="~/Images/TestImage/ContactsIcon.png" style="height: 50px; width: 50px; border-radius: 300px;" />
+                            <input type="image" src="~/Images/TestImage/response-iconImg.png" style="height: 50px; width: 50px; cursor: pointer;" title="Response on Team Request" />
+                            <input type="image" src="~/Images/bellIcon.png" style="height: 50px; width: 50px; border-radius: 300px;" />
+
+                        </div>*@
+                    @*<div style="float: left; margin-left: 20px; margin-top: 15px">*@
+                    @*<span style="font-weight: bold; color: red;">Online</span>
+                        @*<span style="font-weight: bold; color: #c12d2d;">[{{OnlineUsers.length}}]</span>*@
+                    @*</div>*@
+                    @*<div style="float: left"><h3 style="margin:10px 0px 2px 15px;"><span style="font-weight: bold;">{{UserName}}</span></h3></div>*@
+                    @*<div style="float: left; margin-left: 20px; padding-top: 15px;">*@
+                    @*<input type="image" src="~/Images/bellIcon.png" style="height: 50px; width: 50px; border-radius: 300px;" />*@
+                    @*<span type="text" style="height: 30px; width: 30px; border-radius: 300px; z-index: 999; background-color: #c12d2d; color: #ffffff;">{{messageCount}}</span>**@
+                    @*</div>*@
+                    <div style="float: right;">
+
+                        @*-----Changes for reconnectivity--------------start---------------
+                            ---------------------------Previous one--------uncomment & comment new One -----start------------------*@
+                        @*<input type="image" src="../Images/ReconnectIcon.png" style="height: 30px; width: 40px; border: none; background: none" ng-click="obj.onDocCall()" />*@
+                        @*---------------------------Previous one--------uncomment & comment new One -----End------------------
+                            ---------------------------new  one--------start----------------------*@
+                        @*<input type="button" value="{{field.T_LANG2_TEXT}}" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatList'" style="background: #2BAC80;color: #ffffff;border-radius: 5px;height: 30px;padding: 2px 5px;cursor: pointer; margin-bottom: 1px; vertical-align: top;"  />*@
+
+                        @*<button ID="btnPatList" title="Patient List" class="Button DocTeam" ></button>*@
+                        <button ID="btnCnslDshBrd" title="Console Dashboard" class="Button ConsoleDashboard" ng-click="onConsoleClick()"></button>
+
+                        @*<input type="button" value="{{field.T_LANG2_TEXT}}" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblCnslDshBrd'" style="background: #2BAC80;color: #ffffff;border-radius: 5px;height: 30px;padding: 2px 5px;cursor: pointer; margin-bottom: 1px; vertical-align: top;" ng-click="onConsoleClick()" />*@
+                        <input type="image" src="../Images/ReconnectIcon.png" style="height: 30px; width: 40px; border: none; background: none" ng-click="obj.onDocCall()" />
+                        <label style="border: 1px solid #405F6E;background-color: #405F6E;color: white;border-radius: 20px;width: 17px;height: 17px;text-align: center;margin-left: -15%;cursor: pointer;font-size: 11px;" ng-click="onRcvPatReq()" ng-mouseover="onRcvPatLst()">{{obj.chtReqNo}}</label>
+
+                        @*---------------------------new  one--------End----------------------
+                            -----Changes for reconnectivity--------------End---------------*@
+
+
+
+
+
+
+                        <input type="image" src="../Images/ChatIcon-Selected.png" style="height: 30px; width: 40px; border: none; background: #405F6E" ng-dblclick="getChatHistory()" ng-click="getPatList()" />
+                        <label style="border: 1px solid #405F6E;background-color: #405F6E;color: white;border-radius: 20px;width: 17px;height: 17px;text-align: center;margin-left: -9%;cursor: pointer;font-size: 11px;">{{obj.AllTeamData.length}}</label>
+                        @*<input type="image" src="~/Images/CallIcon.png" style="height: 30px; width: 40px; border-radius: 300px; border: none; background: none" />*@
+                        @*<input type="image" src="~/Images/TestImage/VideoIcon.png" style="height: 30px; width: 30px; border-radius: 300px;"/>*@
+                        @*<input type="image" src="~/Images/VideoIcon.png" style="height: 30px; width: 40px; border-radius: 300px; border: none; background: none" />*@
+
+                        @*<input type="image" src="~/Images/TestImage/AudioIcon.png" style="height: 30px; width: 30px; border-radius: 300px;"/>*@
+                    </div>
+                </div>
+                @*<div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d; text-align: center;">
+                        <h4><span style="font-weight: bold; color: green;">Online</span><span style="font-weight: bold; color: #c12d2d;">[{{OnlineUsers.length}}]</span></h4>
+                        <input type="text" style="height: 25px; width: 100%; background-color: #ffffff; margin-bottom: 10px;" placeholder="Search Contacts" />
+
+                    </div>*@
+            <div id="divChtBox">
+                <div class="col-lg-12" style="margin-top: 10px;overflow: auto; overflow-x: hidden;height: 85px">
+                    <div ng-repeat="Hosp in obj.HospWithDoc">
+                        <div class="head-border" id="divHosName{{$index}}" style="color: #ffffff;border-radius: 5px;height: 30px;padding: 2px 5px;font-size: 18px;  cursor: pointer; margin-bottom: 1px; width: 400px" ng-click="onHosNameClick($index,Hosp.HOSPITAL_NAME)">
+                            <div style="float: left">
+                                <span id="spnHosName{{$index}}" style="font-weight: bold;">{{Hosp.HOSPITAL_NAME}}</span>
+                                @*&nbsp;<span id="spnNoOfDoc{{$index}}">[{{Hosp.DOC_NO}}]</span>*@
+                            </div>
+                            <div style="float: right"><img id="imgHosName{{$index}}" src="~/Images/Chat_img/plus_white.png" style="height: 20px; width: 20px;" class="fa-circle" /></div>
+                        </div>
+                        <div id="divDocList{{$index}}" style="display: none;width: 400px">
+                            <div ng-repeat="Doc in Hosp.docInfo" style="padding-left: 10px;margin-bottom: 5px;">
+                                <div style="display: inline-block;">
+                                    <div ng-show="Doc.TYPE=='Doc'">
+                                        <img src="{{apiLink}}/Image/Doctor/{{Doc.HDM_DOC_CODE}}.png" style="height: 50px; width: 50px;" class="fa-circle" />
+                                    </div>
+                                    <div ng-show="Doc.TYPE=='Pat'">
+                                        <img src="{{apiLink}}/Image/Patient/{{Doc.HDM_SPCLTY_CODE}}.png" style="height: 50px; width: 50px;" class="fa-circle" />
+                                    </div>
+                                </div>
+                                <div style="display: inline-block; vertical-align: top; padding-top: 5px">
+                                    @*<span style="font-weight: bold;"><a href="#" onclick=""ng-click="OpenDiv('DocInfo')">{{Doc.DOCTOR}} </a></span><br /><span>{{Doc.HDM_SPCLTY_DSCRPTN}}</span>*@
+                                    <span style="font-weight: bold;"><a href="#" onclick="" ng-click="openPvtChat($parent.$index,$index)">{{Doc.DOCTOR}} </a></span><br /><span>{{Doc.HDM_SPCLTY_DSCRPTN}}</span>
+                                </div>
+                                <div style="float: right; padding: 10px 10px">
+                                    <input type="image" src="../Images/PauseDashboard.png" style="height: 16px; width: 20px; border: none; background: none" ng-click="obj.onChatClose()" />
+                                    <img id="imgDoc{{$parent.$index}}{{$index}}" src="{{Doc.src}}" style="height: 10px; width: 10px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @*</div>
+                    <div class="col-lg-8" style="height: 450px;" id="PrivateChatArea">*@
+                @*<div class="col-lg-12" style="margin-top: 10px; border-bottom: 1px solid #c12d2d;">
+                        <div style="float: left">
+                            <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;cursor: pointer" ng-click="OpenDiv('DocInfo')">{{obj.HospitalName}}</span></h3>
+                            <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;" ng-click="OpenDiv('DocInfo')">{{UserName}}</span></h3>
+                            <span style="font-size: small">Last Seen 22 mins ago</span>
+                        </div>
+                        <div style="float: right; padding-top: 20px;">
+                            <input type="image" src="~/Images/TestImage/chatHistory.png" style="height: 30px; width: 30px; border-radius: 300px;" ng-click="getChatHistory()" />
+                            <input type="image" src="~/Images/TestImage/VideoIcon.png" style="height: 30px; width: 30px; border-radius: 300px;" />
+                            <input type="image" src="~/Images/TestImage/AudioIcon.png" style="height: 30px; width: 30px; border-radius: 300px;" />
+                        </div>
+                    </div>*@
+                <div class="col-lg-12" style="margin-top: 10px; overflow: auto; overflow-x: hidden; height: 290px;width:100%">
+                    <div ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE )? 'left' : 'right'" ng-repeat="msg in PrivateMessages | filter:({to: UserInPrivateChat.ConnectionId})">
+
+                        <i ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE  )? 'sender' : 'reciver'"></i>
+                        <div>
+                            <strong ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE )? 'FlRight' : 'FlLeft'">{{msg.T_USER_ID}}-{{msg.U_NAME}}</strong>
+                            <strong ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE )? 'FlLeft' : 'FlRight'">{{msg.T_TIME| date:' hh:mm:ss'}}</strong>
+                        </div>
+                        <br />
+                        <div>
+                            <small ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE )? 'pull-left' : 'pull-right'">
+                            </small>
+                            </div>
+                                <div ng-show="msg.message!=null">
+                                    <p ng-class="(msg.T_SENDER_TYPE == UserInPrivateChat.TYPE)? 'Lmsg' : 'Rmsg'">{{msg.message}}</p>
+                                </div>
+
+                                <!--new------------------------start------------>
+                                <div ng-show="msg.T_FILE_LOC!=null" ng-class="(msg.T_SENDER_TYPE == 'Pat')? 'Lmsg' : 'Rmsg'">
+
+                                    <img src="{{msg.T_FILE_LOC}}" style="height: 100px; width: 100px; cursor: pointer;" class="fa-circle" ng-show="msg.ext=='png'||msg.ext=='jpg'||msg.ext=='jpeg'||msg.ext=='gif'" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+
+                                    <img src="{{apiLink}}/Image/UploadedFile/Text_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='txt'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                                    <img src="{{apiLink}}/Image/UploadedFile/PDF_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='pdf'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                                    <img src="{{apiLink}}/Image/UploadedFile/Word_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='docx'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                                    <img src="{{apiLink}}/Image/UploadedFile/Excel_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='xlsx'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+
+                                </div>
+                                <!--new------------------------end------------>
+                            </div>
+                        </div>
+            </div>
+            </div>
+
+            <div style="position: absolute; bottom:5.9%; width: 32.5%; background: #D6E5EC;  height: 17%;">
+                <div style="margin-top: 2%; width: 100%; margin-left: 16px;">
+                    @*<div style="float: left; margin-left: -20px" class="col-lg-11">*@
+                    @*<div style="min-height: 9px; font-size: 7px;">
+            {{usertyping}}
+        </div>*@
+                    @*<textarea id="txt{{UserInPrivateChat.ConnectionId}}" type="text" style="height: 80px; width: 100%" placeholder="Type your message here..." ng-keypress="SkeyPress($event,UserInPrivateChat.ConnectionId,UserInPrivateChat.name)"></textarea>*@
+                    @*<textarea id="txt{{UserInPrivateChat.ConnectionId}}" type="text" style="height: 80px; max-height: 80px; max-width: 83%; width: 83%" placeholder="{{field.T_LANG2_TEXT}}" ng-keydown="SendPrivateMessage($event,UserInPrivateChat,UserInPrivateChat.ConnectionId,UserInPrivateChat.name)" ng-model="chatText" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChatPlace'"></textarea>*@
+                    <textarea id="txt{{UserInPrivateChat.ConnectionId}}" type="text" style="height: 80px; max-height: 80px; max-width: 83%; width: 83%" placeholder="{{PlaceHolder}}" ng-keydown="SendPrivateMessage($event,UserInPrivateChat,UserInPrivateChat.ConnectionId,UserInPrivateChat.name)" ng-model="chatText"></textarea>
+                    <!--<input type='file' id="flUpld"  style="display: none" />-->
+                    <input type="file" id="flUpld" ng-model="file" name="file" base-sixty-four-input onload="onFileLoad" maxsize="500" accept="image/*" style="display: none">
+                    <!--<label>{{file.base64}}</label>-->
+                    <input type="image" src="../Images/attachment.png" id="fileUpload" style="height: 25px; width: 25px; border: none; background: none;position: absolute;" value="Add" />
+                    <input type="image" src="../Images/send.png" id="fileSent" ng-click="fileSent()" style="width: 25px; height: 25px; cursor: pointer;border: none; background: none;position: absolute; right: 1%;" value="Send" />
+
+                    @*<img id="fileUpload" src="/Images/FileUpload.png" style="height: 30px; width: 30px;cursor: pointer" class="fa-circle" />
+        <img id="fileSent" src="/Images/FileSent.png" style="height: 20px; width: 20px;cursor: pointer" class="fa-circle" ng-click="fileSent()" />*@
+                    @*</div>*@
+                    @*<div style="float: right; padding-top: 0px;" class="col-lg-1">
+            <input type="image" src="~/Images/TestImage/ImageIcon.png" style="height: 20px; width: 20px; border-radius: 300px;" />
+            <input type="image" src="~/Images/TestImage/FileIcon.png" style="height: 20px; width: 20px; border-radius: 300px;" />
+            <input type="image" src="~/Images/TestImage/VideoMessageIcon.png" style="height: 20px; width: 20px; border-radius: 300px;" />
+            <input type="image" src="~/Images/TestImage/SendMessageIcon.png" style="height: 20px; width: 20px; border-radius: 300px; transform: rotate(47deg)" ng-click="SendPrivateMessage(UserInPrivateChat,UserInPrivateChat.ConnectionId,UserInPrivateChat.name)" />
+
+
+        </div>*@
+                </div>
+
+            </div>
+
+            <div class="col-lg-8" style="padding-right: 0px;padding-left:0px">
+                <div class="col-lg-12" ng-show="Medicine" style="max-height:560px; min-height:560px; overflow:auto; overflow-x:hidden; display:block;">
+                    <div class="col-lg-12" style="text-align: center">
+                        <h4 style="margin-top: 3px; margin-bottom: 2px;">
+                            @*<span style="font-weight: bold;">Patient History</span>*@
+                            <label style="font-weight: bold;" id="lblPatHis" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatHis'">{{field.T_LANG2_TEXT}}</label>
+                        </h4>
+                    </div>
+                    <table class="col-lg-12">
+                        <tr>
+                            <th class="col-lg-2" style="background-color: #2c654385; color: white;"><label style="font-weight: bold;" id="lblName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblName'">{{field.T_LANG2_TEXT}}</label></th>
+                            <td class="col-lg-4"><span>{{obj.pInfo.PATNAME}}</span>
+                            <td class="col-lg-1" style="background-color: #2c654385; color: white;">
+                                @*<span style="font-weight: bold">Age: </span>*@
+                                <label style="font-weight: bold;" id="lblAge1" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAge1'">{{field.T_LANG2_TEXT}}</label>
+                            </td>
+                            <td class="col-lg-2"><span>{{obj.pInfo.AGE}}</span></td>
+                            <td class="col-lg-1" style="background-color: #2c654385; color: white;">
+                                @*<span style="font-weight: bold">Gender: </span>*@
+                                <label style="font-weight: bold;" id="lblGender" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblGender'">{{field.T_LANG2_TEXT}}</label>
+
+                            </td>
+                            <td class="col-lg-2"><span>{{obj.pInfo.GENDER}}</span></td>
+                        </tr>
+                        @*<tr>
+                                <th class="col-lg-2">Status</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.MARITAL_STATUS}}</span></td>
+                                <th class="col-lg-2">Nationality</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.NATIONALITY}}</span></td>
+                                <th class="col-lg-2">Gender</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.GENDER}}</span></td>
+                            </tr>*@
+                        <tr>
+                            <th class="col-lg-2" style="background-color: #2c654385; color: white;"><label style="font-weight: bold;" id="lblProblem" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblProblem'">{{field.T_LANG2_TEXT}}</label></th>
+                            <td class="col-lg-4"><span>{{obj.pInfo.T_PROBLEM}}</span></td>
+                            <th class="col-lg-1" style="background-color: #2c654385; color: white;"><label style="font-weight: bold;" id="lblDuration" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblDuration'">{{field.T_LANG2_TEXT}}</label></th>
+                            <td class="col-lg-5" colspan="4"><span>{{obj.pInfo.T_PROBLEM_DURATION}}</span></td>
+                            @*<th class="col-lg-2">Details</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.T_PROB_DETAILS}}</span></td>*@
+                        </tr>
+                        @*<tr>
+                                <th class="col-lg-2">Problem Type</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.PROBLEM_TYPE}}</span></td>
+                                <th class="col-lg-2">Ch. Complient</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.CHIEF_COMPLIENT}}</span></td>
+                                <th class="col-lg-2">ICD10</th>
+                                <td class="col-lg-2"><span>{{obj.pInfo.ICD10}}</span></td>
+                            </tr>*@
+
+                    </table>
+                    <div class="col-lg-12" style="text-align: center">
+                        <h4 style="margin-top: 3px; margin-bottom: 2px;">
+                            @*<span style="font-weight: bold;">Vital Signs</span>*@
+                            <label style="font-weight: bold;" id="lblVitalSigns" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblVitalSigns'">{{field.T_LANG2_TEXT}}</label>
+                        </h4>
+                    </div>
+                <div>
+                    <table id="table" class="col-lg-12 col-md-12 col-sm-12">
+                        <thead style="text-align: center; display: table; width: 100%;">
+                        <tr class="head-border" style="text-align: center; color: white;">
+                            <td style="width: 10%; font-weight: bold"><label id="lblTemp" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTemp'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblPuls" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPuls'">{{field.T_LANG2_TEXT}}</label></td>
+                                    
+
+                            <td style="width: 10%; font-weight: bold"><label id="lblBP(Sys)" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblBP(Sys)'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblBP(Dia)" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblBP(Dia)'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblResp" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblResp'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblSPO2" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblSPO2'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblConLabe" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblConLabe'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblUrine" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblUrine'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblTriage" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTriage'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 10%; font-weight: bold"><label id="lblDate" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblDate'">{{field.T_LANG2_TEXT}}</label></td>
+                            @*<td style="width:2%;font-weight:bold"></td>*@
+                        </tr>
+                        </thead>
+                        <tbody style="max-height: 70px; min-height: 70px; overflow: auto; overflow-x: hidden; display: block;">
+                        <tr ng-repeat="obj in obj.PatHistory" style="display: table; width: 100%; table-layout: fixed; text-align: center">
+                            <td style="width: 10%">{{obj.T_TEMP}}</td>
+                            <td style="width: 10%">{{obj.T_PULS}}</td>
+                            <td style="width: 10%">{{obj.T_BP_SYS}}</td>
+                            <td style="width: 10%">{{obj.T_BP_DIA}}</td>
+                            <td style="width: 10%">{{obj.T_RESP}}</td>
+                            <td style="width: 10%">{{obj.SPO2}}</td>
+                            <td style="width: 10%">{{obj.T_CON_LEVEL}}</td>
+                            <td style="width: 10%">{{obj.RATING}}</td>
+                            <td style="width: 10%">{{obj.TRIAGE_LEVEL}}</td>
+                            <td style="width: 10%">{{obj.T_ENTRY_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+                            @*<td style="width:2%"></td>*@
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    @*<div style="float: right;margin-top: 10px"><span style="font-weight: bold; background-color: #c12d2d; color: white; border-radius: 5px; padding: 3px;cursor: pointer" ng-click="showMedication()">Issued Medication</span></div>*@
+                    <div>
+                        @*<div class="col-lg-12" style="text-align: center">
+                                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Doses</span>
+                                    </h3>
+                                </div>
+                                <table id="bedPopUpTable" style="width: 100%; margin: auto">
+                                    <thead style="text-align: center; display: table; width: 100%;">
+                                    <tr style="font-weight: bold; color: #000000;">
+                                        <td style="width: 50px; text-align: center;" class="ng-cloak">Dose</td>
+                                        <td style="width: 50px; text-align: center;" class="ng-cloak">Item ID</td>
+                                        <td style="width: 210px; text-align: center;" class="ng-cloak">Medicine</td>
+                                        @*<td style="width: 100px; text-align: center;" class="ng-cloak">Sale Price</td>*@
+                        @*<td style="width: 50px; text-align: center;" class="ng-cloak">QTY</td>*@
+                        @*<td style="width: 100px; text-align: center;" class="ng-cloak">Amount</td>*@
+
+                        @*</tr>
+                                </thead>
+                                <tbody style="max-height: 90px; min-height: 0px; overflow: auto; overflow-x: hidden; display: block;">
+                                <tr ng-repeat="B in obj.PreviousMedicineList |filter : Search" pagination-id="bed" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,B,'BedPopUp')" style="display: table; text-align: center; width: 100%; table-layout: fixed;">
+                                    <td style="width: 50px; text-align: center;" rowspan="{{B.t_index}}" ng-if="!B.matchPreviousRow">{{B.T_DOSE}}</td>
+                                    <td style="width: 50px; text-align: center;">{{B.ITEM_CODE}}</td>
+                                    <td style="width: 210px; text-align: left; padding-left: 5px">{{B.GEN_DESC}}</td>*@
+                        @*<td style="width: 80px; text-align: center;">{{B.SALE_PRICE}}</td>*@
+                        @*<td style="width: 50px; text-align: center;">{{B.T_QTY}}</td>*@
+                        @*<td style="width: 80px; text-align: center;">{{B.T_TOTAL_AMOUNT}}</td>*@
+
+
+                        @*</tr>
+
+                                </tbody>*@
+                        @*</table>*@
+                    </div>
+                </div>
+                    @*for service start*@
+                    <div>
+                       
+                            <div class="col-lg-12" style="text-align: center">
+                                <h4 style="margin-top: 3px; margin-bottom: 2px;">
+                                    <label id="lblServiceList" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblServiceList'">{{field.T_LANG2_TEXT}}</label>
+                                </h4>
+                            </div>
+                            <table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
+                                <thead style="text-align: center; display: table; width: 100%;">
+                                <tr style="color: white;" class="head-border">
+                                    <td ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblServiceName'" class="ng-cloak" style="width: 80%; font-weight: bold">{{field.T_LANG2_TEXT}}</td>
+                                    <td ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSerPrice'" class="ng-cloak" style="width: 10%; font-weight: bold; display: none">{{field.T_LANG2_TEXT}}</td>
+                                    <td ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSerCheck'" class="ng-cloak" style="width: 10%; font-weight: bold;display: none">{{field.T_LANG2_TEXT}}</td>
+                                </tr>
+                                </thead>
+                                <tbody style="max-height: 320px; min-height: 0px; overflow: auto; overflow-x: hidden; display: block;">
+                                <tr ng-repeat="S in obj.ServiceList "@*| cartypefilter:Search*@ style="display: table; text-align: center; width: 100%; table-layout: fixed;" ng-class="{'blue':(S.T_COST_TYPE_DTL_ID == S.ISSD_ITEM)}">
+                                    <td class="hidden">{{S.T_COST_TYPE_DTL_ID}}</td>
+                                    <td style="width: 80%; text-align: left; padding-left: 5px">{{S.T_LANG2_NAME}}</td>
+                                    <td style="width: 10%; display: none">{{S.T_SALE_PRICE}}</td>
+                                    <td style="width: 10%;display: none"><input type="checkbox" ng-model="S.CHECK" ng-true-value="'YES'" ng-false-value="'NO'" ng-click="CheckBox_Click($index)"/></td>
+                                </tr>
+                                </tbody>
+                                <tfoot style="display: table; width: 100%;">
+                                <tr>
+                                    <td colspan="2" style="width: 90%; text-align: right; font-weight: bold; display: none">Total Price</td>
+                                    <td style="width: 10%; text-align: right; font-weight: bold; display: none">{{obj.T74074.totalPrice}}</td>
+                                </tr>
+                                </tfoot>
+
+                            </table>
+                       
+                    </div>
+                    <div>
+                        <div class="col-lg-12" style="text-align: center">
+                            <h4 style="margin-top: 3px; margin-bottom: 2px;">
+                                @*<span >Medication List</span>*@
+                                <label id="lblMedList" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblMedList'">{{field.T_LANG2_TEXT}}</label>
+                            </h4>
+                        </div>
+                        <table style="width: 100%; margin-bottom: 10px;">
+                            <thead style="text-align: center; display: table; width: 100%;">
+                                <tr class="head-border" style="color: white;">
+                                    <td style="width: 10%; font-weight: bold">
+                                        <label id="lblItemId" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblItemId'">{{field.T_LANG2_TEXT}}</label>
+                                    </td>
+                                    <td style="width: 50%; font-weight: bold"> <label id="lblItemName" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblItemName'">{{field.T_LANG2_TEXT}}</label></td>
+                                    @*<td style="width: 10%; font-weight: bold">Stock Qty</td>*@
+                                    <td style="width: 10%; font-weight: bold"><label id="lblAdmiQty" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAdmiQty'">{{field.T_LANG2_TEXT}}</label></td>
+                                    <td style="width: 20%; font-weight: bold"><label id="lblQty" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblQty'">{{field.T_LANG2_TEXT}}</label></td>
+                                    <td style="width: 10%; font-weight: bold"><label id="lblIssue" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblIssue'">{{field.T_LANG2_TEXT}}</label></td>
+
+
+                                </tr>
+                            </thead>
+                            <tbody style="max-height: 320px; min-height: 0px; overflow: auto; overflow-x: hidden; display: block;">
+                                <tr ng-repeat="I in obj.ItemList " @*| cartypefilter:Search*@ style="display: table; text-align: center; width: 100%; table-layout: fixed;" ng-class="{'blue':(I.ADMINISTERED_QUTY != null),'yellow':(I.T_DOSE_DURATION_CODE != null && I.ADMINISTERED_QUTY == null)}">
+                                    <td class="hidden">{{I.T_STORE_ID}}</td>
+                                    <td style="width: 10%;">{{I.T_ITEM_ID}}</td>
+                                    <td style="width: 50%; text-align: left; padding-left: 5px">{{I.T_LANG2_NAME}}</td>
+                                    @*<td style="width: 10%;">{{I.STOCK}}</td>*@
+                                    <td style="width: 10%;">{{I.ADMINISTERED_QUTY}}</td>
+                                    <td style="width: 20%;">
+                                        <input type="button" value="-" style="width: 20px; height: 20px;" ng-click="Number_Click('minus',$index)" />
+                                        <input type="text" style="width: 50%; background: #F5F5F5; font-weight: bolder; text-align: center" ng-model="I.ISSU_QTY" ng-blur="PutQty_Click($index)" />
+                                        <input type="button" value="+" style="width: 20px; height: 20px;" ng-click="Number_Click('plus',$index)" />
+                                    </td>
+                                    <td style="width: 10%;" ng-class="{'yellow':(I.T_DOSE_DURATION_CODE != null)}"><input type="checkbox" ng-model="I.CHECK" ng-true-value="'YES'" ng-false-value="'NO'" ng-click="CheckForQuanty($index)" /></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        @*<input type="button"  ng-click="SaveItem_Click()" class="Button Save" title="Save" style=" color: #ffffff;margin-top: -9px;width: 76px;border-radius: 5px; float: right;margin-bottom: 5px"/>*@
+                        <button id="btnSave" tooltip="Save" title="Save Medicine Item" class="Button Save" ng-click="SaveItem_Click()" style=" color: #ffffff;margin-top: -9px;width: 32px; float: right;margin-bottom: 5px"></button>
+                    </div>
+                    <div>
+                        <table style="width: 100%; margin-bottom: 10px;">
+                            <thead style="text-align: center; width: 100%;">
+                                <tr class="head-border" style="color: white;">
+                                    <td style="width: 50%; font-weight: bold"><label id="lblDestHos" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblDestHos'">{{field.T_LANG2_TEXT}}</label></td>
+                                    <td style="width: 50%; font-weight: bold" colspan="2"><label id="lblAdminHos" style="font-weight: bold;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAdminHos'">{{field.T_LANG2_TEXT}}</label></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="width: 50%">
+                                    <td style="width: 50%;padding-left: 10px">{{obj.pInfo.HOSNAME}}</td>
+                                    <td style="width: 39%;padding-left: 10px">
+                                        <div class="ng-cloak select-box">
+                                            <ui-select ng-model="obj.k.selected" id="ddlAmbName" theme="select2" style="width: 286px;" append-to-body="true" tabindex="15">
+                                                <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                <ui-select-choices repeat="k in places | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                    <div ng-bind-html="k.T_LANG2_NAME | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+
+                                    </td>
+                                    <td style="width: 11%; padding-left: 8px">
+                                        @*<input type="button" ng-click="RequestForHospital()" class="Button Save" title="Sent" style="border-radius: 5px; cursor: pointer;font-weight: bold; margin-top: 0px; background: #077c54eb; color: #ffffff;width: 100%; text-align: center;cursor:pointer" />*@
+                                        <button id="btnSave" tooltip="Save" title="Send Request For Hospital" class="Button Save" ng-click="RequestForHospital()" style="float: right;height: 30px; cursor: pointer;font-weight: bold; margin-top: 0px; color: #ffffff;width: 32px; text-align: center;cursor:pointer"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div ng-show="ActivePatientList" style="width:100%;max-height: 560px; min-height: 560px; overflow: auto; overflow-x: hidden; display: block;">
+
+                    <div class="head-border" style="font-size: 17px; color: #ffffff; text-align: center;">
+                        <label id="lblActvPatList" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblActvPatList'">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+
+                    <table arrow-selector style="width: 100% !important;">
+                        <tr class="head-border" style="color: #ffffff;">
+                            <td style="width: 6%; text-align: center"><label id="lblReqNo" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblReqNo'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 5%; text-align: center"><label id="lblTeam" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTeam'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 18%; text-align: center">
+                                <label id="lblPatient" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatient'">{{field.T_LANG2_TEXT}}</label>
+
+                            </td>
+                            <td style="width: 4%; text-align: center"> <label id="lblSex" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblSex'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 5%; text-align: center"><label id="lblAge" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAge'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 28%; text-align: center"><label id="lblChiefComplient" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblChiefComplient'">{{field.T_LANG2_TEXT}}</label></td>
+                            @*<td style="width: 8%;text-align: center">Status</td>*@
+                            <td style="width: 26%; text-align: center"><label id="lblDoctorDetails" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblDoctorDetails'">{{field.T_LANG2_TEXT}}</label></td>
+                            <td style="width: 8%; text-align: center" colspan="2"><label id="lblAction" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAction'">{{field.T_LANG2_TEXT}}</label></td>
+                        </tr>
+                        <tr dir-paginate="D in obj.AllTeamData |filter : Search |itemsPerPage:10 " ng-class="{'assignedEngaged':(D.DOCOTR_ID!=null && D.T_FINAL_FLAG==null),'assignedFree':D.DOCOTR_ID!=null && D.T_FINAL_FLAG!=null }">
+                            <td style="width: 6%; text-align: center">{{D.T_REQUEST_ID}}</td>
+                            <td style="width: 5%; padding-left: 10px">{{D.T_USER_ID}}</td>
+                            <td style="width: 18%; padding-left: 10px">{{D.T_PAT_NAME}}</td>
+                            <td style="width: 4%; text-align: center">{{D.SEX}}</td>
+                            <td style="width: 5%; text-align: center">{{D.AGE}}</td>
+                            <td style="width: 28%; padding-left: 10px">{{D.CHEIF_COMP}}</td>
+                            @*<td style="width: 8%;text-align: center">{{D.T_DOCTOR}}</td>*@
+                            <td style="width: 26%; padding-left: 10px">{{D.DOCTOR_DETAILS}}</td>
+                            <td style="width: 5%; padding-left: 5px">
+                                <button id="btnActivePatient" class="Button ActivePatient" ng-click="onChatStart(D.DOCOTR_ID,D.T_REQUEST_ID,D.T_USER_ID,D.T_FINAL_FLAG)"></button>
+                            </td>
+                            <td style="width: 3%; text-align: center;">
+
+                                <button ng-if="D.DOCOTR_ID==null && D.PATMSG !=0" id="btnPatMsg" class="Button" style="cursor: pointer; background: #70C7AC !important; color: #FBFDFD; border-radius: 5px; width: 25px; height: 25px;" ng-click="getPatMsg(D.T_REQUEST_ID)">
+                                    {{D.PATMSG}}
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                    <dir-pagination-controls max-size="5"
+                                             direction-links="true"
+                                             boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div id="PatInfo" class="omf-modal">
+            <div class="omf-modal-body" style="height: 400px; overflow: auto; overflow-x: hidden;">
+                <div style="text-align: right" class="col-lg-12"><span style="font-weight: bold" ng-click="CloseDiv('PatInfo')">X</span></div>
+                <div class="col-lg-12" style="text-align: center">
+                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Patient Information</span></h3><hr />
+                </div>
+                <div class="col-lg-12">
+                    <div style="display: inline-block">
+                        <input type="image" src="~/Images/TestImage/Masum Vai.jpg" style="height: 150px; width: 150px; border-radius: 30px;" />
+                    </div>
+
+                    <div style="display: inline-block; vertical-align: top; margin-left: 10px;">
+                        <h4 style="margin-top: 3px; margin-bottom: 1px;"><span style="font-weight: bold;">Masum Billah Mia</span></h4><span style="font-size: x-small">Last Seen 1 hr ago</span> <br />
+                        <table>
+                            <tr><th>Gender:</th><td>Male</td></tr>
+                            <tr><th>Age:</th><td>12 Yrs</td></tr>
+                            <tr><th>Nationality:</th><td>Bangladeshi</td></tr>
+                            <tr><th>Status:</th><td>married</td></tr>
+                            <tr><th>Address:</th><td>Chandpur</td></tr>
+                            <tr><th>Contact:</th><td>0258964713</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-12" style="text-align: center">
+                        <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Diagonosis Information</span></h3><hr />
+                    </div>
+                    <div class="col-lg-12">
+
+                        <table>
+                            <tr><th style="vertical-align: top">Problem:</th><td>Knee Pain</td></tr>
+                            <tr><th style="vertical-align: top">Duration:</th><td>5 Days</td></tr>
+                            <tr><th style="vertical-align: top">Details:</th><td>The oldest classical Greek and Latin writing had little or no space between words and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[1] The Greek paragraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences. The hedera leaf (e.g. ☙) has also been used in the same way.</td></tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="DocInfo" class="omf-modal" style="width: 100%;">
+            <div class="omf-modal-body" style="height: 450px; width: 810px;">
+                <div style="text-align: right" class="col-lg-12"><span style="font-weight: bold;cursor: pointer" ng-click="CloseDiv('DocInfo')">X</span></div>
+                <div class="col-lg-12" style="text-align: center">
+                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Patient History</span></h3>
+                </div>
+                <div class="col-lg-12">
+                    <table class="col-lg-12">
+                        <tr>
+                            <th class="col-lg-2">Name:</th>
+                            <td class="col-lg-4" colspan="2"><span>{{obj.pInfo.PATNAME}}</span>
+                            <td class="col-lg-4" colspan="2"><span style="font-weight:bold">Age: </span><span>{{obj.pInfo.AGE}}</span></td>
+                            <td class="col-lg-2"><span style="font-weight:bold">Religion: </span><span>{{obj.pInfo.RELIGION}}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Status</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.MARITAL_STATUS}}</span></td>
+                            <th class="col-lg-2">Nationality</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.NATIONALITY}}</span></td>
+                            <th class="col-lg-2">Gender</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.GENDER}}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Problem</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.T_PROBLEM}}</span></td>
+                            <th class="col-lg-2">Duration</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.T_PROBLEM_DURATION}}</span></td>
+                            <th class="col-lg-2">Details</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.T_PROB_DETAILS}}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="col-lg-2">Problem Type</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.PROBLEM_TYPE}}</span></td>
+                            <th class="col-lg-2">Ch. Complient</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.CHIEF_COMPLIENT}}</span></td>
+                            <th class="col-lg-2">ICD10</th>
+                            <td class="col-lg-2"><span>{{obj.pInfo.ICD10}}</span></td>
+                        </tr>
+
+                    </table>
+                    <div class="col-lg-12" style="text-align: center">
+                        <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Vital Signs</span></h3>
+                    </div>
+                    <div>
+                        <table id="table" class="col-lg-12 col-md-12 col-sm-12">
+                            <thead style="text-align: center;display:table; width:100%;">
+                                <tr style="text-align: center">
+                                    <td style="width:10%;font-weight:bold">Temp</td>
+                                    <td style="width:10%;font-weight:bold">Puls</td>
+                                    <td style="width:10%;font-weight:bold">BP(Sys)</td>
+                                    <td style="width:10%;font-weight:bold">BP(Dia)</td>
+                                    <td style="width:10%;font-weight:bold">Resp</td>
+                                    <td style="width:10%;font-weight:bold">Spo2</td>
+                                    <td style="width:10%;font-weight:bold">Con Label</td>
+                                    <td style="width:10%;font-weight:bold">Rating</td>
+                                    <td style="width:10%;font-weight:bold">Triage</td>
+                                    <td style="width:10%;font-weight:bold">Date</td>
+                                    @*<td style="width:2%;font-weight:bold"></td>*@
+                                </tr>
+                            </thead>
+                            <tbody style="max-height:70px; min-height:70px; overflow:auto; overflow-x:hidden; display:block;">
+                                <tr ng-repeat="obj in obj.PatHistory" style="display:table;	width:100%;	table-layout:fixed;text-align: center">
+                                    <td style="width:10%">{{obj.T_TEMP}}</td>
+                                    <td style="width:10%">{{obj.T_PULS}}</td>
+                                    <td style="width:10%">{{obj.T_BP_SYS}}</td>
+                                    <td style="width:10%">{{obj.T_BP_DIA}}</td>
+                                    <td style="width:10%">{{obj.T_RESP}}</td>
+                                    <td style="width:10%">{{obj.SPO2}}</td>
+                                    <td style="width:10%">{{obj.T_CON_LEVEL}}</td>
+                                    <td style="width:10%">{{obj.TRIAGE_LEVEL}}</td>
+                                    <td style="width:10%">{{obj.RATING}}</td>
+                                    <td style="width:10%">{{obj.T_ENTRY_DATE.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+                                    @*<td style="width:2%"></td>*@
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        @*<div style="float: right;margin-top: 10px"><span style="font-weight: bold; background-color: #c12d2d; color: white; border-radius: 5px; padding: 3px;cursor: pointer" ng-click="showMedication()">Issued Medication</span></div>*@
+                        <div>
+                            <div class="col-lg-12" style="text-align: center">
+                                <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Doses</span></h3>
+                            </div>
+                            <table id="bedPopUpTable" style="width: 100%;margin: auto">
+                                <thead style="text-align: center; display: table; width: 100%;">
+                                    <tr style="font-weight: bold; color: #000000;">
+                                        <td style="width: 50px;text-align: center;" class="ng-cloak">Dose</td>
+                                        <td style="width: 50px;text-align: center;" class="ng-cloak">Item ID</td>
+                                        <td style="width: 210px;text-align: center;" class="ng-cloak">Medicine</td>
+                                        @*<td style="width: 100px; text-align: center;" class="ng-cloak">Sale Price</td>*@
+                                        <td style="width: 50px;text-align: center;" class="ng-cloak">QTY</td>
+                                        @*<td style="width: 100px; text-align: center;" class="ng-cloak">Amount</td>*@
+
+                                    </tr>
+                                </thead>
+                                <tbody style="max-height:90px; min-height:0px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="B in obj.PreviousMedicineList |filter : Search" pagination-id="bed" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,B,'BedPopUp')" style="display:table;text-align: center;width:100%;	table-layout:fixed;">
+                                        <td style="width: 50px;text-align: center;" rowspan="{{B.t_index}}" ng-if="!B.matchPreviousRow">{{B.T_DOSE}}</td>
+                                        <td style="width: 50px;text-align: center;">{{B.ITEM_CODE}}</td>
+                                        <td style="width:210px;text-align:left;padding-left: 5px">{{B.GEN_DESC}}</td>
+                                        @*<td style="width: 80px; text-align: center;">{{B.SALE_PRICE}}</td>*@
+                                        <td style="width: 50px;text-align: center;">{{B.T_QTY}}</td>
+                                        @*<td style="width: 80px; text-align: center;">{{B.T_TOTAL_AMOUNT}}</td>*@
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="chatHistory" class="omf-modal" style="width: 100%;">
+            <div class="omf-modal-body" style="height: 450px; width: 810px;">
+                <div style="text-align: right" class="col-lg-12"><span style="font-weight: bold;cursor: pointer" ng-click="CloseDiv('chatHistory')">X</span></div>
+                <div class="col-lg-12" style="text-align: center">
+                    <h3 style="margin-top: 3px; margin-bottom: 2px;"><span style="font-weight: bold;">Conversation</span></h3><hr />
+                </div>
+                <div class="col-lg-12" style="max-height:300px; min-height:0px; overflow:auto; overflow-x:hidden; display:block;">
+                    <div ng-class="(msg.T_SENDER_TYPE == obj.HospWithDoc[obj.pi].docInfo[obj.i].TYPE )? 'left' : 'right'" ng-repeat="msg in obj.ChatHistoryList">
+                        @*<i ng-class="(msg.T_SENDER_TYPE == 'Pat' )? 'sender' : 'reciver'"></i>*@
+                        <strong>{{msg.T_SENDER_TYPE != obj.HospWithDoc[obj.pi].docInfo[obj.i].TYPE?UserName:obj.HospWithDoc[obj.pi].docInfo[obj.i].DOCTOR}}</strong>
+                        &nbsp;
+                        <strong>{{msg.T_TIME| date:' hh:mm:ss'}}</strong>
+                        @*<small ng-class="(msg.T_SENDER_TYPE == 'Pat' )? 'pull-left' : 'pull-right'">
+                            </small>*@
+                        @*<div>
+                                <p ng-class="(msg.T_SENDER_TYPE == obj.HospWithDoc[obj.pi].docInfo[obj.i].TYPE)? 'Lmsg' : 'Rmsg'">{{msg.T_TEXT}}</p>
+                            </div>*@
+                        <div ng-show="msg.T_TEXT!=null">
+                            <p ng-class="(msg.T_SENDER_TYPE == obj.HospWithDoc[obj.pi].docInfo[obj.i].TYPE)? 'Lmsg' : 'Rmsg'">{{msg.T_TEXT}}</p>
+                        </div>
+                        <div ng-show="msg.T_FILE_LOC!=null" ng-class="(msg.T_SENDER_TYPE == obj.HospWithDoc[obj.pi].docInfo[obj.i].TYPE)? 'Lmsg' : 'Rmsg'">
+
+                            <img src="{{msg.T_FILE_LOC}}" style="height: 100px; width: 100px; cursor: pointer;" class="fa-circle" ng-show="msg.ext=='png'||msg.ext=='jpg'||msg.ext=='jpeg'||msg.ext=='gif'" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+
+                            <img src="{{apiLink}}/Image/UploadedFile/Text_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='txt'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                            <img src="{{apiLink}}/Image/UploadedFile/PDF_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='pdf'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                            <img src="{{apiLink}}/Image/UploadedFile/Word_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='docx'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+                            <img src="{{apiLink}}/Image/UploadedFile/Excel_Dummy.png" style="height: 100px; width: 100px;cursor: pointer;" class="fa-circle" ng-show="msg.ext=='xlsx'" title="{{msg.name}}" ng-click="onImageClick(msg.T_FILE_LOC)" />
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="teamList" ng-mouseleave="onRmvPatLst()" style="width: 150px; border: 1px solid #405F6E; display: none; position: fixed; margin-left: 15%; margin-top: 3.1%; z-index: 9999999;border: 1px solid #405F6E;border-radius: 5px;">
+            <div style="width: 97%; text-align: center;  background: #405F6E; color: white; margin: 2px;" ng-repeat="o in obj.reqList">
+                <label style="cursor: pointer;width: 100%" ng-click="onRcvPatReq(o.T_REQUEST_ID,o.T_CHAT_REQ_ID)">{{o.T_REQUEST_ID}}-{{o.T_CHAT_REQ_ID}}</label>
+
+            </div>
+
+
+        </div>
+
+        <div id="ShowPatientMsgPopup" class="omf-modal">
+            <div class="omf-modal-body">
+                <div class="omf-modal-header head-border">
+                    <label id="lblpatMsg" style="width: 96%;" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblpatMsg'">{{field.T_LANG2_TEXT}}</label>
+                    @*<label >Patient Message</label>*@
+                    <input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px;" ng-click="CloseActivePopup('ShowPatientMsgPopup')"/>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0;">
+                    <table id="MSgPopUpTable" style="width: 100%">
+                        <tbody style="max-height: 300px; min-height: 0px; overflow: auto; overflow-x: hidden; display: block;">
+                            <tr style="display: table; text-align: center; width: 100%; table-layout: fixed;" class="div_back">
+                                <td style="width: 5%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak">
+                                    <label id="lblSL"  ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblSL'">{{field.T_LANG2_TEXT}}</label>
+                                    
+                                </td>
+                                <td style="width: 10%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak">  
+                                    <label id="lblDt"  ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblDt'">{{field.T_LANG2_TEXT}}</label>
+                                </td>
+                                <td style="width: 10%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak">
+                                    
+                                    
+                                    <label id="lblTime"  ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblTime'">{{field.T_LANG2_TEXT}}</label>
+                                </td>
+                                <td style="width: 20%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600;" class="ng-cloak">
+                                    
+                                    <label id="lblMessage"  ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblMessage'">{{field.T_LANG2_TEXT}}</label>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="B in obj.patMsg" style="display: table; text-align: center; width: 100%; table-layout: fixed;" class="div_back">
+                                <td style="width: 5%; text-align: center;">{{B.SL}}</td>
+                                <td style="width: 10%; text-align: center;">{{B.T_TIME | date:"dd-MMM-yy" }}</td>
+                                <td style="width: 10%; text-align: center;">{{B.T_TIME | date:"h:mm a"}}</td>
+                                <td style="width: 20%; text-align: left; padding-left: 5px">{{B.T_TEXT}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

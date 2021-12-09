@@ -1,0 +1,108 @@
+﻿
+<script src="../Apps/JSController/Initialization/T74015Controller.js"></script>
+<script src="../Apps/JSService/Initialization/T74015Service.js"></script>
+
+<div ng-app="Ambucare" ng-controller="T74015Controller">
+    <div class="row" style="padding-bottom: 8px">
+        
+        <!--working div-->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div id="DivMaritalStatus" class="tab-content col-lg-6 col-md-6 col-sm-6 div_back borderColor" style="margin: 1.6% auto; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblAmbCapaCode" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAmbCapaCode'" for="ddlAmbCapaCode">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.A.selected" on-select="check()" id="ddlAmbCapaCode" theme="select2" append-to-body="true" style="min-width: 245px">
+                                    <ui-select-match placeholder="Select">{{$select.selected.TEAM_DESC}}</ui-select-match>
+                                    <ui-select-choices repeat="A in ambulance | propsFilter: {TEAM_DESC: $select.search}">
+                                        <div ng-bind-html="A.TEAM_DESC | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="text" id="ddlIAmbCapaCode" ng-model="obj.T_AMBU_REG_ID" ng-bind="obj.T_AMBU_REG_ID=obj.A.selected.T_AMBU_REG_ID" class="Hidden" />
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <input type="checkbox" id="chkSchedule" ng-true-value="'1'" ng-model="obj.Schedule" ng-click="ViewSchedule(obj.Schedule)"/>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div style="width: 100%" id="scheduleDiv">
+
+                <ng-datepicker ng-model="obj.T_SCHEDULE_DATE" id="dateStock" name="stockDate" type="text" view-format="DD/MM/YYYY">
+                </ng-datepicker>
+            </div>
+        </div>
+    </div>-->
+    
+
+    <div class="row">
+        <div>
+            <div class="div_back borderColor" style="margin: 10px auto; width: 900px;">
+                
+                <center>
+                    <table class="table table-bordered ng-cloak" style="margin:auto">
+                        <thead style="text-align: center">
+                            <tr class="head-border" style="color: #ffffff">
+                                <!--<th>Add</th>-->
+                                <th style="text-align: center"><input type="button" style="background: url(../Images/Plus_white.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; height: 15px; float: right; align-content: right" ng-click="Addrow()" /></th>
+                                <th style="width:5%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblIndex'">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width:17%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpTId'">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width:27%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpTName'">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width:12%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpId'">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width:40%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpName'">{{field.T_LANG2_TEXT}}</th>
+                                <!--<th hidden>Active</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in obj.employeeInfo" id="rowId{{$index}}">
+                                <!-- <td>
+                                    <input type="button" class="AddButton" style="background: url(../Images/plus.png); background-size: 30px; background-repeat: no-repeat; background-position: center; width: 30px;" ng-click="Addrow(items)"/>
+                                </td>-->
+                                <td style="text-align: center">
+                                    <input type="button" style="background: url(../Images/Reject.jpg); background-size: 20px; background-repeat: no-repeat; background-position: center; width: 20px;" ng-click="RemoveRow($index)" />
+                                </td>
+                                <td style="text-align: center">{{$index+1}}</td>
+                                <td ng-dblclick="empType($index)">
+                                    <!--<input type="text" id="txtEmployeeTypeId{{$index}}" name="T_EMP_TYP_ID" class="form-control" readonly="readonly" style="width: 100%" ng-dblclick="empType($index)" ng-model="obj.T_EMP_TYP_ID"  />-->
+                                    <span id="txtEmployeeTypeId{{$index}}" name="T_EMP_TYP_ID"  ng-model="">{{obj.T_EMP_TYP_ID}}</span>
+                                </td>
+                                <td>
+                                    <!--<input type="text"  ng-model=""  />-->
+                                    <span id="txtEmployeeTypeName{{$index}}" name="T_EMP_TYP_NAME" style="width: 100%">{{obj.T_EMP_TYP_NAME}}</span>
+                                </td>
+                                <td ng-dblclick="emp($index)">
+                                    <!--<input type="text" id="txtEmployeeId{{$index}}" name="T_EMP_ID" class="form-control" readonly="readonly" style="width: 100%" ng-dblclick="emp($index)" ng-model="obj.T_EMP_ID" />-->
+                                    <span id="txtEmployeeId{{$index}}" name="T_EMP_ID" style="width: 100%" >{{obj.T_EMP_ID}}</span>
+                                </td>
+                                <td>
+                                    <!--<input type="text" id="txtEmployeeName{{$index}}" name="FullName" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.FullName" />-->
+                                    <span id="txtEmployeeName{{$index}}" name="FullName"  style="width: 100%">{{obj.FullName}}</span>
+                                </td>
+                                <td hidden>
+                                    <input type="checkbox" ng-true-value="'1'" id="chkActive" ng-model="obj.T_ACTIVE_STATUS"/>
+                                </td>
+                                <td hidden>
+                                    <input type="hidden" id="txtT_EMP_ASSIGN_ID" class="hidden" ng-model="obj.T_EMP_ASSIGN_ID" />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+

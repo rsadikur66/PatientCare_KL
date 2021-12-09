@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "T74000";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74000Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74000Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<style type="text/css">
+    .error {
+        color: red !important;
+    }
+</style>
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74000Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+        @*<button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>*@
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74000Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #E17D7D; border-radius: 5px">
+
+                    <div class="row" style="padding-top: 3px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblLabelId" hidden="true">Label Id</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtLabelId" type="text" ng-model="obj.T_LABEL_ID" style="width: 50%; height: 25px" readonly="readonly" hidden/>
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblLabelName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLabelName'" class="ng-cloak" Text="" for="txtLabelName">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtLabelName" type="text" ng-model="obj.T_LABEL_NAME" style="width: 80%; height: 25px" next-focus tabindex="1" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="" associatedcontrolid="txtEnglishName">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_TEXT" style="width: 80%; height: 25px" next-focus tabindex="2" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="" associatedcontrolid="txtEnglishName">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_TEXT" style="width: 80%; height: 25px" next-focus tabindex="3" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblFromCode" style="margin-left:-14px;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFromCode'" class="ng-cloak" Text="" AssociatedControlID="txtFromCode">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.F.selected" id="ddlFormCode" theme="select2" style="min-width: 220px; max-width: 220px;" append-to-body="true" next-focus tabindex="4" required>
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_FORM_CODE}}</ui-select-match>
+                                    <ui-select-choices repeat="F in FormCode | propsFilter: {T_FORM_CODE: $select.search}">
+                                        <div ng-bind-html="F.T_FORM_CODE | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                                <input type="hidden" id="ddlUMId1" ng-model="obj.T_FORM_CODE" ng-bind="obj.T_FORM_CODE = obj.F.selected.T_FORM_CODE" style="width: 214px;"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+
+    </div>
+
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

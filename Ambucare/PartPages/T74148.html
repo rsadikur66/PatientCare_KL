@@ -1,0 +1,211 @@
+﻿
+<style>
+
+    /*table, tr, th, td {
+        border: 1px solid black;*/
+        /*text-align: center !important;*/
+        /*padding-bottom: 5px !important;*/
+        /*padding-top: 5px !important;*/
+    /*}*/
+
+    /*.selected {
+        background-color: #708090;
+        color: white;
+        font-weight: bold;
+    }*/
+
+    /*tr:hover {
+        background-color: #708090;
+    }*/
+
+    .bt {
+        width: 100px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+
+    .spann {
+        display: inline-block;
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .hos {
+        display: inline-block;
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        text-align: left;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .spn {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .start {
+        width: 600px !important;
+    }
+
+    .green {
+        background-color: #BCDAF9;
+        color: #000000;
+    }
+
+    .error {
+        color: red !important;
+    }
+</style>
+
+<!--<script src="~/Apps/JSController/Initialization/T74148Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74148Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>-->
+
+<div class="container" ng-app="Ambucare" ng-controller="T74148Controller" name="obj.myDiv" novalidate ng-form>
+    <center>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 div_back borderColor" style="margin: 2.8% auto;">
+                        <div class="row" style="padding-bottom: 4px; padding-top: 8px;" hidden>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblMessageId" style="float: right;" for="txtMessageCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMessageCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.spltcode.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtMessageId" type="text" ng-model="obj._t74148.T_SPCLTY_CODE" style="width: 96%;" next-focus tabindex="1" name="spltcode" required />
+                                    <input id="txtMessageId2" type="text" ng-model="obj._t74148.T_SPCLTY_ID" style="width: 96%;" hidden />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px; padding-top: 8px;">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblMessageCode" style="float: right;" for="txtMessageCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSPCLTY_CODE'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.spltcode.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtMessageCode" type="text" ng-model="obj._t74148.T_SPCLTY_CODE" style="width: 96%;" next-focus tabindex="1" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblEnglishName" style="float: right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.engname.$error.required"></span><span class="error">*</span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtEnglishName" type="text" ng-model="obj._t74148.T_LANG2_NAME" style="width: 96%" name="engname" next-focus tabindex="2" required/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblLocalName" style="float: right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.locname.$error.required"><span class="error">*</span></span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtLocalName" type="text" ng-model="obj._t74148.T_LANG1_NAME" name="locname" style="width: 96%" next-focus tabindex="3" required/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 4px">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblMAIN_SPCLTY" style="float: right;" for="txtLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMAIN_SPCLTY'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.maincspltcode.$error.required"></span><span class="error">*</span></label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="txtMAIN_SPCLTY" type="text" ng-model="obj._t74148.T_MAIN_SPCLTY" style="width: 96%" next-focus tabindex="3" name="maincspltcode" required/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--<div class="row" style="padding-bottom: 4px" hidden>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <label id="lblActive" style="float: right;" for="chkBoxActive" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input type="checkbox" id="chkBoxActive" ng-model="obj.T_ACTIVE_FLAG" ng-true-value="'1'" ng-false-value="''" style="float: left;" next-focus tabindex="5"/>
+                                </div>
+
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="row">
+                    <table class="div_back border_table" arrow-selector style="width: 100% !important; margin-top: 10px">
+                        <thead>
+                            <tr class="head-border" style="color: white; text-align: center; width: 100% !important">
+                                <th style="width: 10%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSPCLTY_CODE'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                                <th style="width: 20%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMAIN_SPCLTY'" class="ng-cloak">{{field.T_LANG2_TEXT}}</th>
+                                <!--<th style="width: 15%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" class="ng-cloak" hidden>{{field.T_LANG2_TEXT}}</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="activeHover" dir-paginate="D in obj.getAllGridData |filter : Search |itemsPerPage:10 | orderBy:'-T_FORM_CODE'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+                            <td style="width: 10%; text-align: left; padding-left: 2px" class="hidden">{{D.T_SPCLTY_ID}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_SPCLTY_CODE}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_LANG2_NAME}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_LANG1_NAME}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 2px">{{D.T_MAIN_SPCLTY}}</td>
+                            <!--<td style="width: 15%; text-align: center;" hidden>
+                                <input type="checkbox" id="chkBoxActivegrid" ng-model="D.T_ACTV_STTS" ng-true-value="'1'" ng-false-value="''" disabled />
+                            </td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls max-size="5"
+                                             direction-links="true"
+                                             boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </center>
+</div>
+

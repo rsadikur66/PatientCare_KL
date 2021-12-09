@@ -1,0 +1,374 @@
+﻿
+<script src="../Scripts/dirPagination.js"></script>
+<style>
+    .passwordMode {
+        -webkit-text-security: disc; /* Default */
+    }
+
+    .grid tr:hover {
+        background-color: #a0b7ae80 !important;
+    }
+
+    .grid, .grid th, .grid td {
+        border-color: #D3D8DC !important;
+    }
+
+    .pasButton {
+        display: inline-block;
+        /* padding: 6px 12px; */
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        line-height: 0.9 !important;
+    }
+    
+</style>
+<script>
+    // for Show password from password mode
+    var myButton = document.getElementsByName('dynamic');
+    var myInput = document.getElementsByName('viewPass');
+    myButton.forEach(function (element, index) {
+        element.onclick = function () {
+            'use strict';
+
+            if (myInput[index].type == 'password') {
+                myInput[index].setAttribute('type', 'text');
+                element.firstChild.textContent = 'Hide';
+                element.firstChild.className = "";
+
+            } else {
+                myInput[index].setAttribute('type', 'password');
+                element.firstChild.textContent = '';
+                element.firstChild.className = "glyphicon glyphicon-eye-open";
+            }
+        };
+    });
+
+</script>
+<div ng-app="Ambucare" ng-controller="T74136Controller" name="obj.myDiv" novalidate ng-form>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="row div_back" style="border: 1px solid #000000; border-radius: 5px; padding: 10px; width: 100%;">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEmpName'" class="ng-cloak" for="txtEmpName">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+
+                        <input type="text" id="txtEmpName" style="width: 96%;" readonly="readonly" ng-dblclick="getUserList()" ng-model="obj.T74057.EMP_NAME" required next-focus tabindex="1" /><span ng-show="obj.myDiv.$error.required"></span><span class="error">*</span>
+
+
+                        <input type="text" id="txtEmpId" style="width: 96%;" readonly="readonly" ng-model="obj.T74057.T_EMP_ID" hidden />
+                        <input type="text" id="txtCompanyId" style="width: 96%;" readonly="readonly" ng-model="obj.T74057.T_COMPANY_ID" hidden />
+
+
+                    </div>
+                </div>
+                <!--<div class="col-lg-2">
+                    <label style="float: right;">User Type</label>
+                </div>
+                <div class="col-lg-2">
+                    <input type="radio" id="txtAmbEmp" name="empType" ng-value="1" ng-model="obj.UserType" ng-click="clearHosList()"/>
+                    <label for="txtAmbEmp">Ambulance User</label>
+
+                </div>
+                <div class="col-lg-2">
+                    <input type="radio" id="txtHosEmp" name="empType" ng-value="2" ng-model="obj.UserType" ng-click="showHosList()"/>
+                    <label for="txtHosEmp">Hospital User</label>
+                </div>-->
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserId'" class="ng-cloak" for="txtUserID">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input type="text" id="txtUserID" style="width: 92%; text-transform: uppercase" ng-model="obj.T74057.T_USER_ID" maxlength="20" required next-focus tabindex="2" /> <!--ng-blur="userIdCheck()"-->
+                        <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        <!--ng-blur="userTypeCheck()"-->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserPass'" class="ng-cloak" for="txtUserPass">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input name="viewPass" type="password" id="txtUserPass" ng-model="obj.T74057.T_PWD" style="width: 89%;" required next-focus tabindex="3" />
+                        <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        <!--<button type="button" id="" class="pasButton btn-default" name="dynamic"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>-->
+                    </div>
+
+                </div>
+                <!--<div class="col-lg-2">
+                    <label style="float: right;" for="ddlZoneName">User Id</label>
+                </div>
+                <div class="col-lg-4 ng-cloak select-box">
+                    <ui-select ng-model="obj.z.selected" on-select="obj.SiteList(obj.z.selected)" id="ddlZoneName" theme="select2" append-to-body="true" style="width: 100%" ng-disabled="obj.UserType == 1">
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="z in obj.zoneList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="z.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>-->
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblZone'" class="ng-cloak" for="ddlZone">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 ng-cloak select-box">
+                        <ui-select ng-model="obj.B.selected" id="ddlZone" theme="select2" append-to-body="true" style="width: 92%" required next-focus tabindex="4">
+                            <ui-select-match placeholder="Select">{{$select.selected.T_ZONE_NAME}}</ui-select-match>
+                            <ui-select-choices repeat="B in obj.zoneList | propsFilter: {T_ZONE_NAME: $select.search}">
+                                <div ng-bind-html="B.T_ZONE_NAME | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        <input type="text" id="ddlIZone" ng-model="obj.T74057.T_ZONE_CODE" ng-bind="obj.T74057.T_ZONE_CODE=obj.B.selected.T_ZONE_CODE" class="hidden" />
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblConfirmPass'" class="ng-cloak" for="txtUserPass">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input name="viewPass" type="password" id="txtConfirmPass" ng-model="obj.T74057.ConfirmPassword" style="width: 89%;" required next-focus tabindex="4" />
+                        <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        <!--<button type="button" id="" class="pasButton btn-default" name="dynamic"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>-->
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRole'" class="ng-cloak" for="ddlUserRole">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 ng-cloak select-box">
+                        <ui-select ng-model="obj.R.selected" id="ddlUserRole" theme="select2" append-to-body="true" style="width: 92%" required next-focus tabindex="4">
+                            <ui-select-match placeholder="Select">{{$select.selected.NAME}}</ui-select-match>
+                            <ui-select-choices repeat="R in obj.roleList | propsFilter: {NAME: $select.search}">
+                                <div ng-bind-html="R.NAME | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        <input type="text" id="ddlIUserRole" ng-model="obj.T74057.T_ROLE_CODE" ng-bind="obj.T74057.T_ROLE_CODE=obj.R.selected.T_ROLE_CODE" class="hidden" />
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <label style="float: right;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" class="ng-cloak" for="chkActive">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input type="checkbox" id="chkActive" ng-model="obj.T74057.T_ACTIVE_FLAG" ng-false-value="" ng-true-value="1" required next-focus tabindex="5" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label style="float: right" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserLoacation'" class="ng-cloak" for="txtUserPass">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                        <input id="gLocation" type="text" gm-places-autocomplete ng-model="obj.autocomplete" style=" width: 97%;" required next-focus tabindex="1" /><span ng-show="obj.myDiv.$error.required"></span><span class="error">*</span>
+                    </div>
+                </div>
+                <!--<div class="col-lg-2">
+                    <label style="float: right;" for="ddlSiteName">Hospital</label>
+                </div>
+                <div class="col-lg-4 ng-cloak select-box">
+                    <ui-select ng-model="obj.s.selected" id="ddlSiteName" theme="select2" append-to-body="true" style="width: 100%" ng-disabled="obj.UserType == 1">
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="s in obj.siteList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="s.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-left: 1px; padding-left: 0px;">
+            <!--<div class="col-lg-2 col-md-2 col-sm-2"></div>-->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div>
+                    <input type="text" style="float: right; width: 25%; height: 25px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+                </div>
+                <table class="table table-bordered div_back" style="margin-bottom: 0;" arrow-selector>
+                    <tr class="head-border" style="color: white; text-align: center">
+                        <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserId'" style="width: 15%">{{field.T_LANG2_TEXT}}</th>
+                        <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserName'" style="width: 65%">{{field.T_LANG2_TEXT}}</th>
+                        <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserPass'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+                        <th ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActive'" style="width: 10%">{{field.T_LANG2_TEXT}}</th>
+                    </tr>
+                    <tr dir-paginate="Z in EmployeeList |filter : Search |itemsPerPage:5 " ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,Z)">
+                        <td style="width: 15%">{{Z.T_USER_ID}}</td>
+                        <td style="width: 65%">{{Z.EMP_NAME}}</td>
+                        <td class="passwordMode" style="width: 10%">{{Z.T_PWD}}</td>
+                        <td style="width: 10%">{{Z.T_ACTIVE_FLAG == 1 ? 'Active':'InActive' }}</td>
+                        <td style="width: 30%" class="Hidden">{{Z.T_EMP_ID}}</td>
+                        <td style="width: 30%" class="Hidden">{{Z.T_COMPANY_ID}}</td>
+                        <td style="width: 30%" class="Hidden">{{Z.T_ROLE_CODE}}</td>
+                        <td style="width: 30%" class="Hidden">{{Z.ROLE_NAME}}</td>
+                    </tr>
+                </table>
+                <dir-pagination-controls style="margin-left: 25%;" max-size="5"
+                                         direction-links="true"
+                                         boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+            <!--<div class="col-lg-2 col-md-2 col-sm-2"></div>-->
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 div_back" style="border: 1px solid #000000; border-radius: 5px; height: 71vh;">
+        <div>
+            <input id="txtPosLat" type="hidden" ng-model="obj.T74057.T_LATITUDE" ng-bind="obj.T74057.T_LATITUDE=lat" name="Currlocation" required />
+            <input id="txtPosLng" type="hidden" ng-model="obj.T74057.T_LONGITUDE" ng-bind="obj.T74057.T_LONGITUDE=lng" />
+            <input type="hidden" ng-model="obj.type" ng-bind="obj.type" />
+        </div>
+        <ng-map id="gmap" center="{{cx.latitude}}, {{cx.longitude}}" zoom="13" style="height: 70vh; width: 100%">
+            <!--<ng-map id="gmap" center="37.06552, 36.23033" zoom="13" style="height: 467px; width: 100%">-->
+
+            <directions ng-if="obj.DispDir"
+                        draggable="true"
+                        panel="directions-panel"
+                        suppress-markers="true"
+                        travel-mode="DRIVING"
+                        waypoint={{ waypoints }}
+                        origin="{{lat}},{{lng}}"
+                        destination="{{testLat.latitude}},{{testLat.longitude}}">
+            </directions>
+
+            <marker ng-repeat="p in places track by $index" position="{{p.latitude}}, {{p.longitude}}" icon="~/Images/{{p.markImg}}.png" on-click="showCity(event,p)"></marker>
+            <!--<marker ng-repeat="h in HospitalList track by $index" position="{{h.latitude}}, {{h.longitude}}" icon="~/Images/HospitalLoc.png"></marker>-->
+            <marker ng-if="obj.DispMrkr" icon="../Images/{{MrkrImg}}.png" position="{{lat}}, {{lng}}" on-dragend="getPos($event)" draggable="true"></marker>
+            <shape id="circle" name="circle" centered="true" focus="true"
+                   stroke-color='#FF0000' stroke-opacity="0.8" stroke-weight="2"
+                   center="{{new.latitude}}, {{new.longitude}}" radius="100" editable="false"></shape>
+
+        </ng-map>
+    </div>
+    <div id="divEmp" class="omf-modal">
+        <div class="omf-modal-body">
+            <!--<div class="omf-modal-header" style="background-color: #c12d2d;">
+                <span ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserList'" class="ng-cloak">user list</span>
+                <input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="obj.CloseUserPopup()" />
+            </div>-->
+            <div class="omf-modal-header head-border" style="">
+                <label class="ng-cloak" style="width: 97%;text-align: center;color: #ffffff" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserList'">{{field.T_LANG2_TEXT}}</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; " ng-click="obj.CloseUserPopup()" />
+
+            </div>
+            <div class="omf-modal-div-placeholder">
+
+                <input type="text" placeholder="search..." class="omf-modal-placeholder" ng-model="SearchUser" />
+
+            </div>
+            <div class="form-horizontal div_back">
+                <div class="form-group">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <table class="omf-modal-grid grid">
+                            <thead>
+                                <tr class="head-border" style="color: white; text-align: center">
+                                    <td style="width: 80%">
+                                        <label ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblUserName'">{{field.T_LANG2_TEXT}}</label>
+                                    </td>
+                                    <td style="width: 20%">
+                                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserType'">{{field.T_LANG2_TEXT}}</label>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="k in obj.empList |filter : SearchUser |itemsPerPage:10" pagination-id="user" ng-click="obj.onUserSelect($index,k)" style="cursor: pointer">
+                                    <td style="text-align: left; width: 80%"><span style="width: 100%">{{k.EMP_NAME}}</span></td>
+                                    <td style="width: 20%; text-align: left"><span style="width: 100%">{{k.EMP_TYPE}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls pagination-id="user" max-size="5"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--<div id="ShowPendingPopup" class="omf-modal">
+
+    <div class="omf-modal-body">
+
+        <div class="omf-modal-header" style="background-color: #c12d2d;">
+
+            <label class="ng-cloak" id="lblBedInfromation" style="width: 97%;text-align: center;color: #ffffff">Request Pending List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="ClosePopup('ShowPendingPopup')" />
+        </div>
+        <div class="omf-modal-div-placeholder">
+            <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search1" />
+
+        </div>
+        <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+            <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <table id="bedPopUpTable" style="width: 100%">
+                        <thead style="text-align: center; display: table; width: 100%;">
+                        <tr style=" background-color: #c12d2d; color: #ffffff;">
+                            <td style="width: 5%;text-align: center;" class="ng-cloak">ReqNo</td>
+                            <td style="width: 33%;text-align: center;" class="ng-cloak">Patent Name</td>
+                            <td style="width: 10%;text-align: center;" class="ng-cloak">Mobile</td>
+                            <td style="width: 5%;text-align: center;" class="ng-cloak">Gender</td>
+                            <td style="width: 30%;text-align: center;" class="ng-cloak">Location</td>
+                            @*<td style="width: 10%;text-align: center;" class="ng-cloak">Date</td>*@
+                            <td style="width: 5%;text-align: center;" class="ng-cloak">Time</td>
+                            <td style="width: 6%;text-align: center;" class="ng-cloak">Assign</td>
+                            <td style="width: 6%;text-align: center;" class="ng-cloak">Cancel</td>
+
+                        </tr>
+                        </thead>
+                        <tbody style="max-height:300px; min-height:0px; overflow:auto; overflow-x:hidden; display:block;">
+
+                        <tr ng-repeat="B in obj.PendingRequestList" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,B,'ShowPendingPopup')" style="display:table;text-align: center;width:100%;	table-layout:fixed;">
+                            <td style="width: 5%;text-align: center;">{{B.T_REQUEST_ID}}</td>
+                            <td style="width:33%;text-align:left;padding-left: 5px">{{B.PAT_NAME}}</td>
+                            <td style="width:10%;text-align: center;">{{B.T_MOBILE_NO}}</td>
+                            <td style="width:5%;text-align: center;">{{B.GENDER}}</td>
+                            <td style="width:30%;text-align: center;">{{B.Location}}</td>
+                            @*<td style="width:10%;text-align: center;">{{B.REQUEST_DATE}}</td>*@
+                            <td style="width:5%;text-align: center;">{{B.REQUEST_TIME}}</td>
+                            <td style="width:6%;text-align: center;"><input type="button" style="background: #0000ff; border-radius: 5px;color: #ffffff" ng-click="Assing_Click($index)" value="Assign"/></td>
+                            <td style="width:6%;text-align: center;"><input type="button" style="background: #a21217; border-radius: 5px;color: #ffffff" value="Cancel" /></td>
+
+                            <td class="hidden">{{B.T_FIRST_LANG2_NAME}}</td>
+                            <td class="hidden">{{B.T_FATHER_LANG2_NAME}}</td>
+                            <td class="hidden">{{B.T_GFATHER_LANG2_NAME}}</td>
+                            <td class="hidden">{{B.T_AGE}}</td>
+                            <td class="hidden">{{B.T_SEX_CODE}}</td>
+                            <td class="hidden">{{B.T_ALT_MOBILE_NO}}</td>
+                            <td class="hidden">{{B.T_PROBLEM}}</td>
+                            <td class="hidden">{{B.T_PROBLEM_DURATION}}</td>
+                            <td class="hidden">{{B.T_NATIONAL_ID}}</td>
+                            <td class="hidden">{{B.T_LATITUDE}}</td>
+                            <td class="hidden">{{B.T_LONGITUDE}}</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>-->

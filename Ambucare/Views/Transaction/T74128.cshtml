@@ -1,0 +1,380 @@
+﻿
+@{
+    ViewBag.Title = "T74128";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 200px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*tr:hover {
+        background-color: #E17D7D;
+    }*/
+    /*For PopUp end*/
+</style>
+<script src="~/Apps/JSController/Transaction/T74128Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74128Service.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74128Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74128Controller">
+    <div class="row" style="padding-top: 8px;">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <table class="table table-bordered">
+                <tr >
+                    <td  >
+                        <label id="lblTrade" class="ng-cloak">Trade</label>
+                    </td>
+                    <td ng-click="Trade_Click('ReceiveBy')" style="width: 190px">
+                        <span style="width: 150px">{{obj.PRODUCT_DESC}}</span>
+                        @*<textarea type="text" id="txtTrade" ng-model="obj.PRODUCT_DESC" ng-click="Trade_Click('ReceiveBy')" style="width: 200px; height: 40px;resize: none"></textarea>*@
+                        <input type="hidden" ng-model="obj.T_COST_TYPE_DTL_ID" />
+                        <input type="hidden" ng-model="obj.T_STORE_ID" />
+                        <input type="hidden" ng-model="obj.T_ITEM_ID" />
+                    </td>
+                    <td style="width: 82px">
+                        <label id="lblPackSize" class="ng-cloak">Pack Size</label>
+                    </td>
+                    <td style="width: 50px" ng-click="PackSize_Click('PackSize',obj.T_COST_TYPE_DTL_ID,obj.T_STORE_ID)">
+                        <span >{{obj.T_LANG2_NAME}}</span>
+                        @*<input type="text" id="txtPackSize" ng-model="obj.T_LANG2_NAME" ng-click="PackSize_Click('PackSize',obj.T_COST_TYPE_DTL_ID,obj.T_STORE_ID)" style="width: 100px;height: 40px" />*@
+                        <input type="hidden" ng-model="obj.T_ITEM_UM_ID"/>
+                    </td>
+                    <td >
+                        <label id="lblStock" class="ng-cloak">Stock</label>
+                    </td>
+                    <td style="width: 100px">
+                        <span>{{obj.Stock}}</span>
+                        <input type="hidden" ng-model="obj.Box" />
+                        <input type="hidden" ng-model="obj.Pieces" />
+                        @*<input type="hidden" ng-model="obj.Stock_Box" />
+                        <input type="hidden" ng-model="obj.Stock_Pieces" />*@
+                        @*<textarea type="text" id="txtStock" ng-model="obj.Stock" style="width: 100px; height: 40px; resize: none"></textarea>*@
+                    </td>
+                    <td>
+                        <label id="lblSaleQuantity" class="ng-cloak">Qtity</label>
+                    </td>
+                    <td style="width: 150px">
+                        <input type="hidden" ng-model="obj.QTY" />
+                        <input type="number" id="txtSaleQuantity" ng-model="obj.SaleQuantity" ng-keyup="Quantity_Click()" style="width: 50px"/>
+                        <input type="checkbox" id="chkBox" ng-model="obj.ChkBox" ng-true-value="'1'" ng-false-value="'2'" ng-click="Check_Click()"/>
+                        <label id="Box"  ng-show="obj.ChkBox=='1'" ng-hide="obj.ChkBox=='2'" class="ng-cloak">Boxs</label>
+                        <label id="piece"  ng-show="obj.ChkBox=='2'" ng-hide="obj.ChkBox=='1'" class="ng-cloak">Pieces</label>
+                        @*</td>
+                    <td>*@
+
+                    </td>  
+                    <td>
+                        <label id="lblSalePrice" class="ng-cloak">SPrice</label>
+                    </td>
+                    <td style="width: 50px">
+                        <input type="text"  id="txtPiecePrice" ng-model="obj.Price" readonly="readonly" style="width: 50px"/>
+                        <input type="hidden" ng-model="obj.T_SALE_PRICE" />
+                        <input type="hidden" ng-model="obj.PiecePrice" />
+                    </td>  
+                    <td>
+                        <label id="lblTotal" class="ng-cloak">Total</label>
+                    </td>
+                    <td>
+                        <input type="text" id="txtTotal" ng-model="obj.Total" readonly="readonly" style="width: 50px" />
+                    </td>
+                    <td>
+                        <label id="lblDiscount" class="ng-cloak">Discount</label> 
+                    </td>  
+                    <td>
+                        <input type="number" id="txtDiscount" ng-model="obj.Discount" style="width: 50px" />
+                    </td>
+                    <td>
+                        <input type="button" value="ADD" style="color: white; background: #fa6262" ng-click="Add_Click()" />
+                    </td>
+                </tr>
+            </table>
+           
+        </div>
+        <div class="row">
+            <div>
+                @* popup start for Trade  *@
+                <div id="ReceiveBy" class="omf-modal">
+
+                    <div class="omf-modal-body">
+
+                        <div>
+                            <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                <label style="width: 97%">Trade List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('ReceiveBy')" />
+                                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                            </div>
+
+                        </div>
+                        <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                            <div class="form-group">
+                                @*ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }"*@
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                    <table class="table table-bordered" style="margin: 1px auto">
+                                        <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            <th>ID</th>
+                                            <th>Trade Name</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @*dir-paginate*@
+                                        @*|filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')*@
+                                        <tr dir-paginate="obj in obj.TradeList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                            <td>{{obj.T_COST_TYPE_DTL_ID}}</td>
+                                            <td>{{obj.T_LANG2_NAME}}</td>
+                                            <td class="hidden">{{obj.T_STORE_ID}}</td>
+                                            <td class="hidden">{{obj.T_ITEM_ID}}</td>
+
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*for popup end*@
+
+                @* popup start for PackSize  *@
+                <div id="PackSize" class="omf-modal">
+
+                    <div class="omf-modal-body">
+
+                        <div>
+                            <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                <label style="width: 97%">Pack List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('PackSize')" />
+                                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                            </div>
+
+                        </div>
+                        <form class="form-horizontal" ng-submit="PackSize()" role="form" name="ReceivepeForm" novalidate>
+                            <div class="form-group">
+                                @*ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }"*@
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                    <table class="table table-bordered" style="margin: 1px auto">
+                                        <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+
+                                            <th>Pack Size</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @*dir-paginate*@
+                                        @*|filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')*@
+                                        <tr dir-paginate="obj in obj.PackSizeList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRowPackSize($index,obj,'PackSize')">
+
+                                            <td>{{obj.T_LANG2_NAME}}</td>
+                                            <td class="hidden">{{obj.T_ITEM_UM_ID}}</td>
+                                            <td class="hidden">{{obj.T_QTY}}</td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*for popup end
+
+    @* popup start for Patient  *@
+                <div id="Patient" class="omf-modal">
+
+                    <div class="omf-modal-body">
+
+                        <div>
+                            <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                <label style="width: 97%">Patients List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('Patient')" />
+                                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                            </div>
+
+                        </div>
+                        <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                            <div class="form-group">
+                                @*ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }"*@
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                    <table class="table table-bordered" style="margin: 1px auto">
+                                        <thead style="text-align: center">
+                                            <tr style="background-color: #c12d2d; color: #ffffff">
+                                                <th>Request</th>
+                                                <th>Patient's Name</th>
+                                                <th>Mobile No</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @*dir-paginate*@
+                                            @*|filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')*@
+                                            <tr dir-paginate="obj in obj.PatientList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRowForPatien($index,obj,'Patient')">
+                                                <td>{{obj.T_REQUEST_ID}}</td>
+                                                <td>{{obj.T_FIRST_LANG2_NAME}}</td>
+                                                <td >{{obj.T_MOBILE_NO}}</td>
+                                                <td class="hidden">{{obj.T_ADDRESS1}}</td>
+                                                <td class="hidden">{{obj.T_PAT_ID}}</td>
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*for popup end*@
+            </div>
+        </div>
+       
+     
+    </div>
+    <br />
+
+    <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 ng-cloak " ng-show="Table">
+            <table class="table table-bordered">
+                <tr style="background: #A21217; color: #ffffff">
+                    <td style="width: 60px">SL No</td>
+                    <td style="width: 200px">Trade Name</td>
+                    <td style="width: 80px">Pack Size</td>
+                    <td style="width: 10px">Qty</td>
+                    <td style="width: 20px">UPrice</td>
+                    <td style="width: 20px">Total</td>
+                    <td style="width: 20px">DcntPer</td>
+                    <td style="width: 20px">DCountt</td>
+                    <td style="width: 20px">AftDcount</td>
+                    <td style="width: 20px">Remove</td>
+                </tr>
+                <tr ng-repeat="obj in obj.ProductList ">
+                    <td style="width: 60px">{{$index+1}}</td>
+                    <td style="width: 200px">{{obj.PRODUCT_DESC_1}}
+                    <input type="hidden" ng-model="obj.T_ITEM_ID_1"/>
+                    </td>
+                   
+                    <td style="width: 80px">{{obj.T_LANG2_NAME_1}}
+                        <input type="hidden" ng-model="obj.T_ITEM_UM_ID_1"/>
+                    </td>
+                    <td style="width: 10px">{{obj.SaleQuantity_1}}
+                        <input type="hidden" ng-model="obj.Stock_1"/>
+                        <input type="hidden" ng-model="obj.Box_1"/>
+                        <input type="hidden" ng-model="obj.Pieces_1"/>
+                        <input type="hidden" ng-model="obj.ChkBox_1"/>
+                        <input type="hidden" ng-model="obj.QTY_1"/>
+                    </td>
+                    <td style="width: 20px">{{obj.Price_1}}
+                        <input type="hidden" ng-model="obj.PiecePrice_1"/>
+                        <input type="hidden" ng-model="obj.T_SALE_PRICE_1"/>
+                    </td>
+                    <td style="width: 20px">{{obj.Total_1}}</td>
+                    <td style="width: 20px">{{obj.DisCntPer_1}}</td>
+                    <td style="width: 20px">{{obj.Discount_1}}</td>
+                    <td style="width: 20px">{{obj.AftDcount_1 | number : 3}}</td>
+                    <td style="width: 20px"><input type="button" ng-click="Remove_Click($index,obj)" style="background-image: url('../../Images/Reject.jpg'); background-size: 45px; background-repeat: no-repeat; background-position: center; width: 37%; height: 20%; padding-bottom: 7px; border-color: #c12d2d"/> </td>
+                </tr>
+                <tr style="background: #A21217; color: #ffffff; width: 100%">
+                    
+                    <td colspan="8"><label style="float: right">Sub Total</label>
+                    </td>
+                    <td>{{obj.SubTotal | number : 3}}</td>
+                    <td></td>
+                </tr>
+                <tr style="width: 100%">
+                    <td colspan="8"><label style="float: right">Discount Amount</label></td>
+                    <td style="width: 20px"><input type="number" ng-model="obj.DiscountAmount" style="width: 100%" ng-keyup="DisAmount_Click()"/></td>
+                    <td></td>
+                </tr>
+                <tr style="width: 100%">
+                    <td colspan="7" ><label style="float: right">Vat</label></td>
+                    <td><span style="float: right">{{obj.vatAmount}}%</span></td>
+                    <td>{{obj.Totalvat | number : 3}}</td>
+                    <td></td>
+                </tr>
+                <tr style="width: 100%">
+                    <td colspan="8"><label style="float: right">Net Total</label></td>
+                    <td>{{obj.NetTotal | number : 3}}</td>
+                    <td></td>
+                </tr>
+                <tr style="width: 100%">
+                    <td colspan="8" ng-show="obj.InDue==2" ng-hide="obj.InDue==1"><label style="float: right">Given Amount</label></td>
+                    @*for due start*@
+                    <td class="Hidden">
+                        <input type="hidden" ng-model="obj.T_REQUEST_ID"/>
+                        <input type="hidden" ng-model="obj.T_PAT_ID"/>
+                    </td>
+                    <td colspan="2" ng-show="obj.InDue==1" ng-hide="obj.InDue==2">Name <input type="text" ng-model="obj.T_FIRST_LANG2_NAME" readonly="readonly" ng-click="Patien_Click('Patient')" /> </td>
+                    <td colspan="4" ng-show="obj.InDue==1" ng-hide="obj.InDue==2">Mobile <input type="text" ng-model="obj.T_MOBILE_NO" readonly="readonly"/></td>
+                    <td colspan="2" ng-show="obj.InDue==1" ng-hide="obj.InDue==2"><label style="float: right">Paid Amount</label></td>
+                    @*for due end*@
+                    <td style="width: 20px" ng-show="obj.InDue==2" ng-hide="obj.InDue==1"><input type="number" ng-model="obj.Given_Amount" ng-blur="GivenAmount_Click()" style="width: 100%"/></td>
+                    <td style="width: 20px" ng-show="obj.InDue==1" ng-hide="obj.InDue==2"><input type="number" ng-model="obj.Paid_Amount" ng-blur="PaidAmount_Click()" style="width: 100%"/></td>
+                    <td><input type="checkbox" ng-model="obj.InDue" ng-true-value="'1'" ng-false-value="'2'" /> In Due </td>
+                </tr>
+                <tr style="width: 100%">
+                    <td colspan="8" ng-show="obj.InDue==2" ng-hide="obj.InDue==1"><label style="float: right">Return Amount</label></td>
+                    @*for due start*@
+                    <td colspan="6" ng-show="obj.InDue==1" ng-hide="obj.InDue==2">Address <input type="text" ng-model="obj.T_ADDRESS1" readonly="readonly" style="width: 92%"/></td>
+                    <td colspan="2" ng-show="obj.InDue==1" ng-hide="obj.InDue==2"><label style="float: right">Due Amount</label></td>
+                    @*for due end*@
+                    <td style="width: 20px" ng-show="obj.InDue==2" ng-hide="obj.InDue==1"><input type="text" ng-model="obj.Return_Amount " readonly="readonly" style="width: 100%"/></td>
+                    <td style="width: 20px" ng-show="obj.InDue==1" ng-hide="obj.InDue==2"><input type="text" ng-model="obj.Due_Amount " readonly="readonly" style="width: 100%" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+

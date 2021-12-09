@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/03/2018 15:57:29" ReportInfo.Modified="01/04/2018 11:13:02" ReportInfo.CreatorVersion="2016.1.0.0">
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqmmfdjkQxfe1iwShBNGpud60AxfHM0DCzDb37b2j5IIMkCZuLCEa3xbdrgYUnpZSpdCVJjO4CkeYdEYxuIoxgBMGOjjO/xBb+/zHLxHFRMI0YzZhs8bgTyOh0TNuLw4Sk">
+      <TableDataSource Name="T74015" DataType="System.Int32" Enabled="true" TableName="T74015">
+        <Column Name="T_AMBU_REG_ID" DataType="System.String"/>
+        <Column Name="T_EMP_ASSIGN_ID" DataType="System.String"/>
+        <Column Name="T_EMP_TYP_ID" DataType="System.String"/>
+        <Column Name="T_EMP_TYP_NAME" DataType="System.String"/>
+        <Column Name="T_EMP_ID" DataType="System.String"/>
+        <Column Name="FullName" DataType="System.String"/>
+      </TableDataSource>
+    </XmlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="9.45"/>
+    <PageHeaderBand Name="PageHeader1" Top="13.45" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Left="56.7" Top="9.45" Width="160.65" Height="18.9" Text="Ambulance Registration" HorzAlign="Center"/>
+      <TextObject Name="Text4" Left="226.8" Top="9.45" Width="94.5" Height="18.9" Text="Assign Id" HorzAlign="Center"/>
+      <TextObject Name="Text8" Left="330.75" Top="9.45" Width="151.2" Height="18.9" Text="Employee Type Name" HorzAlign="Center"/>
+      <TextObject Name="Text10" Left="500.85" Top="9.45" Width="160.65" Height="18.9" Text="Employee Name" HorzAlign="Center"/>
+      <LineObject Name="Line1" Left="47.25" Top="9.45" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line5" Left="47.25" Top="9.45" Width="623.7" Diagonal="true"/>
+      <LineObject Name="Line6" Left="670.95" Top="9.45" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line8" Left="226.8" Top="9.45" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line10" Left="491.4" Top="9.45" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line12" Left="321.3" Top="9.45" Height="28.35" Diagonal="true"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="55.25" Width="718.2" Height="28.35">
+      <TextObject Name="Text1" Left="56.7" Top="9.45" Width="160.65" Height="18.9" Text="[T74015.T_AMBU_REG_ID]" HorzAlign="Center"/>
+      <TextObject Name="Text3" Left="226.8" Top="9.45" Width="94.5" Height="18.9" Text="[T74015.T_EMP_ASSIGN_ID]" HorzAlign="Center"/>
+      <TextObject Name="Text7" Left="330.75" Top="9.45" Width="151.2" Height="18.9" Text="[T74015.T_EMP_TYP_NAME]" HorzAlign="Center"/>
+      <TextObject Name="Text9" Left="500.85" Top="9.45" Width="160.65" Height="18.9" Text="[T74015.FullName]" HorzAlign="Center"/>
+      <LineObject Name="Line2" Left="47.25" Width="623.7" Diagonal="true"/>
+      <LineObject Name="Line3" Left="47.25" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line4" Left="47.25" Top="28.35" Width="623.7" Diagonal="true"/>
+      <LineObject Name="Line7" Left="670.95" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line9" Left="226.8" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line11" Left="491.4" Height="28.35" Diagonal="true"/>
+      <LineObject Name="Line13" Left="321.3" Height="28.35" Diagonal="true"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="87.6" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

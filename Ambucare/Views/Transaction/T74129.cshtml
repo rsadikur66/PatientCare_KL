@@ -1,0 +1,93 @@
+﻿
+@*<meta http-equiv="refresh" content="300">*@
+@{
+    ViewBag.Title = "T74129";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #Table:hover {
+        background-color: #E17D7D;
+    }
+    /*for row color in condition start*/
+    .redd {
+        background-color: #fa6262;
+    }
+
+    .blue {
+        background-color: #A1DD3B;
+    }
+    /*for row color in condition end*/
+</style>
+<script src="~/Apps/JSController/Transaction/T74129Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74129Service.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74129Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74129Controller">
+    <div class="row" style="padding-top: 8px;">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row" ng-show="Edit_Text">
+                <table class="table table-bordered">
+                    <tr style="height: 50px">
+                        <td class="Hidden">{{obj.T74095.T_PROB_DET_ID}}</td>
+                        <td style="width: 60px">Problem</td>
+                        <td style="width: 100px">{{obj.T74095.T_PROB_DELT_LANG2}}</td>
+                        <td style="width: 90px">Instruments</td>
+                        <td style="width: 300px"><textarea ng-model="obj.T74095.T_REPAIR_INST_DELT" style="width: 98%; height: 50px; resize: none"></textarea></td>
+                        <td style="width: 100px">Repairing Date</td>
+                        <td style="width: 150px">{{obj.T74095.T_REPAIR_DATE}}</td>
+                    </tr>
+                </table>
+            </div>
+            <h3>
+                Notification
+                <input type="text" ng-model="obj.Count" style="background: #c12d2d; color: white; border-radius: 500px; width: 45px; height: 45px; text-align: center" />
+            </h3>
+            <table class="table table-bordered">
+                <thead style="background-color: #c12d2d; color: #ffffff">
+                    <tr>
+                        <th style="width: 80px">Owner Name</th>
+                        <th style="width: 60px">Problem</th>
+                        <th style="width: 300px">Instruments</th>
+                        <th style="width: 80px">Issue Date</th>
+                        <th style="width: 80px">AprDel Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @*ng-class="{'redd': (obj.T_ISSUE_STS_DTL == 'Reject'),'blue':(obj.T_ISSUE_STS_DTL == 'Received')}"*@
+                    <tr id="Table" dir-paginate="obj in obj.DataList |filter : Search |itemsPerPage:5 " ng-class="{'selected':$index == selectedRow,'blue': (obj.T_REPAIR_STATUS == 'Done'),}" ng-click="setClickedRow($index,obj)">
+                        <td class="Hidden">{{obj.T_PROB_DET_ID}}</td>
+                        <td class="Hidden">{{obj.T_REPAIR_STATUS}}</td>
+                        <td style="width: 80px">{{obj.T_FIRST_LANG2_NAME}}</td>
+                        <td style="width: 60px">{{obj.T_PROB_DELT_LANG2}}</td>
+                        <td style="width: 300px">{{obj.T_REPAIR_INST_DELT}}</td>
+                        <td style="width: 80px">{{obj.T_ENTRY_DATE}}</td>
+                        <td style="width: 80px">{{obj.T_APR_DELV_DATE}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <dir-pagination-controls max-size="5"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+
+        </div>
+
+
+
+    </div>
+    @*<p>Click the button to get your coordinates.</p>
+
+    <button ng-click="getLocation()">Try It</button>
+
+    <p id="demo"></p>*@
+    <input type="text" id="txtlan" ng-model="lang"/><input type="text" id="txtlon" ng-model="long"/>
+
+</div>

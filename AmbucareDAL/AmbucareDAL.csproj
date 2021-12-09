@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56E991D6-737E-4287-BD66-5502BA1E1391}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AmbucareDAL</RootNamespace>
+    <AssemblyName>AmbucareDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ambucare\bin\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ambucare\bin\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ambucare\bin\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ambucare\bin\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Ruhul\Test_Project\Test_Project\Test_Project\bin\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ambucare.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ambucare.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ambucare.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ambucare.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ambucare.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Code128Content.cs" />
+    <Compile Include="Models\Code128Rendering.cs" />
+    <Compile Include="Models\CommonClass.cs" />
+    <Compile Include="Models\CommonHelper.cs" />
+    <Compile Include="Models\CommonModel.cs" />
+    <Compile Include="Models\T02003.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T02040.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T02064.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T02065.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T06301.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T30010.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T30209.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74000.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74001.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74002.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74003.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74004.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74005.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74006.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74008.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74009.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74010.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74011.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74012.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74013.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74014.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74015.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74016.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74017.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74018.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74019.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74020.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74021.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74022.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74023.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74024.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74025.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74026.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74027.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74028.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74030.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74031.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74035.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74036.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74037.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74038.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74039.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74040.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74041.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74043.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74044.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74045.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74046.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74047.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74048.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74049.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74050.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74051.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74052.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74053.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74054.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74055.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74056.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74057.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74058.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74059.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74060.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74061.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74066.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74068.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74069.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74070.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74071.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74072.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74073.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74074.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74075.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74077.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74078.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74079.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74080.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74081.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74084.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74085.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74089.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74090.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74093.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74094.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74095.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74096.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74097.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74098.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74101.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74102.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74104.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74116.cs" />
+    <Compile Include="Models\T74117.cs" />
+    <Compile Include="Models\T74120.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74121.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T74207.cs" />
+    <Compile Include="Models\T74M01.cs">
+      <DependentUpon>Ambucare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DAL\CommonDAL.cs" />
+    <Compile Include="Repository\DAL\Menu\MenuDAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74136DAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74138DAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74143DAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74144DAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74145DAL.cs" />
+    <Compile Include="Repository\DAL\Query\Q74146DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74125DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74001DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74046DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74120DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74123DAL.cs" />
+    <Compile Include="Repository\DAL\Report\T74046DAL.cs" />
+    <Compile Include="Repository\DAL\Report\R74027DAL.cs" />
+    <Compile Include="Repository\DAL\Report\T74111DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74144DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74146DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74145DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74143DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74150DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74151DAL.cs" />
+    <Compile Include="Repository\DAL\Setup\T74205DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74041DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74046DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74113DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74128DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74138DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74131DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74134DAL.cs" />
+    <Compile Include="Repository\DAL\Transaction\T74136DAL.cs" />
+    <Compile Include="Repository\Hospital\HLoginRepository.cs" />
+    <Compile Include="Repository\Hospital\Implementation\Initialization\T04225Repository.cs" />
+    <Compile Include="Repository\Hospital\Implementation\Initialization\T04230Repository.cs" />
+    <Compile Include="Repository\Hospital\Implementation\Menu\HMenuRepository.cs" />
+    <Compile Include="Repository\Hospital\Interface\HILogin.cs" />
+    <Compile Include="Repository\Hospital\Interface\Initialization\IT04225.cs" />
+    <Compile Include="Repository\Hospital\Interface\Initialization\IT04230.cs" />
+    <Compile Include="Repository\Hospital\Interface\Menu\IHMenu.cs" />
+    <Compile Include="Repository\Implementation\Menu\MenuRepository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74001Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74136Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74138Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74143Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74144Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74145Repository.cs" />
+    <Compile Include="Repository\Implementation\Queries\Q74146Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\R74125Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\R74046Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\R74120Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\R74123Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\T74046ReportRepository.cs" />
+    <Compile Include="Repository\Implementation\Report\T74015ReportRepository.cs" />
+    <Compile Include="Repository\Implementation\Report\R74027Repository.cs" />
+    <Compile Include="Repository\Implementation\Report\T74111ReportRepository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74027Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74135Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74146Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74145Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74144Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74096Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74018Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74016Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74045Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74073Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74075Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74112Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74000Reposatory.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74001Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74002Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74003Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74004Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74005Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74006Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74008Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74009Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74010Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74011Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74012Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74013Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74126Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74133Reposatory.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74143Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74148Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74149Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74150Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74151Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74017Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74019Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74020Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74021Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74022Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74023Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74024Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74025Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74028Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74035Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74038Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74044Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74047Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74052Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74053Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74054Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74055Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74056Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74066Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74068Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74069Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74071Repository.cs" />
+    <Compile Include="Repository\Implementation\Setup\T74014Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74015Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74037Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74042Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74130Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74111Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74041Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74046Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74113Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74114Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74115Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74116Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74117Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74118Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74119Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74120Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74121Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74122Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74123Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74124Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74125Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74127Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74128Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74129Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74131Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74132Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74136Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74134Repository.cs" />
+    <Compile Include="Repository\Implementation\Transaction\T74138Repository.cs" />
+    <Compile Include="Repository\Interface\IError.cs" />
+    <Compile Include="Repository\Interface\ILogin.cs" />
+    <Compile Include="Repository\Interface\Menu\IMenu.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74001.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74136.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74138.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74143.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74144.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74145.cs" />
+    <Compile Include="Repository\Interface\Queries\IQ74146.cs" />
+    <Compile Include="Repository\Interface\Report\IR74125Report.cs" />
+    <Compile Include="Repository\Interface\Report\IR74046Report.cs" />
+    <Compile Include="Repository\Interface\Report\IR74120Report.cs" />
+    <Compile Include="Repository\Interface\Report\IR74123Report.cs" />
+    <Compile Include="Repository\Interface\Report\IT74015Report.cs" />
+    <Compile Include="Repository\Interface\Report\IT74046Report.cs" />
+    <Compile Include="Repository\Interface\Report\IR74027Report.cs" />
+    <Compile Include="Repository\Interface\Report\IT74111Report.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74014.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74027.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74039.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74135.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74144.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74096.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74018.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74025.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74001.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74004.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74016.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74045.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74073.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74075.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74126.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74133.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74143.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74146.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74145.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74148.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74149.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74150.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74151.cs" />
+    <Compile Include="Repository\Interface\Setup\ITGMNR.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74024.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74000.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74002.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74003.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74005.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74006.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74008.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74009.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74010.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74011.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74012.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74013.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74017.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74019.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74020.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74021.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74022.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74023.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74035.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74038.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74044.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74047.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74048.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74052.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74053.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74054.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74055.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74056.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74066.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74068.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74069.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74071.cs" />
+    <Compile Include="Repository\Interface\Setup\IT74112.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74015.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74037.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74042.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74130.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74111.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74028.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74041.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74046.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74113.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74114.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74115.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74116.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74117.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74118.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74119.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74120.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74121.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74122.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74123.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74124.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74125.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74127.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74128.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74129.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74131.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74132.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74136.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74134.cs" />
+    <Compile Include="Repository\Interface\Transaction\IT74138.cs" />
+    <Compile Include="Repository\ErrorRepository.cs" />
+    <Compile Include="Repository\LoginRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Ambucare.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Ambucare.edmx</DependentUpon>
+      <LastGenOutput>Ambucare.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Ambucare.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Ambucare.edmx</DependentUpon>
+      <LastGenOutput>Ambucare.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Ambucare.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Ambucare.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Ambucare.edmx.diagram">
+      <DependentUpon>Ambucare.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="Repository\Hospital\DAL\" />
+    <Folder Include="Repository\Hospital\Implementation\Report\" />
+    <Folder Include="Repository\Hospital\Implementation\Transaction\" />
+    <Folder Include="Repository\Hospital\Interface\Report\" />
+    <Folder Include="Repository\Hospital\Interface\Transaction\" />
+    <Folder Include="Views\Menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5887</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5887/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

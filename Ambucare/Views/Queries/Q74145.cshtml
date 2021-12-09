@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Q74145";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table#t01 tr td {
+        border: 1px solid black;
+        /*text-align: center !important;
+        padding-bottom: 5px !important;
+        padding-top: 5px !important;*/
+    }
+    table#t01 tr th {
+        border: 1px solid black;
+    }
+    /*table#t01 tr:hover {
+        background-color: #708090;
+    }*/
+    
+    .spn {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .Search {
+        background-size: 26px 23px;
+        background-color: transparent!important;
+    }
+</style>
+<script src="~/Apps/JSController/Query/Q74145Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74145Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+<!--For Calender-->
+
+
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+@*<script src="~/Scripts/angular/angular.min.js"></script>*@
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="Q74145Controller">
+
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="clear()"></button>
+        @*<button ID="btnPrint" ToolTip="Print" class="Button Print" ng-click="print()"></button>
+            <button ID="btnPrint2" ToolTip="Print" class="Button Print" ng-click="printBill()"></button>*@
+
+        <button ID="btnPrint4" ToolTip="Print" class="Button Print" ng-click="Disc_Report()" title="Discharge Report"></button>
+    </div>
+}
+
+
+<div ng-app="Ambucare" ng-controller="Q74145Controller">
+  
+            <table style="margin: auto; width: 550px;margin-top: 3%">
+                <tr>
+                    <td style="width: 50px;text-align: center"><label id="lblFromDate">From</label></td>
+                    <td style="width: 150px;text-align: left"><ng-datepicker id="dateFrom" ng-model="obj.T_FROM_DATE" name="dateFrom" type="text" view-format="DD/MM/YYYY">
+                        </ng-datepicker>
+
+                    </td>
+                    <td style="width: 50px;text-align: center"><label id="lblToDate">To</label></td>
+                    <td style="width: 150px;text-align: left">
+                        <ng-datepicker id="dateTo" ng-model="obj.T_TO_DATE" name="dateTo" type="text" view-format="DD/MM/YYYY">
+                        </ng-datepicker>
+                    </td>
+                    <td style="width: 150px;text-align: center">
+                        <button id="btnShow" class="Button Search" style="float: left; color: white; margin-left: 9px;" ng-click="getData()"></button>
+                    </td>
+
+                </tr>
+            </table>
+        
+
+    <table  id="t01"  style="width: 98%; margin: 1%">
+        <thead style="width: 100%">
+        <tr class="head-border" style=" color: white; text-align: center; width: 100%">
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestId'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 20%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblFullName'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 3%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAge'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 4%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGender'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 18%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChComp'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 13%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblProblem'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblProbDuration'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 7%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMobileno'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 20%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAddress'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 3%;text-align: center">Send</th>
+            <th style="width: 2%;text-align: center">Rept</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="D in obj.getAllAcceptRequestData |filter : Search |itemsPerPage:15 | orderBy:'-T_ENTRY_TIME'" class="activeHover" ng-class="{'selected':$index == selectedRow}" style="width: 100% !important; cursor: pointer;text-align: left; padding-left: 2px;">
+            <td style="width: 5%; text-align: center">{{D.T_REQUEST_ID}}</td>
+            <td style="width: 20%;padding: 4px" >{{D.FULLNAME}}</td>
+            <td style="width: 3%; text-align: center;">{{D.T_AGE}}</td>
+            <td style="width: 4%; text-align: center;">{{D.GENDER}}</td>
+            <td style="width: 18%;padding: 4px ">{{D.CHEIF_COMPLIANT}}</td>
+            <td style="width: 13%;padding: 4px ">{{D.T_PROBLEM}}</td>
+            <td style="width: 5%;padding: 4px ">{{D.T_PROBLEM_DURATION}}</td>
+            <td style="width: 7%;padding: 4px ">{{D.T_MOBILE_NO}}</td>
+            <td style="width: 20%;padding: 4px ">{{D.T_ADDRESS1}}</td>
+            <td style="width: 3%;"><img src="../Images/back.png" title="Send for Operation" style="height: 35px;cursor: pointer" ng-click="setClickedRow($index,D)"/></td>
+            <td style="width: 2%; "><img src="../Images/DischRpt.png" title="Discharge Report" style="height: 35px;cursor: pointer" ng-click="Disc_Report($index,D)" /></td>
+                
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

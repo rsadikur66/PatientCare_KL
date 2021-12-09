@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "T74144";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74144Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74144Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<style type="text/css">
+    .error {
+        color: red !important;
+    }
+</style>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74144Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()" ng-disabled="obj.myDiv.$invalid"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74144Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 div_back" style="margin: 1.6% auto; border: 1px solid #000000; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtSupplier" type="hidden" class="form-control" ng-model="obj.t74101.T_CANCEL_REASON_ID" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblEnglishName" style="float: right;" for="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtEnglishName" type="text" ng-model="obj.t74101.T_LANG2_NAME" style="width: 85%" next-focus tabindex="1" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblLocalName" style="float: right;" for="txtLocalName"ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtLocalName" type="text" ng-model="obj.t74101.T_LANG1_NAME" style="width: 85%" next-focus tabindex="2" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblType" style="float: right;" associatedcontrolid="txtEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblType'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.A.selected" on-select="check()" id="ddlAmbCapaCode" theme="select2" append-to-body="true" style="min-width: 153px; max-width: 180px;" next-focus tabindex="3" required>
+                                    <ui-select-match placeholder="Select">{{$select.selected.CancelText}}</ui-select-match>
+                                    <ui-select-choices repeat="A in cancelType | propsFilter: {CancelText: $select.search}">
+                                        <div ng-bind-html="A.CancelText | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                                <input type="text" id="ddlIAmbCapaCode" ng-model="obj.t74101.T_CANCEL_TYPE_ID" ng-bind="obj.t74101.T_CANCEL_TYPE_ID=obj.A.selected.CancelType" hidden/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8 ">
+            <center>
+             
+                <table class="div_back">
+                    <tr>
+                        <td>
+                            <div class="table-responsive ">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+               
+            </center>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

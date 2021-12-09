@@ -1,0 +1,131 @@
+﻿<style>
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {padding: 5px;}
+    table.dataTable thead th:nth-child(1),table.dataTable tbody td:nth-child(1),
+    table.dataTable thead th:nth-child(4),table.dataTable thead td:nth-child(4),
+    table.dataTable thead th:nth-child(6),table.dataTable thead td:nth-child(6) {
+        width: 8%;max-width: 8%;min-width: 8%;}
+    table.dataTable thead th:nth-child(2),table.dataTable tbody td:nth-child(2),
+    table.dataTable thead th:nth-child(3),table.dataTable thead td:nth-child(3){
+        width: 15%;max-width: 15%;min-width: 15%;}
+    table.dataTable thead th:nth-child(5),table.dataTable thead td:nth-child(5),
+    table.dataTable thead th:nth-child(7),table.dataTable thead td:nth-child(7) {
+        width: 23%;max-width: 23%;min-width: 23%;}
+
+    .col-lg-1 {
+        padding-right: 10px !important;
+    }
+</style>
+<div ng-app="Ambucare" ng-controller="T74044Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="col-lg-12 div_back borderColor" style="margin: 0.5% auto; padding: 0.5%">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 noLeftPadding crt">
+                <label id="lblStoreType" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreType'" class="ng-cloak" for="ddlStoreType">{{field.T_LANG2_TEXT}} </label>
+            </div>
+            <div class="col-lg-2 noPadding">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.A.selected" id="ddlStoreType" theme="select2" append-to-body="true" on-select="setStoreType($select.selected.T_STORE_TYPE_ID)" style="width: 100%" ng-required="obj.Required">
+                        <ui-select-match placeholder="Select">{{$select.selected.T_STORE_TYPE_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="A in StoreTypeList | propsFilter: {T_STORE_TYPE_ID: $select.search}">
+                            <div ng-bind-html="A.T_STORE_TYPE_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 noLeftPadding crt">
+                <label id="lblAmbReg" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAmbReg'" class="ng-cloak" for="ddlAmbReg">{{field.T_LANG2_TEXT}} </label>
+            </div>
+            <div class="col-lg-2 noPadding">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.R.selected" id="ddlAmbReg" theme="select2" append-to-body="true" on-select="setAmbReg($select.selected.T_AMBU_REG_ID)" style="width: 100%" ng-disabled="obj.Disabled" ng-required="obj.Required">
+                        <ui-select-match placeholder="Select">{{$select.selected.T_AMBU_REG_NUM}}</ui-select-match>
+                        <ui-select-choices repeat="R in AmbRegList | propsFilter: {T_AMBU_REG_ID: $select.search}">
+                            <div ng-bind-html="R.T_AMBU_REG_NUM | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+
+
+            <!--<div class="col-lg-1 crt">
+        <label id="lblMOHAmb" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMOHAmb'" class="ng-cloak" for="ddlMOHAmb">{{field.T_LANG2_TEXT}} </label>
+    </div>-->
+            <!--<div class="col-lg-1 noPadding">
+        <div class="ng-cloak select-box">
+            <ui-select ng-model="obj.T.selected" id="ddlMOHAmb" on-select="setTeamDesc($select.selected.T_TEAM_CODE)" theme="select2" append-to-body="true" style="width: 100%" ng-disabled="obj.Disabled" ng-required="obj.Required">
+                <ui-select-match placeholder="Select">{{$select.selected.T_TEAM_CODE}}</ui-select-match>
+                <ui-select-choices repeat="T in MohTeamList | propsFilter: {T_TEAM_CODE: $select.search}">
+                    <div ng-bind-html="T.T_TEAM_CODE | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>-->
+            <!--<div class="col-lg-3">
+        <input id="txtAmbName" ng-model="obj.T74044.TEAM_DESC" numbers-only class="form-control" type="text" name="inputName" ng-required="obj.Required" readonly/>
+    </div>-->
+            <!--<div class="col-lg-1 crt">
+        <label id="lblMOHStn" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMOHStn'" class="ng-cloak" for="lblMOHStn">{{field.T_LANG2_TEXT}} </label>
+    </div>
+    <div class="col-lg-1 noPadding">
+        <div class="ng-cloak select-box">
+            <ui-select ng-model="obj.S.selected" id="ddlMOHStn" on-select="setStationDesc($select.selected.T_STATION_CODE)" theme="select2" append-to-body="true" style="width: 100%" ng-disabled="obj.Disabled" ng-required="obj.Required">
+                <ui-select-match placeholder="Select">{{$select.selected.T_STATION_CODE}}</ui-select-match>
+                <ui-select-choices repeat="S in MohStationList | propsFilter: {T_STATION_CODE: $select.search}">
+                    <div ng-bind-html="S.T_STATION_CODE | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <input id="txtMOHStnDesc" ng-model="obj.T74044.STATION_DESC" numbers-only class="form-control" type="text" name="inputName" ng-required="obj.Required" readonly/>
+
+    </div>-->
+            <div class="col-lg-1 crt noLeftPadding">
+                <label id="lblAreaName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAreaName'" class="ng-cloak" for="txtAreaName">{{field.T_LANG2_TEXT}} </label>
+            </div>
+            <div class="col-lg-1 noPadding">
+                <input id="txtAreaName" ng-model="obj.T74044.T_AREA" numbers-only class="form-control" type="text" name="inputName" ng-required="obj.Required" />
+            </div>
+            <div class="col-lg-2 crt noLeftPadding" style="padding-left: 0px;">
+                <label id="lblEnglishName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+            </div>
+            <div class="col-lg-2" style="padding-left: 0px">
+                <input id="txtEnglishName" type="text" ng-model="obj.T74044.T_LANG2_NAME" class="form-control" ng-required="obj.Required" />
+            </div>
+            <div class="col-lg-1 noLeftPadding crt">
+                <label id="lblLocalName" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+            </div>
+            <div class="col-lg-2" style="padding-left: 0px">
+                <input id="txtLocalName" type="text" ng-model="obj.T74044.T_LANG1_NAME" class="form-control" ng-required="obj.Required" />
+            </div>   
+            
+
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          
+         
+        </div>
+    </div>
+    <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px">
+        <!--<div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">-->
+        <table style="margin: auto; width: 70%">
+            <tr>
+                <td>
+                    <div class="table-responsive div_back">
+                        <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstanceCallback" class="table table-hover" style="width: 100%; text-align: left"></table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!--</div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>-->
+    </div>
+</div>

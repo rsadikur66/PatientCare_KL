@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "R74120";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- For Js file link -->
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="~/Apps/JSController/Report/R74120Controller.js"></script>
+<script src="~/Apps/JSService/Report/R74120Service.js"></script>
+<!--For Calender-->
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+"
+      rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+<script src="~/Scripts/angular/angular.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<style>
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -12px;
+    }
+
+    fieldset {
+        border: 1px solid #A21217;
+        border-radius: 5px;
+        padding: 10px
+    }
+</style>
+
+
+
+
+
+<!-- For Button Section -->
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="R74120Controller">
+        <button id="btnPrint" tooltip="Print" class="Button Print" ng-click="Print(obj.t.selected.T_STORE_ID)"></button>
+    </div>
+}
+
+<!-- Start Main Container -->
+<div class="container" ng-app="Ambucare" ng-controller="R74120Controller">
+    <div class="row" style="padding-bottom: 8px">
+        <div id="store" ng-show="Div_store" class="col-lg-12 col-md-12 col-sm-12 ng-cloak" style="margin: 1.6% auto; padding: 10px; border-radius: 5px; border: 1px solid #A21217; height: 68px;">
+            <!--1st part start-->
+            <div class="row">
+                @*<div class="col-lg-3 col-md-3 col-sm-3"></div>*@
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="row text-center">
+                        <input  id="rdoReportStock" type="radio" ng-model="obj.redubaton" ng-click="store()" ng-value="'1'">
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRptStk'" class="ng-cloak" for="rdoReportStock">{{field.T_LANG2_TEXT}} </label>
+
+                        @*<input  id="rdoTransfer" type="radio" ng-model="obj.redubaton" ng-click="store()" ng-value="'2'"> 
+                        <label  ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTransfer'" class="ng-cloak" for="rdoTransfer">{{field.T_LANG2_TEXT}}</label>
+
+                        <input  id="rdoPrescription" type="radio" ng-model="obj.redubaton" ng-click="store()" ng-value="'3'"> 
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPrescription'" class="ng-cloak" for="rdoPrescription">{{field.T_LANG2_TEXT}}</label>
+
+                        <input  id="rdoBilling" type="radio" ng-model="obj.redubaton" ng-click="store()" ng-value="'4'"> 
+                        <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblBilling'" class="ng-cloak" for="rdoBilling">{{field.T_LANG2_TEXT}}</label>*@
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 ng-cloak">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <label id="lblStoreIdTo" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreIdTo'" class="ng-cloak" for="ddlStoreIdTo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="ng-cloak select-box" style="float: left">
+                            <ui-select ng-model="obj.t.selected" on-select="check()" id="ddlStoreIdTo" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 300px; max-width: 300px;">
+                                <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                <ui-select-choices repeat="t in StoreIdTo | propsFilter: {T_LANG2_NAME: $select.search}">
+                                    <div ng-bind-html="t.T_LANG2_NAME | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <input type="hidden" id="ddlIStoreIdTo" ng-model="obj.T_SEND_TO_STORE_ID" ng-bind="obj.T_SEND_TO_STORE_ID=obj.t.selected.T_STORE_ID" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <!--1st part End-->
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    <div id="patient" ng-show="Div_patient" class="col-lg-10 col-md-10 col-sm-10 ng-cloak" style="margin: 1.6% auto; padding: 10px;">
+        <div class="row col-lg-12 col-md-12 col-sm-12">
+            <div class="container col-lg-12 col-md-12 col-sm-12">
+                <fieldset>
+                    <legend style="text-align: center">Patient Info</legend>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-1 col-md-1 col-sm-1">
+                                        @*<label id="lblRequestId" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblRequestId'" for="txtRequestId">{{field.T_LANG2_TEXT}}</label>*@
+                                        <input id="txtRequestId" ng-model="obj.T_REQUEST_ID" type="hidden" style="width: 30%;" />
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label id="lblPatientName" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPatientName'" for="txtPatientName">{{field.T_LANG2_TEXT}}</label>
+                                        <input id="txtPatientName" ng-model="obj.PATIENT_NAME" type="text" style="width: 60%;" />
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label id="lblAddress" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAddress'" for="txtAddress">{{field.T_LANG2_TEXT}}</label>
+                                        <input id="txtAddress" ng-model="obj.T_ADDRESS2" type="text" style="width: 50%;" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <label id="lblAltMobile" style="margin-left: 11px" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblAltMobile'" for="txtAltMobile">{{field.T_LANG2_TEXT}}</label>
+                                        <input id="txtAltMobile" ng-model="obj.T_ALT_MOBILE_NO" type="text" style="width: 50%;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    <!--For Data Gridview start-->
+    <div class="row" ng-show="Div_patient">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstance" class="table" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+    <!--For Data Gridview End-->
+</div>
+
+

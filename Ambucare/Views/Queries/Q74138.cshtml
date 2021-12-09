@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Q74138";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /*table, tr, th, td {
+        border: 1px solid black;
+        text-align: center !important;
+        padding-bottom: 5px !important;
+        padding-top: 5px !important;
+    }*/
+
+    /*.selected {
+        background-color: #708090;
+        color: white;
+        font-weight: bold;
+    }*/
+
+    /*tr:hover {
+        background-color: #E17D7D;
+    }*/
+
+    .bt {
+        width: 100px;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #000;
+    }
+
+    .spann {
+        display: inline-block;
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .hos {
+        display: inline-block;
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .span {
+        display: inline-block;
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        text-align: left;
+        float: left;
+        margin-left: 8px;
+    }
+
+    .spn {
+        display: inline-block;
+        width: 40px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .start {
+        width: 600px !important;
+    }
+
+    .green {
+        background-color: #BCDAF9;
+        color: #000000;
+    }
+</style>
+
+<script src="~/Apps/JSController/Query/Q74138Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74138Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+<div id="options" ng-app="Ambucare" ng-controller="Q74138Controller">
+    @*<button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+    <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>
+    <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>*@
+</div>
+}
+<div ng-app="Ambucare" ng-controller="Q74138Controller">
+    <div class="col-lg-6 col-md-6 col-sm-6 div_back" style="margin-top: 20px">
+        <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <input type="text" style="float: right; width: 15%; height: 25px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+    </div>
+    <table class="border_table" arrow-selector style="width: 99% !important;">
+        <thead class="head-border">
+        <tr style="color: white; text-align: center; width: 100% !important">
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserId'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEntryDate'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEntryTime'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLATITUDE'" class="hidden">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLONGITUDE'" class="hidden">{{field.T_LANG2_TEXT}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="activeHover" dir-paginate="D in obj.getAllGridData |filter : Search |itemsPerPage:10 | orderBy:'-T_ENTRY_TIME'"  ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+            <td style="width: 5%;text-align: center">{{D.T_USER_ID}}</td>
+            <td style="width: 10%;text-align: center">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+            <td style="width: 10%;text-align: center">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.Address}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.T_LATITUDE}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.T_LONGITUDE}}</td>         
+        </tr>
+        </tbody>
+    </table>
+            <div></div>
+    <dir-pagination-controls style="margin-left: 25%" max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+
+            @*<div class="col-lg-12 col-md-12 col-sm-12">
+                <center>
+
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <div class="table-responsive">
+                                    <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover" style="width: 100%;"></table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>*@
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6" style="margin-top: 24px">
+
+        <div id="gmap" style="border: 1px solid #adadad; border-radius: 5px; margin: -5px -86px -11px 5px; width: 99% !important;">
+
+            <ng-map center="{{obj.T_LATITUDE}}, {{obj.T_LONGITUDE}}" zoom="15" style="height: 320px;">
+                <info-window id="myInfoWindow">
+                    <div ng-non-bindable class="ng-cloak">
+                        <span><b>Address:</b>{{obj.Address}}</span>
+                    </div>
+                </info-window>
+                <marker position="{{obj.T_LATITUDE}}, {{obj.T_LONGITUDE}}" on-click="showAddress()"></marker>
+
+            </ng-map>
+        </div>
+    </div> 
+
+
+</div>
+
+
+
+@*<div class="col-lg-12 col-md-12 col-sm-12">
+        <input type="text" style="float: right; width: 15%; height: 25px; margin-top: 10px; margin-bottom: 10px;" placeholder="Search...." class="form-control" ng-model="Search" />
+    </div>
+    <table arrow-selector style="width: 99% !important;">
+        <thead>
+        <tr style="background-color: #C12D2D; color: white; text-align: center; width: 100% !important">
+            <th style="width: 5%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUserId'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEntryDate'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEntryTime'">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLATITUDE'" class="hidden">{{field.T_LANG2_TEXT}}</th>
+            <th style="width: 10%;text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLONGITUDE'" class="hidden">{{field.T_LANG2_TEXT}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="D in obj.getAllGridData |filter : Search |itemsPerPage:10 | orderBy:'-T_ENTRY_TIME'"  ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,D)" style="width: 100% !important;">
+            <td style="width: 5%;text-align: center">{{D.T_USER_ID}}</td>
+            <td style="width: 10%;text-align: center">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"dd/MM/yy"}}</td>
+            <td style="width: 10%;text-align: center">{{D.T_ENTRY_TIME.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.Address}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.T_LATITUDE}}</td>
+            <td style="width: 10%;text-align: center" class="hidden">{{D.T_LONGITUDE}}</td>         
+        </tr>
+        </tbody>
+    </table>*@
+@*<div></div>
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>*@
+

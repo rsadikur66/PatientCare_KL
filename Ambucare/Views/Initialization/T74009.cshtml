@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "T74009";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Apps/JSController/Initialization/T74009Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74009Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74009Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74009Controller">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div></div>
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12" hidden>
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblMedicineTypeId" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMedicineTypeId'" class="ng-cloak" for="txtMedicineTypeId">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtMedicineTypeId" type="text" ng-model="obj.T_MEDIC_TYPE_ID" class="form-control" style="width: 45%" readonly="readonly" />
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblEnglishName" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblEnglishName'" class="ng-cloak" for="txtEnglishName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" ng-model="obj.T_LANG2_NAME" class="form-control" />
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblLocalName" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLocalName'" class="ng-cloak" for="txtLocalName">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" ng-model="obj.T_LANG1_NAME" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <label id="lblCompanyId" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCompanyId'" class="ng-cloak" for="txtCompanyId">{{field.T_LANG2_TEXT}} </label>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <input id="txtCompanyId" type="text" ng-model="obj.T_COMPANY_ID" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" width="600px" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table table-hover"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
+    </div>
+</div>

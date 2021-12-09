@@ -1,0 +1,321 @@
+﻿
+@{
+    ViewBag.Title = "T74004";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .error {
+        color: red !important;
+    }
+
+    </style>
+
+<script src="~/Apps/JSController/Initialization/T74004Controller.js"></script>
+<script src="~/Apps/JSService/Initialization/T74004Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74004Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        @*<button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>*@
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear_Click()"></button>
+        <button ID="btnNext" ToolTip="NextBlock" class="Button Next"></button>
+        @*<input id="btnNext" ToolTip="NextBlock" type="button" name="btnse" class="Button Next" ng-click="NextClick()"/>*@
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74004Controller" name="obj.myDiv" novalidate ng-form>
+<div class="row" style="padding-bottom: 8px">
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 1px solid #c12d2d; border-radius: 5px; padding-bottom: 10px; width: 97%; margin-left: 1.5%;">
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <input type="hidden" id="EmpID" ng-model="obj.T_EMP_ID" />
+    <div class="row" style="padding-top: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblFNameEnglish" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblFNameEnglish'" class="ng-cloak" for="txtFNameEnglish" style="float: right;">{{field.T_LANG2_TEXT}}</label> 
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtFNameEnglish" type="text" ng-model="obj.T_FIRST_LANG2_NAME" style="width: 96%;" next-focus tabindex="1" required /><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblEmployeeNo" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblEmployeeNo'" class="ng-cloak" for="txtSiteNo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtEmployeeNo" type="text" ng-model="obj.T_EMP_NO" style="width: 96%;" next-focus tabindex="4" required/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblMobileNo" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblMobileNo'" class="ng-cloak" for="txtMobileNo" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtMobileNo" type="text" ng-model="obj.T_MOBILE_NO" style="width: 96%;" next-focus tabindex="7" required numbers-only/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblReligion" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblReligion'" class="ng-cloak" for="ddlReligion" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.R.selected" id="ddlReligion" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="10" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="R in ReligionList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="R.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlReligionCode" ng-model="obj.T_RLGN_CODE" ng-bind="obj.T_RLGN_CODE=obj.R.selected.T_RLGN_CODE" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblGender" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblGender'" class="ng-cloak" for="ddlGender" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.G.selected" id="ddlGenderId" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="13" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="G in Gender | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="G.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlGender" ng-model="obj.T_SEX_CODE" ng-bind="obj.T_SEX_CODE=obj.G.selected.T_SEX_CODE" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <!--<label id="lblFirstNameLocal" ng-repeat="field in entity track by $index"
+                           ng-if="field.T_LABEL_NAME=='lblFirstNameLocal'" class="ng-cloak" associatedcontrolid="txtFirstNameLocal">{{field.T_LANG2_TEXT}}</label>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtFirstNameLocal" type="text" ng-bind="obj.T_FIRST_LANG1_NAME=obj.T_FIRST_LANG2_NAME" ng-model="obj.T_FIRST_LANG1_NAME" style="width: 100%;" hidden />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="row" style="padding-top: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblFaNameEnglish" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblFaNameEnglish'" class="ng-cloak" for="txtFaNameEnglish" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtFaNameEnglish" type="text" ng-model="obj.T_FATHER_LANG2_NAME" style="width:96%;" next-focus tabindex="2" required/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblAddress" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblAddress'" class="ng-cloak" for="txtAddress" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+                <!--<label id="lblEmailID" ng-repeat="field in entity track by $index"
+                           ng-if="field.T_LABEL_NAME=='lblEmailID'" class="ng-cloak" for="txtÈmailID" style="float: right;">{{field.T_LANG2_TEXT}}</label>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtAddress" type="text" ng-model="obj.T_ADDRESS2" style="width: 96%;" next-focus tabindex="5" required/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                <input id="txtAddressLocal" type="text" ng-bind="obj.T_ADDRESS1=obj.T_ADDRESS2" ng-model="obj.T_ADDRESS2" style="width: 100%;" hidden />
+                <!--<input id="txtÈmailID" type="text" ng-model="obj.T_EMAIL_ID" style="width: 100%;" next-focus tabindex="6"/>-->
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblNationalityCode" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblNationalityCode'" class="ng-cloak" for="txtNationalityCode" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.N.selected" id="ddlNationality" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="8" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="N in NationalityList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="N.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlNationalityCode" ng-model="obj.T_NTNLTY_ID" ng-bind="obj.T_NTNLTY_ID=obj.N.selected.T_NTNLTY_ID" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblMRStatus" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblMRStatus'" class="ng-cloak" for="ddlMaritalStatus" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.M.selected" id="ddlMaritalStatus" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="11" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="M in MaritalList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="M.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select> <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlVerbalCode" ng-model="obj.T_MRTL_STATUS_CODE" ng-bind="obj.T_MRTL_STATUS_CODE=obj.M.selected.T_MRTL_STATUS_CODE" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <!--<label id="lblFaNameLocal" ng-repeat="field in entity track by $index"
+                           ng-if="field.T_LABEL_NAME=='lblFaNameLocal'" class="ng-cloak" for="txtFaNameLocal" style="float: right;">{{field.T_LANG2_TEXT}}</label>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtFaNameLocal" type="text" ng-bind="obj.T_FATHER_LANG1_NAME=obj.T_FATHER_LANG2_NAME" ng-model="obj.T_FATHER_LANG1_NAME" style="width: 100%;" hidden />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblInactiveFlag" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblInactiveFlag'" class="ng-cloak" for="chkInactiveFlag" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input type="hidden" id="chkInactive" ng-model="obj.T_INACTIVE_FLAG" ng-bind="obj.T_INACTIVE_FLAG=Chk.Inactive" />
+                <input id="chkInactiveFlag" ng-model="Chk.Inactive"
+                       name="string"
+                       ng-true-value="'1'"
+                       ng-false-value="'2'"
+                       ng-change="string" type="checkbox" next-focus tabindex="14"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="row" style=" padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <!--<label id="lblGFNameLocal" ng-repeat="field in entity track by $index"
+                           ng-if="field.T_LABEL_NAME=='lblGFNameLocal'" class="ng-cloak" for="txtGFNameLocal" style="float: right;">{{field.T_LANG2_TEXT}}</label>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtGFNameLocal" type="text" ng-bind="obj.T_GFATHER_LANG1_NAME=obj.T_GFATHER_LANG2_NAME" ng-model="obj.T_GFATHER_LANG1_NAME" style="width: 100%;" hidden />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblGFNameEnglish" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblGFNameEnglish'" class="ng-cloak" for="txtGFNameEnglish" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtGFNameEnglish" type="text" ng-model="obj.T_GFATHER_LANG2_NAME" style="width: 96%;" next-focus tabindex="3" required/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style=" padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblEmailID" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblEmailID'" class="ng-cloak" for="txtÈmailID" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <input id="txtÈmailID" type="text" ng-model="obj.T_EMAIL_ID" style="width: 96%;" next-focus tabindex="6" required/><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblBloodGrp" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblBloodGrp'" class="ng-cloak" for="ddlBloodGroup" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.B.selected" id="ddlBloodGroup" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="9" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_BLOOD_GORUP}}</ui-select-match>
+                        <ui-select-choices repeat="B in BloodGruopList | propsFilter: {T_BLOOD_GORUP: $select.search}">
+                            <div ng-bind-html="B.T_BLOOD_GORUP | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select><span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlBloodGruop" ng-model="obj.T_BLD_GROUP_ID" ng-bind="obj.T_BLD_GROUP_ID=obj.B.selected.T_BLD_GROUP_ID" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <label id="lblEmployeeType" ng-repeat="field in entity track by $index"
+                       ng-if="field.T_LABEL_NAME=='lblEmployeeType'" class="ng-cloak" for="ddlEmployeeType" style="float: right;">{{field.T_LANG2_TEXT}}</label>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="ng-cloak select-box">
+                    <ui-select ng-model="obj.EM.selected" id="ddlEmployeeType" theme="select2" ng-disabled="obj.disabled" append-to-body="true" style="min-width: 157px;" next-focus tabindex="12" required>
+                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                        <ui-select-choices repeat="EM in EmployeeTypeList | propsFilter: {T_LANG2_NAME: $select.search}">
+                            <div ng-bind-html="EM.T_LANG2_NAME | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>
+                    <input type="hidden" id="ddlEmpeType" ng-model="obj.T_EMP_TYP_ID" ng-bind="obj.T_EMP_TYP_ID=obj.EM.selected.T_EMP_TYP_ID" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <!--<label id="lblEmployeeNo" ng-repeat="field in entity track by $index"
+                           ng-if="field.T_LABEL_NAME=='lblEmployeeNo'" class="ng-cloak" for="txtSiteNo" style="float: right;">{{field.T_LANG2_TEXT}}</label>-->
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <!--<input id="txtEmployeeNo" type="text" ng-model="obj.T_EMP_NO" style="width: 100%;" hidden/>-->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" class="table" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+    <!--For Data Gridview End-->
+</div>
+</div>
+</div>

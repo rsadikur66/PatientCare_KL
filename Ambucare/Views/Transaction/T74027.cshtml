@@ -1,0 +1,230 @@
+﻿@{
+    ViewBag.Title = "T74027";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .ng-datepicker-input {
+        width: 90px;
+        text-align: center;
+    }
+
+    .select2-container .select2-choice {
+        width: 170px;
+    }
+</style>
+
+<script src="~/Apps/JSController/Transaction/T74027Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74027Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<!--<script src="../../Apps/JSFactory/Transaction/AmbulanceFactory.js"></script>-->
+<script src="../../Apps/JSService/Transaction/T74114Service.js"></script>
+<script src="../../Apps/JSFactory/Transaction/T74114ItemTypeFactory.js"></script>
+<script src="../../Apps/JSFactory/Transaction/T74114ItemNameFactory.js"></script>
+<script src="../../Apps/JSFactory/Transaction/T74027Item_UOM_ListFactory.js"></script>
+
+<!--For Calender-->
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+<script src="~/Scripts/angular/angular.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74027Controller">
+        <button id="btnSave" tooltip="Save" class="Button Save" ng-click="Save_Click(subForm)"></button>
+        <button id="btnDelete" tooltip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button id="btnClear" tooltip="Clear" class="Button Clear" ng-click="Clear()"></button>
+        <button id="btnPrint" tooltip="Print" class="Button Print" ng-click="Print(obj.C.selected.T_COMPANY_ID,obj.M.selected.T_STORE_ID)"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74027Controller">
+
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="border-radius: 5px; padding: 10px">
+            <div class="row" style="margin: 1.0% auto; border: 1px solid #A21217; border-radius: 5px; padding: 10px; width: 100%;">
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            <label id="lblUpdate" for="ChkUpdate" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblUpdate'" class="ng-cloak" text="" style="float: right">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <input type="checkbox" id="chkUpdate{{$index}}" ng-model="obj.Update" ng-true-value="'1'" ng-false-value="'2'" ng-click="Update_Click($index)">
+                            <input type="hidden" id="chktextBox{{$index}}" ng-model="obj.UpdateBox" ng-bind="obj.UpdateBox = obj.Update">
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            <label id="lblCompanyId" for="ddlCompanyId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCompanyId'" class="ng-cloak" text="" style="float: right">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <!--Dropdownlist Company start-->
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.C.selected" id="ddlCompanyId" name='ddlCompanyId' theme="select2" style="min-width: 170px; width: 170px; margin-left: 15px;" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="C in compId | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="C.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input style="width: 160px" id="ddlICompanyId" ng-model="obj.T_COMPANY_ID" class="hidden" ng-bind="obj.T_COMPANY_ID = obj.C.selected.T_COMPANY_ID" />
+                            </div>
+                            <!--Dropdownlist Company End-->
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 87px">
+                            <label id="lblStoreId" for="ddlStoreId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreId'" class="ng-cloak" text="" style="float: right">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <!--Searchable Dropdownlist store start-->
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.M.selected" id="ddlStoreId{{$index}}" on-select="CheckGridAllData(obj.M.selected)" name='ddlStoreId' theme="select2" style="min-width: 170px; width: 170px; margin-left: 15px;" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="M in storesId | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="M.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input id="ddlIStoreId{{$index}}" ng-model="obj.T_STORE_ID" class="hidden" ng-bind="obj.T_STORE_ID = obj.M.selected.T_STORE_ID" style="width: 160px"/>
+                            </div>
+                            <!--Searchable Dropdownlist store start-->
+                        </div>
+
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            <label id="lblSupplierId" for="ddlSupplierId" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSupplierId'" class="ng-cloak" text="" style="float: right">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <!--Dropdownlist Supplier start-->
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.F.selected" id="ddlSupplierId"  theme="select2" style="min-width: 170px; width: 170px; margin-left: 15px;" append-to-body="true">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat="F in supplierId | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="F.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input style="width: 160px" id="ddlISupplierId{{index}}" ng-model="obj.T_SUPPLIER_ID" class="hidden" ng-bind="obj.T_SUPPLIER_ID = obj.F.selected.T_SUPPLIER_ID" />
+                                
+                                @*<ui-select ng-model="obj.k.selected" id="ddlAmbName" theme="select2" style="min-width: 135px; width: 135px; margin-left: 15px;" append-to-body="true" on-select="onAmbSearch(obj.k.selected.latitude,obj.k.selected.longitude)" uiSelectCloseOnTab tabindex="15">
+                                    <ui-select-match placeholder="Select">{{$select.selected.AMB_CAPASITY}}</ui-select-match>
+                                    <ui-select-choices repeat="k in places | propsFilter: {AMB_CAPASITY: $select.search}">
+                                        <div ng-bind-html="k.AMB_CAPASITY | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>*@
+                            </div>
+                        </div>
+                        <!--Dropdownlist Supplier End-->
+
+                        <div class="col-lg-1 col-md-1 col-sm-1" style="width: 100px">
+                            <label id="lblStockDate" for="dateStock" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStockDate'" class="ng-cloak" text="">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div style="width: 100%">
+                                @*For Calender ng-datepicker*@
+                                <ng-datepicker ng-model="obj.T_STOCK_DATE" id="dateStock" name="stockDate" type="text" view-format="DD/MM/YYYY">
+                                </ng-datepicker>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--2nd part start-->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" class="col-lg-12 col-md-12 col-sm-12" style="border: 1px solid #c12d2d; border-radius: 5px; padding: 10px; width: 100%; margin: 1.0% auto">
+                    <div>
+                        <table class="table table-bordered" style="margin: 5px auto">
+                            <thead style="text-align: center">
+                                <tr style="background-color: #c12d2d; color: #ffffff;">
+
+                                    <th bgcolor="#c12d2d" style="color: #ffffff">
+                                        <!--<input type="button" style="background: url(../Images/Plus_white.png); background-size: 15px;  background-repeat: no-repeat; background-position: center; width: 90%; height: 90%; float: right; margin: 5px; align-content: right;border-color: #c12d2d" ng-click="Addrow()" />-->
+                                        <input type="button" style="background: url(../Images/Plus_white.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; height: 15px; border-color: #c12d2d" ng-click="Addrow()" />
+                                    </th>
+                                    <th style="text-align: center; width: 8%">Item Type</th>
+                                    <th style="text-align: center; width: 15%">Item</th>
+                                    <th style="text-align: center; width: 8%">P. Size</th>
+                                    <th style="text-align: center; width: 8%">Batch</th>
+                                    <th style="text-align: center; width: 8%">Lot</th>
+                                    <th style="text-align: center; width: 8%">MFG. Date</th>
+                                    <th style="text-align: center; width: 8%">EXP. Date</th>
+                                    <th style="text-align: center; width: 8%">Stock Qty</th>
+                                    <th style="text-align: center; width: 8%">Unit value</th>
+                                    <th style="text-align: center; width: 8%">Tran Qty</th>
+                                    <th style="text-align: center; width: 15%">Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in obj.stockInfo">
+                                    <td style="text-align: center">
+                                        <input type="button" style="background: url(../Images/Reject.jpg); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; height: 15px;" ng-click="RemoveRow($index)" />
+                                    </td>
+
+                                    <!--POP UP item/Product Type start-->
+                                    <td ng-click="ItemTypeList($index)" style="width: 8%">
+                                        <label id="txtItemType{{$index}}" class="ng-cloak">{{obj.T_LANG2_NAME}}</label>
+                                    </td>
+                                    <!--POP UP item/ProductType End-->
+
+                                    <!--POP UP ITEM NAME -->
+                                    <td style="width: 15%" ng-click="ItemName($index,'T74027')">
+                                        <label id="ItemName{{$index}}" on-select="stock()" style="width: 100%" class="ng-cloak">{{obj.CostType}}</label>
+                                    </td>
+                                    <!--POP UP UM NAME -->
+                                    <td style="width: 8%" ng-click="ItemUOMname($index)">
+                                        <label id="ItemUOMName{{$index}}" class="ng-cloak" style="width: 100%">{{obj.UomName}}</label>
+                                    </td>
+                                    <td style="width: 8%">
+                                        <input type="text" style="width: 50px" class="form-control" name="batchNo" id="txtBatchNo" ng-click="checkItemUM($index,obj.T_ITEM_UM_ID,obj.T_ITEM_ID)" ng-model="obj.T_BATCH" />
+
+                                    </td>
+                                    <td style="width: 8%">
+                                        <input type="text" style="width: 50px" class="form-control" name="lotNo" id="txtLotNo" ng-model="obj.T_LOT_NO">
+                                    </td>
+                                    <td style="width: 9%">@*For Calender ng-datepicker*@
+                                    <ng-datepicker ng-model="obj.T_MF_DATE" id="ManufacDate" name="manufacDate" type="text" style="width: 100%" view-format="DD/MM/YYYY"></ng-datepicker>
+                                    </td>
+                                    <td style="width: 9%">@*For Calender ng-datepicker*@
+                                    <ng-datepicker ng-model="obj.T_EXPIRE_DATE" id="ExpireDate" name="expireDate" type="text" view-format="DD/MM/YYYY">
+                                    </ng-datepicker>
+                                    </td>
+                                    <td style="width: 8%">
+                                        <input type="text" name="PurchaseQuantity" style="width: 66px" class="form-control" ng-model="obj.T_PURCHASE_QTY">
+                                    </td>
+                                    <td style="width: 8%">
+                                        <input type="text" id="txtUnitValue" name="UnitValue" style="width: 67px" ng-model="obj.T_UNIT_VALUE" class="form-control" ng-keyup="obj.T_TOTAL_VALUE=obj.T_UNIT_VALUE*obj.T_TRNSACTION_QTY" />
+                                    </td>
+                                    <td style="width: 8%">
+                                        <input type="text" name="TransactionQuantity" class="form-control" style="width: 57px" ng-model="obj.T_TRNSACTION_QTY" ng-keyup="obj.T_TOTAL_VALUE=obj.T_UNIT_VALUE*obj.T_TRNSACTION_QTY">
+                                    </td>
+                                    <td>
+                                        <label class="ng-cloak" style="width: 20%">{{obj.T_TOTAL_VALUE}}</label>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 ">
+                                            <label id="txtTypeId{{$index}}" class="ng-cloak hidden">{{obj.T_COST_TYPE_ID}}</label>
+                                            <label id="txtItemId{{$index}}" class="ng-cloak hidden">{{obj.T_ITEM_ID}}</label>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label id="txtItemUOMId{{$index}}" class="ng-cloak hidden">{{obj.T_ITEM_UM_ID}}</label>
+                                            <label id="txtCurStock{{$index}}" class="ng-cloak hidden" ng-model="obj.T_CUR_STOCK_ID">{{obj.T_ITEM_UM_ID}}</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--2nd part end-->
+        </div>
+    </div>
+</div>

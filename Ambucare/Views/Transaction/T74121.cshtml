@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "T74121";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+</style>
+
+
+
+<script src="~/Apps/JSController/Transaction/T74121Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74121Service.js"></script>
+<script src="~/Apps/JSFactory/Transaction/T74121GenFactory.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74121Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+@*<button ID="btnSave" type="submit" Tooltip="Save" class="Button Save"></button>*@
+
+
+<div class="container" ng-app="Ambucare" ng-controller="T74121Controller">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border: 2px solid #E17D7D; border-radius: 5px">
+                    <input id="hidden" class="hidden" type="text" ng-model="obj.Hidden" style="width: 80%" />
+                    
+                    <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblType" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblType'" for="Type"> {{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="ng-cloak select-box">
+                                    <ui-select ng-model="obj.T.selected" id="Type" theme="select2" ng-change="Type_Click(obj.T.selected.T_COST_TYPE_ID)" ng-disabled="obj.disabled" append-to-body="true" style="width: 80%; ">
+                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                        <ui-select-choices repeat=" T in TypeList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                            <div ng-bind-html="T.T_LANG2_NAME | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <input type="hidden" id="ddlNationalityCode" ng-model="obj.T_COST_TYPE_ID" ng-bind="obj.T_COST_TYPE_ID=obj.T.selected.T_COST_TYPE_ID" />
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="Div_Generic" class="row ng-cloak" ng-show="Generic">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblGenCode" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGenCode'" for="txtGeneric">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtGeneric" type="text" readonly="readonly" ng-model="obj.GEN_DESC" ng-click="Generic_Click('Generic')" style="width: 80%" />
+                                <input id="txtGenCode" type="hidden" ng-model="obj.GEN_CODE" style="width: 80%" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblPercentage" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPercentage'" for="txtSetProfitValue"> {{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input id="txtSetProfitValue" type="number" ng-model="obj.SetProfitValue" style="width: 80%" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <label id="lblChkPriceSet" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblChkPriceSet'" for="chkPriceSet">{{field.T_LANG2_TEXT}}</label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <input type="checkbox" id="chkPriceSet" ng-model="obj.ChekPriceSet" ng-true-value="'1'" ng-false-value="'2'" ng-click="SetPrice_Click()" ng-disabled="obj.SetProfitValue == '' ">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 ng-cloak" ng-show="Phar_List">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <div>
+                <input type="text" style="float: right; width: 30%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search" />
+            </div>
+            <table class=" table table-bordered" arrow-selector>
+                <tr style="background-color: #C12D2D; color: white; text-align: center">
+                    @*<td class="Hidden">{{$index}}</td>*@
+                    @*<th >cstTy</th>*@
+                    <th>Item ID </th>
+                    <th> Item Name</th>
+                    <th style="width: 300px"> UM  </th>
+
+                </tr>
+                <tr dir-paginate="Z in obj.ProductList |filter : Search |itemsPerPage:5 |orderBy:'T_ITEM_ID'" ng-class="{'selected':$index == selectedRow}">
+                    <td class="Hidden">{{Z.T_COST_TYPE_DTL_ID}}</td>
+                    <td>{{Z.T_ITEM_ID}}</td>
+                    @*<td >{{Z.TYPE_NAME}}</td>*@
+                    <td>{{Z.ITEM_NAME}}</td>
+                    <td ng-init="ParentIn = $index">
+                        <div>
+                            <table style="width: 300px" id="tbl{{ParentIn}}">
+                                <thead style="text-align: center;display:table; width:100%;">
+                                    <tr style="background-color: #C12D2D; color: white; text-align: center">
+                                        @*<th>Ind</th>*@
+                                        @*<th style="width: 40px"> Chk</th>*@
+                                        <th style="width: 60px"> Pk Size</th>
+                                        <th style="width: 80px">Pur Price</th>
+                                        <th style="width: 80px">Sale Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="height:100px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="obj in Z.PList" style="display:table;width:100%;	table-layout:fixed;" ng-click="setClickedRow(ParentIn,$index,obj)">
+                                        @*<td ng-show="tIn === ParentIn">{{tIn}}{{$index}}</td>*@
+                                        <td style="width: 40px" >
+                                            @*ng-click="RowChk_Click(Z.T_ITEM_ID,obj.T_ITEM_UM_ID)"*@
+                                            <input type="checkbox" id="chkRowPrice{{Z.T_ITEM_ID}}{{obj.T_ITEM_UM_ID}}" ng-click="RowChk_Click(Z.T_ITEM_ID,obj.T_ITEM_UM_ID)" ng-model="obj.chkRowPrice" ng-true-value="'1'" ng-false-value="'2'">
+                                        </td>
+                                        <td style="width: 90px">
+                                            <span>{{obj.PACK_SIZE}}</span>
+                                            <input type="hidden" id="Um{{$index}}" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_ITEM_UM_ID">
+                                        </td>
+                                        <td>
+                                            <span id="PurPrice{{$index}}">{{obj.PUR_PRICE}}</span>
+                                        </td>
+                                        <td >
+                                            @*ng-keyup="SalePrice_Click(obj.SALE_PRICE,Z.T_ITEM_ID,obj.T_ITEM_UM_ID)"*@
+                                            <input type="number" id="inputPrice{{Z.T_ITEM_ID}}{{obj.T_ITEM_UM_ID}}" name="SalePrice" readonly="readonly" ng-model="obj.SALE_PRICE" style="width: 60px">
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </td>
+                    @*<td style="width: 100%">{{Z.T_LANG2_NAME}}</td>*@
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="5"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 ng-cloak" ng-show="ItemType_List">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <div>
+                <input type="text" style="float: right; width: 30%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search" />
+            </div>
+            <table class=" table table-bordered" arrow-selector>
+                <tr style="background-color: #C12D2D; color: white; text-align: center">
+                    @*<td class="Hidden">{{$index}}</td>*@
+                    <th>Item ID </th>
+                    <th>Type Name</th>
+                    <th> Name</th>
+                    <th ng-show="obj.T.selected.T_COST_TYPE_ID==123 ||obj.T.selected.T_COST_TYPE_ID==124 ||obj.T.selected.T_COST_TYPE_ID==121 ||obj.T.selected.T_COST_TYPE_ID==21 ||obj.T.selected.T_COST_TYPE_ID==22">Um</th>
+                    <th> Pre Price  </th>
+                    <th> Curr Price  </th>
+                </tr>
+                <tr dir-paginate="item in obj.ItemTypeList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_DESI_ID'" ng-class="{'selected':$index == selectedRow}">
+                    <td>{{item.Type_ID}}</td>
+                    <td>{{item.Type_NAME}}</td>
+                    <td>{{item.Item_Name}}</td>
+                    <td ng-show="obj.T.selected.T_COST_TYPE_ID==123 ||obj.T.selected.T_COST_TYPE_ID==124 ||obj.T.selected.T_COST_TYPE_ID==121 ||obj.T.selected.T_COST_TYPE_ID==21 ||obj.T.selected.T_COST_TYPE_ID==22">{{item.T_LANG2_NAME}}
+                    <input type="text" class="hidden" ng-model="item.T_ITEM_UM_ID"/>
+                    </td>
+                    <td>{{item.Pre_Price}}</td>
+                    <td>
+                        <input type="number" id="currentPrice" name="SalePrice" ng-model="item.Curr_Price" style="width: 100px">
+                    </td>
+
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="5"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,1790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T02003">
+    <Key>
+      <PropertyRef Name="T_NTNLTY_ID" />
+    </Key>
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_NTNLTY_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_X_LANG1_NAME_SHRT" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_HL7_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_PRIM_LANG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SECOND_LANG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG_LABEL1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG_LABEL2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_NTNLTY_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_PHONE_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T02040">
+    <Key>
+      <PropertyRef Name="T_SPCLTY_ID" />
+    </Key>
+    <Property Name="T_SPCLTY_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_SPCLTY_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_MAIN_SPCLTY" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTIVE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T02064">
+    <Key>
+      <PropertyRef Name="T_ZONE_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_ZONE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_SL_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_CITY_NAME" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T02065">
+    <Key>
+      <PropertyRef Name="T_SITE_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_ZONE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_PERCENT" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_RECEIPT_ORDER_NO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="T_MUDIRIA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_BANK_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_BANK_ACC_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_INITIAL_BALANCE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_BALANCE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_LATITUDE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="T_LONGITUDE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="T_EXPENSE_RECEIVE_INTERVAL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_PREVENTFLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SPECIAL_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_REFERRAL_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T06301">
+    <Key>
+      <PropertyRef Name="T_ICD10_CODE" />
+    </Key>
+    <Property Name="T_ICD10_MAIN_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_SUB_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_LONG_DESC2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_LONG_DESC1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_SHORT_DESC2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_SHORT_DESC1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_LEVEL" Type="Int32" />
+    <Property Name="T_ICD10_SEX_BOUNDS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_DIAG_BOUNDS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_CODE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T30010">
+    <Key>
+      <PropertyRef Name="T_DOSE_DURATION_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_DOSE_DURATION_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_QTY" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T30209">
+    <Key>
+      <PropertyRef Name="T_FREQUENCY_CODE" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_FREQUENCY_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_QTY_MON" Type="Int16" />
+    <Property Name="T_FREQUENCY" Type="Int16" />
+    <Property Name="T_TIME_DAILY_SH_DESC" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_HR_GAP" Type="Byte" />
+  </EntityType>
+  <EntityType Name="T74000">
+    <Key>
+      <PropertyRef Name="T_LABEL_ID" />
+    </Key>
+    <Property Name="T_LABEL_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_FORM_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="T_LABEL_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_TEXT" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="T_LANG2_TEXT" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74001">
+    <Key>
+      <PropertyRef Name="T_ITEM_ID" />
+    </Key>
+    <Property Name="T_ITEM_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_ITEM_BRA_ID" Type="Int16" />
+    <Property Name="T_TYPE_ID" Type="Int32" />
+    <Property Name="T_ITEM_UM_ID" Type="Int32" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ITEM_PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74002">
+    <Key>
+      <PropertyRef Name="T_ITEM_BRA_ID" />
+    </Key>
+    <Property Name="T_ITEM_BRA_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74003">
+    <Key>
+      <PropertyRef Name="T_ITEM_UM_ID" />
+    </Key>
+    <Property Name="T_ITEM_UM_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_TYPE_ID" Type="Int32" />
+    <Property Name="T_PCK_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_QTY" Type="Int16" />
+  </EntityType>
+  <EntityType Name="T74005">
+    <Key>
+      <PropertyRef Name="T_EMP_TYP_ID" />
+    </Key>
+    <Property Name="T_EMP_TYP_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74006">
+    <Key>
+      <PropertyRef Name="T_EMP_DESI_ID" />
+    </Key>
+    <Property Name="T_EMP_DESI_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74008">
+    <Key>
+      <PropertyRef Name="T_TYPE_ID" />
+    </Key>
+    <Property Name="T_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74009">
+    <Key>
+      <PropertyRef Name="T_MEDIC_TYPE_ID" />
+    </Key>
+    <Property Name="T_MEDIC_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74010">
+    <Key>
+      <PropertyRef Name="T_SUPPLI_ID" />
+    </Key>
+    <Property Name="T_SUPPLI_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74011">
+    <Key>
+      <PropertyRef Name="T_ITEM_COLOR_ID" />
+    </Key>
+    <Property Name="T_ITEM_COLOR_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74012">
+    <Key>
+      <PropertyRef Name="T_DETAIL_ID" />
+    </Key>
+    <Property Name="T_DETAIL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_SITE_NO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_USER_ID" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74013">
+    <Key>
+      <PropertyRef Name="T_BILL_ID" />
+    </Key>
+    <Property Name="T_BILL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74014">
+    <Key>
+      <PropertyRef Name="T_AMBU_REG_ID" />
+    </Key>
+    <Property Name="T_AMBU_REG_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_CHASIS_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENGINE_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_WEIGHT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_REG_IMAGE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_BARCODE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_YEAR_MODEL" Type="Int16" />
+    <Property Name="T_ITEM_COLOR_ID" Type="Int16" />
+    <Property Name="T_AMB_TYPE_ID" Type="Int16" />
+    <Property Name="T_BRAND_ID" Type="Int16" />
+    <Property Name="T_REG_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_AMBU_REG_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_SERIES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74016">
+    <Key>
+      <PropertyRef Name="T_CURRENCY_ID" />
+    </Key>
+    <Property Name="T_CURRENCY_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_CURRENCY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74017">
+    <Key>
+      <PropertyRef Name="T_AMBU_OWN_TYPE_ID" />
+    </Key>
+    <Property Name="T_AMBU_OWN_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74018">
+    <Key>
+      <PropertyRef Name="T_ID" />
+    </Key>
+    <Property Name="T_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COST_TYPE_ID" Type="Int32" />
+    <Property Name="T_AMOUNT" Type="Int32" />
+    <Property Name="T_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTIVE" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74019">
+    <Key>
+      <PropertyRef Name="T_JOB_TYPE_ID" />
+    </Key>
+    <Property Name="T_JOB_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74020">
+    <Key>
+      <PropertyRef Name="T_DOC_SPECI_ID" />
+    </Key>
+    <Property Name="T_DOC_SPECI_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_SPCLTY_CODE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74021">
+    <Key>
+      <PropertyRef Name="T_DOC_DEPT_ID" />
+    </Key>
+    <Property Name="T_DOC_DEPT_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74022">
+    <Key>
+      <PropertyRef Name="T_DOC_DEGREE_ID" />
+    </Key>
+    <Property Name="T_DOC_DEGREE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74023">
+    <Key>
+      <PropertyRef Name="T_EDU_BOARD_ID" />
+    </Key>
+    <Property Name="T_EDU_BOARD_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_DOC_DEGREE_ID" Type="Int32" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74024">
+    <Key>
+      <PropertyRef Name="T_RESULT_TYP_ID" />
+    </Key>
+    <Property Name="T_RESULT_TYP_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74025">
+    <Key>
+      <PropertyRef Name="T_USER_TYPE_ID" />
+    </Key>
+    <Property Name="T_USER_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_TYPE_NAME1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_TYPE_NAME2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74026">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_LATITUDE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_LONGITUDE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_DEVICES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_EVENT_ID" Type="Byte" />
+  </EntityType>
+  <EntityType Name="T74027">
+    <Key>
+      <PropertyRef Name="T_CUR_STOCK_ID" />
+    </Key>
+    <Property Name="T_CUR_STOCK_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_UNIT_VALUE" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="T_PURCHASE_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_TRNSACTION_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_STORE_ID" Type="Int32" />
+    <Property Name="T_STOCK_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_ENTRY_USER_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE_" Type="DateTime" />
+    <Property Name="T_UPD_USER_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE_" Type="DateTime" />
+    <Property Name="T_EXPIRE_DATE" Type="DateTime" />
+    <Property Name="T_MF_DATE" Type="DateTime" />
+    <Property Name="T_PR_RCV_DTL_ID" Type="Int64" />
+    <Property Name="T_STOCK_TYPE_ID" Type="Int32" />
+    <Property Name="T_LOT_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_BATCH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_ITEM_UM_ID" Type="Int32" />
+    <NavigationProperty Name="T74037" Relationship="Model.T74037_FK2" FromRole="T74027" ToRole="T74037" />
+  </EntityType>
+  <EntityType Name="T74030">
+    <Key>
+      <PropertyRef Name="T_PUR_ID" />
+    </Key>
+    <Property Name="T_PUR_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+    <Property Name="T_STORE_ID" Type="Int32" />
+    <Property Name="T_PUR_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PUR_REQ_DATE" Type="DateTime" />
+    <Property Name="T_EXP_DLVRY_DATE" Type="DateTime" />
+    <Property Name="T_ISSUE_STATUS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74031">
+    <Key>
+      <PropertyRef Name="T_PUR_DTL_ID" />
+    </Key>
+    <Property Name="T_PUR_DTL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_PUR_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_ITEM_UM_ID" Type="Int32" />
+    <Property Name="T_PUR_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_RCV_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_PRIORITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ISSUE_STS_DTL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74035">
+    <Key>
+      <PropertyRef Name="T_DEPET_ID" />
+    </Key>
+    <Property Name="T_DEPET_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74038">
+    <Key>
+      <PropertyRef Name="T_SERV_CHARG_ID" />
+    </Key>
+    <Property Name="T_SERV_CHARG_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74039">
+    <Key>
+      <PropertyRef Name="T_PRESCRIPTION_ID" />
+    </Key>
+    <Property Name="T_PRESCRIPTION_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_DOC_ID" Type="Int32" />
+    <Property Name="T_REMARKS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74040">
+    <Key>
+      <PropertyRef Name="T_PRSCRPTN_DTL_ID" />
+    </Key>
+    <Property Name="T_PRSCRPTN_DTL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_PRESCRIPTION_ID" Type="Int32" />
+    <Property Name="T_ITEM_CODE" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="T_TRADE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_GEN_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_REQUEST_STRENGTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_FORM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_DRUG_ROUTE_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_MORNING_DOSE_UNIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_NOON_DOSE_UNIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_NIGHT_DOSE_UNIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_MEAL_INSTRUCTION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_INS_TIME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_SATURDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SUNDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_MONDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_TUESDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_WEDNESDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_THURSDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_FRIDAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_REMARKS_DTL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="T_FREQUENCY_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_FREQUENCY_INS_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_DOSE_DURATION_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_DOSE_DURATION_INS_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_DRUG_INACTIVE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74045">
+    <Key>
+      <PropertyRef Name="T_SUPPLIER_ID" />
+    </Key>
+    <Property Name="T_SUPPLIER_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PRES_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PER_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOBILE_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMAIL_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74046">
+    <Key>
+      <PropertyRef Name="T_PAT_ID" />
+    </Key>
+    <Property Name="T_PAT_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_PAT_NO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_BIRTH_DATE" Type="DateTime" />
+    <Property Name="T_MRTL_STATUS" Type="Int16" />
+    <Property Name="T_FATHER_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_FATHER_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_GFATHER_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_GFATHER_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOTHER_LANG1_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOTHER_LANG2_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="T_NTNLTY_ID" Type="Int16" />
+    <Property Name="T_PASSPORT_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE_HOME" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE_WORK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOBILE_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_POSTAL_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADDRESS1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADDRESS2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_RLGN_CODE" Type="Int16" />
+    <Property Name="T_SEX_CODE" Type="Int32" />
+    <Property Name="T_BLD_GRP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_JOB_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_SPONSR_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_BALANCE_AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_NEW_PATNO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_PAT_TYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_FORM_NAME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_SMOKER_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_CNCL_NTNLTY_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMAIL_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_INACTIVE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SKIN_COLOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_NAME1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_NAME2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_EMP_DESI_ID" Type="Int32" />
+    <Property Name="T_OFFICE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_NATIONAL_ID" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="T_FAMILY_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_FAMILY_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_ALT_MOBILE_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_IDENTITY_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SOCIAL_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74047">
+    <Key>
+      <PropertyRef Name="T_AMBU_TYPE_ID" />
+    </Key>
+    <Property Name="T_AMBU_TYPE_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74048">
+    <Key>
+      <PropertyRef Name="T_SL_REQ_ID" />
+    </Key>
+    <Property Name="T_SL_REQ_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_STR_FR_ID" Type="Int32" />
+    <Property Name="T_STR_TO_ID" Type="Int32" />
+    <Property Name="T_SL_REQ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SL_REQ_DATE" Type="DateTime" />
+    <Property Name="T_SL_REQ_STATUS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_EXP_DLVRY_DATE" Type="DateTime" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+    <Property Name="T_REQ_PERSON_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74049">
+    <Key>
+      <PropertyRef Name="T_SL_REQ_DTL_ID" />
+    </Key>
+    <Property Name="T_SL_REQ_DTL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_SL_REQ_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_ITEM_UM_ID" Type="Int32" />
+    <Property Name="T_SL_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_RCV_QTY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_PRIORITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SL_STS_DTL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74050">
+    <Key>
+      <PropertyRef Name="T_SEX_CODE" />
+    </Key>
+    <Property Name="T_SEX_CODE" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SHORT_GNDR_NAME" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74051">
+    <Key>
+      <PropertyRef Name="T_MRTL_STATUS_CODE" />
+    </Key>
+    <Property Name="T_MRTL_STATUS_CODE" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74052">
+    <Key>
+      <PropertyRef Name="T_ZONE_CODE" />
+    </Key>
+    <Property Name="T_ZONE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_SL_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74053">
+    <Key>
+      <PropertyRef Name="T_SITE_NO" />
+    </Key>
+    <Property Name="T_SITE_NO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_ZONE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_CONTACT_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_CONTACT_MOBILE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_URL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_LATITUDE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="T_LONGITUDE" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="T_MUDIRIA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_IMPLEMENTATION_YEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_PRIVATE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74054">
+    <Key>
+      <PropertyRef Name="T_COMPANY_ID" />
+    </Key>
+    <Property Name="T_COMPANY_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_ADRS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_ADRS_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_WEB_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74055">
+    <Key>
+      <PropertyRef Name="T_CH_COMP" />
+    </Key>
+    <Property Name="T_CH_COMP" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74056">
+    <Key>
+      <PropertyRef Name="T_TRIAGE_SEQ" />
+    </Key>
+    <Property Name="T_TRIAGE_SEQ" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74057">
+    <Key>
+      <PropertyRef Name="T_USER_ID" />
+    </Key>
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTIVE_FLAG" Type="Byte" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SITE_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_LOGIN_STATUS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_ROLE_CODE" Type="Int16" />
+    <Property Name="T_ZONE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74058">
+    <Key>
+      <PropertyRef Name="T_NTNLTY_ID" />
+    </Key>
+    <Property Name="T_NTNLTY_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME_SHRT" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_HL7_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_PRIM_LANG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_SECOND_LANG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG_LABEL1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG_LABEL2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74059">
+    <Key>
+      <PropertyRef Name="T_RLGN_CODE" />
+    </Key>
+    <Property Name="T_RLGN_CODE" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_HL7_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74060">
+    <Key>
+      <PropertyRef Name="T_PR_RCV_ID" />
+    </Key>
+    <Property Name="T_PR_RCV_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_PR_RCV_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PR_ID" Type="Int32" />
+    <Property Name="T_RCV_UNIT_NO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_CHALLAN_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_RECEIVE_DATE" Type="DateTime" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_BILL_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_BILL_DATE" Type="DateTime" />
+    <Property Name="T_DISCOUNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="T_DISCOUNT_PERCENT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCOUNT_AMOUNT" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VLU_AFTER_DISC" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_GRAND_TOTAL_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_REMARKS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_VAT" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_RECEIVE_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTUAL_DELIVERY_DATE" Type="DateTime" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+    <Property Name="T_CURRENCY_CONVERSION_TK" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_LC_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LC_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74061">
+    <Key>
+      <PropertyRef Name="T_PR_RCV_DTL_ID" />
+    </Key>
+    <Property Name="T_PR_RCV_DTL_ID" Type="Int64" Nullable="false" />
+    <Property Name="T_PR_RCV_ID" Type="Int32" />
+    <Property Name="T_PR_DETAIL_ID" Type="Int64" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_UOM_DETAILS_ID" Type="Int32" />
+    <Property Name="T_UOM_ID" Type="Int32" />
+    <Property Name="T_RCV_QTY" Type="Int32" />
+    <Property Name="T_UNIT_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_WARRANTY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_WARRANTY_START" Type="DateTime" />
+    <Property Name="T_WARRANTY_END" Type="DateTime" />
+    <Property Name="T_CURRENCY" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_MANUFACTURE_DATE" Type="DateTime" />
+    <Property Name="T_EXPIRE_DATE" Type="DateTime" />
+    <Property Name="T_LOT_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_BATCH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_COUNTRY_ID" Type="Int32" />
+    <Property Name="T_OTHERS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74066">
+    <Key>
+      <PropertyRef Name="T_FORM_CODE_ID" />
+    </Key>
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_FORM_CODE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_VERSION_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_REPORT_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_FORM_TYPE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_FORM_CODE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_INACTIVE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_PAGE_TYPE_ID" Type="Byte" />
+    <Property Name="T_ORDER" Type="Byte" />
+    <Property Name="T_TYPE" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="T_ROLE_CODE" Type="Int16" />
+  </EntityType>
+  <EntityType Name="T74068">
+    <Key>
+      <PropertyRef Name="T_MSG_CODE" />
+    </Key>
+    <Property Name="T_MSG_CODE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="T_LANG1_MSG" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_MSG" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74069">
+    <Key>
+      <PropertyRef Name="T_BLD_GROUP_ID" />
+    </Key>
+    <Property Name="T_BLD_GROUP_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_SHOT_DESC1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_SHOT_DESC2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_BLOOD_GORUP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74070">
+    <Key>
+      <PropertyRef Name="T_FORM_TYPE_ID" />
+    </Key>
+    <Property Name="T_FORM_TYPE_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74072">
+    <Key>
+      <PropertyRef Name="T_COST_TYPE_ID" />
+    </Key>
+    <Property Name="T_COST_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_ITEM_TYPE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74073">
+    <Key>
+      <PropertyRef Name="T_COST_TYPE_DTL_ID" />
+    </Key>
+    <Property Name="T_COST_TYPE_DTL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COST_TYPE_ID" Type="Int32" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_INCHARGABLE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_ACTIVE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_ID" Type="Int32" />
+    <Property Name="T_FORM_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74074">
+    <Key>
+      <PropertyRef Name="T_BILL_ID" />
+    </Key>
+    <Property Name="T_BILL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_ISSUE_ID" Type="Int32" />
+    <Property Name="T_TOTAL_PRICE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74075">
+    <Key>
+      <PropertyRef Name="T_FREQUENCY_CODE" />
+    </Key>
+    <Property Name="T_FREQUENCY_CODE" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74077">
+    <Key>
+      <PropertyRef Name="T_PROB_TYPE_ID" />
+    </Key>
+    <Property Name="T_PROB_TYPE_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_LOG" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LOG_B64" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74078">
+    <Key>
+      <PropertyRef Name="T_DIAGONOSIS_ID" />
+    </Key>
+    <Property Name="T_DIAGONOSIS_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_PRESCRIPTION_ID" Type="Int32" />
+    <Property Name="T_REPORT_DELIVERY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_PRICE" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="T_VAT" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="T_DISCOUNT" Type="Decimal" Precision="9" Scale="4" />
+  </EntityType>
+  <EntityType Name="T74079">
+    <Key>
+      <PropertyRef Name="T_BILL_DTL_ID" />
+    </Key>
+    <Property Name="T_BILL_DTL_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_BILL_ID" Type="Int32" />
+    <Property Name="T_DIAGONOSIS_ID" Type="Int32" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="Int32" />
+    <Property Name="T_PRICE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_VAT" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="T_DISCOUNT" Type="Decimal" Precision="9" Scale="4" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_TIME" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74080">
+    <Key>
+      <PropertyRef Name="T_TRANSFER_REQ_ID" />
+    </Key>
+    <Property Name="T_TRANSFER_REQ_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_TRANSFER_REQ_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ISSUE_ID" Type="Int32" />
+    <Property Name="T_REQ_DATE" Type="DateTime" />
+    <Property Name="T_REQ_SET_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_REQ_SET_BY_STORE_ID" Type="Int32" />
+    <Property Name="T_REQ_SEND_TO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_SEND_TO_STORE_ID" Type="Int32" />
+    <Property Name="T_TRANSFER_FOR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_TRANSFER_DELIVERY_METHOD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_IS_ACTIVE" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_IS_APPROVED" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74081">
+    <Key>
+      <PropertyRef Name="T_TRANSFER_REQ_DTL_ID" />
+    </Key>
+    <Property Name="T_TRANSFER_REQ_DTL_ID" Type="Int64" Nullable="false" />
+    <Property Name="T_TRANSFER_REQ_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_TRANSFER_QTY" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="T_UOM_ID" Type="Int32" />
+    <Property Name="T_CUR_STOCK_ID" Type="Int32" />
+    <Property Name="T_RECEIVE_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UNIT_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_OTHERS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_TRANSFER_PRORITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LOT_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_BATCH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74084">
+    <Key>
+      <PropertyRef Name="T_TRNS_RCV_ID" />
+    </Key>
+    <Property Name="T_TRNS_RCV_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_TRNS_RCV_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_RCV_DATE" Type="DateTime" />
+    <Property Name="T_RCV_FRM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_RCV_FRM_STR_ID" Type="Int32" />
+    <Property Name="T_RCV_TO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_RCV_TO_STR_ID" Type="Int32" />
+    <Property Name="T_RCV_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_IS_APPROVED" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+    <Property Name="T_UNIT_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_TOTAL_VALUE" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_CONVERTION_VALUE_TK" Type="Decimal" Precision="12" Scale="4" />
+    <Property Name="T_LOT_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_BATCH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_COUNTRY_ID" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_TRANSFER_REQ_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74085">
+    <Key>
+      <PropertyRef Name="T_TRNS_RCV_DTL_ID" />
+    </Key>
+    <Property Name="T_TRNS_RCV_DTL_ID" Type="Int64" Nullable="false" />
+    <Property Name="T_TRNS_RCV_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_TRNS_QTY" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="T_UOM_ID" Type="Int32" />
+    <Property Name="T_CUR_STOCK_ID" Type="Int32" />
+    <Property Name="T_SUPPLIER_ID" Type="Int32" />
+    <Property Name="T_RCV_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_OTHERS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_IS_ACTIVE" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_TRANSFER_REQ_DTL_ID" Type="Int64" />
+  </EntityType>
+  <EntityType Name="T74089">
+    <Key>
+      <PropertyRef Name="T_PRICE_ID" />
+    </Key>
+    <Property Name="T_PRICE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COST_TYPE_DTL_ID" Type="Int32" />
+    <Property Name="T_PUR_PRICE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_SALE_PRICE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_ITEM_UM_ID" Type="Int32" />
+    <Property Name="T_RET_PRCNTG" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="T_INCRS_DCRS_PRCNTG" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_ACTIVE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74090">
+    <Key>
+      <PropertyRef Name="T_PAGE_TYPE_ID" />
+    </Key>
+    <Property Name="T_PAGE_TYPE_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74093">
+    <Key>
+      <PropertyRef Name="T_ITEM_ID" />
+    </Key>
+    <Property Name="T_ITEM_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_BARCODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_REGI_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_MODEL_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENGIN_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_CHESES_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74094">
+    <Key>
+      <PropertyRef Name="T_ORDER_ID" />
+    </Key>
+    <Property Name="T_ORDER_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_ORDER_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_REGI_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ISSUE_ID" Type="Int32" />
+    <Property Name="T_PROB_DES_LANG1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROB_DES_LANG2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROB_ISSUE_DATE" Type="DateTime" />
+    <Property Name="T_DEL_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_ENGIN_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74095">
+    <Key>
+      <PropertyRef Name="T_PROB_DET_ID" />
+    </Key>
+    <Property Name="T_PROB_DET_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_ORDER_ID" Type="Int32" />
+    <Property Name="T_PROB_DELT_LANG1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROB_DELT_LANG2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_APR_DELV_DATE" Type="DateTime" />
+    <Property Name="T_REPAIR_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_REPAIR_INST_DELT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_REPAIR_DATE" Type="DateTime" />
+    <Property Name="T_REPAIRER_ID" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74096">
+    <Key>
+      <PropertyRef Name="T_PER_ID" />
+    </Key>
+    <Property Name="T_PER_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_SITE_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTIVE" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="T_AMBU_REG_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T74097">
+    <Key>
+      <PropertyRef Name="T_ADVICE_ID" />
+    </Key>
+    <Property Name="T_ADVICE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74098">
+    <Key>
+      <PropertyRef Name="T_AUTO_ID" />
+    </Key>
+    <Property Name="T_AUTO_ID" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="T_SENDER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_RECIEVER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_SENDER_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_TEXT" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="T_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_REF_ID" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="T_FILE_LOC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_RECEIVED_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74101">
+    <Key>
+      <PropertyRef Name="T_CANCEL_REASON_ID" />
+    </Key>
+    <Property Name="T_CANCEL_REASON_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_CANCEL_TYPE_ID" Type="Byte" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74104">
+    <Key>
+      <PropertyRef Name="T_DISCH_ID" />
+    </Key>
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCH_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74M01">
+    <Key>
+      <PropertyRef Name="T_USER_ID" />
+    </Key>
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_PASSWORD" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_USER_TYPE" Type="Int32" />
+    <Property Name="T_IS_ACTIVE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_IS_ONLINE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="T_ROLE_CODE" Type="Int16" />
+  </EntityType>
+  <EntityContainer Name="AmbucareContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T02003" EntityType="Self.T02003" />
+    <EntitySet Name="T02040" EntityType="Self.T02040" />
+    <EntitySet Name="T02064" EntityType="Self.T02064" />
+    <EntitySet Name="T02065" EntityType="Self.T02065" />
+    <EntitySet Name="T06301" EntityType="Self.T06301" />
+    <EntitySet Name="T30010" EntityType="Self.T30010" />
+    <EntitySet Name="T30209" EntityType="Self.T30209" />
+    <EntitySet Name="T74000" EntityType="Self.T74000" />
+    <EntitySet Name="T74001" EntityType="Self.T74001" />
+    <EntitySet Name="T74002" EntityType="Self.T74002" />
+    <EntitySet Name="T74003" EntityType="Self.T74003" />
+    <EntitySet Name="T74005" EntityType="Self.T74005" />
+    <EntitySet Name="T74006" EntityType="Self.T74006" />
+    <EntitySet Name="T74008" EntityType="Self.T74008" />
+    <EntitySet Name="T74009" EntityType="Self.T74009" />
+    <EntitySet Name="T74010" EntityType="Self.T74010" />
+    <EntitySet Name="T74011" EntityType="Self.T74011" />
+    <EntitySet Name="T74012" EntityType="Self.T74012" />
+    <EntitySet Name="T74013" EntityType="Self.T74013" />
+    <EntitySet Name="T74014" EntityType="Self.T74014" />
+    <EntitySet Name="T74016" EntityType="Self.T74016" />
+    <EntitySet Name="T74017" EntityType="Self.T74017" />
+    <EntitySet Name="T74018" EntityType="Self.T74018" />
+    <EntitySet Name="T74019" EntityType="Self.T74019" />
+    <EntitySet Name="T74020" EntityType="Self.T74020" />
+    <EntitySet Name="T74021" EntityType="Self.T74021" />
+    <EntitySet Name="T74022" EntityType="Self.T74022" />
+    <EntitySet Name="T74023" EntityType="Self.T74023" />
+    <EntitySet Name="T74024" EntityType="Self.T74024" />
+    <EntitySet Name="T74025" EntityType="Self.T74025" />
+    <EntitySet Name="T74026" EntityType="Self.T74026" />
+    <EntitySet Name="T74027" EntityType="Self.T74027" />
+    <EntitySet Name="T74030" EntityType="Self.T74030" />
+    <EntitySet Name="T74031" EntityType="Self.T74031" />
+    <EntitySet Name="T74035" EntityType="Self.T74035" />
+    <EntitySet Name="T74038" EntityType="Self.T74038" />
+    <EntitySet Name="T74039" EntityType="Self.T74039" />
+    <EntitySet Name="T74040" EntityType="Self.T74040" />
+    <EntitySet Name="T74045" EntityType="Self.T74045" />
+    <EntitySet Name="T74046" EntityType="Self.T74046" />
+    <EntitySet Name="T74047" EntityType="Self.T74047" />
+    <EntitySet Name="T74048" EntityType="Self.T74048" />
+    <EntitySet Name="T74049" EntityType="Self.T74049" />
+    <EntitySet Name="T74050" EntityType="Self.T74050" />
+    <EntitySet Name="T74051" EntityType="Self.T74051" />
+    <EntitySet Name="T74052" EntityType="Self.T74052" />
+    <EntitySet Name="T74053" EntityType="Self.T74053" />
+    <EntitySet Name="T74054" EntityType="Self.T74054" />
+    <EntitySet Name="T74055" EntityType="Self.T74055" />
+    <EntitySet Name="T74056" EntityType="Self.T74056" />
+    <EntitySet Name="T74057" EntityType="Self.T74057" />
+    <EntitySet Name="T74058" EntityType="Self.T74058" />
+    <EntitySet Name="T74059" EntityType="Self.T74059" />
+    <EntitySet Name="T74060" EntityType="Self.T74060" />
+    <EntitySet Name="T74061" EntityType="Self.T74061" />
+    <EntitySet Name="T74066" EntityType="Self.T74066" />
+    <EntitySet Name="T74068" EntityType="Self.T74068" />
+    <EntitySet Name="T74069" EntityType="Self.T74069" />
+    <EntitySet Name="T74070" EntityType="Self.T74070" />
+    <EntitySet Name="T74072" EntityType="Self.T74072" />
+    <EntitySet Name="T74073" EntityType="Self.T74073" />
+    <EntitySet Name="T74074" EntityType="Self.T74074" />
+    <EntitySet Name="T74075" EntityType="Self.T74075" />
+    <EntitySet Name="T74077" EntityType="Self.T74077" />
+    <EntitySet Name="T74078" EntityType="Self.T74078" />
+    <EntitySet Name="T74079" EntityType="Self.T74079" />
+    <EntitySet Name="T74080" EntityType="Self.T74080" />
+    <EntitySet Name="T74081" EntityType="Self.T74081" />
+    <EntitySet Name="T74084" EntityType="Self.T74084" />
+    <EntitySet Name="T74085" EntityType="Self.T74085" />
+    <EntitySet Name="T74089" EntityType="Self.T74089" />
+    <EntitySet Name="T74090" EntityType="Self.T74090" />
+    <EntitySet Name="T74093" EntityType="Self.T74093" />
+    <EntitySet Name="T74094" EntityType="Self.T74094" />
+    <EntitySet Name="T74095" EntityType="Self.T74095" />
+    <EntitySet Name="T74096" EntityType="Self.T74096" />
+    <EntitySet Name="T74097" EntityType="Self.T74097" />
+    <EntitySet Name="T74098" EntityType="Self.T74098" />
+    <EntitySet Name="T74101" EntityType="Self.T74101" />
+    <EntitySet Name="T74104" EntityType="Self.T74104" />
+    <EntitySet Name="T74M01" EntityType="Self.T74M01" />
+    <EntitySet Name="T74028" EntityType="Model.T74028" />
+    <EntitySet Name="T74102" EntityType="Model.T74102" />
+    <EntitySet Name="T74036" EntityType="Model.T74036" />
+    <EntitySet Name="T74037" EntityType="Model.T74037" />
+    <AssociationSet Name="T74037_FK2" Association="Model.T74037_FK2">
+      <End Role="T74027" EntitySet="T74027" />
+      <End Role="T74037" EntitySet="T74037" />
+    </AssociationSet>
+    <AssociationSet Name="T74037_FK1" Association="Model.T74037_FK1">
+      <End Role="T74036" EntitySet="T74036" />
+      <End Role="T74037" EntitySet="T74037" />
+    </AssociationSet>
+    <EntitySet Name="T74004" EntityType="Model.T74004" />
+    <EntitySet Name="T74015" EntityType="Model.T74015" />
+    <EntitySet Name="T74041" EntityType="Model.T74041" />
+    <EntitySet Name="T74120" EntityType="Model.T74120" />
+    <EntitySet Name="T74121" EntityType="Model.T74121" />
+    <EntitySet Name="T74044" EntityType="Model.T74044" />
+    <EntitySet Name="T74043" EntityType="Model.T74043" />
+    <EntitySet Name="T74071" EntityType="Model.T74071" />
+  </EntityContainer>
+  <EntityType Name="T74028">
+    <Key>
+      <PropertyRef Name="T_PUR_REQ_ID" />
+    </Key>
+    <Property Name="T_PUR_REQ_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_USER_ID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="T_PURCHASE_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_PURCHASE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74102">
+    <Key>
+      <PropertyRef Name="T_GCS_ID" />
+    </Key>
+    <Property Name="T_GCS_ID" Type="Byte" Nullable="false" />
+    <Property Name="T_GCS_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_GCS_VALUE" Type="Byte" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74036">
+    <Key>
+      <PropertyRef Name="T_ISSUE_ID" />
+    </Key>
+    <Property Name="T_ISSUE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_ISSUE_DATE" Type="DateTime" />
+    <Property Name="T_PAT_NO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_DOC_CODE" Type="Int32" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_PRSCRPTN_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE_" Type="DateTime" />
+    <Property Name="T_UPD_USER_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE_" Type="DateTime" />
+    <Property Name="T_CURRENCY_ID" Type="Int32" />
+    <Property Name="T_SL_REQ_ID" Type="Int32" />
+    <Property Name="T_STORE_ID" Type="Int32" />
+    <Property Name="T_DISCOUNT" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="T_TOTAL" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_VAT" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="T_GRAND_TOTAL" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_ISSUED_BY" Type="Int32" />
+    <Property Name="T_DIS_AMOUNT" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_ENTRY_TIME" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T74037" Relationship="Model.T74037_FK1" FromRole="T74036" ToRole="T74037" />
+  </EntityType>
+  <EntityType Name="T74037">
+    <Key>
+      <PropertyRef Name="T_ISSUE_DTL_ID" />
+    </Key>
+    <Property Name="T_ISSUE_DTL_ID" Type="Int64" Nullable="false" />
+    <Property Name="T_ISSUE_ID" Type="Int32" />
+    <Property Name="T_CUR_STOCK_ID" Type="Int32" />
+    <Property Name="T_ITEM_ID" Type="Int32" />
+    <Property Name="T_QUANTITY" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_EXPIRE_DATE" Type="DateTime" />
+    <Property Name="T_UOM_ID" Type="Int32" />
+    <Property Name="T_SALE_PRICE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE_" Type="DateTime" />
+    <Property Name="T_UPD_USER_" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE_" Type="DateTime" />
+    <Property Name="T_TOTAL_AMOUNT" Type="Decimal" Precision="12" Scale="3" />
+    <Property Name="T_SL_REQ_DTL_ID" Type="Int32" />
+    <Property Name="T_PCS_BOX" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="T_DISCOUNT" Type="Decimal" Precision="5" Scale="2" />
+    <NavigationProperty Name="T74027" Relationship="Model.T74037_FK2" FromRole="T74037" ToRole="T74027" />
+    <NavigationProperty Name="T74036" Relationship="Model.T74037_FK1" FromRole="T74037" ToRole="T74036" />
+  </EntityType>
+  <Association Name="T74037_FK2">
+    <End Type="Model.T74027" Role="T74027" Multiplicity="0..1" />
+    <End Type="Model.T74037" Role="T74037" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T74027">
+        <PropertyRef Name="T_CUR_STOCK_ID" />
+      </Principal>
+      <Dependent Role="T74037">
+        <PropertyRef Name="T_CUR_STOCK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="T74037_FK1">
+    <End Type="Model.T74036" Role="T74036" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.T74037" Role="T74037" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T74036">
+        <PropertyRef Name="T_ISSUE_ID" />
+      </Principal>
+      <Dependent Role="T74037">
+        <PropertyRef Name="T_ISSUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T74004">
+    <Key>
+      <PropertyRef Name="T_EMP_ID" />
+    </Key>
+    <Property Name="T_EMP_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_EMP_NO" Type="Int32" />
+    <Property Name="T_BIRTH_DATE" Type="DateTime" />
+    <Property Name="T_MRTL_STATUS_CODE" Type="Int16" />
+    <Property Name="T_FAMILY_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_FAMILY_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_FATHER_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_FATHER_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_GFATHER_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_GFATHER_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOTHER_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOTHER_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_NTNLTY_ID" Type="Int16" />
+    <Property Name="T_PASSPORT_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE_HOME" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHONE_WORK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOBILE_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_POSTAL_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADDRESS1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADDRESS2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_RLGN_CODE" Type="Int16" />
+    <Property Name="T_SEX_CODE" Type="Int32" />
+    <Property Name="T_COMPANY_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_BLD_GROUP_ID" Type="Int16" />
+    <Property Name="T_IP_EPISODES" Type="Int16" />
+    <Property Name="T_SPONSR_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_SMOKER_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMP_LANG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_INACTIVE_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_POLICY_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACCEPTED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_REF_LETTER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_SKIN_COLOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISTINCTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="T_FILE_INACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_LAST_LANG1_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_LAST_LANG2_NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_EMAIL_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_BALANCE_AMOUNT" Type="Int32" />
+    <Property Name="T_EMP_DEATH" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_EMP_TYP_ID" Type="Int32" />
+    <Property Name="T_DOC_DEPT_ID" Type="Int32" />
+    <Property Name="T_DOC_DEGREE_ID" Type="Int32" />
+    <Property Name="T_DOC_SPECI_ID" Type="Int32" />
+    <Property Name="T_EMP_STATUS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74015">
+    <Key>
+      <PropertyRef Name="T_EMP_ASSIGN_ID" />
+    </Key>
+    <Property Name="T_EMP_ASSIGN_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_EMP_ID" Type="Int32" />
+    <Property Name="T_AMBU_REG_ID" Type="Int32" />
+    <Property Name="T_ASSIGN_PRICE" Type="Int32" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_ACTIVE_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_ASSIGN_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74041">
+    <Key>
+      <PropertyRef Name="T_REQUEST_ID" />
+    </Key>
+    <Property Name="T_REQUEST_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_COMPANY_ID" Type="Int32" />
+    <Property Name="T_PAT_ID" Type="Int32" />
+    <Property Name="T_USER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ALLERGY_CODE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_ARRIVAL_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_CH_COMP" Type="Int32" />
+    <Property Name="T_DISCH_RSN_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCHARGE_DOC_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCH_DEST" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADMIT_DOC_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_TRIAGE_CONDITION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_REQUEST_DATE" Type="DateTime" />
+    <Property Name="T_REQUEST_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_EPISODE_NO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROBLEM" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROBLEM_DURATION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SMOKING" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_PREGNANCY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_TRAUMA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCH_RSN_REMARKS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_EPISODE_END_TIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCH_STATUS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_DISCHARGE_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_DISCHARGE_DATE" Type="DateTime" />
+    <Property Name="T_COMMENTS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_RED_CRESCENT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ELIGIBLE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_PHYSICAL_EXAM" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROVISIONAL_DIAG" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="T_INVESTIGATIONS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="T_SEEN_DATE" Type="DateTime" />
+    <Property Name="T_SEEN_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_TRIAGE_OUT_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_LATITUDE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="T_LONGITUDE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_APPRX_TIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_APPRX_DIST" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROB_TYPE_ID" Type="Int16" />
+    <Property Name="T_PROB_DETAILS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_AMBU_REG_ID" Type="Int32" />
+    <Property Name="T_AGE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_CANCEL_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_CANCEL_REASON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_ICD10_CODE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="T_ASSIGN_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_ACCEPT_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_REFER_SITE_DOC" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_REFER_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_ACCEPT_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_REF_DOC_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_REF_DOC_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_SITE_DIS_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_START_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_CHAT_DOC_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_CHAT_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_REF_ID" Type="Int32" />
+    <Property Name="T_TEAM_SITE_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_DOC_REQ_ACPT_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_MAP_LOC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_CAN_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_TRIAGE_LEVEL" Type="Byte" />
+    <Property Name="T_EYE_OPEN" Type="Byte" />
+    <Property Name="T_BEST_MOTOR" Type="Byte" />
+    <Property Name="T_VERBAL_RESPONSE" Type="Byte" />
+    <Property Name="T_OPER_CNCL_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_OPER_CNCL_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_OPER_DES_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="T_OPER_DES_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_OPER_ACPT_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_TEAM_ARVL_HOS" Type="DateTime" Precision="6" />
+    <Property Name="T_TEAM_DEPT_HOS" Type="DateTime" Precision="6" />
+    <Property Name="T_TEAM_ARVL_STN" Type="DateTime" Precision="6" />
+    <Property Name="T_PANIC_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_CASE_ARRIVAL" Type="DateTime" Precision="6" />
+    <Property Name="T_EVENT_FLAG" Type="Byte" />
+    <Property Name="T_RDY_FOR_NXT_PAT" Type="DateTime" Precision="6" />
+    <Property Name="T_PAT_REQ_CNCL" Type="DateTime" Precision="6" />
+    <Property Name="T_VERIFY_DISCHARGE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_REMARKS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_PROTOCAL_NO" Type="Int64" />
+    <Property Name="T_CLIT_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PUPILLER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ACTV_OPER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_CALLER_ID" Type="Int64" />
+    <Property Name="T_CALL_REASON_ID" Type="Int16" />
+  </EntityType>
+  <EntityType Name="T74120">
+    <Key>
+      <PropertyRef Name="T_CALLER_ID" />
+    </Key>
+    <Property Name="T_CALLER_ID" Type="Int64" Nullable="false" />
+    <Property Name="T_FIRST_LANG1_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_FIRST_LANG2_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_LAST_LANG1_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_LAST_LANG2_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_NTNLTY_ID" Type="Int16" />
+    <Property Name="T_PASSPORT_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_MOBILE_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74121">
+    <Key>
+      <PropertyRef Name="T_CALL_REASON_ID" />
+    </Key>
+    <Property Name="T_CALL_REASON_ID" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" Precision="6" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" Precision="6" />
+  </EntityType>
+  <EntityType Name="T74044">
+    <Key>
+      <PropertyRef Name="T_STORE_ID" />
+    </Key>
+    <Property Name="T_STORE_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_AMBU_REG_ID" Type="Int32" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_AREA" Type="Int32" />
+    <Property Name="T_PRICE" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T74043">
+    <Key>
+      <PropertyRef Name="T_PCHECKUP_ID" />
+    </Key>
+    <Property Name="T_PCHECKUP_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="T_REQUEST_ID" Type="Int32" />
+    <Property Name="T_DOC_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_HIGHT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_WEIGHT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_BP_SYS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_BP_DIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_TEMP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_PULS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_RESP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_TIME" Type="DateTime" Precision="6" />
+    <Property Name="T_OS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_BSUGAR_F" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_BSUGAR_ABF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_URINE_TEST" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_ECG_TEST" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="T_VERIFY_LEVEL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="T_CONCIUS_LEVEL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_TRIAGE_LEVEL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="T_BP_MEAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_HEART_RATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ECG_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="T_GLUCOSE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SCORE" Type="Byte" />
+    <Property Name="T_NEXT_REVIEW" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T74071">
+    <Key>
+      <PropertyRef Name="T_ROLE_CODE" />
+    </Key>
+    <Property Name="T_ROLE_CODE" Type="Int16" Nullable="false" />
+    <Property Name="T_LANG1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_LANG2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_ENTRY_DATE" Type="DateTime" />
+    <Property Name="T_UPD_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_UPD_DATE" Type="DateTime" />
+    <Property Name="T_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="T74027" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T74027" msprop:BaseTable.0="T">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ITEM_ID" msprop:BaseColumn="ITEM_ID" msprop:OraDbType="112" type="xs:int" minOccurs="0" />
+              <xs:element name="ITEM_NAME" msprop:BaseColumn="ITEM_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="UM_NAME" msprop:BaseColumn="UM_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_NAME" msprop:BaseColumn="STORE_NAME" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="UNIT_VALUE" msprop:BaseColumn="UNIT_VALUE" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ITEM_TYPE" msprop:BaseColumn="ITEM_TYPE" msprop:OraDbType="126" type="xs:string" minOccurs="0" />
+              <xs:element name="RCV_QTY" msprop:BaseColumn="RCV_QTY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISSUE_QTY" msprop:BaseColumn="ISSUE_QTY" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="STOCK" msprop:BaseColumn="STOCK" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TVALUE" msprop:OraDbType="107" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

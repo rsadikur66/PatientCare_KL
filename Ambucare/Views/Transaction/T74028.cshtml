@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "T74028";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    div[ng-Ambucare] {
+        margin: 10px;
+    }
+
+    .table {
+        width: 100%
+    }
+
+    form[editable-form] > div {
+        margin: 10px 0;
+    }
+</style>
+
+<script src="~/Apps/JSController/Transaction/T74028Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74028Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<script src="../../Apps/JSFactory/Transaction/AmbulanceFactory.js"></script>
+
+
+<div class="container" ng-app="Ambucare" ng-controller="T74028Controller">
+    @section container{
+        <div id="options" ng-app="Ambucare" ng-controller="T74028Controller">
+            <button id="btnSave" tooltip="Save" class="Button Save" ng-click="Save()"></button>
+            <button id="btnDelete" tooltip="Delete" class="Button Delete" ng-click="Delete()"></button>
+            <button id="btnClear" tooltip="Clear" class="Button Clear"></button>
+            <button id="btnNext" tooltip="NextBlock" class="Button Next"></button>
+        </div>
+    }
+</div>
+<div class="container" ng-app="Ambucare" ng-controller="T74028Controller" min-width: 65%; max-width: 65%;>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div></div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin: 1.6% auto; border: 1px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group">
+                        <label id="lblPUR_REQ_ID" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPUR_REQ_ID'" class="ng-cloak" for="txtPUR_REQ_ID">{{field.T_LANG2_TEXT}} </label>
+                        <input id="txtPUR_REQ_ID" type="text" ng-model="obj.T_PUR_REQ_ID" class="form-control" readonly="readonly" />
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group">
+                        <label id="lblCOMPANY_ID" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblCOMPANY_ID'" class="ng-cloak" for="txtCOMPANY_ID">{{field.T_LANG2_TEXT}} </label>
+                        <input id="txtCOMPANY_ID" type="text" ng-model="obj.T_COMPANY_ID" class="form-control" readonly="readonly" />
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 form-inline form-group">
+                        <label id="lblPURCHASE_NO" ng-repeat="field in entity track by $index" class="ng-cloak" ng-if="field.T_LABEL_NAME=='lblPURCHASE_NO'" class="ng-cloak" for="txtPURCHASE_NO">{{field.T_LANG2_TEXT}} </label>
+                        <input id="txtPURCHASE_NO" type="text" ng-model="obj.T_PURCHASE_NO" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div style="margin: 10px auto; border: 2px solid #e17d7d; border-radius: 5px; width: 1100px;">
+                <div>
+                    <input type="button" style="background: url(../Images/plus.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 30px; height: 30px; float: right;margin:5px 25px 0 0; align-content: right" ng-click="Addrow($index)" />
+                </div>
+
+                <table class="table table-bordered" style="margin: 10px auto">
+                    <thead style="text-align: center">
+                    <tr>
+                        <!--<th>Add</th>-->
+                        <th bgcolor="#D8454B" style="color: #ffffff">Index</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Remove</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Ambu Id</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Ambulance Type</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Analysis No</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Analysis Name</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">CheckBox</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">DropdownList</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Spec No</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Panel Analysis</th>
+                        <th bgcolor="#D8454B" style="color: #ffffff">Panel Analysis</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                   
+                    <tr ng-repeat="items in gvw">
+                        
+                        <td>{{$index}}</td>
+                        <td style="text-align: center">
+                            <input type="button" style="background: url(../Images/Reject.jpg); background-size: 20px; background-repeat: no-repeat; background-position: center; width: 20px;" ng-click="RemoveRow($index)"/>
+                        </td>
+                        <td>
+                            <input type="text" id="txtEmployeeId{{$index}}" name="AmbuId" ng-dblclick="ambu($index)" ng-model="T_EMP_ID" class="form-control" style="width: 60px">
+                        </td>
+                        <td>
+                            <input type="text" id="txtEmployeeName{{$index}}" name="AmbuType"  ng-model="T_FIRST_LANG2_NAME" class="form-control" style="width: 130px">
+                        </td>
+                        <td>
+                            <input type="text" id="txtAnalysisNo" name="AnalysisNo" ng-model="items.analCode" class="form-control" style="width: 50px" ng-dblclick="Analysis()">
+                        </td>
+                        <td>
+                            <input type="text" id="txtAnalysisName{{$index}}" name="AnalysisName" ng-model="items.analName" class="form-control" style="width: 130px">
+                        </td>
+                        <td>
+                            <input type="checkbox" name="chk1" ng-model="chkValue" />
+                        </td>
+                        <td>
+                            <select ng-model="selectedCar" ng-options="y.brand for (a, y) in cars">
+                                <option value="">Select</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="pretest" class="form-control" style="width: 90px"></td>
+                        <td><input type="text" name="SpecimenCode" class="form-control" ng-model="ccc" style="width: 60px"></td>
+                        <td><input type="text" class="form-control" ng-model="selectedCar.model" style="width: 130px;"></td>
+                       
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>

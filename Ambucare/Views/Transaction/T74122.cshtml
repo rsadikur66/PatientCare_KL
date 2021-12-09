@@ -1,0 +1,406 @@
+﻿@{
+    ViewBag.Title = "T74122";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .my-custom-stars .button .material-icons {
+        font-size: 50px;
+    }
+
+    .my-custom-stars .star-button.star-on .material-icons {
+        color: #003399;
+    }
+
+    .my-custom-stars .star-button.star-off .material-icons {
+        color: #99ccff;
+    }
+
+    .recieved {
+        background-color: #CCE8FF;
+    }
+
+    .reject {
+        background-color: #ffe6e6;
+    }
+
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 200px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*For PopUp end*/
+    /*for popup grid start*/
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+    /*for popup grid end*/
+</style>
+
+
+
+<script src="../../Apps/JSController/Transaction/T74122Controller.js"></script>
+<script src="../../Apps/JSService/LabelService.js"></script>
+<script src="../../Apps/JSService/Transaction/T74122Service.js"></script>
+<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+@section container
+{
+    <div id="options" ng-app="Ambucare" ng-controller="T74122Controller">
+        <button id="btnSave" tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button id="btnDelete" tooltip="Delete" class="Button Delete"></button>
+        <button id="btnClear" tooltip="Clear" class="Button Clear"></button>
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="T74122Controller" ng-init="TransferData()">
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 1.6% auto; border-radius: 5px; padding: 10px">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblTransferRequestNo" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTransferRequestNo'" for="txtTransferRequestNo">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtTransferRequestID" type="hidden" ng-model="obj.T74084.T_TRANSFER_REQ_ID" style="width: 100%" />
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtTransferRequestNo" type="text" ng-model="obj.T74084.T_TRANSFER_REQ_NO" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblCurrency" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCurrency'" for="txtCurrency">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtCurrency" type="text" ng-model="obj.T74084.T_CURRENCY_NAME" readonly="readonly" style="width: 100%" />
+                            <input id="txtCurrencyid" type="hidden" ng-model="obj.T74084.T_CURRENCY_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblRequestDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRequestDate'" for="txtRequestDate">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtRequestDate" type="text" ng-model="obj.T_REQ_DATE" readonly="readonly" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblReceivedBy" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceivedBy'" associatedcontrolid="txtReceivedBy">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtReceivedByName" type="text" ng-model="obj.T_FIRST_LANG2_NAME" readonly="readonly" ng-click="Receive_Click('ReceiveBy')" style="width: 100%" />
+                            <input id="txtReceivedBy" type="hidden" ng-model="obj.T_RECEIVE_BY" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+                @*for popup start*@
+                <div id="ReceiveBy" class="omf-modal">
+
+                    <div class="omf-modal-body">
+
+                        <div>
+                            <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                <label style="width: 97%">Employee List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('ReceiveBy')" />
+                                <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                            </div>
+                            @*<div style="background-color: #c12d2d;">
+                            </div>
+                            *@
+                        </div>
+                        <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                            <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                    <table class="table table-bordered" style="margin: 1px auto">
+                                        <thead style="text-align: center">
+                                            <tr style="background-color: #c12d2d; color: #ffffff">
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr dir-paginate="obj in obj.ReceiveList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                                <td style="width: 20%">{{obj.T_EMP_ID}}</td>
+                                                <td style="width: 40%">{{obj.T_FIRST_LANG2_NAME}}</td>
+                                                <td style="width: 40%">{{obj.T_LANG2_NAME}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <dir-pagination-controls max-size="5"
+                                        direction-links="true"
+                                        boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*for popup end*@
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblSupplier" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSupplier'" for="txtSupplier">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtSupplier" type="text" ng-model="obj.T_SUPPLIER_NAME" readonly="readonly" style="width: 100%" />
+                            <input id="txtSupplierid" type="hidden" ng-model="obj.T_SUPPLIER_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblStore" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStore'" for="txtStoreTo">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtStoreToName" type="text" ng-model="obj.T_STORE_TO" style="width: 100%" />
+                        </div>
+                        <div class="text">
+                            <input id="txtStoreToId" type="hidden" ng-model="obj.T74084.T_RCV_TO_STR_ID" style="width: 30%" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblReceiveDate" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceiveDate'" for="txtReceiveDate">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtReceiveDate" type="text" ng-model="obj.T74084.T_RCV_DATE
+"
+                                style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5 hidden">
+                            <label id="lblReceiveStatus" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReceiveStatus'" for="txtReceiveStatus">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtReceiveStatus" type="hidden" ng-model="obj.T74084.T_RCV_STATUS"
+                                style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+
+                @*<div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblDiscountPercent" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDiscountPercent'" for="txtDiscountPercent">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtDiscountPercent" type="text" ng-model="obj.T74060.T_DISCOUNT_PERCENT" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+                *@
+
+                @*<div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblVatTotal" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblVatTotal'" for="txtVatTotal">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtVatTotal" type="text" ng-model="obj.T74060.T_VAT" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                *@
+                
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblStoreFrom" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblStoreFrom'" for="txtStoreFrom">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtStoreFrom" type="text" ng-model="obj.T_STORE_FROM" readonly="readonly" style="width: 100%" />
+                            <input id="txtStoreId" type="hidden" ng-model="obj.T74084.T_RCV_FRM_STR_ID" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblDeliveryMethod" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDeliveryMethod'" for="txtDeliveryMethod">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtDeliveryMethod" type="text" ng-model="obj.T_TRANSFER_DELIVERY_METHOD" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblTransferReason" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTransferReason'" for="txtTransferReason">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtTransferReason" type="text" ng-model="obj.T_TRANSFER_FOR" readonly="readonly" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--  <div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblTransReqDtlId" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTransReqDtlId'" for="txtTransReqDtlId">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtTransReqDtlId" type="text" ng-model="obj.T_TRANSFER_REQ_DTL_ID" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>-->
+
+                <!--<div class="row" style="padding-bottom: 4px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <label id="lblDiscountAmount" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDiscountAmount'" for="txtDiscountAmount">{{field.T_LANG2_TEXT}}</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <input id="txtDiscountAmount" type="text" ng-model="obj.T74060.T_DISCOUNT_AMOUNT" style="width: 100%" />
+                        </div>
+
+                    </div>
+                </div>-->
+
+            </div>
+            <div>
+            </div>
+            <br />
+            <br />
+            <!--For Data Gridview start-->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <center>
+                        <table class="table table-bordered" style="margin: 0px auto; width: 1200px">
+                            <thead style="text-align: center">
+                            <tr style="background: #A21217; color: #ffffff">
+                            <!--    <th class="text">Req Dtl Id</th>-->
+                                <!--<th class="text">Stock Id</th>-->
+                                <th class="hidden">ItemID</th>
+                                <th>Items</th>
+                                <th >Pk size</th>
+                                <th >Transf. Qty</th>
+                                <!--<th>Rcv Type</th>-->
+                                <th>Unit Value</th>
+                                <!-- <th>Issue</th>-->
+                                <th>Transf Priority</th>
+                                <th style="width: 80px">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="obj in obj.transferList">
+                                
+                                @*<td style="text-align: center">
+                                    <input type="button" style="background: url(../Images/Reject.jpg); background-size: 20px; background-repeat: no-repeat; background-position: center; width: 20px; height: 25px;" ng-click="RemoveRow($index)" />
+                                </td>*@
+                              
+<!--                                <td class="text">
+                                    <span>{{obj.T_TRANSFER_REQ_DTL_ID}}</span>
+                                </td>-->
+                           
+
+                                <td class="hidden">
+                                    <input type="text" id="txtItem{{$index}}" ng-model="obj.T_ITEM_ID" class="form-control" readonly="readonly" style="width: 100%">
+                                </td>
+                                <td>
+                                    <span>{{obj.T_ITEM_NAME}}</span>
+                                </td>
+
+                                <td>
+                                    <span>{{obj.T_UOM_NAME}}</span>
+                                </td>
+                               
+                                <td>
+                                    <span>{{obj.TRANSFER_QTY}}</span>
+                                </td>
+                                <!--<td>                               
+                                    <span>{{obj.T_RECEIVE_TYPE}}</span>
+                                </td>-->
+                                <td>
+                                    <span>{{obj.T_UNIT_VALUE}}</span>
+                                </td>
+                                <td>
+                                    <jk-rating-stars rating="obj.T_PRIORITY" read-only="true" style="text-align: center; width: 80px"></jk-rating-stars>
+                                    @*<input type="text" ng-model="obj.T_PRIORITY"   />*@
+                                </td>
+                                <td>
+                                    <span>{{obj.T_TOTAL_VALUE}}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table> 
+                    </center>
+                </div>
+            </div>
+            <!--For Data Gridview End-->
+        </div>
+    </div>
+</div>
+
+

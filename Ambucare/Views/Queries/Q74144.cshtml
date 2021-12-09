@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Q74144";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table, tr, td {
+        border: 1px solid black;
+    }
+    .selected {
+        background-color: #708090;
+        color: white;
+        font-weight: bold;
+    }
+    .container {
+        width: 1235px;
+    }
+    .assignedEngaged {
+        background-color: #F8D32D;
+    }
+    .assignedFree {
+        background-color: #8FD568;
+    }
+    
+</style>
+<script src="~/Apps/JSController/Query/Q74144Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74144Service.js"></script>
+
+<div class="" ng-app="Ambucare" ng-controller="Q74144Controller">
+
+    <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 20px;">
+
+        <div class="head-border" style="font-size: 17px;color: #ffffff;text-align: center;">
+            <label ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblActivePatList'">{{field.T_LANG2_TEXT}}</label>
+        </div>
+
+        <table arrow-selector style="width: 100% !important;">
+            <tr class="head-border" style="color: #ffffff;">
+                <td style="width: 6%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblReqNo'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 7%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTeam'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 18%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPat'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGender'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 5%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAge'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 28%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblCComplaint'">{{field.T_LANG2_TEXT}}</td>
+                @*<td style="width: 8%;text-align: center">Status</td>*@
+                <td style="width: 31%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDocDetails'">{{field.T_LANG2_TEXT}}</td>
+                <td style="width: 3%; text-align: center" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAction'">{{field.T_LANG2_TEXT}}</td>
+            </tr>
+            <tr dir-paginate="D in obj.AllTeamData |filter : Search |itemsPerPage:10 " ng-class="{'assignedEngaged':(D.DOCOTR_ID!=null && D.T_FINAL_FLAG==null),'assignedFree':D.DOCOTR_ID!=null && D.T_FINAL_FLAG!=null }">
+                <td style="width: 6%; text-align: center">{{D.T_REQUEST_ID}}</td>
+                <td style="width: 7%; padding-left: 10px">{{D.T_USER_ID}}</td>
+                <td style="width: 18%; padding-left: 10px">{{D.T_PAT_NAME}}</td>
+                <td style="width: 5%; text-align: center">{{D.SEX}}</td>
+                <td style="width: 5%; text-align: center">{{D.AGE}}</td>
+                <td style="width: 28%; padding-left: 10px">{{D.CHEIF_COMP}}</td>
+                @*<td style="width: 8%;text-align: center">{{D.T_DOCTOR}}</td>*@
+                <td style="width: 28%; padding-left: 10px">{{D.DOCTOR_DETAILS}}</td>
+                @*<td style="width: 5%; padding-left: 5px">
+                        <button id="btnActivePatient" class="Button ActivePatient" title="Active Patient List" ng-click="onChatStart(D.DOCOTR_ID,D.T_REQUEST_ID,D.T_USER_ID)"></button>
+                    </td>*@
+                <td style="width: 3%; text-align: center;">
+
+                    <button ng-if="D.DOCOTR_ID==null" id="btnPatMsg" class="Button" style="cursor: pointer; background: #70C7AC !important; color: #FBFDFD; border-radius: 5px; width: 25px; height: 25px;" ng-click="getPatMsg(D.T_REQUEST_ID)">
+                        {{D.PATMSG}}
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <dir-pagination-controls max-size="5"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+
+        @*<table arrow-selector style="width: 99% !important;">
+                <tr class="head-border" style=" color: #ffffff;">
+                    <td style="width: 6%;text-align: center">Req No</td>
+                    <td style="width: 7%;text-align: center">Team</td>
+                    <td style="width: 18%;text-align: center">Patient</td>
+                    <td style="width: 5%;text-align: center">Gender</td>
+                    <td style="width: 5%;text-align: center">Age</td>
+                    <td style="width: 24%;text-align: center">Chief Complaint</td>
+                    <td style="width: 8%;text-align: center">Status</td>
+                    <td style="width: 37%;text-align: center">Doctor Details</td>
+                </tr>
+                <tr dir-paginate="D in obj.AllTeamData |filter : Search |itemsPerPage:10 "  ng-class="{'selected':D.T_DOCTOR=='Assigned' }" ng-click="setClickedRow($index,D)" >
+                    <td style="width: 6%;text-align: center">{{D.T_REQUEST_ID}}</td>
+                    <td style="width: 7%;padding-left: 10px">{{D.T_USER_ID}}</td>
+                    <td style="width: 18%;padding-left: 10px">{{D.T_PAT_NAME}}</td>
+                    <td style="width: 5%;text-align: center">{{D.SEX}}</td>
+                    <td style="width: 5%;text-align: center">{{D.AGE}}</td>
+                    <td style="width: 24%;padding-left: 10px">{{D.CHEIF_COMP}}</td>
+                    <td style="width: 8%;text-align: center">{{D.T_DOCTOR}}</td>
+                    <td style="width: 37%;padding-left: 10px">{{D.DOCTOR_DETAILS}}</td>
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="5"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>*@
+
+    </div>
+
+
+
+    <div id="ShowPatientMsgPopup" class="omf-modal">
+        <div class="omf-modal-body">
+            <div class="omf-modal-header head-border">
+                <label style="width: 96%;" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPatientMessage'">{{field.T_LANG2_TEXT}}</label>
+                <input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px;" ng-click="CloseActivePopup('ShowPatientMsgPopup')" />
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0;">
+                <table id="MSgPopUpTable" style="width: 100%">
+                    <tbody style="max-height: 300px; min-height: 0px; overflow: auto; overflow-x: hidden; display: block;">
+                        <tr style="display: table; text-align: center; width: 100%; table-layout: fixed;" class="div_back">
+                            <td style="width: 5%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSL'">{{field.T_LANG2_TEXT}}</td>
+                            <td style="width: 10%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDate'">{{field.T_LANG2_TEXT}}</td>
+                            <td style="width: 10%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblTime'">{{field.T_LANG2_TEXT}}</td>
+                            <td style="width: 20%; text-align: center; padding: 10px; color: #C6484C; font-weight: 600;" class="ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMessage'">{{field.T_LANG2_TEXT}}</td>
+                        </tr>
+                        <tr ng-repeat="B in obj.patMsg" style="display: table; text-align: center; width: 100%; table-layout: fixed;" class="div_back">
+                            <td style="width: 5%; text-align: center;">{{B.SL}}</td>
+                            <td style="width: 10%; text-align: center;">{{B.T_TIME | date:"dd-MMM-yy" }}</td>
+                            <td style="width: 10%; text-align: center;">{{B.T_TIME | date:"h:mm a"}}</td>
+                            <td style="width: 20%; text-align: left; padding-left: 5px">{{B.T_TEXT}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,530 @@
+﻿
+@{
+    ViewBag.Title = "Q74001";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Apps/JSController/Query/Q74001Controller.js"></script>
+<script src="~/Apps/JSService/Query/Q74001Service.js"></script>
+<script src="~/Apps/JSService/LabelService.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+<style>
+
+    legend {
+        display: block;
+        width: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        border: none;
+        margin-bottom: -12px;
+        text-align: left;
+        font-size: small;
+    }
+
+    fieldset {
+        border: 1px solid #E17D7D;
+        border-radius: 5px;
+        padding: 10px
+    }
+
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 300px;
+        width: 60%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 100%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 150px;
+            /*margin-left: 122px;*/
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*For PopUp end*/
+</style>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="Q74001Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+        @*<button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete_Click()"></button>*@
+    </div>
+}
+
+<div class="container" ng-app="Ambucare" ng-controller="Q74001Controller">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 40px;">
+                    <span style="font-size: 25px;color:#708090">{{currDate| date:'dd-MMMM-yyyy'}}</span><br />
+                    <span style="font-size: 25px; color: #708090; margin-left: 20px;">{{currTime| date:'HH:mm:ss'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <fieldset style="height: 150px;">
+                <legend>ER Info</legend>
+                <div id="maindiv" ng-model="divImage">
+                    <div style="text-align:center;">
+                        <table border="0" cellpadding="0" cellspacing="5">
+                            <tr>
+                                <td style="height: 30px;">
+                                    <span style="text-align: left; color: brown;">{{obj.WaitingAmbulanceCount}}</span>
+                                </td>
+                                <td style="height: 30px;">
+                                    <span style="text-align: left; color: brown;">{{obj.ActiveAbulanceCount}}</span>
+                                </td>
+                                <td style="height: 30px;">
+                                    <span style="text-align: left; color: brown;">{{obj.DischargeAbulanceCount}}</span>
+                                </td>
+                                <td style="height: 30px;">
+                                    <span style="text-align: left; color: brown;">{{obj.AllPatientsCount}}</span>
+                                </td>
+                                <td style="height: 30px;"></td>
+                                <td style="height: 30px;"></td>
+
+                            </tr>
+                            <tr>
+                                <td style="min-width: 150px; margin-top: 20px;">
+                                    <input id="imwaiting" type="image" src="~/Images/ambulance_waiting.png" title="Ambulance Waiting" style="width: 80px; height: 80px" ng-click="WaittingAmbu_Click('WaittingAmbu')" />
+                                    <br />
+
+                                    @*<span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>*@
+                                </td>
+                                <td style="min-width: 150px; margin-top: 20px;">
+                                    <input id="imERIN" type="image" src="~/Images/ambulance_in.png" title="Ambulance In" style="width: 80px; height: 80px" ng-click="AmbulanceIn_Click('AmbulanceIn')" />
+                                    <br />
+                                    @*<span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>*@
+                                </td>
+                                <td style="min-width: 150px; margin-top: 20px;">
+                                    <input id="imEROUT" type="image" src="~/Images/ambulance_out.png" title="Ambulance Out" style="width: 80px; height: 80px;" ng-click="AmbulanceOut_Click('AmbulanceOut')" />
+                                    <br />
+                                    @*<span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>*@
+                                </td>
+                                <td style="min-width: 100px; margin-top: 20px;">
+                                    <input id="imChart" type="image" src="~/Images/Chart.jpg" title="Total Information" style="width: 80px; height: 80px" ng-click="AmbulanceInformation_Click('TotalAmbulance')" />
+                                    <br />
+
+                                    @*<span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>*@
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <input id="imStop" type="image" src="~/Images/Stop.jpg" style="width: 40px; height: 40px" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="imRefresh" type="image" src="~/Images/Refresh.jpg" style="width: 40px; height: 40px" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                @*<fieldset style="height: 400px; float: left;width: 100%;">
+                        <legend>ER Clininics</legend>
+                        <table>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px; height: 30px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px">
+                                    <input id="imEnt" type="image" src="~/Images/ENTN.bmp" style="width: 50px; height: 50px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px; height: 30px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px">
+                                    <input id="imOrthoN" type="image" src="~/Images/OrthoN.bmp" style="width: 50px; height: 50px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px; height: 30px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px">
+                                    <input id="imdressingN" type="image" src="~/Images/dressingN.bmp" style="width: 50px; height: 50px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px; height: 30px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px"></td>
+                                <td style="width: 100px">
+                                    <input id="imOpthalN" type="image" src="~/Images/OpthalN.bmp" style="width: 50px; height: 50px;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>*@
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <fieldset style="height: 200px">
+                    <legend>Patient Male</legend>
+                    <div id="maindiv" ng-model="divImage">
+                        <div style="text-align:center;">
+                            <table border="0" cellpadding="0" cellspacing="5">
+                                <tr>
+                                    <td style="height: 30px;">
+                                        <span style="text-align: left; color: brown;">{{obj.MaleAmbulanceCount}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td ng-repeat=" dr in obj.MaleAmbulance" style="min-width: 45px">
+                                        <input type="hidden" ng-model="dr.AmbulanceID" />
+                                        <input id="imFastTrackMale" type="image" ng-click="PatientDetails_Click(dr.AmbulanceID)" src="~/Images/ambulance_orginal.png" style="width: 40px; height: 40px" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <fieldset style="height: 200px;">
+                    <legend>Patient Female</legend>
+                    <div style="text-align:center;">
+                        <table border="0" cellpadding="0" cellspacing="5">
+                            <tr>
+                                <td style="height: 30px;">
+                                    <span style="text-align: left; color: brown;">{{obj.FemalAmbulanceCount}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td ng-repeat=" dr in obj.FemalAmbulance" style="min-width: 45px;">
+                                    <input type="hidden" ng-model="dr.AmbulanceID" />
+                                    <input id="imFastTrackFemale" type="image" ng-click="PatientDetails_Click(dr.AmbulanceID)" src="~/Images/ambulance_orginal.png" style="width: 40px; height: 40px" />
+                                    <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+            @*for Waitting Ambulance  popup start*@
+            <div id="WaittingAmbu" class="omf-modal">
+
+                <div class="omf-modal-body">
+
+                    <div>
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">Waitting Ambulance</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseWaittingAmbuPopup('WaittingAmbu')" />
+                            <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                        </div>
+
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                <table class="table table-bordered" style="margin: 1px auto">
+                                    <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            <th style="width: 100%; text-align: center">Ambulance</th>
+                                            @*<th>Doctro</th>
+                                                <th>Nurse</th>*@
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="obj in obj.WaitingAmbulance |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                            <td style="width: 100%">{{obj.Ambulance}}</td>
+                                            @*<td style="width: 40%">{{obj.Doctro}}</td>
+                                                <td style="width: 40%">{{obj.T_LANG2_NAME}}</td>*@
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <span> <img src="~/Images/print1.png" ng-click="Print_WaiAmbu_Click()" style="width: 40px; height: 32px;margin-top: 20px" /></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for  Waitting Ambulance popup end*@
+            @*for AmbulanceIn popup start*@
+            <div id="AmbulanceIn" class="omf-modal">
+                <div class="omf-modal-body">
+                    <div>
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">In Ambulance List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseAmbulanceInPopup('AmbulanceIn')" />
+                            <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                        </div>
+
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <input type="hidden" ng-model="Popup" />
+                                <table class="table table-bordered" style="margin: 1px auto">
+                                    <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            @*<th style="width: 100%; text-align: center">Pat Name</th>*@
+                                            @*<th>ID</th>*@
+                                            <th style="width: 15%">Name</th>
+                                            <th style="width: 10%">Mobile</th>
+                                            <th style="width: 15%">Problem</th>
+                                            <th style="width: 15%">Reqst Date</th>
+                                            <th style="width: 15%">Reqst Time</th>
+                                            <th style="width: 15%">Seen Date</th>
+                                            <th style="width: 15%">Seen Time</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="obj in obj.Abulance |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                           @*<td style="width: 10%">{{obj.RequestId}}</td>*@
+                                            <td style="width: 15%">{{obj.Name}}</td>
+                                            <td style="width: 10%">{{obj.Mobile}}</td>
+                                            <td style="width: 15%">{{obj.Problem}}</td>
+                                            <td style="width: 15%">{{obj.RequistDate.replace('/Date(','').replace(')/','') | date:"dd/MM/yyyy"}}</td>
+                                            <td style="width: 15%">{{obj.RequistTime.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+                                            <td style="width: 15%">{{obj.SeenDate.replace('/Date(','').replace(')/','') | date:"dd/MM/yyyy"}}</td>
+                                            <td style="width: 15%">{{obj.SeenTime.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <span> <img src="~/Images/print1.png" ng-click="Print_Click(Popup)" style="width: 40px; height: 32px;margin-top: 20px" /></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for popup end*@
+            @*for AmbulanceOut popup start*@
+            <div id="AmbulanceOut" class="omf-modal">
+                <div class="omf-modal-body">
+                    <div>
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">Out Ambulance List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseAmbulanceOutPopup('AmbulanceOut')" />
+                            <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                        </div>
+
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <input type="hidden" ng-model="Popup" />
+                                <table class="table table-bordered" style="margin: 1px auto">
+                                    <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            @*<th style="width: 100%; text-align: center">Pat Name</th>*@
+                                            @*<th>ID</th>*@
+                                            <th style="width: 15%">Name</th>
+                                            <th style="width: 10%">Mobile</th>
+                                            <th style="width: 15%">Problem</th>
+                                            <th style="width: 15%">Reqst Date</th>
+                                            <th style="width: 15%">Reqst Time</th>
+                                            <th style="width: 15%">Seen Date</th>
+                                            <th style="width: 15%">Seen Time</th>
+                                            <th style="width: 15%">Discharge Date</th>
+                                            <th style="width: 15%">Discharge Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="obj in obj.Abulance |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                            @*<td style="width: 10%">{{obj.RequestId}}</td>*@
+                                            <td style="width: 15%">{{obj.Name}}</td>
+                                            <td style="width: 10%">{{obj.Mobile}}</td>
+                                            <td style="width: 15%">{{obj.Problem}}</td>
+                                            @*<td style="width: 15%">{{obj.RequistDate}}</td>*@
+                                            <td style="width:15%">{{obj.RequistDate.replace('/Date(','').replace(')/','') | date:"dd/MM/yyyy"}}</td>
+                                            <td style="width: 15%">{{obj.RequistTime.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+                                            <td style="width: 15%">{{obj.SeenDate.replace('/Date(','').replace(')/','') | date:"dd/MM/yyyy"}}</td>
+                                            <td style="width: 15%">{{obj.SeenTime.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+                                            <td style="width: 15%">{{obj.DischargeDate.replace('/Date(','').replace(')/','') | date:"dd/MM/yyyy"}}</td>
+                                            <td style="width: 15%">{{obj.DischargeTime.replace('/Date(','').replace(')/','') | date:"hh:mm:ss"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <span> <img src="~/Images/print1.png" ng-click="Print_Click(Popup)" style="width: 40px; height: 32px;margin-top: 20px" /></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for popup end*@
+            @*for TotalInformation popup start*@
+            <div id="TotalAmbulance" class="omf-modal">
+                <div class="omf-modal-body">
+                    <div>
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">Total Ambulance List</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseAmbulanceTotalPopup('TotalAmbulance')" />
+                            <input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search" />
+                        </div>
+
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <input type="hidden" ng-model="Popup" />
+                                <table class="table table-bordered" style="margin: 1px auto">
+                                    <thead style="text-align: center">
+                                        <tr style="background-color: #c12d2d; color: #ffffff">
+                                            @*<th style="width: 100%; text-align: center">Pat Name</th>*@
+                                            @*<th>ID</th>*@
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>Problem</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="obj in obj.Abulance |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_ID'" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index,obj,'ReceiveBy')">
+                                            @*<td style="width: 10%">{{obj.RequestId}}</td>*@
+                                            <td style="width: 50%">{{obj.Name}}</td>
+                                            <td style="width: 20%">{{obj.Mobile}}</td>
+                                            <td style="width: 30%">{{obj.Problem}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                    <dir-pagination-controls max-size="5"
+                                                             direction-links="true"
+                                                             boundary-links="true">
+                                    </dir-pagination-controls>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <span> <img src="~/Images/print1.png" ng-click="Print_Click(Popup)" style="width: 40px; height: 32px;margin-top: 20px" /></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for popup end*@
+
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                @*<fieldset style="height: 200px">
+                        <legend>Observation Room Male</legend>
+                        <div style="text-align:center;">
+                            <table border="0" cellpadding="0" cellspacing="5">
+                                <tr>
+                                    <td style="height: 30px;">
+                                        <span ng-model="obj.Count" style="text-align: left; color: brown;">0</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td ng-repeat=" dr in img" style="min-width: 45px;">
+                                        <input id="imObseRoomMale" type="image" src="~/Images/ambulance_orginal.png" style="width: 40px; height: 40px" />
+                                        <br />
+                                        <span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>*@
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                @*<fieldset style="height: 200px">
+                        <legend>Observation Room Female</legend>
+                        <div style="text-align:center;">
+                            <table border="0" cellpadding="0" cellspacing="5">
+                                <tr>
+                                    <td style="height: 30px;">
+                                        <span ng-model="obj.Count" style="text-align: left; color: brown;">0</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td ng-repeat=" dr in img" style="min-width: 45px;">
+                                        <input id="imObseRoomFemale" type="image" src="~/Images/ambulance_orginal.png" style="width: 40px; height: 40px" />
+                                        <br />
+                                        <span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>*@
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                @*<fieldset style="height: 200px">
+                        <legend>Resuscitation Room (M/F)</legend>
+                        <div style="text-align:center;">
+                            <table border="0" cellpadding="0" cellspacing="5">
+                                <tr>
+                                    <td style="height: 30px;">
+
+                                        <span ng-model="obj.Count" style="text-align: left; color: brown;">0</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td ng-repeat=" dr in img" style="min-width: 45px;">
+                                        <input id="imMFRoom" type="image" src="~/Images/ambulance_orginal.png" style="width: 40px; height: 40px" />
+                                        <br />
+                                        <span ng-model="dr.BEDNO">{{dr.BEDNO}}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>*@
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "T74123";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 200px;
+        width: 72%;
+        height: 50vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 135px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+/*For PopUp end*/
+</style>
+<script src="~/Apps/JSController/Transaction/T74123Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74123Service.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74123Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74123Controller">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            @*for popup start*@
+            <div id="ReceiveBy" class="omf-modal">
+                    
+                <div class="omf-modal-body">
+                        
+                    <div>
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">Report</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('ReceiveBy')"/>
+                            @*<input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search"/>*@
+                        </div>
+                        
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12" style="margin-left: 50px">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <span>Name :{{obj.Name}}</span><br/>
+                                    <span>Phone :{{obj.Mobile}}</span><br />
+                                    <span>Problem :{{obj.Problem}}</span> <br />
+                                    <span>Age :{{obj.Age}}</span> <br />
+                                    <span>Ambulance :{{obj.Ambulance}}</span> <br />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <span ><img src="~/Images/ORTHO.png" /> </span>
+                                </div>
+                                
+                                <table class=" table table-bordered" style="width: 600px">
+                                    <thead style="text-align: center;display:table; width:100%;">
+                                    <tr>
+                                        <th style="width: 50px">Tem</th>
+                                        <th style="width: 50px">Pulse</th>
+                                        <th style="width: 50px">weight</th>
+                                        <th style="width: 50px">Height</th>
+                                        <th style="width: 100px">BP Sys</th>
+                                        <th style="width: 100px">BP Dia</th>
+                                        <th style="width: 50px">Sugar</th>
+                                        <th style="width: 120px">Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="height:50px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="B in obj.MeasurmentList" style="display:table;width:100%; table-layout:fixed;">
+                                        <td style="width: 50px">{{B.T_TEMP}}</td>
+                                        <td style="width: 50px">{{B.T_PULS}}</td>
+                                        <td style="width: 50px">{{B.T_WEIGHT}}</td>
+                                        <td style="width: 50px">{{B.T_HIGHT}}</td>
+                                        <td style="width: 100px">{{B.T_BP_SYS}}</td>
+                                        <td style="width: 100px">{{B.T_BP_DIA}}</td>
+                                        <td style="width: 50px">{{B.T_BSUGAR_F}}</td>
+                                        <td style="width: 100px">{{B.T_ENTRY_DATE}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table class=" table table-bordered" style="width: 600px">
+                                    <thead style="background-color: #C12D2D; color: white; text-align: center;display:table; width: 100%">
+                                    <tr style="display:table;width:100%;	table-layout:fixed;">
+                                        <th style="width: 30%">Gen Name</th>
+                                        <th style="width: 50%">Product Name</th>
+                                        <th style="width: 20%">Instruction</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="height:100px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="obj in obj.PriscriptionList" style="display:table;width:100%;	table-layout:fixed;">
+                                        <td style="width: 30%"> {{obj.GEN_NAME}} </td>
+                                        <td style="width: 50%"> {{obj.PRODUCT_DESC}}</td>
+                                        <td style="width: 20%">{{obj.Instruction}} : Per Day</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for popup end*@
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 " style="margin-left: 50px" >
+            <h5>Active Patient List  <input type="text" ng-model="obj.Count" style="background: #c12d2d; color: white; border-radius: 500px; width: 30px; height: 30px;text-align: center" readonly/></h5>
+            <span style="text-align: center">
+                <input type="text" style="width: 18%; height: 35px" placeholder="Search...." class="form-control" ng-model="search"/>
+            </span>
+            @*data-ng-repeat*@
+            <div dir-paginate="P in obj.PatList | cartypefilter:search  |itemsPerPage:12"  >
+                <div style="width: 250px; float: left;border: 1px solid #A21217; border-radius: 5px; height: 220px; margin-left: 5px;margin-top: 5px">
+                    <span class="Hidden">{{$index}}</span>
+                    <span class="Hidden">{{P.PatentId}}</span>
+                    <span class="Hidden">{{P.RequestId}}</span>
+                    <span ><img src="~/Images/ORTHO.png" /> </span><br />
+                    <span>Name :{{P.Name}}</span><br />
+                    <span>Phone :{{P.Mobile}}</span><br />
+                    <span>Problem :{{P.Problem}}</span> <br />
+                    <span>Age :{{P.Age}}</span> <br />
+                    <span><input type="button" ng-click="Report_Click('ReceiveBy',P.PatentId)" value="Show Details" style="background: #c12d2d;color: white" /></span>
+                    <span> <input type="button" ng-click="ChatRoom(P.RequestId)" value="Chat Room" style="background: #c12d2d;color: white" /></span>
+                    <span> <img src="~/Images/print1.png" ng-click="Print_Click(P.RequestId)" style="width: 30px;height: 26px" /></span>
+                   
+                    @*<a ng-href="\Transaction\T74121">Show details</a>*@
+                </div>
+            </div>
+            
+            @*<table class=" table table-bordered" arrow-selector >
+        <tr style="background-color: #C12D2D; color: white; text-align: center">
+            <td class="Hidden">{{$index}}</td>
+            <th >Image </th>
+            <th >Name</th>
+            <th > Details</th>
+            <th > Contact No  </th>
+            <th > Link  </th>
+        </tr>
+        <tr dir-paginate="P in obj.PatList |filter : Search |itemsPerPage:5 |orderBy:'-T_EMP_DESI_ID'" ng-class="{'selected':$index == selectedRow}" style="width: 200px">
+            <td >
+                <span>P.Name</span>
+                <div>Name :{{P.Name}}</div>
+                <div>Phone :{{P.Mobile}}</div> <br/>
+
+            </td>
+
+        </tr>
+    </table>*@
+        </div>   
+        
+        <div style="margin-left: 90px">
+            <dir-pagination-controls max-size="5"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+
+    </div>
+        
+    
+
+        
+</div>
+

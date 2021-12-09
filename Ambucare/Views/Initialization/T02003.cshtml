@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "T02003";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>T02003 nationality</h2>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    @section container{
+        <button ID="btnNew" Tooltip="New" class="Button New" />
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" />
+        <button ID="btnClear" Tooltip="Clear" class="Button Clear" />
+    }
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <!--working div-->
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin: 1.6% auto; border: 2px solid #e17d7d; border-radius: 5px; padding: 10px">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblNationalityCode" associatedcontrolid="txtNationalityCode">Nationality Code</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtNationalityCode" type="text" class="form-control" style="width: 30%" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblEnglishName" associatedcontrolid="txtEnglishName">English Name</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtEnglishName" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                     
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblLocalName" associatedcontrolid="txtLocalName">Local Name</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtLocalName" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+                    
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="lblPrimLang" associatedcontrolid="txtPrimLang">Primary Language</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtPrimLang" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                     
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <label id="SecondLang" associatedcontrolid="txtSecondLang">Second Language</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input id="txtSecondLang" type="text" class="form-control" style="width: 70%" />
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+﻿<style type="text/css">
+    .error {
+        color: red !important;
+    }
+    
+</style>
+
+<div class="container" ng-app="Ambucare" ng-controller="T74149Controller" name="obj.myDiv" novalidate ng-form>
+    <div class="row" style="padding-bottom: 8px">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8 div_back borderColor" style="margin: 1.6% auto;padding: 10px">
+            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblMainCode" for="txtMainCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMainCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.maincode.$error.required"><span class="error">*</span></span></label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input id="txtMainCode" style="width:79%;" type="text" ng-model="obj.T06301.T_ICD10_MAIN_CODE" name="maincode" next-focus tabindex="1" required />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblSubCode" for="txtSubCode" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSubCode'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}<span ng-show="obj.myDiv.subcode.$error.required"><span class="error">*</span></span></label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input id="txtSubCode" style="width:77%;" type="text" ng-model="obj.T06301.T_ICD10_SUB_CODE" name="subcode" next-focus tabindex="2" required />
+                </div>
+
+            </div>
+            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblLongDes" for="txtLongDesc" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLongDes'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input id="txtLongDesc" type="text" style="width: 92%" ng-model="obj.T06301.T_ICD10_LONG_DESC2" next-focus tabindex="3" /><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+            </div>
+
+            <div class="row" style="padding-bottom: 8px; padding-top: 8px;">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblLongDesLoc" for="txtLongDescLocal" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblLongDesLoc'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input id="txtLongDescLocal" style="width: 92%" type="text" ng-model="obj.T06301.T_ICD10_LONG_DESC1" next-focus tabindex="4" /><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblShortDes" for="txtShortDescEng" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblShortDes'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input id="txtShortDescEng" type="text" style="width: 92%" ng-model="obj.T06301.T_ICD10_SHORT_DESC2" next-focus tabindex="5" /><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblShortDescLocal" for="txtShortDescLocal" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblShortDescLocal'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input id="txtShortDescLocal" type="text" ng-model="obj.T06301.T_ICD10_SHORT_DESC1" style="width: 92%" next-focus tabindex="6"/><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label id="lblIcd10Type" for="txtIcd10Type" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblIcd10Type'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input id="txtIcd10Type" style="width:78%;" type="text" ng-model="obj.T06301.T_ICD10_TYPE" next-focus tabindex="7" maxlength="1"/><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2" hidden>
+                    <label id="lblIcd10Code" for="txtLang1Name" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblIcd10Code'" class="ng-cloak" Text="">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input id="txtLang1Name" type="text" ng-model="obj.T06301.T_ICD10_CODE" next-focus tabindex="6"  hidden/><!--<span ng-show="obj.myDiv.Currlocation.$error.required"></span><span class="error">*</span>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+
+    </div>
+    <!--For Data Gridview start-->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <center>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div class="table-responsive">
+                                <table id="entry-grid" datatable="" dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstanceCallback" class="table table-hover" style="width: 100%"></table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+    <!--For Data Gridview End-->
+</div>

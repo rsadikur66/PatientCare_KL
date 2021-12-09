@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="T74015" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T74015">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="T_AMBU_REG_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMP_ASSIGN_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMP_TYP_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMP_TYP_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="T_EMP_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="FullName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

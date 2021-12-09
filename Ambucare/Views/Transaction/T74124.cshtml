@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "T74124";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .selected {
+        background-color: #E17D7D;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #E17D7D;
+    }
+
+    .error {
+        color: red !important;
+    }
+</style>
+
+<script src="~/Apps/JSController/Transaction/T74124Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74124Service.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74124Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()" ></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74124Controller" >
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin: 1.6% auto; border: 1px solid #A21217; border-radius: 5px">
+                <div class="row" style="padding-bottom: 8px; padding-top: 8px">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            @*ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblType'"  associatedcontrolid="txtConpany"   *@
+                            <label id="lblType" class="ng-cloak" style="float: right">Ambulance </label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="ng-cloak select-box">
+                                <ui-select ng-model="obj.T.selected" id="Ambulance" theme="select2" ng-change="Ambulance_Click(obj.T.selected.T_AMBU_REG_ID)" ng-disabled="obj.disabled" append-to-body="true" style="width: 80%; ">
+                                    <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                    <ui-select-choices repeat=" T in obj.AmbulList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                        <div ng-bind-html="T.T_LANG2_NAME | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="error" ng-show="obj.myDiv.kkk.$error.required" style="width: 1px">*</span>
+                                <input type="hidden" id="ddlNationalityCode" ng-model="obj.T_COST_TYPE_ID" ng-bind="obj.T_COST_TYPE_ID=obj.T.selected.T_AMBU_REG_ID" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                <div>
+                    <input type="text" style="float: right; width: 30%; height: 35px" placeholder="Search...." class="form-control" ng-model="Search" />
+                </div>
+                <table class=" table table-bordered" arrow-selector>
+                    <thead style="background-color: #C12D2D; color: white; text-align: center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="obj in obj.PatientList |filter : Search">
+                            <td>{{obj.T_PAT_ID}}</td>
+                            <td>{{obj.T_FIRST_LANG2_NAME}}</td>
+                            <td>{{obj.T_ADDRESS1}}</td>
+                            <td>{{obj.T_ALT_MOBILE_NO}}</td>
+                            <td><a ng-href="\Transaction\T74125\{{obj.T_PAT_ID}}">Discharge</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        </div>
+        @*<div style="margin-left: 90px">
+                <dir-pagination-controls max-size="5"
+                                         direction-links="true"
+                                         boundary-links="true">
+                </dir-pagination-controls>
+            </div>*@
+    </div>
+</div>

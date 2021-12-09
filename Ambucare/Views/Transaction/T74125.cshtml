@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "T74125";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /*For PopUp start*/
+    .omf-modal {
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 300px;
+        width: 70%;
+        height: 45vw;
+        background-color: rgba(128, 128, 128, 0.00);
+        overflow: auto;
+        z-index: 99999;
+    }
+
+        .omf-modal .omf-modal-body {
+            width: 68.25%;
+            padding: 1px;
+            margin: auto;
+            margin-top: 135px;
+            margin-left: 122px;
+            background-color: #FFFFFF;
+            border-style: ridge;
+        }
+
+    nav .nav .btn {
+        margin-top: 3px;
+    }
+
+    #mainBody {
+        margin-top: 20px;
+        z-index: 999999;
+    }
+
+    /*For PopUp end*/
+</style>
+
+<script src="~/Apps/JSController/Transaction/T74125Controller.js"></script>
+<script src="~/Apps/JSService/Transaction/T74125Service.js"></script>
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="T74125Controller">
+        <button ID="btnSave" Tooltip="Save" class="Button Save" ng-click="Save_Click()"></button>
+        <button ID="btnDelete" ToolTip="Delete" class="Button Delete" ng-click="Delete()"></button>
+        <button ID="btnClear" ToolTip="Clear" class="Button Clear" ng-click="Clear()"></button>
+    </div>
+}
+<div class="container" ng-app="Ambucare" ng-controller="T74125Controller">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <span ><img src="~/Images/ORTHO.png"/> </span><br/>
+            <span>Request Id :{{obj.RequeID}}</span><br/>
+            <span>Name :{{obj.Name}}</span><br/>
+            <span>Father's Nmae :{{obj.FatherName}}</span><br />
+            <span>Mother'sName :{{obj.MotherName}}</span><br />
+            <span>Phone :{{obj.Mobile}}</span><br/>
+            <span>Problem :{{obj.Problem}}</span> <br/>
+            <span>Age :{{obj.Age}}</span> <br/>
+            <span>Ambulance :{{obj.Ambulance}}</span> <br/>
+            <span>Total Bill :{{obj.Bill}}</span> 
+            <span class="hidden">{{obj.Request}}</span>
+            <div>
+                <input type="button" value="Show Bill Details" ng-click="BillDetails_Click('BillDetails',obj.Request)" style="background: #c12d2d;color: white" />
+                <input type="button" value="Hospital Admission" ng-click="openHospitalList('HospitalList')" style="background: #c12d2d;color: white" />
+                <input type="button" value="Death" ng-click="Death_Click()" style="background: #c12d2d;color: white" />
+                <input type="button" value="Completely cure" ng-click="Cure_Click()" style="background: #c12d2d;color: white" />
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+    </div>
+    <div id="HospitalList" class="omf-modal">
+        <div class="omf-modal-body" style="height: 150px">
+            <div style="text-align: right;background: #c12d2d;color: white" class="col-lg-12"><span style="font-weight: bold" ng-click="closeHospitalList('HospitalList')">X</span></div>
+            @*<div class="col-lg-12" style="margin-top: 10px;">
+                <div class="col-lg-3" style="text-align: right"><span style="font-weight: bold;">Zone : </span></div>
+                <div class="col-lg-9">
+                    <div class="ng-cloak select-box">
+                        <ui-select ng-model="obj.z.selected" on-select="SiteList($select.selected.T_REGION_CODE)" id="ddlZoneName" theme="select2" append-to-body="true" style="width: 70%">
+                            <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                            <ui-select-choices repeat="z in zoneList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                <div ng-bind-html="z.T_LANG2_NAME | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" id="ddlZoneCode" ng-model="obj.T_REGION_CODE" ng-bind="obj.T_REGION_CODE=obj.z.selected.T_REGION_CODE" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" style="margin-top: 10px;">
+                <div class="col-lg-3" style="text-align: right"><span style="font-weight: bold;">Hospital : </span></div>
+                <div class="col-lg-9">
+                    <div class="ng-cloak select-box">
+                        <ui-select ng-model="obj.s.selected" id="ddlSiteName" theme="select2" append-to-body="true" style="width: 70%">
+                            <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                            <ui-select-choices repeat="s in siteList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                <div ng-bind-html="s.T_LANG2_NAME | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <input type="hidden" id="ddlSiteCode" ng-model="obj.T_SITE_CODE" ng-bind="obj.T_SITE_CODE=obj.s.selected.T_SITE_CODE" />
+                    </div>
+                </div>
+            </div>*@
+            <div class="col-lg-12" style="margin-top: 10px;">
+                <div class="col-lg-3" style="text-align: right"><span style="font-weight: bold;">Hospital : </span></div>
+                <div class="col-lg-9">
+                    <input type="text" gm-places-autocomplete ng-model="t74041.T_DISCH_DEST" style="width: 70%;"/>
+                    </div>
+            </div>
+            <div class="col-lg-12" style="margin-top: 10px;">
+                <div style="text-align: center">
+                    <input type="button" value="Admit" style="background: #c12d2d; color: white; height: 25px;" ng-click="hospitalAddmission()" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+
+    <div class="row">
+       
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+            @*for popup start*@
+            <div id="BillDetails" class="omf-modal">
+                    
+                <div class="omf-modal-body">
+                        
+                    <div>
+                       
+                        <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                            <label style="width: 97%">Bill Details</label><input type="button" style="background: url(../../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseReceivePopup('BillDetails')"/>
+                            @*<input type="text" style="float: right; width: 30%; height: 25px" placeholder="Search...." class="form-control" ng-model="Search"/>*@
+                        </div>
+                        
+                    </div>
+                    <form class="form-horizontal" ng-submit="Receive()" role="form" name="ReceivepeForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error': ReceivepeForm.T_SERVICE_NAME.$touched && ReceivepeForm.T_SERVICE_NAME.$error.required , 'has-success': ServiceTypeForm.T_SERVICE_NAME.$valid }">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                
+                                <table class=" table table-bordered" ng-show="showTable=='Table'">
+                                    <thead style="background-color: #C12D2D; color: white; text-align: center;display:table; width: 100%">
+                                    <tr>
+                                        <th style="width: 70%">Name</th>
+                                        <th style="width: 10%">Price</th>
+                                        <th style="width: 10%">Vat</th>
+                                        <th style="width: 10%">Discount</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody style="height:100px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="B in obj.BillDetails" style="display:table;width:100%;	table-layout:fixed;">
+                                        <td style="width: 70%">{{B.T_LANG2_NAME}}</td>
+                                        <td style="width: 10%">{{B.T_PRICE}}</td>
+                                        <td style="width: 10%">{{B.T_VAT}}</td>
+                                        <td style="width: 10%">{{B.T_DISCOUNT}}</td>
+                                       
+                                    </tr>
+                                    </tbody>
+                                    <tr style="background-color: #A21217; color: #ffffff;display:table;width:100%;">
+                                        <td style="width: 67%">
+                                            <label style="width: 100%; text-align: right">Sub Total</label>
+                                        </td>
+                                        <td style="width: 11%">
+                                            <span>{{obj.SubTotalPrice}}</span>
+                                        </td>
+                                        <td style="width: 11%">
+                                            <span>{{obj.SubTotalVat}}</span>
+                                        </td>
+                                        <td style="width: 11%">
+                                            <span >{{obj.SubTotalDiscount}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table;width:100%;">
+                                        <td colspan="2" style="width: 90%">
+                                            <label style="width: 100%; text-align: right"> Grand Total</label>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span>{{obj.TotalPrice}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                              
+                                <table class=" table table-bordered">
+                                    <thead style="background-color: #C12D2D; color: white; text-align: center;display:table; width: 100%">
+                                    <tr>
+                                        <th style="width: 70%">Name</th>
+                                        <th style="width: 10%">Qty</th>
+                                        <th style="width: 10%">UPrice</th>
+                                        <th style="width: 10%">TotalPrice</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody style="height:100px; overflow:auto; overflow-x:hidden; display:block;">
+                                    <tr ng-repeat="P in obj.IssueDetails" style="display:table;width:100%;	table-layout:fixed;">
+                                        <td style="width: 70%">{{P.GEN_DESC}}</td>
+                                        <td style="width: 10%">{{P.T_QUANTITY}}</td>
+                                        <td style="width: 10%">{{P.SALE_PRICE}}</td>
+                                        <td style="width: 10%">{{P.T_TOTAL_AMOUNT}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                    <tr style="background-color: #A21217; color: #ffffff;display:table;width:100%;">
+                                        <td colspan="3" style="width: 90%">
+                                            <label style="width: 100%; text-align: right">Sub Total</label>
+                                        </td>
+                                        
+                                        <td style="width: 10%">
+                                            <span >{{obj.pharmacyTotal}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table;width:100%;">
+                                        <td colspan="2" style="width: 80%">
+                                            <label style="width: 100%; text-align: right">Discount</label>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span>{{obj.Discount}} %</span>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span>{{obj.totalDiscount}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table;width:100%;">
+                                        <td colspan="2" style="width: 80%">
+                                            <label style="width: 100%; text-align: right"> Vat</label>
+                                        </td>
+
+                                        <td style="width: 10%">
+                                            <span>{{obj.vat}} %</span>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span>{{obj.totalVat}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table;width:100%;">
+                                        <td colspan="3" style="width: 80%">
+                                            <label style="width: 100%; text-align: right">Grand Total</label>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span></span>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span>{{obj.GrandTotal}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table;width:100%;">
+                                        <td colspan="3" style="width: 80%">
+                                            <label style="width: 100%; text-align: right">Final Total</label>
+                                        </td>
+                                        @*<td style="width: 10%">
+                                            <span></span>
+                                        </td>*@
+                                        <td style="width: 20%;text-align: right">
+                                            <span>{{obj.FinalTotal }}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @*for popup end*@
+        </div>
+
+       
+
+    </div>
+
+
+
+
+</div>
+

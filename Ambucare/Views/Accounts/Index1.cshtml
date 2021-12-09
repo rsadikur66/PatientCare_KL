@@ -1,0 +1,245 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <link href="../../Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/normalize.css" rel="stylesheet" />
+    <link href="../../Content/login.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-hijri.js"></script>
+    <script src="~/Scripts/zebra_datepicker.js"></script>
+    <script src="~/Scripts/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jquery.validationEngine-en.js"></script>
+    <script src="~/Scripts/jquery.simplemodal.1.4.4.min.js"></script>
+    <script src="~/Scripts/angular/jquery.js"></script>
+    <script src="~/Scripts/angular/jquery.dataTables.js"></script>
+    <script src="~/Scripts/angular/angular.min.js"></script>
+    <script src="~/Scripts/angular/angular-datatables.js"></script>
+    <script src="~/Scripts/angular/angular-modal-service.js"></script>
+    <script src="~/Scripts/angular/angular-sanitize.js"></script>
+    @*<script src="~/Scripts/angular/xeditable.js"></script>
+        <script src="~/Scripts/angular/angular-mocks.js"></script>*@
+    <script src="~/Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/angular/angular-route.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/select.js"></script>
+    <script src="~/Scripts/angular/ng-map.js" title="map"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBvK4WBt18RMBAKEjwPZ0bDIY3Vp6ekPbM" title="map"></script>
+    @*<script src="~/Scripts/angular/map_api.js"></script>*@
+    <script src="~/Scripts/angular/angularjs-google-maps.js" title="map"></script>
+    <script src="~/Scripts/angular/xeditable.js"></script>
+    <script src="~/Scripts/angular/angular-mocks.js"></script>
+    @*<link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />*@
+    <script src="~/Scripts/Rating/jk-rating-stars.min.js"></script>
+    <script src="~/Scripts/Rating/script.js"></script>
+    <script src="~/Scripts/Module/fileUploader.js"></script>
+    <script src="~/Scripts/ChatScripts/angular-flash.js"></script>
+    <script src="~/Scripts/angular-base64-upload.js"></script>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Apps/app.js"></script>
+    <script src="~/Apps/LoginController.js"></script>
+    <script src="~/Apps/JSService/LoginService.js"></script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        td,
+        th {
+            padding: 2px !important;
+        }
+        body {
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+<body ng-app="Ambucare" ng-controller="LoginController">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="display: inline-block">
+        @*<img class="img-responsive logo-area" src="~/Images/logo.png" alt="logo" /><span>
+    <img class="img-responsive logo-area" src="~/Images/rsz_ambucare.jpg" alt="logo" />
+</span>*@
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <img class="img-responsive logo-area" src="~/Images/logo.png" alt="logo" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6" >
+            <img class="img-responsive logo-area" src="~/Images/AmbuCare.png" alt="logo" style="float: right"/>
+        </div>
+    </div>
+    &nbsp;
+    <div id="box">
+        <div class="leftPanel">
+            <div>
+                <h3 id="title">
+                    <span class="red ng-cloak">AMBULANCE</span>
+                    <span class="gray ng-cloak">Management System</span>
+                </h3>
+            </div>
+            <div class="innerPanel">
+                <div class="leftPanel" style="display: inline-block;">
+                    <div class="roundPanel">
+                        <img src="~/Images/tips.png" alt="tips" class="tips" />
+                    </div>
+                </div>
+                <div class="rightPanel" style="display: inline-block; margin-top: 3%;">
+                    <div class="sidePanel">
+                        <span class="heading">User Tips</span>
+                        <ul>
+                            <li>To Change Password Press "F9"</li>
+                            <li>Remember to logout before leaving your workstation</li>
+                            <li>If you don't Enter your ID & Password in less than 2 Min! your session will be logged out.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="innerPanel">
+                <div class="leftPanel" style="display: inline-block;">
+                    <div class="roundPanel">
+                        <img src="~/Images/rsz_tire_logo.jpg" alt="tips" class="tips" />
+                    </div>
+                </div>
+                <div class="rightPanel" style="display: inline-block; margin-top: 6%;">
+                    <div>
+                        <span class="heading" style="margin-left: 5%;">Product License</span>
+                        <p class="prdLsnc">This Product is Licensed to:</p>
+                        <p class="prdLsnc">Ministry of Health</p>
+                        <p class="prdLsnc">License Code: 1127-58</p>
+                        <p style="color: #7a7a7a" class="prdLsnc">if you don't Enter your ID & Password in less than 2 Min! your session will be logged out.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="rightPanel" id="nmpd" >
+                <div >
+                    <img src="~/Images/numpadbg.png" id="login" />
+                </div>
+                <div id="nmpdUp">
+                    <input id="txtEmpID" placeholder="Employee ID" type="text"/>
+                </div>
+            </div>*@
+        <div class="rightPanel">
+            <div id="login">
+                <div class="leftPanel">
+                    <img class="loginIcon" src=@VirtualPathUtility.ToAbsolute("~/Images/security.png") alt="security" />
+                    <div id="namePanel" class="inputPanel">
+                        <img src=@VirtualPathUtility.ToAbsolute("~/Images/usericon.png") alt="user icon" />
+                        <input ID="txtEmpID" Placeholder="Employee ID" ng-model="obj.T_LOGIN_NAME" type="text" next-focus tabindex="1"/>
+                    </div>
+                    <div id="passPanel" class="inputPanel">
+                        <img src=@VirtualPathUtility.ToAbsolute("~/Images/passicon.png") alt="password icon" />
+                        <input ID="txtPassword" Placeholder="Password" ng-model="obj.T_PWD" type="password" ng-keypress="enterKey($event)" tabindex="2"/>
+                    </div>
+                </div>
+                <div class="rightPanel">
+                    <table>
+                        <tr>
+                            <td>
+                                <button id="btn7" value="7" name="seven" ng-click="addNumber('7')">7</button>
+
+                            </td>
+                            <td>
+                                <button id="btn8" value="8" name="eight" ng-click="addNumber('8')">8</button>
+
+                            </td>
+                            <td>
+                                <button id="btn9" value="9" name="nine" ng-click="addNumber('9')">9</button>
+
+                            </td>
+                            <td>
+                                <button id="btnAC" value="AC" name="cancle" ng-click="Cancel('AC')">AC</button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="btn4" value="4" name="four" ng-click="addNumber('4')">4</button>
+
+                            </td>
+                            <td>
+                                <button id="btn5" value="5" name="five" ng-click="addNumber('5')">5</button>
+
+                            </td>
+                            <td>
+                                <button id="btn6" value="6" name="six" ng-click="addNumber('6')">6</button>
+
+                            </td>
+                            <td>
+                                <button id="btnBS" value="←" name="back" ng-click="BackNumber('←')">←</button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="btn1" value="1" name="one" ng-click="addNumber('1')">1</button>
+
+                            </td>
+                            <td>
+                                <button id="btn2" value="2" name="two" ng-click="addNumber('2')">2</button>
+
+                            </td>
+                            <td>
+                                <button id="btn3" value="3" name="three" ng-click="addNumber('3')">3</button>
+
+                            </td>
+                            <td rowspan="2">
+                                <button id="btnEnter" value="Enter" name="enterr" ng-click="EnterButton(obj.T_LOGIN_NAME,obj.T_PWD)">Enter</button>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="btn0" value="0" name="zero" ng-click="addNumber('0')">0</button>
+
+                            </td>
+                            <td>
+                                <button id="btnDot" value="." name="dot" ng-click="addNumber('.')">.</button>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <button ID="btnLogout" class="actionButton" ng-click="Logout()"></button>
+                        <button ID="btnLogin" class="actionButton" ng-click="login()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="leftPanel">
+                <strong>Medical Systems Co.Ltd,</strong> All Rights Reserved (Version : 12.5.0)
+            </div>
+            <div class="rightPanel">
+                <div id="warning">
+                    <span>Warning :</span> This computer product is protected by copyright law and international treaties. Unauthorized reproduction or distribution of this programe or any portion of it may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<script type="text/javascript">
+        var base = window.location.host;
+        $.getScript('../Apps/Login.js', function (data, textStatus, jqxhr) {
+            console.log('Script File Load Status=' + jqxhr.status);
+        });
+
+    </script>*@
+</body>
+</html>
+

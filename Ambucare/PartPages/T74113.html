@@ -1,0 +1,418 @@
+﻿<div class="container" ng-app="Ambucare" ng-controller="T74113Controller" style="margin-left: -5px; width: 100%" ng-init="PatInfo()">
+    <div style="width: 100%;">
+        <input type="hidden" ng-model="obj.t74039.T_REQUEST_ID" style="text-align: left" />
+    </div>
+    <div style="width: 100%;">
+        <div style="float: left; width: 65%">
+            <div style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center">
+                <label>Patient Info</label>
+            </div>
+        </div>
+        <div style="float: right; width: 35%">
+            <div style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center">
+                <label>Laboratory Test</label>
+            </div>
+        </div>
+    </div>
+    <div style="border: 1px solid #C12D2D; margin-top: 1%; padding-top: 1%; padding-bottom: 1%; border-radius: 5px; width: 65%; float: left">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="row col-lg-12 col-md-12 col-sm-12" style="margin-left: -20px;padding-right: 0px;">
+                        <label id="lblPatName" class="col-lg-3 col-md-3 col-sm-3 ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblPatName'" for="txtPatName">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtPatName" class="col-lg-9 col-md-9 col-sm-9" ng-model="obj.t74113.FullName" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblGender" class="col-lg-3 col-md-3 col-sm-3 ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblGender'" for="txtGender">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtGender" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.Gender" readonly="readonly" />
+                        <label id="lblAge" class="col-lg-3 col-md-3 col-sm-3 ng-cloak" ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblAge'" for="txtAge">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtAge" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.Age" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblNationality" class="col-lg-3 col-md-3 col-sm-3 ng-cloak" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblNationality'" for="txtNationality">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtNationality" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.Nationality" readonly="readonly" />
+                        <label id="lblMaritalStatus" class="col-lg-3 col-md-3 col-sm-3" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblMaritalStatus'" for="txtMaritalStatus">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtMaritalStatus" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.MaritalStatus" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12 ">
+                        <label id="lblHeight" class="col-lg-3 col-md-3 col-sm-3" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblHeight'" for="txtHeight">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtHeight" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.T_HIGHT" readonly="readonly" />
+                        <label id="lblWeight" class="col-lg-3 col-md-3 col-sm-3" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblWeight'" for="txtWeight">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtWeight" class="col-lg-3 col-md-3 col-sm-3" ng-model="obj.t74113.T_WEIGHT" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblRemarks" class="col-lg-3 col-md-3 col-sm-3" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblRemarks'" for="txtRemarks">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtRemarks" class="col-lg-9 col-md-9 col-sm-9" ng-model="obj.t74039.T_REMARKS">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="row col-lg-12 col-md-12 col-sm-12" style="margin-left: -20px;padding-right: 0px;">
+                        <label id="lblDocName" class="col-lg-5 col-md-5 col-sm-5" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDocName'" for="ddlDocName">{{field.T_LANG2_TEXT}}</label>
+                        <div class="ng-cloak select-box col-lg-7 col-md-7 col-sm-7">
+                            <ui-select ng-model="obj.D.selected" id="ddlDocName" theme="select2" style="width: 160px; margin-left: -15px" append-to-body="true" on-select="GetDept()">
+                                <ui-select-match placeholder="Select">{{$select.selected.Full_Name}}</ui-select-match>
+                                <ui-select-choices repeat="D in DocList | propsFilter: {Full_Name: $select.search}">
+                                    <div ng-bind-html="D.Full_Name | highlight: $select.search" style="width: 234px;"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                            <input type="hidden" id="ddlDoceCode" ng-model="obj.t74039.T_DOC_ID" ng-bind="obj.t74039.T_DOC_ID = obj.D.selected.T_EMP_ID" />
+                        </div>
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblDepartment" class="col-lg-5 col-md-5 col-sm-5" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDepartment'" for="txtDepartment">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtDepartment" class="col-lg-7 col-md-7 col-sm-7" ng-model="obj.t74113.Doc_Dept" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblSlip" class="col-lg-5 col-md-5 col-sm-5" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblSlip'" for="txtSlip">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtSlip" class="col-lg-7 col-md-7 col-sm-7" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblDiagonosis" class="col-lg-5 col-md-5 col-sm-5" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDiagonosis'" for="txtDiagonosis">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtDiagonosis" class="col-lg-7 col-md-7 col-sm-7" placeholder="Add Diagonosis" ng-click="AddDiagonosis()" ng-model="obj.T_DIAGONOSIS" readonly="readonly" />
+                    </div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12">
+                        <label id="lblDate" class="col-lg-5 col-md-5 col-sm-5" ng-cloak ng-repeat="field in entity track by $index" ng-if="field.T_LABEL_NAME=='lblDate'" for="txtDate">{{field.T_LANG2_TEXT}}</label>
+                        <input type="text" id="txtDate" class="col-lg-7 col-md-7 col-sm-7" ng-model="obj.T_DATE" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin: 10px auto; width: 35%; float: right;">
+        <table class="table table-bordered" style="margin: 5px auto; border: 1px solid #c12d2d; border-radius: 5px;">
+            <thead style="text-align: center;display:table; width:100%;">
+                <tr style="background-color: #c12d2d; color: #ffffff">
+                    <th style="width: 6%;"><input type="button" style="background: url(../Images/Plus_white.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; height: 15px; border-color: #c12d2d" ng-click="Add_Diagonosis_Row()" /></th>
+                    <th style="width: 6%; text-align: center">Sl</th>
+                    <th style="width: 75%; text-align: center">Diagonosis</th>
+                    <th style="width: 10%; text-align: right">Price</th>
+                    <th style="width: 3%;"></th>
+                </tr>
+            </thead>
+            <tbody style="max-height:78px; min-height:78px; overflow:auto; overflow-x:hidden; display:block;">
+                <tr ng-repeat="obj in obj.DiagonosisList" style="display:table;	width:100%;	table-layout:fixed;">
+                    <td style="text-align: center; width: 6%">
+                        <input type="button" style="background: url(../Images/Reject.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; border-color: #FBFBFB;" ng-click="Remove_Diagonosis($index)" />
+                    </td>
+                    <td style="text-align: center; width:6%">{{$index+1}}<input type="hidden" id="txtCostTypeDtlId{{$index}}" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_COST_TYPE_DTL_ID"><input type="hidden" id="txtRequestId{{$index}}" class="form-control" readonly="readonly" style="width: 100%" ng-model="obj.T_REQUEST_ID"></td>
+                    <td ng-click="Diagonosis($index)" style="text-align: left; width:70%">
+                        <label id="txtCostName{{$index}}" style="width: 100%">{{obj.T_LANG2_NAME}}</label>
+
+                    </td>
+                    <td style="text-align: right; width:10%">
+                        <label id="txtPrice{{$index}}" style="width: 100%; text-align: right">{{obj.T_PRICE}}</label>
+                    </td>
+
+                </tr>
+            </tbody>
+            <tfoot style="display:table; width:100%;">
+                <tr style="background-color: #c12d2d; color: #ffffff;width:100%;">
+                    <th colspan="3" style="text-align: right; width: 86.5%;">Total Price: </th>
+                    <th colspan="2" style="min-width: 10%; max-width: 10%; text-align: right"><label id="txtTotalPrice" style="margin-right: 16px;">{{obj.TotalPrice}}</label></th>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    <div>
+        <div style="margin: 10px auto; width: 100%">
+            <div style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center">
+                <label>Prescription</label>
+            </div>
+            <table class="table table-bordered" style="border: 1px solid #c12d2d; border-radius: 5px;">
+                <thead style="text-align: center;">
+                    <tr style="background-color: #c12d2d; color: #ffffff">
+                        <th style="width: 2%;"><input type="button" style="background: url(../Images/Plus_white.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; height: 15px; border-color: #c12d2d" ng-click="Add_Prescription_Row()" /></th>
+                        <th style="text-align: center; width: 2%;">Sl.</th>
+                        <th style="text-align: center; width: 30%;" colspan="2">Medication Name</th>
+                        <th style="text-align: center; width: 12%;">Strength</th>
+                        <th style="text-align: center; width: 12%;">Form</th>
+                        <th style="text-align: center; width: 12%;">Route</th>
+                        <th style="text-align: center; width: 3%;">Ins</th>
+                        <th style="text-align: center; width: 3%;">Inactive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="obj in obj.MedicineList">
+                        <td style="text-align: center">
+                            <input type="button" style="background: url(../Images/Reject.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; border-color: #FBFBFB;" ng-click="Remove_Prescription($index)" />
+                            <input type="hidden" id="txtItemCode{{$index}}" ng-model="obj.T_ITEM_CODE" />
+                            <input type="hidden" id="txtTradeCode{{$index}}" ng-model="obj.T_TRADE_CODE" />
+                            <input type="hidden" id="txtGenCode{{$index}}" ng-model="obj.T_GEN_CODE" />
+
+                        </td>
+                        <td style="text-align: center">{{$index+1}}</td>
+                        <td style="width: 1%"><input type="button" id="btnMedicationNameByTrade{{$index}}" value="T" style="height: 30px; background: #c12d2d; border-radius: 5px; color: #ffffff;" ng-click="TradeList($index)" /></td>
+                        <td ng-click="GenList($index)"><label id="txtMedicationName{{$index}}">{{obj.T_MEDICATION_NAME}}</label></td>
+                        <td>
+                            <div class="ng-cloak select-box" style="margin-right: -35px">
+                                <ui-select ng-model="obj.S.selected" id="ddlStrength{{$index}}" theme="select2" append-to-body="true" style="width: 80%" ng-click="onStrClick($index)">
+                                    <ui-select-match placeholder="Select">{{$select.selected.STRENGTH}}</ui-select-match>
+                                    <ui-select-choices repeat="S in obj.StrengthList | propsFilter: {STRENGTH: $select.search}" ng-model="obj.StrengthList" id="ddlStrengthList{{$index}}">
+                                        <div ng-bind-html="S.STRENGTH | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlStrengthId{{$index}}" ng-model="obj.T_REQUEST_STRENGTH" ng-bind="obj.T_REQUEST_STRENGTH = obj.S.selected.STRENGTH" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ng-cloak select-box" style="margin-right: -35px">
+                                <ui-select ng-model="obj.Fr.selected" id="ddlForm{{$index}}" theme="select2" append-to-body="true" style="width: 80%" ng-click="onFrmClick($index)">
+                                    <ui-select-match placeholder="Select">{{$select.selected.FORM_DESC}}</ui-select-match>
+                                    <ui-select-choices repeat="Fr in obj.FormList | propsFilter: {FORM_DESC: $select.search}" ng-model="obj.FormList" id="ddlFormList{{$index}}">
+                                        <div ng-bind-html="Fr.FORM_DESC | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlFormId{{$index}}" ng-model="obj.T_FORM_ID" ng-bind="obj.T_FORM_ID = obj.Fr.selected.FORM_CODE" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ng-cloak select-box" style="margin-right: -35px">
+                                <ui-select ng-model="obj.R.selected" id="ddlRoute{{$index}}" theme="select2" append-to-body="true" style="width: 80%" ng-click="onRtClick($index)">
+                                    <ui-select-match placeholder="Select">{{$select.selected.ROUTE_DESC}}</ui-select-match>
+                                    <ui-select-choices repeat="R in obj.RouteList | propsFilter: {ROUTE_DESC: $select.search}" ng-model="obj.RouteList" id="ddlRouteList{{$index}}">
+                                        <div ng-bind-html="R.ROUTE_DESC | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <input type="hidden" id="ddlRouteId{{$index}}" ng-model="obj.T_DRUG_ROUTE_CODE" ng-bind="obj.T_DRUG_ROUTE_CODE = obj.R.selected.ROUTE_CODE" />
+                            </div>
+                        </td>
+                        <td>
+                            <input type="button" id="btnInstruction{{$index}}" value="Ins" style="height: 30px; background: #c12d2d; border-radius: 5px; color: #ffffff;" ng-click="OpenIns($index)" />
+
+
+                            <div id="test{{$index}}" style="display: none; z-index: 2; margin-left: -45%; position: absolute; background-color: #FBFBFB; width: 50%; border: 1px solid #c12d2d; top: 20%">
+                                <div>
+                                    <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;">
+                                        <label style="width: 97%">Instructions</label><input type="button" style="background: url(../Images/Cancel_White.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 3%; padding-bottom: 7px; border-color: #c12d2d" ng-click="CloseIns($index)" />
+                                    </div>
+                                </div>
+                                <div style="width: 100%; height: 310px;">
+                                    <div style="float: left; width: 60%">
+                                        <div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center;">
+                                                <label style="text-decoration: underline #c12d2d;">Doses</label>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                                            <div class="col-lg-11 col-md-11 col-sm-11" style="border: 1px solid #c12d2d; border-radius: 5px; padding-top: 10px; padding-bottom: 10px; height: 130px">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <label>Morning </label><input type="text" id="txtMorningDoseUnit{{$index}}" style="width: 100%" ng-model="obj.T_MORNING_DOSE_UNIT" />
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <label>Noon </label><input type="text" id="txtNoonDoseUnit{{$index}}" style="width: 100%" ng-model="obj.T_NOON_DOSE_UNIT" />
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <label>Night </label><input type="text" id="txtNightDoseUnit{{$index}}" style="width: 100%" ng-model="obj.T_NIGHT_DOSE_UNIT" />
+                                                    </div>
+                                                </div><br /><br /><br />
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                                        <div class="ng-cloak select-box">
+                                                            <ui-select ng-model="obj.Ins.selected" id="ddlInstruction{{$index}}" theme="select2" append-to-body="true" style="width: 100%">
+                                                                <ui-select-match placeholder="Select">{{$select.selected.T_INSTRUCTION_DESC}}</ui-select-match>
+                                                                <ui-select-choices repeat="Ins in InstructionList | propsFilter: {T_INSTRUCTION_DESC: $select.search}">
+                                                                    <div ng-bind-html="Ins.T_INSTRUCTION_DESC | highlight: $select.search"></div>
+                                                                </ui-select-choices>
+                                                            </ui-select>
+                                                            <input type="hidden" id="ddlInstructionId{{$index}}" ng-model="obj.T_MEAL_INSTRUCTION" ng-bind="obj.T_MEAL_INSTRUCTION = obj.Ins.selected.T_INSTRUCTION_CODE" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <input type="text" style="width: 50%" id="txtInsTime{{$index}}" ng-model="obj.T_INS_TIME" />&nbsp;<label>Mins</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div style="width: 100%">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center; width: 100%">
+                                                <label style="text-decoration: underline #c12d2d;">Day Specifications</label>
+                                            </div>
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; border: 1px solid #c12d2d; border-radius: 5px; text-align: center; width: 90%; margin-left: 9%;">
+                                                <p>
+                                                    This Chart is only for Twice Weekly,
+                                                    Trice weekly and Four Times Weekly,
+                                                    Five Times Weekly
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="width: 90%; margin-left: 9%;">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkSaturday{{$index}}" ng-model="obj.Saturday" ng-change="chkSaturday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkSaturday{{$index}}">Saturday</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkTuesday{{$index}}" ng-model="obj.Tuesday" ng-change="chkTuesday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkTuesday{{$index}}">Tuesday</label>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkSunday{{$index}}" ng-model="obj.Sunday" ng-change="chkSunday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkSunday{{$index}}">Sunday</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkWednesday{{$index}}" ng-model="obj.Wednesday" ng-change="chkWednesday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkWednesday{{$index}}">Wednesday</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkFriday{{$index}}" ng-model="obj.Friday" ng-change="chkFriday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkFriday{{$index}}">Friday</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkMonday{{$index}}" ng-model="obj.Monday" ng-change="chkMonday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkMonday{{$index}}">Monday</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <input type="checkbox" id="chkThursday{{$index}}" ng-model="obj.Thursday" ng-change="chkThursday($index)" />
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                                                <label for="chkThursday{{$index}}">Thursday</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div style="float: right; width: 40%">
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center;">
+                                                <label style="text-decoration: underline #c12d2d;">Frequency</label>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="border: 1px solid #c12d2d; border-radius: 5px; padding-top: 10px; padding-bottom: 10px;">
+                                                <div style="display: inline-block; width: 40%; float: left">
+                                                    <input type="text" id="ddlFrequencyCode{{$index}}" ng-model="obj.T_FREQUENCY_CODE" style="height: 28px; width: 50%" />&nbsp;&nbsp;&nbsp;<label>Per</label>
+                                                </div>
+                                                <div class="ng-cloak select-box" style="display: inline-block; width: 60%; float: right">
+                                                    <ui-select ng-model="obj.F.selected" on-select="onFrequencySelect(obj.F.selected.T_QTY_MON,$index)" id="ddlFrequency{{$index}}" theme="select2" append-to-body="true" style="width: 100%">
+                                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                        <ui-select-choices repeat="F in FrequencyList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                            <div ng-bind-html="F.T_LANG2_NAME | highlight: $select.search"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                    <input type="hidden" id="ddlFrequencyId{{$index}}" ng-model="obj.T_FREQUENCY_INS_ID" ng-bind="obj.T_FREQUENCY_INS_ID = obj.F.selected.T_FREQUENCY_CODE" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center;">
+                                                <label style="text-decoration: underline #c12d2d;">Duration</label>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="border: 1px solid #c12d2d; border-radius: 5px; padding-top: 10px; padding-bottom: 10px;">
+
+
+
+                                                <div style="display: inline-block; width: 40%; float: left;">
+                                                    <input type="text" readonly="readonly" id="ddlDurationCode{{$index}}" ng-model="obj.T_DOSE_DURATION_CODE" style="height: 28px; width: 50%" />
+                                                </div>
+                                                <div class="ng-cloak select-box" style="display: inline-block; width: 60%; float: right">
+                                                    <ui-select ng-model="obj.D.selected" on-select="onDurationSelect(obj.F.selected.T_QTY_MON,obj.D.selected.T_QTY,obj.T_FREQUENCY_CODE,$index)" id="ddlDuration{{$index}}" theme="select2" append-to-body="true" style="width: 100%" ng-click="onDurationClick(obj.F.selected.T_QTY_MON,$index)">
+                                                        <ui-select-match placeholder="Select">{{$select.selected.T_LANG2_NAME}}</ui-select-match>
+                                                        <ui-select-choices repeat="D in DurationList | propsFilter: {T_LANG2_NAME: $select.search}">
+                                                            <div ng-bind-html="D.T_LANG2_NAME | highlight: $select.search"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                    <input type="hidden" id="ddlDurationId{{$index}}" ng-model="obj.T_DOSE_DURATION_INS_ID" ng-bind="obj.T_DOSE_DURATION_INS_ID = obj.D.selected.T_DOSE_DURATION_CODE" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-lg-12 col-md-12 col-sm-12" style="color: #c12d2d; font-weight: bold; font-size: 1.0em; text-align: center;">
+                                            <label style="text-decoration: underline #c12d2d;">Remarks</label>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <input type="hidden" id="txtRemarksDtl{{$index}}" ng-model="obj.T_REMARKS_DTL" />
+                                            <input id="txtAdvice{{$index}}" type="text" placeholder="Search......." style="width: 100%"
+                                                   ng-model="obj.T_LANG2_NAME"
+                                                   ng-change="onAdviceSearch(obj.T_LANG2_NAME,$index)"
+                                                   ng-blur="onFocusLost($index)" />
+
+                                            <table id="tbladvice{{$index}}" ng-show="showAdviceTable" style="z-index: 1000; position: absolute; background-color: white; color: Black; border: 2px solid #c12d2d;">
+                                                <tbody style="height: 200px; width: 255px; overflow: auto; overflow-x: hidden; display: block;">
+                                                    <tr ng-repeat="a in obj.adviceList" id="AutoSearch" ng-click="onAdviceSelect(a,$parent.$index, $index)" style="cursor: pointer;">
+                                                        <td style="text-align: left">{{a.T_LANG2_NAME}}</td>
+                                                        <td class="Hidden">{{a.T_ADVICE_ID}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table>
+                                                <tbody id="trAdviceList{{$index}}" style="max-height: 100px; min-height: 100px; overflow: auto; overflow-x: hidden; display: block;" ng-model="obj.listOfAdvice">
+                                                    <tr ng-repeat="obj in obj.listOfAdvice" style="display: table; width: 100%; table-layout: fixed;">
+                                                        <td style="text-align: center; width: 6%">
+                                                            <input id="btnBullet{{$parent.$index}}{{$index}}" type="button" style="background: url(../Images/Accept.png); background-size: 15px; background-repeat: no-repeat; background-position: center; width: 15px; border-color: #FBFBFB;"
+                                                                   ng-mouseover="onMouseOver($parent.$index,$index)"
+                                                                   ng-mouseleave="onMouseLeave($parent.$index,$index)"
+                                                                   ng-click="onDeleteAdvice($parent.$index,$index)" />
+                                                        </td>
+                                                        <td style="text-align: left; width: 94%">
+                                                            <span id="lblsingleAdvice{{$parent.$index}}{{$index}}" style="width: 100%; display: block" ng-model="obj.singleAdvice" ng-click="onAdviceEditStart($parent.$index,$index)">{{obj.singleAdvice}}</span>
+                                                            <input type="text" id="txtsingleAdvice{{$parent.$index}}{{$index}}" style="width: 100%; display: none" ng-model="obj.singleAdvice" ng-blur="onAdviceEditEnd($parent.$index,$index)" />
+                                                            <span id="spnsingleAdviceId{{$parent.$index}}{{$index}}" ng-model="obj.singleAdviceId"></span>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="background-color: #c12d2d; color: #ffffff; width: 100%; text-align: center;" ng-click="CloseIns($index)">
+                                        <label style="width: 100%">Submit</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="chkInactive{{$index}}" ng-model="obj.DRUG_INACTIVE_FLAG" ng-change="chkInactive($index)" />
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

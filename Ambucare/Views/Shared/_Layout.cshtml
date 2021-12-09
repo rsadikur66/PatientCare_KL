@@ -1,0 +1,831 @@
+﻿@using FastReport.Web
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/pageeng.min.css")" title="eng" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/pagearb.min.css")" title="arb" rel="alternate stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/metallic.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/validationEngine.jquery.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/jquery.mCustomScrollbar.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/jquery.dataTables.min.css") " rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute(" ~/Content/select.css") " rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute(" ~/Content/select2.css") " rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute(" ~/Content/selectize.default.css") " rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/Custom.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/ui-grid.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@VirtualPathUtility.ToAbsolute("~/Content/layout.min.css")" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment-hijri.js"></script>
+    <script src="~/Scripts/zebra_datepicker.js"></script>
+    <script src="~/Scripts/jquery.validationEngine.js"></script>
+    <script src="~/Scripts/jquery.validationEngine-en.js"></script>
+    <script src="~/Scripts/jquery.simplemodal.1.4.4.min.js"></script>
+    <script src="~/Scripts/angular/jquery.js"></script>
+    <script src="~/Scripts/angular/jquery.dataTables.js"></script>
+
+    <script src="~/Scripts/app-quick-sidebar.js"></script>
+    <script src="~/Scripts/quick-sidebar.min.js"></script>
+
+
+
+    <script src="~/Scripts/angular/angular.min.js"></script>
+    <script src="~/Scripts/angular/angular-datatables.js"></script>
+    <script src="~/Scripts/angular/angular-modal-service.js"></script>
+    <script src="~/Scripts/angular/angular-sanitize.js"></script>
+    @*<script src="~/Scripts/angular/xeditable.js"></script>
+        <script src="~/Scripts/angular/angular-mocks.js"></script>*@
+    <script src="~/Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/angular/angular-route.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/select.js"></script>
+    @*<script src="~/Scripts/angular/ng-map.js"></script>*@
+    <script src="~/Scripts/angular/ng-map.1.18.5.js"></script>
+    <link href="~/Content/Rating/jk-rating-stars.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Rating/jk-rating-stars.min.js"></script>
+    <script src="~/Scripts/Rating/script.js"></script>
+    <script src="~/Scripts/Module/fileUploader.js"></script>
+    <script src="~/Scripts/ChatScripts/angular-flash.js"></script>
+    <script src="~/Scripts/angular-base64-upload.js"></script>
+    @WebReportGlobals.Scripts()
+    @WebReportGlobals.Styles()
+
+
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBvK4WBt18RMBAKEjwPZ0bDIY3Vp6ekPbM"></script>
+    @*<script src="~/Scripts/angular/map_api.js"></script>*@
+    <script src="~/Scripts/angular/angularjs-google-maps.js"></script>
+
+    <script src="~/Apps/app.js"></script>
+    <script src="~/Apps/JSController/Menu/menuController.js"></script>
+    <script src="~/Apps/JSService/Menu/MenuService.js"></script>
+    <style>
+        .modalDoc {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+            .modalDoc > .win {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-color: #fff;
+                min-width: 500px;
+                min-height: 400px;
+            }
+
+                .modalDoc > .win > a.close {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 16px;
+                    height: 16px;
+                    background: transparent url(../Images/close_delete.png) no-repeat center;
+                }
+
+        .ui-grid-top-panel {
+            /*background: #D8454B;*/
+            background-image: url('../Images/title_background.png');
+            color: white;
+        }
+
+        .headerText {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            color: #708090;
+            font-size: 1.5em;
+            width: 460px;
+            font-style: italic;
+        }
+        /*For validation-------------------Start*/
+        .ng-invalid {
+            border-color: #c12d2d !important;
+        }
+        /*For validation---------------------End*/
+        /*For HTML Grid-------------------Start*/
+        .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+            /*background-color: #C12D2D !important;
+            border-color: #C12D2D !important;*/
+            color: #C12D2D !important;
+            background-color: white;
+            font-weight: bold;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            color: #b3abab !important;
+            border: none;
+            background-color: white;
+        }
+
+        /*For HTML Grid---------------------End*/
+        #formInfo {
+            margin-left: 15px !important;
+        }
+
+
+        /*for TopBar css*/
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            /*width: 15%;*/
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /*Sidebar menu style*/
+
+        @@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+        @@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+        /*.fa-2x {
+            font-size: 2em;
+        }*/
+
+        /*.fa {
+            position: relative;
+            display: table-cell;
+            width: 60px;
+            height: 36px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+        }*/
+
+
+        .main-menu:hover, nav.main-menu.expanded {
+            width: 260px;
+            overflow: auto;
+        }
+
+            .main-menu:hover .sub-menu li {
+                text-align: left;
+                padding-left: 45px;
+                line-height: 8px;
+            }
+
+
+        .main-menu {
+            background: #BB2A2F;
+            /*background: #FBFBFB;*/
+            /*background: #C7D5DE;*/
+            border-right: 1px solid #e5e5e5;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            width: 38px;
+            overflow: hidden;
+            -webkit-transition: width .05s linear;
+            transition: width .05s linear;
+            -webkit-transform: translateZ(0) scale(1,1);
+            z-index: 1000;
+            border-right: 2px solid #E8E8E8;
+        }
+
+            .main-menu > ul {
+                margin: 7px 0;
+            }
+
+            .main-menu li {
+                position: relative;
+                display: block;
+                width: 250px;
+            }
+
+                .main-menu li > a {
+                    position: relative;
+                    display: table;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    color: #999;
+                    font-family: arial;
+                    font-size: 14px;
+                    text-decoration: none;
+                    -webkit-transform: translateZ(0) scale(1,1);
+                    -webkit-transition: all .1s linear;
+                    transition: all .1s linear;
+                }
+
+            .main-menu .nav-icon {
+                position: relative;
+                display: table-cell;
+                width: 60px;
+                height: 36px;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 18px;
+            }
+
+            .main-menu .nav-text {
+                position: relative;
+                display: table-cell;
+                vertical-align: middle;
+                width: 190px;
+                font-family: 'Titillium Web', sans-serif;
+                text-align: left;
+            }
+
+            .main-menu > ul.logout {
+                position: absolute;
+                left: 0;
+                bottom: 55px;
+            }
+
+        .no-touch .scrollable.hover {
+            overflow-y: hidden;
+        }
+
+            .no-touch .scrollable.hover:hover {
+                overflow-y: auto;
+                overflow: visible;
+            }
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+
+        nav {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+            nav ul, nav li {
+                outline: 0;
+                margin: 0;
+                padding: 0;
+            }
+
+        /*.main-menu li:hover > a, nav.main-menu li.active > a, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus, .no-touch .dashboard-page nav.dashboard-menu ul li:hover a, .dashboard-page nav.dashboard-menu ul li.active a {
+                color: #fff;
+                background-color: #5fa2db;
+            }*/
+
+        .area {
+            float: left;
+            background: #e2e2e2;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*.fa {
+            background: url(../Images/setup.png) no-repeat;
+        }*/
+
+        .btn-menu {
+            width: 255px !important;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .Transaction {
+            background: url(../Images/transaction.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Query {
+            background: url(../Images/query.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Initialization {
+            background: url(../Images/Intialization.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Report {
+            background: url(../Images/report.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Setup {
+            background: url(../Images/setup.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Back-m {
+            background: url(../Images/back1.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        .Logout-m {
+            background: url(../Images/logoutpg1.png) no-repeat;
+            background-position: 3px 3px;
+        }
+
+        #container {
+            width: 96% !important;
+        }
+
+        .sub-menu li {
+            text-align: left;
+            padding-left: 48px;
+        }
+
+            .sub-menu li > a {
+                display: block;
+                margin: 0;
+                padding: 6px 0 6px 0;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 300;
+                color: #fff;
+                /*color: #394e53;*/
+                background: 0 0;
+            }
+
+        a.nav-item {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        label.nav-item {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .Buttons {
+            background-color: unset !important;
+        }
+
+        .Logout {
+            margin-top: 2px;
+            /* display: block; */
+            height: 32px;
+            /* width: 70px; */
+            width: 36px;
+            border: none;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            /* background-color: #BB2A2F; */
+            /* background-color: #E1E6EA !important; */
+            /* color: #F9FAFA; */
+        }
+
+        /*quick-sidebar style*/
+
+        .page-quick-sidebar-open .page-quick-sidebar-wrapper {
+            transition: left .3s !important;
+            left: 0;
+        }
+
+        .page-quick-sidebar-toggler {
+            left: 8px;
+            transition: left .3s;
+        }
+
+        .page-quick-sidebar-wrapper .page-quick-sidebar {
+            background: #27567c;
+        }
+
+
+        .page-quick-sidebar-wrapper {
+            transition: left .3s;
+            z-index: 10500;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 320px;
+            right: none;
+            left: -320px;
+            overflow: auto;
+            color: #99a8b5;
+            background: #27567c;
+        }
+
+
+            .page-quick-sidebar-wrapper .page-quick-sidebar .list-items > li {
+                padding: 2px 15px !important;
+            }
+
+                .page-quick-sidebar-wrapper .page-quick-sidebar .list-items > li:hover {
+                    background: #27567c;
+                }
+
+        .glyphicon-log-in, .glyphicon-log-out {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .glyphicon-log-in {
+            color: #fff;
+        }
+
+        .glyphicon-log-out {
+            color: #364E6F
+        }
+
+
+        li.dropdown.dropdown-quick-sidebar-toggler {
+            /*background: #A0C5E8;*/
+            position: relative;
+            left: 16px;
+            border-radius: 50%;
+            width: 47px;
+            height: 47px;
+            top: 2px;
+        }
+
+        span.glyphicon.glyphicon-align-justify {
+            font-size: 20px;
+            top: -6px;
+        }
+
+        .nav > li > a:focus, .nav > li > a:hover {
+            background-color: unset !important;
+        }
+
+
+        .manImg {
+            height: 9px;
+        }
+
+        .td-no-bg {
+            background: none !important;
+        }
+
+        /* Top Menu */
+        .navbar-nav > li > a {
+            padding-top: 8px !important;
+        }
+
+        .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+            background-color: transparent;
+        }
+
+        .dropdown-menu {
+            padding: 1px 0 0 3px !important;
+        }
+
+        /* Top Menu */
+
+        /*end quick-sidebar style*/
+        @@font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+        }
+        .remScrl{
+            overflow-x:hidden;
+        }
+    </style>
+
+</head>
+<body ng-app="Ambucare" ng-controller="menuController" click-capture>
+    @if (@ViewBag.WebReport != null)
+    {
+        @ViewBag.WebReport.GetHtml()
+    }
+    <div class="row">
+        @*<ul class="nav navbar-nav">
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </a>
+                </li>
+            </ul>*@
+
+        @* Quick Sidebar *@
+
+        <a href="javascript:;" class="page-quick-sidebar-toggler">
+            <span style="color: #fff;" class="glyphicon glyphicon-align-justify"></span>
+        </a>
+        <div class="page-quick-sidebar-wrapper" data-close-on-body-click="false">
+            <div class="page-quick-sidebar">
+
+                <div class="tab-content">
+                    <div class="page-quick-sidebar-chat" id="quick_sidebar_tab_1">
+                        <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
+                            <h3 class="list-heading">&nbsp;</h3>
+                            <ul class="media-list list-items">
+                                <li class="media" style="text-align: center;border-bottom: 2px solid;color:#ffffff">
+                                    <span ng-click="onLangClick_n(1)">Türkiye</span><span>&nbsp;|&nbsp;</span>
+                                    <span ng-click="onLangClick_n(2)">English</span>
+
+                                </li>
+                                <li class="media">
+                                    <div class="media-body">
+                                        <button ID="btnTransaction" class="Buttons Button btn-menu Transaction ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblTransaction'">{{field.T_LANG2_TEXT}}</button>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li class="nav-item" ng-repeat="t in menusT">
+                                            @*<a href="{{vrDir}}/{{t.Menu_Name}}/{{t.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(t)" style="display: inline-block; cursor: pointer">{{t.T_LANG2_NAME}}</a>*@
+                                            <label style="display: inline-block;cursor:pointer" class="ng-cloak nav-item" ng-click="FormName(t)">{{t.T_LANG2_NAME}}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="media">
+                                    <div class="media-body">
+                                        <button ID="btnQuery" class="Buttons Button btn-menu Query ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblQuery'">{{field.T_LANG2_TEXT}}</button>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li class="nav-item" ng-repeat="t in menusQ">
+                                            @*<a href="{{vrDir}}/{{t.Menu_Name}}/{{t.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(t)" style="display: inline-block; cursor: pointer">{{t.T_LANG2_NAME}}</a>*@
+                                            <label style="display: inline-block;cursor:pointer" class="ng-cloak nav-item" ng-click="FormName(t)">{{t.T_LANG2_NAME}}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="media">
+                                    <div class="media-body">
+                                        <button ID="btnReport" class="Buttons Button btn-menu Query ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblReport'">{{field.T_LANG2_TEXT}}</button>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li class="nav-item" ng-repeat="t in menusR">
+                                            @*<a href="{{vrDir}}/{{t.Menu_Name}}/{{t.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(t)" style="display: inline-block; cursor: pointer">{{t.T_LANG2_NAME}}</a>*@
+                                            <label style="display: inline-block;cursor:pointer" class="ng-cloak nav-item" ng-click="FormName(t)">{{t.T_LANG2_NAME}}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="media">
+                                    <div class="media-body">
+                                        <button ID="btnInitialization" class="Buttons Button btn-menu Initialization  ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblInitialization'">{{field.T_LANG2_TEXT}}</button>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li class="nav-item" ng-repeat="t in menusI">
+                                            @*<a href="{{vrDir}}/{{t.Menu_Name}}/{{t.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(t)" style="display: inline-block; cursor: pointer">{{t.T_LANG2_NAME}}</a>*@
+                                            <label style="display: inline-block;cursor:pointer" class="ng-cloak nav-item" ng-click="FormName(t)">{{t.T_LANG2_NAME}}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        @* End of Quick sidebar *@
+
+
+        <div id="topbar">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <table style="width: 100%; border: none;">
+                        <tbody style="display:table; width:100%;">
+                            <tr style=" border: none; background: none;">
+                                <td style="width: 25%; border: none; position: relative; top: -10px;" class="td-no-bg">
+                                    @*<img style="float: left; margin-left: 16px; margin-right: 10px;" src="@VirtualPathUtility.ToAbsolute("~/Images/user.png")" />
+                                        <div class="t-user-name">
+                                            <label style="font-size: 12px;" ID="lblUserId" class="ng-cloak">{{UserId}}</label><br />
+                                            <label style="font-size: 12px; width: 100%; margin-right: 13px;" ID="lblUserName" class="ng-cloak">{{UserName}}</label>
+                                        </div>*@
+                                    @*<label style="position: relative;background: bottom; border: none; font-size: 15px; color: white; cursor: pointer; margin-top: 5px;">
+                                            <img style="" src="@VirtualPathUtility.ToAbsolute("~/Images/arrow-down.png")" ng-click="onLogout();$event.stopPropagation();" />
+                                        </label>*@
+
+                                    <div class="top-menu">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown dropdown-quick-sidebar-toggler">
+                                                <a href="javascript:;" class="dropdown-toggle">
+                                                    <span class="glyphicon glyphicon-align-justify"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                                                <img style="float: left; margin-left: 16px; margin-right: 10px;" src="@VirtualPathUtility.ToAbsolute("~/Images/user.png")" />
+                                            </li>
+                                            <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                                                <div class="t-user-name">
+                                                    <label style="font-size: 12px;" ID="lblUserId" class="ng-cloak">{{UserId}}</label><br />
+                                                    <label style="font-size: 12px; width: 100%; margin-right: 13px;" ID="lblUserName" class="ng-cloak">{{UserName}}</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown dropdown-user">
+                                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    <img style="" src="@VirtualPathUtility.ToAbsolute("~/Images/arrow-down.png")" />
+                                                    @*<img alt="" class="img-circle" src="../quick-sidebar/assets/layouts/layout/img/avatar3_small.jpg" />
+                                                        <span class="username username-hide-on-mobile"> Nick </span>
+                                                        <i class="fa fa-angle-down"></i>*@
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu-default">
+                                                    <li>
+
+                                                        <button Tooltip="Logout" class="Logout" ng-click="Logout()"></button>
+                                                        <label style="vertical-align: middle; margin-top: -17px; cursor: pointer; font-weight: 600;" ng-click="Logout()">Logout</label>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                                                <div class="t-panic">
+                                                    <img src="~/Images/Panic.png" style="padding-left: 10px; height: 30px; width: 40px;" />
+                                                    <label ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'">{{field.T_LANG2_TEXT}}</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    @*<div class="t-panic">
+                                            <img src="~/Images/Panic.png" style="padding-left: 10px; height: 30px; width: 40px;" />
+                                            <label ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'">{{field.T_LANG2_TEXT}}</label>
+                                        </div>*@
+                                </td>
+                                <td style="width: 36%; padding-left: 140px; border: none;" class="td-no-bg">
+                                    <div id="whiteLogo">
+                                        <img style="margin-top: 10px;" src="@VirtualPathUtility.ToAbsolute("~/Images/ambucareLogo5.png")" alt="white logo" />
+                                    </div>
+                                </td>
+                                <td style="width: 30%; border: none;position: relative; top: -15px;" class="td-no-bg">
+                                    <div class="t-calendar">
+                                        <img src="~/Images/calender.png" />
+                                        <span>
+                                            <script type="text/javascript">
+                                                document.writeln(moment().format('DD/MM/YYYY'));
+                                            </script>
+                                        </span>
+
+
+                                    </div>
+                                    <div class="t-form-info" style="border-right: none;">
+                                        <label ID="lblFormInfo" class="ng-cloak" style="font-size: 13px; color: #5f6772; margin-right: 14px;">{{FName}}</label><br />
+                                        <img src="~/Images/patientPad.png" style="width: 10px; height: 15px;" />
+                                        <label ID="FName" class="ng-cloak">{{FCode}}</label>
+                                    </div>
+                                    <label style="display: none; background: bottom; border: none; font-size: 15px; color: white; cursor: pointer; margin-top: 5px;">
+                                        <img src="@VirtualPathUtility.ToAbsolute("~/Images/teamNotification.png")" />
+                                    </label>
+                                    <label style="display: none;"> <span style="width: 100px; display: block; color: #364E6F; font-weight: 700;">Contact Team</span></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div id="divLogout" ng-hide="custom" class="logout_ltst">
+                <div>
+                    <button Tooltip="Logout" class="Logout" ng-click="Logout()"></button>
+                    <label style="vertical-align: middle; margin-top: -17px;cursor: pointer" ng-click="Logout()">Logout</label>
+                </div>
+            </div>
+        </div>
+
+        @*<div id="topbar">
+                <img src="@VirtualPathUtility.ToAbsolute("~/Images/topbarbgen.png")" id="topbarBg" alt="top bar" />
+                <div class="column" style="width: 7%;"></div>
+                <div class="column">
+
+                    <img style="width: 70px; border-radius: 5px; margin-left: 45%;" src="@VirtualPathUtility.ToAbsolute("~/Images/AmbuCare.jpg")" alt="white logo" />
+                    <br />
+                    <span style="color: #fafafa" ng-repeat="field in Menuentity track by $index"
+                          ng-if="field.T_LABEL_NAME=='lblAmbulanceName'" class="red ng-cloak">{{field.T_LANG2_TEXT}}</span>&nbsp;
+                    <span style="color: #fafafa" ng-repeat="field in Menuentity track by $index"
+                          ng-if="field.T_LABEL_NAME=='lblMangeSystem'" class="gray ng-cloak">{{field.T_LANG2_TEXT}}</span>
+                </div>
+
+                <div class="column" style="width: 30%;"></div>
+
+                <div class="column">
+                    <img src="~/Images/PanicIcon.png" style="width: 40px; height: 40px; cursor: pointer;" ng-click="Panicked()" />
+                    <label ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblPanicked'">{{field.T_LANG2_TEXT}}</label>
+                </div>
+                <div class="column" style="width: 1%;">
+                </div>
+
+                <div class="column">
+                    <label ID="lblFormInfo" class="ng-cloak" style="font-size: 13px;">{{FName}}</label><br />
+                    <div style="float: right">
+                        <img src="~/Images/PatientInfoIcon.png" style="width: 10px; height: 15px;" />
+                        <label style="color: #fafafa;" ID="FName" class="ng-cloak">{{FCode}}</label>
+                    </div>
+                </div>
+                <div class="column">
+                </div>
+                <div class="column">
+                    <img src="@VirtualPathUtility.ToAbsolute("~/Images/CalenderIcon.png")" id="calender" alt="calender" />
+                </div>
+                <div class="column" style="margin-top: 0.5%;">
+                    <script type="text/javascript">
+                        document.writeln(moment().format('DD/MM/YYYY'));
+                    </script> <br />
+                </div>
+                <div class="column">
+                </div>
+                <div class="column">
+                    <img style="margin-top: 25%;" src="@VirtualPathUtility.ToAbsolute("~/Images/UserIcon (2).png")" />
+                </div>
+                <div class="column">
+                    <label style="font-size: 12px;" ID="lblUserId" class="ng-cloak">{{UserId}}</label><br />
+                    <label style="font-size: 12px; width: 100%;" ID="lblUserName" class="ng-cloak">{{UserName}}</label>
+                </div>
+
+            </div>*@
+
+        @*<div class="column">
+                <label style="margin-top: 20px; background: bottom; border: none; font-size: 15px; color: white; cursor: pointer">&#x2c5;</label>
+            </div>*@
+
+        @*<div style="position: fixed; width: 100%; top: 38px; margin-left: 1%;">
+                <hr style="border: brown solid thin; top: -12px;" />
+            </div>*@
+        <div class="clear"></div>
+
+        @*<div id="options">
+                <nav class="main-menu">
+                    <ul>
+                        <li>
+                            <span class="nav-text">
+                                <button ID="btnTransaction" class="Buttons Button btn-menu Transaction ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblTransaction'">{{field.T_LANG2_TEXT}}</button>
+                            </span>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item" ng-repeat="t in menusT">
+                                    <a href="{{vrDir}}/{{t.Menu_Name}}/{{t.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(t)" style="display: inline-block; cursor: pointer">{{t.T_LANG2_NAME}}</a>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-subnav">
+                            <span class="nav-text">
+                                <button ID="btnQuery" class="Buttons Button btn-menu Query ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblQuery'">{{field.T_LANG2_TEXT}}</button>
+                            </span>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item" ng-repeat="q in menusQ">
+                                    <a href="{{vrDir}}/{{q.Menu_Name}}/{{q.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(q)" style="display: inline-block; cursor: pointer">{{q.T_LANG2_NAME}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-subnav">
+                            <span class="nav-text">
+                                <button ID="btnReport" class="Buttons Button btn-menu Report ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblReports'">{{field.T_LANG2_TEXT}}</button>
+                            </span>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item" ng-repeat="r in menusR">
+                                    <a href="{{vrDir}}/{{r.Menu_Name}}/{{r.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(r)" style="display: inline-block; cursor: pointer">{{r.T_LANG2_NAME}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-subnav">
+                            <span class="nav-text">
+                                <button ID="btnInitialization" class="Buttons Button btn-menu Setup ng-cloak" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblInitialization'">{{field.T_LANG2_TEXT}}</button>
+                            </span>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item" ng-repeat="i in menusI">
+                                    <a href="{{vrDir}}/{{i.Menu_Name}}/{{i.T_FORM_CODE}}" class="ng-cloak nav-item" ng-click="FormName(i)" style="display: inline-block; cursor: pointer">{{i.T_LANG2_NAME}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>*@
+    </div>
+
+    <div id="container" class="remScrl">
+        <div ng-show="loading" style="position: absolute;padding-left: 50%;"><img src="~/Images/loader.gif" style="height: 30px;"></div>
+        @RenderBody()
+    </div>
+    <div style="position: fixed;bottom: 8px !important;width: 100%;">
+        @*<button ID="btnBack" tooltip="Back" ng-show="chkBack!='T74046'" class="Button Back1 ng-cloak" title="Back" ng-click="Back()" ng-repeat="field in Menuentity track by $index" ng-if="field.T_LABEL_NAME=='lblBack'"></button>*@
+        <div id="options">
+
+            <div>
+                @RenderSection("container", false)
+            </div>
+        </div>
+        @*<div id="options1">
+                <div>
+                    <button ID="btnBack" ng-show="chkBack!='T74046'" Tooltip="Back" class="Button Back" ng-click="Back()"></button>
+                    <button Tooltip="Logout" class="Button Logout" ng-click="Logout()"></button>
+                </div>
+            </div>*@
+    </div>
+
+    <div id="version">
+        <label ID="lblVersion"></label>
+    </div>
+
+</body>
+</html>

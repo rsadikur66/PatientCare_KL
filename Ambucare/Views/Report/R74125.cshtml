@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "R74125";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- For Js file link -->
+<script src="~/Apps/JSService/LabelService.js"></script>
+
+<script src="~/Apps/JSController/Report/R74125Controller.js"></script>
+@*<script src="~/Apps/JSService/Report/R62104Service.js"></script>*@
+
+<!--For Calender-->
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+"
+      rel="stylesheet" />
+<link href="~/Content/calender.css" rel="stylesheet" />
+<script src="~/Scripts/angular/angular.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/calender.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<h2>Discharge Report</h2>
+<!-- For Button Section -->
+
+@section container{
+    <div id="options" ng-app="Ambucare" ng-controller="R74125Controller">
+        <button id="btnPrint" tooltip="Print" class="Button Print" ng-click="Print()"></button>
+    </div>
+}
+    <div class="container" ng-app="Ambucare" ng-controller="R74125Controller">
+        <div class="row" style="padding-bottom: 8px">
+            <div class="col-md-6 col-lg-6">
+                <input type="text" ng-model="obj.REQUEST_ID" />
+            </div>
+            <!--1st part End-->
+        </div>
+        
+     
+    </div>
